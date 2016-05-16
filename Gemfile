@@ -34,6 +34,8 @@ gem 'grape-swagger-rails', '~> 0.1.0'
 
 gem 'faker', '~> 1.6', '>= 1.6.3'
 
+gem 'figaro', '~> 1.1', '>= 1.1.1'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

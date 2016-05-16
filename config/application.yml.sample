@@ -1,0 +1,15 @@
+default: &default
+  app_name: bbetter
+  host: localhost:3000
+  database_username: postgres
+  database_password: password1
+development:
+  <<: *default
+test:
+  <<: *default
+production:
+  <<: *default
+  host: bbetter.herokuapp.com
+  database_username: ruby
+  database_password: password2
+  SECRET_KEY_BASE: 85169200037fdf04c51171e9860d4da04548dce27b70be31b25488f41a9c4d0d4ca2a6e5e9fcfc617f9f415a28bd53bec2240fc3b87d5171851def4f562388eb
