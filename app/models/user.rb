@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :trackable, :validatable
 
+  before_save :ensure_auth_token
+
   rails_admin do
     edit do
       fields :email, :password, :roles
@@ -14,6 +16,18 @@ class User < ActiveRecord::Base
     end
     list do
       field :email
+    end
+  end
+
+  def ensure_auth_token
+    self.auth_token ||= generate_auth_token
+  end
+
+  private
+  def generate_auth_token
+    loop do
+      token = Devise.friendly_token
+      break token if User.where(auth_token: token).empty?
     end
   end
 end
