@@ -7,6 +7,8 @@ class User < ActiveRecord::Base
 
   before_save :ensure_auth_token
 
+  enum status: %i[male female]
+
   rails_admin do
     edit do
       fields :email, :password, :roles

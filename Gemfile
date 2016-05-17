@@ -30,6 +30,7 @@ gem 'ckeditor', github: 'galetahub/ckeditor'
 gem 'rack-cors', :require => 'rack/cors'
 gem 'grape', '~> 0.15.0'
 gem 'grape-entity', '~> 0.4.8'
+gem 'grape-swagger', '~> 0.10.4'
 gem 'grape-swagger-rails', '~> 0.1.0'
 
 gem 'faker', '~> 1.6', '>= 1.6.3'

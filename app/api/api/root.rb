@@ -7,9 +7,6 @@ module API
       base_path: "",
       api_version: "v1",
       hide_documentation_path: true
-    )
-
-    rescue_from :all, backtrace: true
-    error_formatter :json, API::ErrorFormatter
+    )    
   end
 end
