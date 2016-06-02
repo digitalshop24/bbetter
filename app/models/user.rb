@@ -5,6 +5,9 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :trackable, :validatable
 
+  has_many :user_tariffs
+  has_many :tariffs, through: :user_tariffs
+
   before_save :ensure_auth_token
 
   enum status: %i[male female]

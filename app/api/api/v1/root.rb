@@ -5,6 +5,10 @@ module API
         date.strftime('%Y-%m-%dT%H:%M:%S') if date
       end
 
+      def self.desc attr
+        I18n.t("activerecord.attributes.#{name.demodulize.downcase}.#{attr}")
+      end
+
       format_with :image_styles do |image|
         styles = image.styles.keys << :original
         hash = {}
@@ -39,6 +43,7 @@ module API
       error_formatter :json, ::API::ErrorFormatter
       mount API::V1::Users
       mount API::V1::Auth
+      mount API::V1::Tariffs
     end
   end
 end
