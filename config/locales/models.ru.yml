@@ -1,0 +1,20 @@
+ru:
+  activerecord:
+    attributes:
+      user:
+        name: Имя
+        city: Город
+        age: Возраст
+        sex: Пол
+        password: Пароль
+        roles: Роли
+        created_at: Создан
+        updated_at: Обновлен
+    models:
+      user:
+        zero: пользователей
+        one: пользователь
+        few: пользователей
+        many: пользователей
+        other: пользователи
+
