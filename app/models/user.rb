@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
     :recoverable, :rememberable, :trackable, :validatable
 
   has_many :user_tariffs
+  has_many :videos
   has_many :tariffs, through: :user_tariffs
 
   before_save :ensure_auth_token
