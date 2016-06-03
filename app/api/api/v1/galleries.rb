@@ -41,6 +41,7 @@ module API
         post do
           gallery = current_user.galleries.create!
 
+          status 201
           present :item, gallery, with: API::Entities::Gallery
           present :status, 'ok'
         end
@@ -66,6 +67,7 @@ module API
           ext = params[:image][0..20].match(/data:image\/([a-z]{3,4});/)[1]
           image.original_filename = "#{[*('a'..'z'),*('0'..'9')].shuffle[0,8].join}.#{ext}"
           img = gallery.images.create!(image: image, image_type: params[:image_type])
+          status 201
           present img, with: API::Entities::ImageFull
         end
 
