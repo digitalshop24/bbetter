@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160517103255) do
+ActiveRecord::Schema.define(version: 20160602135258) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,35 @@ ActiveRecord::Schema.define(version: 20160517103255) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id", using: :btree
   add_index "roles", ["name"], name: "index_roles_on_name", using: :btree
+
+  create_table "tariffs", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "price"
+    t.integer  "people_number"
+    t.text     "short_content"
+    t.text     "full_content"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.string   "additional_image_file_name"
+    t.string   "additional_image_content_type"
+    t.integer  "additional_image_file_size"
+    t.datetime "additional_image_updated_at"
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+  end
+
+  create_table "user_tariffs", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "tariff_id"
+    t.integer  "status",     default: 0, null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "user_tariffs", ["tariff_id"], name: "index_user_tariffs_on_tariff_id", using: :btree
+  add_index "user_tariffs", ["user_id"], name: "index_user_tariffs_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -58,4 +87,6 @@ ActiveRecord::Schema.define(version: 20160517103255) do
 
   add_index "users_roles", ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id", using: :btree
 
+  add_foreign_key "user_tariffs", "tariffs"
+  add_foreign_key "user_tariffs", "users"
 end

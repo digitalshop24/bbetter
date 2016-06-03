@@ -17,4 +17,24 @@ ru:
         few: пользователей
         many: пользователей
         other: пользователи
-
+      tariff:
+        name: Название
+        price: Стоимость
+        people_number: Количество человек
+        short_content: Краткое описание
+        full_content: Полное описание
+        image: Изображение
+        additional_image: Дополнительное изображение
+        created_at: Создан
+        updated_at: Обновлен
+      user_tariff:
+        user: Пользователь
+        tariff: Тариф
+        status: Статус
+    models:
+      tariff: 
+        zero: тарифов
+        one: тариф
+        few: тарифов
+        many: тарифов
+        other: тарифы
