@@ -10,6 +10,13 @@ ru:
         roles: Роли
         created_at: Создан
         updated_at: Обновлен
+      image:
+        image: Изображение
+        image_type: Тип
+        image_types:
+          before: До
+          after: После
+          want: Хочу
     models:
       user:
         zero: пользователей

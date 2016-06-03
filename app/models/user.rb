@@ -10,6 +10,9 @@ class User < ActiveRecord::Base
 
   before_save :ensure_auth_token
 
+  has_many :galleries
+  has_many :images, through: :galleries
+
   enum sex: %i[male female]
 
   rails_admin do

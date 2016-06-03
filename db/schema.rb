@@ -11,10 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160602135258) do
+ActiveRecord::Schema.define(version: 20160602145934) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "galleries", force: :cascade do |t|
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "galleries", ["user_id"], name: "index_galleries_on_user_id", using: :btree
+
+  create_table "images", force: :cascade do |t|
+    t.integer  "gallery_id"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.string   "image_type"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  add_index "images", ["gallery_id"], name: "index_images_on_gallery_id", using: :btree
 
   create_table "roles", force: :cascade do |t|
     t.string   "name"
@@ -87,6 +108,8 @@ ActiveRecord::Schema.define(version: 20160602135258) do
 
   add_index "users_roles", ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id", using: :btree
 
+  add_foreign_key "galleries", "users"
+  add_foreign_key "images", "galleries"
   add_foreign_key "user_tariffs", "tariffs"
   add_foreign_key "user_tariffs", "users"
 end
