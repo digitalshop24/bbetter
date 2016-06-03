@@ -24,6 +24,7 @@ gem 'rolify', '~> 5.1'
 gem 'cancancan', '~> 1.14'
 gem 'paperclip', '~> 4.3'
 gem 'rails_admin', '~> 0.8.1'
+gem 'aws-sdk', '< 2.0'
 
 gem 'ckeditor', github: 'galetahub/ckeditor'
 

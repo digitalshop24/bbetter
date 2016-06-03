@@ -43,6 +43,7 @@ module API
       error_formatter :json, ::API::ErrorFormatter
       mount API::V1::Users
       mount API::V1::Auth
+      mount API::V1::Galleries
     end
   end
 end
