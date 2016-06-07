@@ -9,16 +9,12 @@ module API
 
         def user_params
           ActionController::Parameters.new(params).permit(
-            :email, :name, :city, :age, :sex
+            :email, :name, :city, :age, :sex, :motivation
           )
         end
 
         def change_user_password_params
           ActionController::Parameters.new(params).permit(:password, :password_confirmation)
-        end
-
-        def permitted_params
-          @permitted_params ||= declared(params, include_missing: false)
         end
       end
 
@@ -30,10 +26,11 @@ module API
           requires :city, type: String, desc: "Город"
           requires :age, type: Integer, desc: "Возраст"
           requires :sex, type: String, desc: "Пол", values: %w(male female)
+          optional :motivation, type: String, desc: "Мотивация"
         end
         post '/' do
           generated_password = Devise.friendly_token.first(8)
-          user = User.create!(name: params[:name], email: params[:email], password: generated_password, city: params[:city], age: params[:age], sex: params[:sex])
+          user = User.create! user_params.merge(password: generated_password)
           sign_in(:user, user)
           begin
             UserMailer.password_email(user, generated_password).deliver_now

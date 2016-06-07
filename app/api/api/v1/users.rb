@@ -6,6 +6,7 @@ module API
       expose :city, documentation: { type: String,  desc: "Город" }
       expose :age, documentation: { type: String,  desc: "Возраст" }
       expose :sex, documentation: { type: String,  desc: "Пол" }
+      expose :motivation, documentation: { type: String,  desc: "Мотивация" }
     end
 
     class UserWithToken < User
