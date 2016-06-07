@@ -29,6 +29,12 @@ module API
 
           present current_user, with: API::Entities::User
         end
+        desc "Отпрвить емэйлы"
+        post '/send_emails' do
+          error!(error_message(:auth), 401) unless authenticated
+
+          present current_user, with: API::Entities::User
+        end
       end
     end
   end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160607095136) do
+ActiveRecord::Schema.define(version: 20160607135052) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,16 @@ ActiveRecord::Schema.define(version: 20160607095136) do
 
   add_index "images", ["gallery_id"], name: "index_images_on_gallery_id", using: :btree
 
+  create_table "messages", force: :cascade do |t|
+    t.integer  "user_id"
+    t.text     "text"
+    t.integer  "message_type", default: 0, null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
+  end
+
+  add_index "messages", ["user_id"], name: "index_messages_on_user_id", using: :btree
+
   create_table "roles", force: :cascade do |t|
     t.string   "name"
     t.integer  "resource_id"
@@ -47,6 +57,22 @@ ActiveRecord::Schema.define(version: 20160607095136) do
 
   add_index "roles", ["name", "resource_type", "resource_id"], name: "index_roles_on_name_and_resource_type_and_resource_id", using: :btree
   add_index "roles", ["name"], name: "index_roles_on_name", using: :btree
+
+  create_table "subscription_types", force: :cascade do |t|
+    t.string  "name",                       null: false
+    t.string  "key",                        null: false
+    t.boolean "active",      default: true, null: false
+    t.text    "email_text"
+    t.text    "sms_text"
+    t.text    "phone_text"
+    t.float   "periodicity", default: 0.0,  null: false
+  end
+
+  add_index "subscription_types", ["key"], name: "index_subscription_types_on_key", using: :btree
+  add_index "subscription_types", ["name"], name: "index_subscription_types_on_name", using: :btree
+
+# Could not dump table "subscriptions" because of following StandardError
+#   Unknown type 'channel' for column 'channel'
 
   create_table "tariffs", force: :cascade do |t|
     t.string   "name"
@@ -120,6 +146,9 @@ ActiveRecord::Schema.define(version: 20160607095136) do
 
   add_foreign_key "galleries", "users"
   add_foreign_key "images", "galleries"
+  add_foreign_key "messages", "users"
+  add_foreign_key "subscriptions", "subscription_types"
+  add_foreign_key "subscriptions", "users"
   add_foreign_key "user_tariffs", "tariffs"
   add_foreign_key "user_tariffs", "users"
   add_foreign_key "videos", "users"

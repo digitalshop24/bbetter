@@ -13,17 +13,18 @@ ru:
       image:
         image: Изображение
         image_type: Тип
+        gallery: Галерея
         image_types:
           before: До
           after: После
           want: Хочу
-    models:
-      user:
-        zero: пользователей
-        one: пользователь
-        few: пользователей
-        many: пользователей
-        other: пользователи
+      message:
+        user: Пользователь
+        text: Текст сообщения
+        message_type: Тип
+        message_types:
+          from_user: От пользователя
+          to_user: Пользователю
       tariff:
         name: Название
         price: Стоимость
@@ -38,10 +39,53 @@ ru:
         user: Пользователь
         tariff: Тариф
         status: Статус
+        created_at: Создан
+        updated_at: Обновлен
+      video:
+        video: Видео
+        user: Пользователь
+        youtube_code: Код видео на youtube
+        created_at: Создано
+        updated_at: Обновлено
+      gallery:
+        user: Пользователь
+        created_at: Создана
+        updated_at: Обновлена
+        images: Изображения
     models:
+      user:
+        zero: пользователей
+        one: пользователь
+        few: пользователей
+        many: пользователей
+        other: пользователи      
       tariff: 
         zero: тарифов
         one: тариф
         few: тарифов
         many: тарифов
         other: тарифы
+      message: 
+        zero: сообщений
+        one: сообщение
+        few: сообщений
+        many: сообщений
+        other: сообщения
+      image: 
+        zero: изображений
+        one: изображение
+        few: изображений
+        many: изображений
+        other: изображения
+      video: 
+        many: видео
+        zero: видео
+        one: видео
+        few: видео
+        other: видео
+      gallery: 
+        many: галерей
+        zero: галерей
+        one: галерея
+        few: галерей
+        other: галереи

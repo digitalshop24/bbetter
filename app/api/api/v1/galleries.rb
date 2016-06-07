@@ -23,6 +23,7 @@ end
 module API
   module V1
     class Galleries < Grape::API
+      helpers SharedParams
       helpers do
         include API::AuthHelper
         include API::ErrorMessagesHelper
@@ -32,9 +33,12 @@ module API
       end
 
       resource :galleries, desc: 'Галереи' do
-        desc "Все галлереи с картинками", entity: API::Entities::Gallery
+        desc "Все галереи с картинками", entity: API::Entities::Gallery
+        params { use :pagination }
         get do
-          present :items, current_user.galleries, with: API::Entities::Gallery
+          galleries = current_user.galleries.page(params[:page]).per(params[:per_page])
+          present :total, galleries.total_count
+          present :items, galleries, with: API::Entities::Gallery
         end
 
         desc "Создать галерею", entity: API::Entities::Gallery

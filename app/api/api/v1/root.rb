@@ -46,6 +46,8 @@ module API
       mount API::V1::Tariffs
       mount API::V1::Galleries
       mount API::V1::Videos
+      mount API::V1::Messages
+      # mount API::V1::Subscriptions
     end
   end
 end

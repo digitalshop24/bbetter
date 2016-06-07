@@ -10,6 +10,7 @@ end
 module API
   module V1
     class Videos < Grape::API
+      helpers SharedParams
       helpers do
         include API::AuthHelper
         include API::ErrorMessagesHelper
@@ -20,8 +21,11 @@ module API
       end
       resource :videos, desc: 'Видео' do
         desc "Все видео юзера", entity: API::Entities::Video
+        params { use :pagination }
         get do
-          present :items, current_user.videos, with: API::Entities::Video
+          videos = current_user.videos.page(params[:page]).per(params[:per_page])
+          present :total, videos.total_count
+          present :items, videos, with: API::Entities::Video
         end
 
         desc "Добавить видео", entity: API::Entities::Video

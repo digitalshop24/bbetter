@@ -5,18 +5,27 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :user_tariffs
-  has_many :videos
+  has_many :user_tariffs, dependent: :destroy
+  has_many :videos, dependent: :destroy
   has_many :tariffs, through: :user_tariffs
+  has_many :galleries, dependent: :destroy
+  has_many :messages, dependent: :destroy
+  has_many :subscriptions, dependent: :destroy
+  has_many :images, through: :galleries
 
   before_save :ensure_auth_token
 
-  has_many :galleries
-  has_many :images, through: :galleries
-
   enum sex: %i[male female]
 
+  def display_name
+    email
+  end
+
   rails_admin do
+    object_label_method do
+      :display_name
+    end
+    
     edit do
       fields :email, :password, :roles, :name, :city, :age, :sex
     end

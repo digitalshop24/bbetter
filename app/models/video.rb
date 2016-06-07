@@ -19,7 +19,7 @@ class Video < ActiveRecord::Base
     end
     list do
       field :id
-      field :video, { width: 200, height: 100 }
+      field :video
       field :user
       field :created_at
     end
