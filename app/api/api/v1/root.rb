@@ -48,6 +48,13 @@ module API
       mount API::V1::Videos
       mount API::V1::Messages
       # mount API::V1::Subscriptions
+
+
+      add_swagger_documentation(
+        base_path: "/api",
+        api_version: "v1",
+        add_version: true
+      )
     end
   end
 end

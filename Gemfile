@@ -29,10 +29,12 @@ gem 'aws-sdk', '< 2.0'
 gem 'ckeditor', github: 'galetahub/ckeditor'
 
 gem 'rack-cors', :require => 'rack/cors'
-gem 'grape', '~> 0.15.0'
-gem 'grape-entity', '~> 0.4.8'
-gem 'grape-swagger', '~> 0.10.4'
-gem 'grape-swagger-rails', '~> 0.1.0'
+
+gem 'grape', '~> 0.16.2'
+gem 'grape-entity', '~> 0.5.1'
+gem 'grape-swagger-rails', '~> 0.2.1'
+gem 'grape-swagger-entity', '~> 0.1.4'
+gem 'grape-kaminari', '~> 0.1.9'
 
 gem 'faker', '~> 1.6', '>= 1.6.3'
 

@@ -1,12 +1,8 @@
 require 'grape-swagger'
 module API
   class Root < Grape::API
+    content_type :json, "application/json;charset=UTF-8"
     prefix 'api'
-    mount API::V1::Root
-    add_swagger_documentation(
-      base_path: "",
-      api_version: "v1",
-      hide_documentation_path: true
-    )    
+    mount API::V1::Root 
   end
 end

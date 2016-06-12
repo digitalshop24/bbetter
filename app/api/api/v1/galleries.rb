@@ -2,7 +2,7 @@ module API
   module Entities
     class Image < Base
       expose :id, documentation: { type: Integer,  desc: desc(:id) }
-      expose :image, documentation: { type: String,  desc: desc(:image) }, format_with: :image_styles
+      expose :image, documentation: { type: Hash,  desc: desc(:image) }, format_with: :image_styles
       expose :image_type, documentation: { type: String,  desc: desc(:image_type) }
     end
     class ImageFull < Image
@@ -15,7 +15,7 @@ module API
   module Entities
     class Gallery < Base
       expose :id, documentation: { type: Integer,  desc: desc(:id) }
-      expose :images, documentation: { type: String,  desc: desc(:images) }, using: API::Entities::Image
+      expose :images, documentation: { type: API::Entities::Image, desc: desc(:images), is_array: true }, using: API::Entities::Image
     end
   end
 end
@@ -23,6 +23,7 @@ end
 module API
   module V1
     class Galleries < Grape::API
+      include Grape::Kaminari
       helpers SharedParams
       helpers do
         include API::AuthHelper
@@ -33,54 +34,70 @@ module API
       end
 
       resource :galleries, desc: 'Галереи' do
-        desc "Все галереи с картинками", entity: API::Entities::Gallery
-        params { use :pagination }
-        get do
-          galleries = current_user.galleries.page(params[:page]).per(params[:per_page])
-          present :total, galleries.total_count
-          present :items, galleries, with: API::Entities::Gallery
+        desc "Все галереи с картинками",
+          entity: API::Entities::Gallery,
+          headers: { 'Auth-Token' => { description: 'Токен авторизации', required: true } },
+          is_array: true
+        paginate
+        get http_codes: [
+          { code: 401, message: "Ошибка авторизации" }
+        ] do
+          present paginate(current_user.galleries), with: API::Entities::Gallery
         end
 
-        desc "Создать галерею", entity: API::Entities::Gallery
-        post do
+        desc "Создать галерею",
+          entity: API::Entities::Gallery,
+          headers: { 'Auth-Token' => { description: 'Токен авторизации', required: true } }
+        post http_codes: [
+          { code: 401, message: "Ошибка авторизации" }
+        ] do
           gallery = current_user.galleries.create!
 
-          status 201
-          present :item, gallery, with: API::Entities::Gallery
-          present :status, 'ok'
+          present gallery, with: API::Entities::Gallery
         end
 
-        desc 'Удалить галерею'
+        desc 'Удалить галерею',
+          headers: { 'Auth-Token' => { description: 'Токен авторизации', required: true } }
         params do
           requires :gallery_id, type: Integer, desc: 'Id галереи'
         end
-        delete '/:gallery_id' do
+        delete '/:gallery_id', http_codes: [
+          { code: 401, message: "Ошибка авторизации" },
+          { code: 404, message: "Галерея с таким id не найдена" }
+        ]  do
           current_user.galleries.find(params[:gallery_id]).destroy!
           present :status, 'ok'
         end
 
-        desc 'Загрузить картинку'
+        desc 'Загрузить картинку', entity: API::Entities::ImageFull,
+          headers: { 'Auth-Token' => { description: 'Токен авторизации', required: true } }
         params do
           requires :gallery_id, type: Integer, desc: 'Id галереи'
           requires :image, type: String, desc: 'Изображение'
           requires :image_type, type: String, desc: 'Тип картинки', values: ::Image::IMAGE_TYPES
         end
-        post '/:gallery_id/images' do
+        post '/:gallery_id/images', http_codes: [
+          { code: 401, message: "Ошибка авторизации" },
+          { code: 404, message: "Галерея с таким id не найдена" }
+        ] do
           gallery = current_user.galleries.find(params[:gallery_id])
           image = Paperclip.io_adapters.for(params[:image])
           ext = params[:image][0..20].match(/data:image\/([a-z]{3,4});/)[1]
           image.original_filename = "#{[*('a'..'z'),*('0'..'9')].shuffle[0,8].join}.#{ext}"
           img = gallery.images.create!(image: image, image_type: params[:image_type])
-          status 201
           present img, with: API::Entities::ImageFull
         end
 
-        desc 'Удалить картинку'
+        desc 'Удалить картинку',
+          headers: { 'Auth-Token' => { description: 'Токен авторизации', required: true } }
         params do
           requires :gallery_id, type: Integer, desc: 'Id картинки'
           requires :image_id, type: Integer, desc: 'Id картинки'
         end
-        delete '/:gallery_id/images/:image_id' do
+        delete '/:gallery_id/images/:image_id', http_codes: [
+          { code: 401, message: "Ошибка авторизации" },
+          { code: 404, message: "Картинка с таким id не найдена" }
+        ] do
           current_user.images.find(:image_id).destroy!
           present :status, 'ok'
         end
