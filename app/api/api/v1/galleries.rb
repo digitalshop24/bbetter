@@ -6,7 +6,7 @@ module API
       expose :image_type, documentation: { type: String,  desc: desc(:image_type) }
     end
     class ImageFull < Image
-      expose :gallery_id, documentation: { type: Integer,  desc: desc(:gallery_id) }
+      expose :gallery_id, documentation: { type: Integer,  desc: 'Id галреи' }
     end
   end
 end
