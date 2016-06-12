@@ -2,6 +2,7 @@ ru:
   activerecord:
     attributes:
       user:
+        id: Id
         name: Имя
         city: Город
         age: Возраст
@@ -11,6 +12,7 @@ ru:
         created_at: Создан
         updated_at: Обновлен
       image:
+        id: Id
         image: Изображение
         image_type: Тип
         gallery: Галерея
@@ -19,6 +21,7 @@ ru:
           after: После
           want: Хочу
       message:
+        id: Id
         user: Пользователь
         text: Текст сообщения
         message_type: Тип
@@ -26,6 +29,7 @@ ru:
           from_user: От пользователя
           to_user: Пользователю
       tariff:
+        id: Id
         name: Название
         price: Стоимость
         people_number: Количество человек
@@ -36,18 +40,21 @@ ru:
         created_at: Создан
         updated_at: Обновлен
       user_tariff:
+        id: Id
         user: Пользователь
         tariff: Тариф
         status: Статус
         created_at: Создан
         updated_at: Обновлен
       video:
+        id: Id
         video: Видео
         user: Пользователь
         youtube_code: Код видео на youtube
         created_at: Создано
         updated_at: Обновлено
       gallery:
+        id: Id
         user: Пользователь
         created_at: Создана
         updated_at: Обновлена
