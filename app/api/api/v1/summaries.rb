@@ -17,6 +17,7 @@ module API
       expose :chest, documentation: { type: Integer, desc: 'Грудь' }
       expose :waist, documentation: { type: Integer, desc: 'Талия' }
       expose :thigh, documentation: { type: Integer, desc: 'Бедра' }
+      expose :motivation_words, documentation: { type: String, desc: 'Мотивация' }
     end
   end
 end
@@ -32,11 +33,10 @@ module API
           include API::ErrorMessagesHelper
 
           def image_wrapper img
-            if(img && img[:tempfile] && img[:tempfile].class.to_s == 'Tempfile')
-              ActionDispatch::Http::UploadedFile.new(img)
-            else
-              nil
-            end
+            image = Paperclip.io_adapters.for(img)
+            ext = img[0..20].match(/data:image\/([a-z]{3,4});/)[1]
+            image.original_filename = "#{[*('a'..'z'),*('0'..'9')].shuffle[0,8].join}.#{ext}"
+            image
           end
 
           def summary_params
@@ -44,7 +44,7 @@ module API
               params[img_param] = image_wrapper(params[img_param]) if params[img_param]
             end
             ActionController::Parameters.new(params).permit(
-              :weight, :height, :age, :chest, :waist, :thigh, :before, :after, :motivation
+              :weight, :height, :age, :chest, :waist, :thigh, :before, :after, :motivation, :motivation_words
             )
           end
         end
@@ -67,15 +67,16 @@ module API
         desc "Создать отчет", entity: API::Entities::Summary,
           headers: { 'Auth-Token' => { description: 'Токен авторизации', required: true } }
         params do
-          optional :before, type: File, desc: 'Фото "до"'
-          optional :after, type: File, desc: 'Фото "после"'
-          optional :motivation, type: File, desc: 'Фото "мотивация"'
+          optional :before, type: String, desc: 'Фото "до"'
+          optional :after, type: String, desc: 'Фото "после"'
+          optional :motivation, type: String, desc: 'Фото "мотивация"'
           optional :weight, type: Integer, desc: 'Вес'
           optional :height, type: Integer, desc: 'Рост'
           optional :age, type: Integer, desc: 'Возраст'
           optional :chest, type: Integer, desc: 'Грудь'
           optional :waist, type: Integer, desc: 'Талия'
           optional :thigh, type: Integer, desc: 'Бедра'
+          optional :motivation_words, type: String, desc: 'Мотивация'
         end
         post http_codes: [
           { code: 401, message: "Ошибка авторизации" }
@@ -88,15 +89,16 @@ module API
           headers: { 'Auth-Token' => { description: 'Токен авторизации', required: true } }
         params do
           requires :id, type: Integer, desc: 'Id'
-          optional :before, type: File, desc: 'Фото "до"'
-          optional :after, type: File, desc: 'Фото "после"'
-          optional :motivation, type: File, desc: 'Фото "мотивация"'
+          optional :before, type: String, desc: 'Фото "до"'
+          optional :after, type: String, desc: 'Фото "после"'
+          optional :motivation, type: String, desc: 'Фото "мотивация"'
           optional :weight, type: Integer, desc: 'Вес'
           optional :height, type: Integer, desc: 'Рост'
           optional :age, type: Integer, desc: 'Возраст'
           optional :chest, type: Integer, desc: 'Грудь'
           optional :waist, type: Integer, desc: 'Талия'
           optional :thigh, type: Integer, desc: 'Бедра'
+          optional :motivation_words, type: String, desc: 'Мотивация'
         end
         put '/:id', http_codes: [
           { code: 401, message: "Ошибка авторизации" },
