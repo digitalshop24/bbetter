@@ -12,6 +12,7 @@ class User < ActiveRecord::Base
   has_many :messages, dependent: :destroy
   has_many :subscriptions, dependent: :destroy
   has_many :images, through: :galleries
+  has_many :summaries, dependent: :destroy
 
   before_save :ensure_auth_token
 

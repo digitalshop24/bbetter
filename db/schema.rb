@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160607135052) do
+ActiveRecord::Schema.define(version: 20160618134313) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -73,6 +73,32 @@ ActiveRecord::Schema.define(version: 20160607135052) do
 
 # Could not dump table "subscriptions" because of following StandardError
 #   Unknown type 'channel' for column 'channel'
+
+  create_table "summaries", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "before_file_name"
+    t.string   "before_content_type"
+    t.integer  "before_file_size"
+    t.datetime "before_updated_at"
+    t.string   "after_file_name"
+    t.string   "after_content_type"
+    t.integer  "after_file_size"
+    t.datetime "after_updated_at"
+    t.string   "motivation_file_name"
+    t.string   "motivation_content_type"
+    t.integer  "motivation_file_size"
+    t.datetime "motivation_updated_at"
+    t.integer  "weight"
+    t.integer  "height"
+    t.integer  "age"
+    t.integer  "chest"
+    t.integer  "waist"
+    t.integer  "thigh"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  add_index "summaries", ["user_id"], name: "index_summaries_on_user_id", using: :btree
 
   create_table "tariffs", force: :cascade do |t|
     t.string   "name"
@@ -149,6 +175,7 @@ ActiveRecord::Schema.define(version: 20160607135052) do
   add_foreign_key "messages", "users"
   add_foreign_key "subscriptions", "subscription_types"
   add_foreign_key "subscriptions", "users"
+  add_foreign_key "summaries", "users"
   add_foreign_key "user_tariffs", "tariffs"
   add_foreign_key "user_tariffs", "users"
   add_foreign_key "videos", "users"
