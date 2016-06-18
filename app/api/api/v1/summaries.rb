@@ -67,16 +67,16 @@ module API
         desc "Создать отчет", entity: API::Entities::Summary,
           headers: { 'Auth-Token' => { description: 'Токен авторизации', required: true } }
         params do
-          optional :before, type: String, desc: 'Фото "до"'
-          optional :after, type: String, desc: 'Фото "после"'
-          optional :motivation, type: String, desc: 'Фото "мотивация"'
-          optional :weight, type: Integer, desc: 'Вес'
-          optional :height, type: Integer, desc: 'Рост'
-          optional :age, type: Integer, desc: 'Возраст'
-          optional :chest, type: Integer, desc: 'Грудь'
-          optional :waist, type: Integer, desc: 'Талия'
-          optional :thigh, type: Integer, desc: 'Бедра'
-          optional :motivation_words, type: String, desc: 'Мотивация'
+          optional :before, type: String, desc: 'Фото "до"', allow_blank: true
+          optional :after, type: String, desc: 'Фото "после"', allow_blank: true
+          optional :motivation, type: String, desc: 'Фото "мотивация"', allow_blank: true
+          optional :weight, type: Integer, desc: 'Вес', allow_blank: true
+          optional :height, type: Integer, desc: 'Рост', allow_blank: true
+          optional :age, type: Integer, desc: 'Возраст', allow_blank: true
+          optional :chest, type: Integer, desc: 'Грудь', allow_blank: true
+          optional :waist, type: Integer, desc: 'Талия', allow_blank: true
+          optional :thigh, type: Integer, desc: 'Бедра', allow_blank: true
+          optional :motivation_words, type: String, desc: 'Мотивация', allow_blank: true
         end
         post http_codes: [
           { code: 401, message: "Ошибка авторизации" }
@@ -89,16 +89,16 @@ module API
           headers: { 'Auth-Token' => { description: 'Токен авторизации', required: true } }
         params do
           requires :id, type: Integer, desc: 'Id'
-          optional :before, type: String, desc: 'Фото "до"'
-          optional :after, type: String, desc: 'Фото "после"'
-          optional :motivation, type: String, desc: 'Фото "мотивация"'
-          optional :weight, type: Integer, desc: 'Вес'
-          optional :height, type: Integer, desc: 'Рост'
-          optional :age, type: Integer, desc: 'Возраст'
-          optional :chest, type: Integer, desc: 'Грудь'
-          optional :waist, type: Integer, desc: 'Талия'
-          optional :thigh, type: Integer, desc: 'Бедра'
-          optional :motivation_words, type: String, desc: 'Мотивация'
+          optional :before, type: String, desc: 'Фото "до"', allow_blank: true
+          optional :after, type: String, desc: 'Фото "после"', allow_blank: true
+          optional :motivation, type: String, desc: 'Фото "мотивация"', allow_blank: true
+          optional :weight, type: Integer, desc: 'Вес', allow_blank: true
+          optional :height, type: Integer, desc: 'Рост', allow_blank: true
+          optional :age, type: Integer, desc: 'Возраст', allow_blank: true
+          optional :chest, type: Integer, desc: 'Грудь', allow_blank: true
+          optional :waist, type: Integer, desc: 'Талия', allow_blank: true
+          optional :thigh, type: Integer, desc: 'Бедра', allow_blank: true
+          optional :motivation_words, type: String, desc: 'Мотивация', allow_blank: true
         end
         put '/:id', http_codes: [
           { code: 401, message: "Ошибка авторизации" },
