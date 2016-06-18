@@ -41,7 +41,7 @@ module API
 
           def summary_params
             %i(before after motivation).each do |img_param|
-              params[img_param] = image_wrapper(params[img_param]) if params[img_param]
+              params[img_param] = image_wrapper(params[img_param]) if params[img_param].present?
             end
             ActionController::Parameters.new(params).permit(
               :weight, :height, :age, :chest, :waist, :thigh, :before, :after, :motivation, :motivation_words
