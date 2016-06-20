@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   mount API::Root => '/'
   mount GrapeSwaggerRails::Engine => '/apidoc'
   devise_for :users
-  get '/testcheck', to: "application#testcheck"
-  get '/testpay', to: "application#testpay"
+  post '/testcheck', to: "application#testcheck"
+  post '/testpay', to: "application#testpay"
    scope '/yandex_kassa' do
     controller 'yandex_kassa', constraints: { subdomain: 'ssl' } do
       post :check
