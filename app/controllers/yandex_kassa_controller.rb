@@ -1,12 +1,12 @@
 class YandexKassaController < ActionController::Base
   #before_filter :find_order
 
-  def check
+  def testcheck
     check_order = YandexKassa::CheckOrder.new(params)
     render text: check_order.response
   end
 
-  def aviso
+  def testpay
     aviso = YandexKassa::PaymentAviso.new(params)
     if aviso.valid_signature?
       # Заказ оплачен, платеж поступил на счет Яндекс.Кассы.
