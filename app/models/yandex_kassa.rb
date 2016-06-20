@@ -45,6 +45,7 @@ module YandexKassa
     end
 
     def response
+      puts "here"
       raise NotImplementedError
     end
 

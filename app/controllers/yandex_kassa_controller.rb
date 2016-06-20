@@ -19,7 +19,7 @@ class YandexKassaController < ActionController::Base
       puts e
     end
     p "??"
-    render text: check_order.response
+    render text: check_order.YandexKassa::CheckOrder.response
   end
 
   def testpay
