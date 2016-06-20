@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
   has_many :subscriptions, dependent: :destroy
   has_many :images, through: :galleries
   has_many :summaries, dependent: :destroy
+  has_one :promocode
 
   before_save :ensure_auth_token
 
@@ -28,10 +29,10 @@ class User < ActiveRecord::Base
     end
     
     edit do
-      fields :email, :password, :roles, :name, :city, :age, :sex
+      fields :email, :password, :roles, :name, :city, :age, :sex, :promocode
     end
     show do
-      fields :email, :roles, :name, :city, :age, :sex
+      fields :email, :roles, :name, :city, :age, :sex, :promocode
     end
     list do
       fields :id, :email, :name, :created_at

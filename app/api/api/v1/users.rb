@@ -7,6 +7,9 @@ module API
       expose :age, documentation: { type: String, desc: "Возраст" }
       expose :sex, documentation: { type: String, desc: "Пол" }
       expose :motivation, documentation: { type: String, desc: "Мотивация" }
+      expose :promocode, documentation: { type: String, desc: 'Промокод' } do |u|
+        u.promocode.code if u.promocode
+      end
     end
 
     class UserWithToken < User

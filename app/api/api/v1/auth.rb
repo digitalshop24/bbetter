@@ -27,10 +27,17 @@ module API
           requires :age, type: Integer, desc: "Возраст"
           requires :sex, type: String, desc: "Пол", values: %w(male female)
           optional :motivation, type: String, desc: "Мотивация"
+          optional :promocode, type: String, desc: "Промокод"
         end
         post '/' do
+          pc = Promocode.new
+          if params[:promocode].present?
+            pc = Promocode.available.find_by(code: params[:promocode])
+            error!(error_message(:bad_promocode), 406) unless pc
+          end
           generated_password = Devise.friendly_token.first(8)
           user = User.create! user_params.merge(password: generated_password)
+          pc.update(activated_at: Time.now, user: user) if pc.code?
           sign_in(:user, user)
           begin
             UserMailer.password_email(user, generated_password).deliver_now
@@ -51,12 +58,20 @@ module API
           optional :age, type: Integer, desc: "Возраст"
           optional :sex, type: String, desc: "Пол", values: %w(male female)
           optional :email, type: String, desc: "Email"
+          optional :promocode, type: String, desc: "Промокод"
         end
         put '/edit', http_codes: [
           { code: 401, message: "Ошибка авторизации" }
         ] do
           error!(error_message(:auth), 401) unless authenticated
-          current_user.update! user_params
+          pc = Promocode.new
+          if params[:promocode].present?
+            pc = Promocode.available.find_by(code: params[:promocode])
+            error!(error_message(:bad_promocode), 406) unless pc
+            error!(error_message(:already_have_promocode), 406) if current_user.promocode
+          end
+          pc.update!(user: current_user, activated_at: Time.now)
+          current_user.update!(user_params)
           present current_user, with: API::Entities::User
         end
 
