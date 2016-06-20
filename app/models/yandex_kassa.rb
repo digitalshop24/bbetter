@@ -40,12 +40,11 @@ module YandexKassa
       generate_signature(values) == params[:md5]
     end
 
-    def order
-      @order ||= Order.find(params[:order_id])
-    end
+    # def order
+    #   @order ||= Order.find(params[:order_id])
+    # end
 
     def response
-      puts "here"
       raise NotImplementedError
     end
 
@@ -83,19 +82,20 @@ module YandexKassa
 
     def code
       if valid_signature?
-        valid_params? ? '0' : '100'
+        '0'
+        #valid_params? ? '0' : '100'
       else
         '1'
       end
     end
 
-    def valid_params?
-      if order
-        order.amount == params[:order_sum_amount].to_i
-      else
-        false
-      end
-    end
+    # def valid_params?
+    #   if order
+    #     order.amount == params[:order_sum_amount].to_i
+    #   else
+    #     false
+    #   end
+    # end
   end
 
   class PaymentAviso < Action
