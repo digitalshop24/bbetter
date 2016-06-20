@@ -10,10 +10,12 @@ class Video < ActiveRecord::Base
   rails_admin do
     edit do
       field :youtube_code
+      field :day
       field :user
     end
     show do
       field :video
+      field :day
       field :user
       field :created_at
     end

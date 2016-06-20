@@ -2,6 +2,7 @@ module API
   module Entities
     class Video < Base
       expose :id, documentation: { type: Integer,  desc: 'id' }
+      expose :day, documentation: { type: Integer,  desc: 'День' }
       expose :youtube_code, documentation: { type: Integer,  desc: desc('youtube_code') }
     end
   end
@@ -36,10 +37,11 @@ module API
           entity: API::Entities::Video,
           headers: { 'Auth-Token' => { description: 'Validates your identity', required: true } }
         params do
-          requires :youtube_code, type: String, desc: 'Код видео на youtube (вида GXGm6uQQKe8)', regexp: /^[A-Za-z0-9]{11}$/
+          requires :youtube_code, type: String, desc: 'Код видео на youtube (вида GXGm6uQQKe8)', regexp: /^[A-Za-z0-9\-]{11}$/
+          requires :day, type: Integer, desc: 'Номер дня'
         end
         post do
-          video = current_user.videos.create!(youtube_code: params[:youtube_code])
+          video = current_user.videos.create!(youtube_code: params[:youtube_code], day: params[:day])
 
           present video, with: API::Entities::Video
         end
