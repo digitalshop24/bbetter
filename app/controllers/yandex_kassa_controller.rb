@@ -13,7 +13,11 @@ class YandexKassaController < ActionController::Base
     p "checked"
     p check_order
     p "!!"
-    p check_order.response
+    begin
+      check_order.response
+    rescue => e
+      puts e
+    end
     p "??"
     render text: check_order.response
   end
