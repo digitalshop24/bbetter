@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   devise_for :users
   get '/testcheck', to: "application#testcheck"
   post '/testcheck', to: "yandex_kassa#testcheck"
-  #post '/testpay', to: "application#testpay"
+  post '/testpay', to: "yandex_kassa#testpay"
   controller 'yandex_kassa', constraints: { subdomain: 'ssl' } do
       post :testcheck
       post :testpay
