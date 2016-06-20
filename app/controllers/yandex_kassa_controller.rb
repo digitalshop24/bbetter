@@ -10,6 +10,7 @@ class YandexKassaController < ActionController::Base
     p "------------------------------------------------------------------------"
     p "------------------------------------------------------------------------"
     check_order = YandexKassa::CheckOrder.new(params)
+    p "checked"
     render text: check_order.response
   end
 
@@ -35,13 +36,13 @@ class YandexKassaController < ActionController::Base
     # В зависимости от выбранного способа оплаты, к этому моменту заказ
     # может быть оплачен, а может и нет. Подтверждение оплаты приходит
     # в метод `aviso`
-
+    p "success"
     redirect_to root_url, notice: I18n.t('messages.payment_completed')
   end
 
   def fail
     # Платеж на сайте Яндекс.Кассы завершился ошибкой оплаты
-
+    p "fail"
     redirect_to root_url, notice: I18n.t('messages.payment_failed')
   end
 
