@@ -12,6 +12,7 @@ class YandexKassaController < ActionController::Base
     check_order = YandexKassa::CheckOrder.new(params)
     p "checked"
     p check_order.response
+    p "??"
     render text: check_order.response
   end
 
