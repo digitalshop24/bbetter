@@ -2,24 +2,8 @@ class YandexKassaController < ActionController::Base
   #before_filter :find_order
 
   def testcheck
-    p "------------------------------------------------------------------------"
-    p "------------------------------------------------------------------------"
-    p "------------------------------------------------------------------------"
-    p params
-    p "------------------------------------------------------------------------"
-    p "------------------------------------------------------------------------"
-    p "------------------------------------------------------------------------"
     check_order = YandexKassa::CheckOrder.new(params)
-    p "checked"
-    p check_order
-    p "!!"
-    begin
-      check_order.response
-    rescue => e
-      puts e
-    end
-    p "??"
-    render text: check_order.YandexKassa::CheckOrder.response
+    render text: check_order.response
   end
 
   def testpay
