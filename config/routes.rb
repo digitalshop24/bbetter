@@ -3,4 +3,15 @@ Rails.application.routes.draw do
   mount API::Root => '/'
   mount GrapeSwaggerRails::Engine => '/apidoc'
   devise_for :users
+  get '/testcheck', to: "application#testcheck"
+  get '/testpay', to: "application#testpay"
+   scope '/yandex_kassa' do
+    controller 'yandex_kassa', constraints: { subdomain: 'ssl' } do
+      post :check
+      post :aviso
+      get :success
+      get :fail
+      post :fail # исключение: при неуспехе оплаты из кошелька Яндекс.Денег приходит запрос методом POST
+    end
+  end
 end
