@@ -16,7 +16,9 @@ class YandexKassaController < ActionController::Base
     p "------------------------------------------------------------------------"
     aviso = YandexKassa::PaymentAviso.new(params)
     if aviso.valid_signature?
-     UserTariffs.create(user_id: params["customerNumber"], tariff_id: params["tariffId"])
+      puts "created"
+     s = UserTariffs.create(user_id: params["customerNumber"], tariff_id: params["tariffId"])
+     p s
     end
     render text: aviso.response
   end
