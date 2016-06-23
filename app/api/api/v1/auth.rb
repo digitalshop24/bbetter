@@ -64,13 +64,12 @@ module API
           { code: 401, message: "Ошибка авторизации" }
         ] do
           error!(error_message(:auth), 401) unless authenticated
-          pc = Promocode.new
           if params[:promocode].present?
             pc = Promocode.available.find_by(code: params[:promocode])
             error!(error_message(:bad_promocode), 406) unless pc
             error!(error_message(:already_have_promocode), 406) if current_user.promocode
+            pc.update!(user: current_user, activated_at: Time.now)
           end
-          pc.update!(user: current_user, activated_at: Time.now)
           current_user.update!(user_params)
           present current_user, with: API::Entities::User
         end
