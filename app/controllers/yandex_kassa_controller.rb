@@ -9,7 +9,7 @@ class YandexKassaController < ActionController::Base
   def testpay
     aviso = YandexKassa::PaymentAviso.new(params)
     if aviso.valid_signature?
-      if params["orderSumAmount"] == Tariff.find(params["tariffId"])
+      if params["orderSumAmount"].to_i == Tariff.find(params["tariffId"]).price.to_i
         UserTariff.create(user_id: params["customerNumber"], tariff_id: params["tariffId"])
       end
     end
