@@ -1,6 +1,7 @@
 module API
   module Entities
     class Tariff < Base
+      expose :id, documentation: { type: Integer,  desc: 'Id' }
       expose :name, documentation: { type: String,  desc: desc('name') }
       expose :price, documentation: { type: Integer,  desc: desc('price') }
       expose :people_number, documentation: { type: Integer,  desc: desc('people_number') }

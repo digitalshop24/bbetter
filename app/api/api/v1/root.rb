@@ -41,9 +41,9 @@ module API
         error!({ ru: "Такая запись не найдена", en: "This record does not exists" }, 404)
       end
       error_formatter :json, ::API::ErrorFormatter
+      mount API::V1::Tariffs
       mount API::V1::Users
       mount API::V1::Auth
-      mount API::V1::Tariffs
       mount API::V1::Galleries
       mount API::V1::Videos
       mount API::V1::Messages

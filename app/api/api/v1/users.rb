@@ -1,6 +1,7 @@
 module API
   module Entities
     class User < Base
+      expose :id, documentation: { type: Integer, desc: "Id" }
       expose :name, documentation: { type: String, desc: "Имя" }
       expose :email, documentation: { type: String, desc: "Email" }
       expose :city, documentation: { type: String, desc: "Город" }
@@ -10,6 +11,7 @@ module API
       expose :promocode, documentation: { type: String, desc: 'Промокод' } do |u|
         u.promocode.code if u.promocode
       end
+      expose :active_tariff, documentation: { type: Tariff, desc: 'Активный тариф' }, using: API::Entities::Tariff
     end
 
     class UserWithToken < User

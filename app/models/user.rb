@@ -19,6 +19,10 @@ class User < ActiveRecord::Base
 
   enum sex: %i[male female]
 
+  def active_tariff
+    user_tariffs.active.last.tariff if user_tariffs.active.last
+  end
+
   def display_name
     email
   end
