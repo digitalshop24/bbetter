@@ -7,18 +7,9 @@ class YandexKassaController < ActionController::Base
   end
 
   def testpay
-    p "------------------------------------------------------------------------"
-    p "------------------------------------------------------------------------"
-    p "------------------------------------------------------------------------"
-    p params
-    p "------------------------------------------------------------------------"
-    p "------------------------------------------------------------------------"
-    p "------------------------------------------------------------------------"
     aviso = YandexKassa::PaymentAviso.new(params)
     if aviso.valid_signature?
-      puts "created"
-     s = UserTariffs.create(user_id: params["customerNumber"], tariff_id: params["tariffId"])
-     p s
+      UserTariff.create(user_id: params["customerNumber"], tariff_id: params["tariffId"])
     end
     render text: aviso.response
   end
