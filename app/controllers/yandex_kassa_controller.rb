@@ -7,17 +7,11 @@ class YandexKassaController < ActionController::Base
   end
 
   def testpay
-    p "------------------------------------------------------------------------"
-    p "------------------------------------------------------------------------"
-    p "------------------------------------------------------------------------"
-    p params
-    p "------------------------------------------------------------------------"
-    p "------------------------------------------------------------------------"
-    p "------------------------------------------------------------------------"
     aviso = YandexKassa::PaymentAviso.new(params)
     if aviso.valid_signature?
-      # Заказ оплачен, платеж поступил на счет Яндекс.Кассы.
-      # Здесь нужно поместить код исполнения заказа
+      if params["orderSumAmount"].to_i == Tariff.find(params["tariffId"]).price.to_i
+        UserTariff.create(user_id: params["customerNumber"], tariff_id: params["tariffId"])
+      end
     end
     render text: aviso.response
   end
