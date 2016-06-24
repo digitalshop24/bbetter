@@ -30,14 +30,18 @@ module API
           optional :promocode, type: String, desc: "Промокод"
         end
         post '/' do
-          pc = Promocode.new
+          pc = nil
+          tariff = nil
           if params[:promocode].present?
             pc = Promocode.available.find_by(code: params[:promocode])
             error!(error_message(:bad_promocode), 406) unless pc
+            tariff = Tariff.find_by(people_number: 1)
+            error!(error_message(:no_suitebale_tariff), 406) unless tariff
           end
           generated_password = Devise.friendly_token.first(8)
           user = User.create! user_params.merge(password: generated_password)
-          pc.update(activated_at: Time.now, user: user) if pc.code?
+          pc.update(activated_at: Time.now, user: user)
+          UserTariff.create(user: user, tariff: tariff)
           sign_in(:user, user)
           begin
             UserMailer.password_email(user, generated_password).deliver_now
@@ -68,7 +72,11 @@ module API
             pc = Promocode.available.find_by(code: params[:promocode])
             error!(error_message(:bad_promocode), 406) unless pc
             error!(error_message(:already_have_promocode), 406) if current_user.promocode
+            tariff = Tariff.find_by(people_number: 1)
+            error!(error_message(:no_suitebale_tariff), 406) unless tariff
+            error!(error_message(:active_tariff), 406) if current_user.active_tariff
             pc.update!(user: current_user, activated_at: Time.now)
+            UserTariff.create(user: current_user, tariff: tariff)
           end
           current_user.update!(user_params)
           present current_user, with: API::Entities::User

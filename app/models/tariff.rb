@@ -1,5 +1,5 @@
 class Tariff < ActiveRecord::Base
-  has_many :user_tariffs
+  has_many :user_tariffs, dependent: :nullify
   has_many :users, through: :user_tariffs
 
   has_attached_file :image, styles: { medium: "700x700>", thumb: "200x200>" }

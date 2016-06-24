@@ -8,7 +8,9 @@ module API
       something_wrong: { ru: "Что-то пошло не так :(", en: "Something went wrong :(" },
       wrong_permissions: { ru: "У вас недостаточно прав для данного действия", en: "Permission denied for this action" },
       bad_promocode: { ru: "Промокод недействителен", en: "Bad promocode" },
-      already_have_promocode: {ru: "У вас уже активирован промокод", en: "You already have activated promocode"}
+      already_have_promocode: {ru: "У вас уже активирован промокод", en: "You already have activated promocode"},
+      active_tariff: {ru: "У вас уже есть активный тариф", en: "You already have active tariff"},
+      no_suitebale_tariff: {ru: "Вы не можете активировать промокод, т.к. нет подходящего тарифа", en: "There is no suiteable tariff"}
     }
     def error_message sym
       ERROR_MESSAGES[sym]

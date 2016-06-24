@@ -40,9 +40,6 @@ module API
           end
 
           def summary_params
-            [:weight, :height, :age, :chest, :waist, :thigh].each do |int|
-              params[int] = nil if params[int] == 'null'
-            end
             pp = ActionController::Parameters.new(params).permit(
               :weight, :height, :age, :chest, :waist, :thigh, :motivation_words              
             )
@@ -74,12 +71,12 @@ module API
           optional :before, type: String, desc: 'Фото "до"', allow_blank: true
           optional :after, type: String, desc: 'Фото "после"', allow_blank: true
           optional :motivation, type: String, desc: 'Фото "мотивация"', allow_blank: true
-          optional :weight, type: String, desc: 'Вес', allow_blank: true
-          optional :height, type: String, desc: 'Рост', allow_blank: true
-          optional :age, type: String, desc: 'Возраст', allow_blank: true
-          optional :chest, type: String, desc: 'Грудь', allow_blank: true
-          optional :waist, type: String, desc: 'Талия', allow_blank: true
-          optional :thigh, type: String, desc: 'Бедра', allow_blank: true
+          optional :weight, type: Integer, desc: 'Вес', allow_blank: true
+          optional :height, type: Integer, desc: 'Рост', allow_blank: true
+          optional :age, type: Integer, desc: 'Возраст', allow_blank: true
+          optional :chest, type: Integer, desc: 'Грудь', allow_blank: true
+          optional :waist, type: Integer, desc: 'Талия', allow_blank: true
+          optional :thigh, type: Integer, desc: 'Бедра', allow_blank: true
           optional :motivation_words, type: String, desc: 'Мотивация', allow_blank: true
         end
         post http_codes: [
@@ -96,12 +93,12 @@ module API
           optional :before, type: String, desc: 'Фото "до"', allow_blank: true
           optional :after, type: String, desc: 'Фото "после"', allow_blank: true
           optional :motivation, type: String, desc: 'Фото "мотивация"', allow_blank: true
-          optional :weight, type: String, desc: 'Вес', allow_blank: true
-          optional :height, type: String, desc: 'Рост', allow_blank: true
-          optional :age, type: String, desc: 'Возраст', allow_blank: true
-          optional :chest, type: String, desc: 'Грудь', allow_blank: true
-          optional :waist, type: String, desc: 'Талия', allow_blank: true
-          optional :thigh, type: String, desc: 'Бедра', allow_blank: true
+          optional :weight, type: Integer, desc: 'Вес', allow_blank: true
+          optional :height, type: Integer, desc: 'Рост', allow_blank: true
+          optional :age, type: Integer, desc: 'Возраст', allow_blank: true
+          optional :chest, type: Integer, desc: 'Грудь', allow_blank: true
+          optional :waist, type: Integer, desc: 'Талия', allow_blank: true
+          optional :thigh, type: Integer, desc: 'Бедра', allow_blank: true
           optional :motivation_words, type: String, desc: 'Мотивация', allow_blank: true
         end
         put '/:id', http_codes: [
