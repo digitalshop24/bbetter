@@ -40,7 +40,7 @@ module API
           end
           generated_password = Devise.friendly_token.first(8)
           user = User.create! user_params.merge(password: generated_password)
-          pc.update(activated_at: Time.now, user: user)
+          pc.update(activated_at: Time.now, user: user) if pc
           UserTariff.create(user: user, tariff: tariff)
           sign_in(:user, user)
           begin
