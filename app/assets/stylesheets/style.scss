@@ -1054,6 +1054,18 @@ footer {
   border-radius: 25px;
   color: #fff;
   font-size: 18px; }
+.whiteBtn {
+  background-color:#fff;
+  border-radius: 25px;
+  border:2px solid #fff;
+  padding: 10px 25px;
+  color:#555;
+  font-size: 20px;
+  transition:color .4s;
+  &:hover {
+    color:#d8003d;
+  }
+}
 
 .redBtn {
   background-color: #d8003d;
@@ -1171,6 +1183,7 @@ footer {
       .week_plan_drugs_eat .table_plan table tbody tr td:nth-child(2) {
         border-right: 1px solid #fff; }
 
+
 .calculate {
   background-color: #52acff;
   background-image: asset-url("calculate/background.png");
@@ -1274,7 +1287,9 @@ footer {
     margin: -35px auto 0;
     display: block; }
 
-.modalSec .modal-body .formWrapper form input[type="text"], .modalSec .modal-body .formWrapper form input[type="email"], .modalSec .modal-body .formWrapper form input[type="password"] {
+.modalSec .modal-body .formWrapper form input[type="text"],
+.modalSec .modal-body .formWrapper form input[type="email"],
+.modalSec .modal-body .formWrapper form input[type="password"] {
   background-color: #f5f5f5;
   border-radius: 20px;
   border: 0;
