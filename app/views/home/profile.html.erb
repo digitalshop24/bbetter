@@ -11,7 +11,7 @@
           </div> -->
           <div class="col-md-12 text-left form">
              <input type="text" placeholder="Мотивирующие слова" class="motivation_word">
-             <div class="row"> 
+             <div class="row">
                 <div class="col-md-6">
                   <div class="aploadCarousel">
                     <div>
@@ -19,19 +19,19 @@
                         <button class="user_data_btn btn_left text-center"><<ДО>><br/><br/> Загрузить  <br/> <<Спереди>></button>
                         <button class="user_data_btn btn_center text-center"><<ДО>><br/><br/>Загрузить <br> <<Сзади>></button>
                       </ul>
-                    </div> 
-                    <div>   
+                    </div>
+                    <div>
                         <ul class="item">
                           <button class="user_data_btn btn_left text-center"><<ДО>><br/><br/> Загрузить <br> <<Слева>></button>
                           <button class="user_data_btn btn_center text-center"><<ДО>><br/><br/> Загрузить <br> <<Справа>></button>
                         </ul>
-                    </div> 
-                    <div>   
+                    </div>
+                    <div>
                         <ul class="item">
                           <button class="user_data_btn btn_left text-center"><<После>><br/><br/> Загрузить <br> <<Спереди>></button>
                           <button class="user_data_btn btn_center text-center"><<После>><br/><br/> Загрузить <br> <<Сзади>></button>
                         </ul>
-                    </div>    
+                    </div>
                   </div>
                 </div>
                 <div class="col-md-3">
@@ -62,6 +62,14 @@
         </div>
       </div>
     </section>
+    <form id="payform" action="https://money.yandex.ru/eshop.xml" method="post">
+<!-- Обязательные поля -->
+      <input name="shopId" value="62054" type="hidden"/>
+      <input name="scid" value="58153" type="hidden"/>
+      <input name="sum" value="100" type="hidden"/>
+      <input name="customerNumber" value="<%=@user.id%>" type="hidden"/>
+      <input name="tariffId" value="4" type="hidden" type="hidden"/>
+    </form>
     <section class="tariffSec" id="tariffSec">
       <div class="container">
         <div class="row">
@@ -79,7 +87,7 @@
                   <h2>Спортсмен<br/> одиночка</h2>
                   <p>1 человек</p>
                   <span>2 000 <i class="fa fa-rub"></i></span>
-                  <button class="redBtn" ng-show="!ctrl.user.authorized" ng-click="ctrl.registrationPopup.registration()">Это я!</button>
+                  <button class="redBtn" ng-show="!ctrl.user.authorized" onclick="document.getElementById('payform').submit();">Это я!</button>
                 </div>
                 <div class="itWrap">
                   <h2>Парный<br/> старт</h2>
@@ -108,7 +116,7 @@
     </div>
   </section>
 
-  
+
   <section class="week_plan_drugs_eat">
     <div class="container">
       <div id="tabs-container">
