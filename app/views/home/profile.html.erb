@@ -1,5 +1,9 @@
 <section class="lineSec" id="fiveStep">
-  <h1>Тариф &laquo;Парный старт&raquo;</h1>
+  <%if @user_tariff.present?%>
+    <h1>Тариф &laquo;Парный старт&raquo; </h1>
+  <%else%>
+    <h1>Оплата тарифов будет доступна в среду, мы обязательно уведомим Вас заранее. </h1>
+  <%end%>
 </section>
 <section class="user_data">
   <div class="container ">
@@ -47,6 +51,14 @@
         </div>
       </div>
     </section>
+    <form id="payform" action="https://money.yandex.ru/eshop.xml" method="post">
+<!-- Обязательные поля -->
+      <input name="shopId" value="62054" type="hidden"/>
+      <input name="scid" value="58153" type="hidden"/>
+      <input name="sum" value="100" type="hidden"/>
+      <input name="customerNumber" value="<%=@user.id%>" type="hidden"/>
+      <input name="tariffId" value="2" type="hidden" type="hidden"/>
+    </form>
     <section class="tariffSec" id="tariffSec">
       <div class="container">
         <div class="row">
@@ -64,7 +76,7 @@
                   <h2>Спортсмен<br/> одиночка</h2>
                   <p>1 человек</p>
                   <span>2 000 <i class="fa fa-rub"></i></span>
-                  <button class="redBtn" ng-show="!ctrl.user.authorized" ng-click="ctrl.registrationPopup.registration()">Это я!</button>
+                  <button class="redBtn" onclick="document.getElementById('payform').submit();">Это я!</button>
                 </div>
                 <div class="itWrap">
                   <h2>Парный<br/> старт</h2>
@@ -93,7 +105,7 @@
     </div>
   </section>
 
-  
+
   <section class="week_plan_drugs_eat">
     <div class="container">
       <div id="tabs-container">
