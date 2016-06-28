@@ -1,0 +1,72 @@
+<nav class="navBar">
+  <nav class="wrapper">
+    <div class="logo">
+      <img  alt="logo" class="desctopLogo" src="<%= asset_path('header/logoNav.png') %>" name="Быть лучше" ui-sref="bbetter.landing"/>
+      <img  alt="logo" class="mobileLogo" src="<%= asset_path('header/logoNavMob.png') %>" name="Быть лучше" ui-sref="bbetter.landing"/>
+    </div>
+    <input type="checkbox" id="menuToggle">
+    <label for="menuToggle" class="label-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </label>
+  </input>
+  <ul>
+    <a class="navWlaker" href="#fiveStep" >
+      <li>
+        5 шагов,<br/>
+        чтобы быть<br/>
+        лучше
+            </li>
+    </a>
+    <a class="navWlaker" href="#contestSec">
+      <li>
+        Выиграть<br/>
+        300 000
+            </li>
+    </a>
+    <a class="navWlaker" href="#tariffSec">
+      <li>
+        Принять<br/>
+        участие
+            </li>
+    </a>
+    <a class="navWlaker" href="#beforeAfterSec">
+      <li>
+        Увидеть<br/>
+        примеры
+            </li>
+    </a>
+    <a class="navWlaker" href="#feedbackSec">
+      <li>
+        О тренерах
+            </li>
+    </a>
+    <a class="navWlaker" href="#partnersSec">
+      <li>
+        Партнеры<br/>
+        программы
+            </li>
+    </a>
+  </ul>
+  <ul class="right">
+    <% if current_user %>
+      <%= link_to 'Выйти', :destroy_user_session, method: :delete %>
+    <% else %>
+      <a data-toggle="modal" data-target="#signInModal">Войти</a>
+      <button class="grayBtn" type="button" onclick="yaCounter38070020.reachGoal('registracija'); return true;" type="button" data-toggle="modal" data-target="#regModal">Регистрация</button>
+    <% end %>
+    <!-- <a ng-show="$ctrl.user.authorized" ng-click="$ctrl.logout()" href="">Выйти</a> -->
+    
+    <!--
+          <button class="grayBtn menuLoginBtn"><span>user name</span></button>
+           <div class="menuLogin text-center" >
+            <div class="menuLoginWrap">
+              <p><a class="" >Кабинет</a></p>
+              <p><a class="" ><span>Редактировать</span></a></p>
+              <p><a class=""><span>Выйти</span></a></p>
+            </div>
+          </div> -->
+  </ul>
+</nav>
+</nav>
