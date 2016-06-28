@@ -1061,7 +1061,7 @@ footer {
   padding: 10px 25px;
   color:#555;
   font-size: 20px;
-  transition:color .4s;
+  transition:color .4s,border .4s;
   &:hover {
     color:#d8003d;
   }
@@ -1075,7 +1075,7 @@ footer {
   color: #fff;
   font-size: 20px;
   transition: background-color .4s,color .4s; }
-  .redBtn:hover {
+  .redBtn:hover,.redBtn:focus {
     background-color: #fff;
     color: #d8003d;
     border: 2px solid #d8003d; }
@@ -1141,14 +1141,57 @@ footer {
     margin: 10px -50px; }
 
 .week_plan_drugs_eat {
+  padding-bottom:50px;
   background-color: #e8698d;
   background-image: asset-url("lk/bg_plan.png");
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center center; }
-  .week_plan_drugs_eat button {
-    margin: 5px 5px 20px 5px;
-    width: 163px; }
+  background-position: center center; 
+  .tabs-menu {
+    margin-bottom: 20px;
+    li {
+      display: inline-table;
+        margin:5px 10px;
+      a {
+        
+      }
+    }
+    li.current {
+      a {
+        border:2px solid #000;
+        color:#000
+      }
+    }
+  }
+  .tab-content {
+    display: none;
+  }
+  #monday,#monday2,#monday3 {
+    display: block;
+  }
+  .dopInfo {
+    display: flex;
+    justify-content: center;
+    .left,.right {
+      max-width:34em;
+      margin:20px;
+      h2 {
+          font-family: meta;
+          font-weight:800;
+          font-size:32px;
+          color:#000;
+        }
+      ul {
+
+        li {
+          color:#fff;
+          margin-bottom:5px;
+        }
+      }
+
+    }
+  }
+}
   .week_plan_drugs_eat .titel_tariff {
     color: #fff;
     font-size: 50px;
@@ -1156,8 +1199,6 @@ footer {
     margin: 0;
     padding: 70px 0 30px 0;
     font-family: meta; }
-  .week_plan_drugs_eat .table_plan {
-    padding-bottom: 70px; }
     .week_plan_drugs_eat .table_plan h3 {
       color: #000;
       font-style: italic;
@@ -1168,9 +1209,7 @@ footer {
     .week_plan_drugs_eat .table_plan p {
       color: #fff;
       padding-left: 10px;
-      padding-bottom: 30px;
-      font-size: 20px;
-      height: 90px; }
+      font-size: 20px;}
     .week_plan_drugs_eat .table_plan table {
       width: 100%; }
       .week_plan_drugs_eat .table_plan table thead tr td {
