@@ -26,6 +26,7 @@ class HomeController < ApplicationController
        #render :partial => 'modals'
     end
     pc.update(activated_at: Time.now, user: user) if pc
+    UserTariff.create(user: user, tariff: tariff) if pc
     sign_in(:user, user)
     begin
       UserMailer.password_email(user, generated_password).deliver_now
