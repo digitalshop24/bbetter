@@ -2,8 +2,11 @@ class YandexKassaController < ActionController::Base
   #before_filter :find_order
 
   def testcheck
+    p "here1"
     check_order = YandexKassa::CheckOrder.new(params)
+    p "here2"
     render text: check_order.response
+    puts "here3"
   end
 
   def testpay

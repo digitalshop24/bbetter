@@ -8,5 +8,6 @@ class HomeController < ApplicationController
     @user = current_user
     @summaries = current_user.summaries
     @tariffs = Tariff.all
+    @user_tariff = UserTariff.where(user_id: @user.id).first
   end
 end
