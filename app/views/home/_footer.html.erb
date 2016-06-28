@@ -3,7 +3,11 @@
     <img src="<%= image_path('footer/logoFooter.png') %>" class="img-responsive" alt="logo" name="лого" />
   </div>
   <div class="navWrap hidden-xs">
-    <a href="">Купить</a><br/>
+    <!--Будет скрыта, когда пользователь авторизирован -->
+    <a href="" data-toggle="modal" data-target="#regModal">Купить</a>
+    <!--  Будет показана, когда пользователь авторизирован
+    <a href="">Купить</a> -->
+    <br/>
     <a href=""  data-toggle="modal" data-target="#publicModal">Публичная оферта</a>
   </div>
   <ul class="socialWrap">
