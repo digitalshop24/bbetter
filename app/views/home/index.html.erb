@@ -1,0 +1,673 @@
+<section class="notif" ng-show="ctrl.openBord">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="notifWrap" >
+          <h2>
+            <img src="<%= asset_path('notificationSec/notif.png') %>" />
+            Оплата тарифов будет доступна в среду, мы обязательно уведомим Вас заранее.</h2>
+          <p><a href="#">Закрыть</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- 
+    <section class="timmerSec">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+
+            
+            <div>
+              <div class="TitleTimer"><h5>Старт сезона 08.07.16</h5></div>
+              <ul class="Timer">                   
+                <li><p style="position: relative; left: -7px;">дни</p><h5><timer end-time="1467936000000">{{days}}</timer><span class="two_dots">:</span> </h5> </li>                
+                <li><p style="position: relative; left: -7px;">часы</p><h5><timer end-time="1467936000000">{{hhours}}</timer><span class="two_dots">:</span></h5> </li>             
+                <li><p>минуты</p><h5><timer end-time="1467936000000">{{mminutes}}</timer></h5> </li>
+              </ul>  
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+     -->
+<section class="accordeonSection">
+  <slick responsive="ctrl.responsCarousel" class="tariffsCarousel hidden-sm hidden-md hidden-lg" >
+    <div class="t1">
+      <ul class="item">
+        <li class="bg1">
+          <h2>Карьеристка</h2>
+          <span>Когда карьера занимает все твои мысли и все твое время, трудно выделить в расписании время для спорта. Распространенная проблема!</span>
+          <p>«Быть Лучше» - это для тебя! Ты экономишь время на поездках в зал Ты не тратишь часы на поиски подходящей системы питания. Ты делаешь себя лучше в своем личном ритме. Ты становишься все красивее - и за это получаешь призы и подарки! </p>
+          <button class="redBtn tarifBtn" data-toggle="modal" data-target="#regModal" type="button">Начать!</button>
+          <!--  <button class="redBtn tarifBtn" ng-show="!$ctrl.user.authorized" ng-click="$ctrl.login()" href="">Войти</button> -->
+        </li>
+      </ul>
+    </div>
+    <div class="t2">
+      <ul class="item">
+        <li class="bg2">
+          <h2>Беззаботная</h2>
+          <span>Жизнь – это большой праздник! Зачем забивать себе голову лишними проблемами, когда уже есть готовое решение?!</span>
+          <p>Ты экономишь на абонементе в спортзал и покупаешь новое платье. Ты не мучаешься, составляя себе план тренировок и питания. Ты всегда можешь рассчитывать на советы личного тренера и диетолога. Ты становишься все красивее - и за это получаешь призы и подарки! </p>
+          <button class="redBtn tarifBtn" data-toggle="modal" data-target="#regModal">Начать!</button>
+        </li>
+      </ul>
+    </div>
+    <div class="t3">
+      <ul class="item">
+        <li class="bg3">
+          <h2>Домохозяйка</h2>
+          <span>Быть хранительницей очага – трудная работа. Иногда тебе кажется, что в сутках не больше 10 часов! Как найти время на себя?</span>
+          <p>«Быть Лучше» - это для тебя! Ты занимаешься спортом не выходя из дома. Ты получаешь простую схему питания и не тратишь много времени на готовку. Ты можешь тренироваться в любое свободное время. Ты становишься все красивее - и за это получаешь призы и подарки!</p>
+          <button class="redBtn tarifBtn" data-toggle="modal" data-target="#regModal">Начать!</button>
+        </li>
+      </ul>
+    </div>
+  </slick>
+  <div class="accordion hidden-xs">
+    <ul>
+      <li class="active">
+        <div>
+          <a>
+            <h2>Карьеристка<br/>
+              <span class="prev">
+                <img src="<%= asset_path('accordeon/infinity.png') %>"/>
+                <button class="redBtn tarifBtn">Смотреть</button>
+              </span>
+            </h2>
+            <p>
+              <span>Когда карьера занимает все твои мысли и все твое время, трудно выделить в расписании время для спорта. Распространенная проблема!</span><br/>
+              «Быть Лучше» - это для тебя!<br/>
+              Ты экономишь время на поездках в зал<br/>
+              Ты не тратишь часы на поиски подходящей системы питания.<br/>
+              Ты делаешь себя лучше в своем личном ритме.<br/>
+              Ты становишься все красивее - и за это получаешь призы и подарки!
+
+                <button class="redBtn tarifBtn" data-toggle="modal" data-target="#regModal">Начать!</button>
+            </p>
+          </a>
+        </div>
+      </li>
+      <li class="">
+        <div>
+          <a>
+            <h2>Беззаботная
+                  <span class="prev">
+                <img src="<%= asset_path('accordeon/infinity.png') %>"/>
+                <button class="redBtn tarifBtn">Смотреть</button>
+              </span>
+            </h2>
+            <p>
+              <span>Жизнь – это большой праздник! Зачем забивать себе голову лишними проблемами, когда уже есть готовое решение?!</span><br/>
+              Ты экономишь на абонементе в спортзал и покупаешь новое платье.<br/>
+              Ты не мучаешься, составляя себе план тренировок и питания.<br/>
+              Ты всегда можешь рассчитывать на советы личного тренера и диетолога.<br/>
+              Ты становишься все красивее - и за это получаешь призы и подарки!
+                <button class="redBtn tarifBtn" data-toggle="modal" data-target="#regModal">Начать!</button>
+            </p>
+          </a>
+        </div>
+      </li>
+      <li class="">
+        <div>
+          <a>
+            <h2>Домохозяйка
+                  <span class="prev">
+                <img src="<%= asset_path('accordeon/infinity.png') %>"/>
+                <button class="redBtn tarifBtn">Смотреть</button>
+              </span>
+            </h2>
+            <p>
+              <span>Быть хранительницей очага – трудная работа. Иногда тебе кажется, что в сутках не больше 10 часов! Как найти время на себя?</span><br/>
+              «Быть Лучше» - это для тебя!<br/>
+              Ты занимаешься спортом не выходя из дома.<br/>
+              Ты получаешь простую схему питания и не тратишь много времени на готовку.<br/>
+              Ты можешь тренироваться в любое свободное время. <br/>
+              Ты становишься все красивее - и за это получаешь призы и подарки!
+                  <button class="redBtn tarifBtn" data-toggle="modal" data-target="#regModal">Начать!</button>
+            </p>
+          </a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+<section class="lineSec" id="fiveStep">
+  <h1>Буду лучше за 5 шагов!</h1>
+</section>
+<section class="stepByStep">
+  <div class="container">
+    <div class="row">
+      <ul class="text-center">
+        <li>
+          <figure>
+            <p class="stepNum">1</p>
+            <div class="imgWrap">
+              <img src="<%= asset_path('steps/1.png') %>" />
+            </div>
+            <figcaption>
+              <p>Регистрируюсь</p>
+            </figcaption>
+          </figure>
+        </li>
+        <li>
+          <figure>
+            <p class="stepNum">2</p>
+            <img src="<%= asset_path('steps/2.png') %>" />
+            <figcaption>
+              <p>Получаю задание</p>
+            </figcaption>
+          </figure>
+        </li>
+        <li>
+          <figure>
+            <p class="stepNum">3</p>
+            <img src="<%= asset_path('steps/3.png') %>" />
+            <figcaption>
+              <p>Соблюдаю рекомендации по питанию</p>
+            </figcaption>
+          </figure>
+        </li>
+        <li>
+          <figure>
+            <p class="stepNum">4</p>
+            <img src="<%= asset_path('steps/4.png') %>" />
+            <figcaption>
+              <p>Выполняю все упражнения</p>
+            </figcaption>
+          </figure>
+        </li>
+        <li>
+          <figure>
+            <p class="stepNum">5</p>
+            <img src="<%= asset_path('steps/5.jpg') %>" />
+            <figcaption>
+              <p>Побеждаю в финале!</p>
+            </figcaption>
+          </figure>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+<section class="contestSec" id="contestSec">
+  <span class="infinity">
+    <img src="<%= asset_path('contestSection/infinity.png') %>" />
+  </span>
+  <div class="container wrapperContest">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h1>Не просто конкурс, а способ Быть Лучше</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-7 rightSide">
+        <ul class=" text-center">
+          <li>
+            <div class="wrapper">
+              <span>1 место</span>
+              300 000 <i class="fa fa-rub"></i>
+            </div>
+          </li>
+          <li>
+            <span>2 место</span>
+            Путешествие
+                <span class="some">на 2 персоны</span>
+          </li>
+          <li>
+            <span>3 место</span>
+            100 000 <i class="fa fa-rub"></i>
+          </li>
+          <li>
+            <span>4-5 места</span>
+            50 000 <i class="fa fa-rub"></i>
+          </li>
+          <li>
+            <span>6-20 места</span>
+            Возможность бесплатного участия
+                <span class="some">в следующем сезоне</span>
+          </li>
+        </ul>
+        <h3 ><i>А также промежуточные призы и подарки трем лидерам каждую неделю!</i></h3>
+      </div>
+      <div class="col-md-5 leftSide hidden-xs">
+        <p>Тренировки намного <br/>
+          эффективнее, когда <br/>
+          твоя цель – победа!</p>
+        <p>Это соревнование за красоту, в котором должна победить именно ты, а твоим орудием станет идеально сбалансированная фитнес программа.</p>
+        <p>После регистрации ты получишь программу питания и комплекс упражнений. Только точное соблюдение наших инструкций поможет тебе получить то прекрасное отражение в зеркале, которые ты по-настоящему заслуживаешь, а дополнительным стимулом для тебя станут крутые  призы и промежуточные подарки каждую неделю!</p>
+        <p>Когда занимаешься спортом дома, всегда возникают вопросы и необходимость дополнительной мотивации. Во время конкурсной программы фитнес-упражнений с тобой всегда на связи будет наш фитнес-инструктор, который поможет, подскажет и замотивирует.</p>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+<section class="tariffSec" id="tariffSec">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h2 class="title">Длительность проекта 5 недель,<br/>
+          включая неделю финальных соревнований</h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="wrapper">
+          <div class="itWrap">
+            <h2>Спортсмен<br/>
+              одиночка</h2>
+            <p>1 человек</p>
+            <span>2 000 <i class="fa fa-rub"></i></span>
+            <button class="redBtn" data-toggle="modal" data-target="#regModal">Это я!</button>
+          </div>
+          <div class="itWrap">
+            <h2>Парный<br/>
+              старт</h2>
+            <p>2 человека</p>
+            <span>3 000 <i class="fa fa-rub"></i></span>
+            <button class="redBtn" data-toggle="modal" data-target="#regModal">Это мы!</button>
+          </div>
+          <div class="itWrap">
+            <h2>Командный <br/>
+              зачет</h2>
+            <p>5 человек</p>
+            <span>5 000 <i class="fa fa-rub"></i></span>
+            <button class="redBtn" data-toggle="modal" data-target="#regModal">Начать!</button>
+          </div>
+          <!-- <div class="itWrap">
+                  <h2>Допинг</h2>
+                  <p>Доспупен каждую неделю за исключением финала. Дает возможность проходить в следующий уровень без недельного соревнования</p>
+                  <span>1 000 <i class="fa fa-rub"></i></span>
+                  <div class="DrugsBtnWrap">
+                    <button class="DrugsBtn"></button>
+                  </div>
+                </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="regimAndFoodSec">
+  <div class="container">
+    <div dir="row">
+      <div class="col-md-12 text-center">
+        <h1>Режим и питание</h1>
+        <p>Разнообразное питание и простые диеты для быстрого похудения, включающие в себя набор полезных продуктов – вот наша рекомендация. Ведь здоровое питание – это, прежде всего, баланс веществ, нужных здоровому организму! Поэтому система питания «Быть Лучше» основана на концепции употребления натуральных, а главное, разных продуктов.  Мы не исключаем ни белков, ни жиров, ни углеводов – мы делаем из них полезный микс!</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="historySec">
+  <div class="container">
+    <div dir="row">
+      <div class="col-md-12 text-center">
+        <h1 >История проекта</h1>
+        <p>Здоровый образ жизни в наше время - одна из самых популярных тем. В глянце и интернете можно прочесть тысячи статей о том, как заниматься спортом и на какой сидеть диете. Но половина этих советов противоречит другу другу, а другая половина просто не всем подходит. Разобраться в этом море информации очень непросто. "Быть Лучше" - это онлайн-проект группы экспертов в области спорта и диетологии. Он сделан так, чтобы стать максимально индивидуальным помощником в работе со своим телом. Каждый человек - особенный, но каждый может стать лучше! Эксперты "Быть Лучше" начали с основ ЗОЖ: разработали варианты программ питания и физических нагрузок, которые могут варьироваться в соответствии с образом жизни конкретной девушки. Главный принцип - все тренировки доступны в домашних условиях. Затем продумали систему личной поддержки каждой стремящейся #бытьлучше девушки опытным тренером и специалистом по питанию.  И прибавили к этому мотивирующие конкурсы и соревнования, дарящие участницам не только красивое тело, но и крутые призы.</p>
+        <p>Эксперты "Быть Лучше" начали с основ ЗОЖ: разработали варианты программ питания и физических нагрузок, которые могут варьироваться в соответствии с образом жизни конкретной девушки. Главный принцип - все тренировки доступны в домашних условиях. Затем продумали систему личной поддержки каждой стремящейся #бытьлучше девушки опытным тренером и специалистом по питанию. И прибавили к этому мотивирующие конкурсы и соревнования, дарящие участницам не только красивое тело, но и крутые призы. В ближайшем будущем к проекту присоединятся профессиональные стилисты и коучи, которые проработают с каждой участницей проекта ее индивидуальный имидж. Ведь цель "Быть Лучше" - личное совершенство по полной программе!</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="beforeAfterSec" id="beforeAfterSec">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h1>Примеры как делать фото ДО и После</h1>
+        <!-- <p>Фотографии наших участниц:</p> -->
+      </div>
+    </div>
+    <div class="beforeAfter">
+      <div>
+        <ul class="item">
+          <li class="bg1"></li>
+          <li class="bg2"></li>
+        </ul>
+      </div>
+      <div>
+        <ul class="item">
+          <li class="bg3"></li>
+          <li class="bg4"></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+<section class="quoteSec">
+  <div class="container">
+    <div dir="row">
+      <div class="col-md-12 text-center">
+        <h1>Золотые слова</h1>
+        <p>Рой Джонс</p>
+        <p class="quote">Нельзя вернуться в прошлое и изменить свой старт, но можно стартовать сейчас и изменить свой финиш.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <ul>
+          <li>Поделиться: </li>
+          <li>
+            <a href="#">
+              <img src="<%= asset_path('quote/fb.png') %>" />
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <img src="<%= asset_path('quote/twi.png') %>" />
+            </a>
+          </li>
+          <li>
+            <a href="">
+              <img src="<%= asset_path('quote/vk.png') %>" />
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="offlineTrainingSec">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="wrpapRul">
+          <h1>Офф-лайн тренировки</h1>
+        </div>
+        <div class="wrpapRulIcon">
+          <div class="item">
+            <div class="imgWrap"><img src="<%= asset_path('offline/1.png') %>" /></div>
+            <p>Помимо онлайн-тренировок и консультаций, мы будем устраивать тренировки в оффлайн-пространстве, во время которых мы все сможем познакомиться и по-спортивному отлично провести время! Посетить их сможет любой член Клуба «Быть Лучше» без дополнительной платы.</p>
+          </div>
+          <div class="item">
+            <div class="imgWrap"><img src="<%= asset_path('offline/2.png') %>" /></div>
+            <p>Тренировки будут проходить как в залах, так и на открытых площадках – в зависимости от погоды.</p>
+          </div>
+          <div class="item">
+            <div class="imgWrap"><img src="<%= asset_path('offline/3.png') %>" /></div>
+            <p>Также тренеры регулярно будут выходить в Periscope и заниматься вместе с вами – так веселее!</p>
+          </div>
+          <div class="item">
+            <div class="imgWrap"><img src="<%= asset_path('offline/4.png') %>" /></div>
+            <p>Раз в неделю будут проходить вебинары, где можно будет задать тренерам, диетологам и друг другу все накопившиеся вопросы.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="feedbackSec" id="feedbackSec">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1 class="text-center">От тренеров</h1>
+        <slick class="feedbackCarousel" responsive="ctrl.responsCarousel">
+          <div>
+            <ul class="item">
+              <li>
+                <label>
+                  <span class="artem"></span>
+                  <span>Артем Тужиков</span>
+                  <li>Автор программы упражнений</li>
+                </label>
+              </li>
+              <li>
+                <p>Разработанная программа тренировок поможет вам сформировать красивые формы, подтянуть общий тонус мышц, укрепит здоровье. Фитнес дома также эффективен, как в зале, если правильно подобран комплекс упражнений. Набор техник из кросс-фита для этой программы был разработан для достижения быстрого и стабильного результата в домашних условиях.</p>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <ul class="item">
+              <li>
+                <label>
+                  <span class="ulia"></span>
+                  <span>Юлия Аулова</span>
+                </label>
+              </li>
+              <li>Автор программы питания</li>
+              <li>
+                <p> Эта программа питания разработана специально под комплекс упражнений фитнес-программы для похудения. Сочетая программу тренировок, эту систему питания и, конечно же, свою целеустремленность, вы достигнете результатов без голодовок и вреда для здоровья. А главное - эффект будет намного дольше и стабильнее, чем после жестких и вредных диет. Питайтесь правильно!</p>
+              </li>
+            </ul>
+          </div>
+        </slick>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="rulesSec">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="wrpapRul">
+          <h1>Правила</h1>
+          <span><a href="">Чего делать не следует</a></span>
+        </div>
+        <div class="wrpapRulIcon">
+          <div class="item">
+            <div class="imgWrap"><img src="<%= asset_path('rules/1.png') %>" /></div>
+            <p>Публиковать в Instagram и других социальных сетях посты об Игре # Хештеги для постов: #</p>
+          </div>
+          <div class="item">
+            <div class="imgWrap"><img src="<%= asset_path('rules/2.png') %>" /></div>
+            <p>Выкладывать видео своих тренировок</p>
+          </div>
+          <div class="item">
+            <div class="imgWrap"><img src="<%= asset_path('rules/3.png') %>" /></div>
+            <p>Наиболее активные инстаграмщики получают приятные подарки</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="FAQsec">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1>Часто задаваемые вопросы</h1>
+        <div class="col-md-12">
+          <div class="item">
+            <input id="ac-1" name="acc" type="radio" />
+            <label for="ac-1">Когда стартует проект?</label>
+            <article >
+              <p> сезон стартует 4го июля, но зарегистрироваться и оплатить необходимо до 3го июля. </p>
+            </article>
+          </div>
+          <div class="item">
+            <input id="ac-2" name="acc" type="radio"  />
+            <label for="ac-2"> Как долго мне нужно тренироваться каждый раз? </label>
+            <article class="ac-small">
+              <p> тренировка разбита на несколько частей. Домашнее задание нужно делать в течение дня, а основная часть займет не более 40 минут. </p>
+            </article>
+          </div>
+          <div class="item">
+            <input id="ac-3" name="acc" type="radio"  />
+            <label for="ac-3"> Для тренировок, наверное, нужно покупать инвентарь? </label>
+            <article class="ac-small">
+              <p> Никакой инвентарь не требуется - все проходит в домашних условиях. Нужно только ваше желание. </p>
+            </article>
+          </div>
+          <div class="item">
+            <input id="ac-4" name="acc" type="radio"  />
+            <label for="ac-4"> Тренироваться нужно каждый день? </label>
+            <article class="ac-small">
+              <p> В неделю входит 5 ежедневных тренировок. Плюс недельное испытание. </p>
+            </article>
+          </div>
+          <div class="item">
+            <input id="ac-5" name="acc" type="radio"  />
+            <label for="ac-5"> Есть ли ограничения по возрасту? </label>
+            <article class="ac-small">
+              <p> От 18 лет и до бесконечности. </p>
+            </article>
+          </div>
+          <div class="item">
+            <input id="ac-6" name="acc" type="radio"  />
+            <label for="ac-6"> Я живу не в Москве. Я могу принять участие в проекте? </label>
+            <article class="ac-small">
+              <p> Участие можно принимать из любого города или страны, необходим только доступ в интернет. </p>
+            </article>
+          </div>
+          <div class="item">
+            <input id="ac-7" name="acc" type="radio"  />
+            <label for="ac-7"> Я живу не в России. Как мне платить? </label>
+            <article class="ac-small">
+              <p> Платежные системы Яндекс Кассы, доступны из любой страны, нужно только выбрать подходящий. </p>
+            </article>
+          </div>
+          <div class="item">
+            <input id="ac-8" name="acc" type="radio"  />
+            <label for="ac-8"> Каков последний срок оплаты курса? </label>
+            <article class="ac-small">
+              <p> Крайний срок для текущего сезона 3 июля 2016 года. </p>
+            </article>
+          </div>
+          <div class="item">
+            <input id="ac-9" name="acc" type="radio"  />
+            <label for="ac-9"> Расскажите подробнее о тарифах? </label>
+            <article class="ac-small">
+              <p> «Одиночка» участвует только один человек; «Парный» для двоих (не важно, кем вы приходитесь друг другу); «Командный» для группы из 5 человек (не важно, кем вы приходитесь друг другу). Главное, что участвовать в паре намного интереснее! </p>
+            </article>
+          </div>
+          <div class="item">
+            <input id="ac-10" name="acc" type="radio"  />
+            <label for="ac-10">Как делать ежедневные и еженедельные отчеты? </label>
+            <article class="ac-small">
+              <p> В конце каждого дня тебе нужно будет писать мини отчет. Прояви себя! Докажи, что ты действительно работаешь, нам нужны твои ощущения. Помни, что ты в игре, и твоя победа зависит только от тебя. И ЕЩЕ, БОЛЬШЕ ПУБЛИКАЦИЙ В ИНСТАГРАМЕ – БОЛЬШЕ ПРИЗОВ! </p>
+            </article>
+          </div>
+          <div class="item">
+            <input id="ac-11" name="acc" type="radio"  />
+            <label for="ac-11"> У меня есть ограничения по здоровью. Могу ли я  участвовать? </label>
+            <article class="ac-small">
+              <p> Лучше проконсультироваться с вашим врачом, показав видео тренировок. </p>
+            </article>
+          </div>
+          <div class="item">
+            <input id="ac-12" name="acc" type="radio"  />
+            <label for="ac-12"> Если я не гражданка РФ, могу ли я получить приз? </label>
+            <article class="ac-small">
+              <p> Выигрыш возможен для гражданина любой страны. </p>
+            </article>
+          </div>
+          <div class="item">
+            <input id="ac-13" name="acc" type="radio"  />
+            <label for="ac-13"> В проекте могут участвовать и мужчины, и женщины? </label>
+            <article class="ac-small">
+              <p> Да! Особенно интересно участвовать вдвоем. </p>
+            </article>
+          </div>
+          <div class="item">
+            <input id="ac-14" name="acc" type="radio"  />
+            <label for="ac-14"> Как определяются победители? </label>
+            <article class="ac-small">
+              <p> Во время финальной, пятой неделе мы проведем серию финалов, по результатам которых будет выбраны победители, они проходят в финальное голосование. Таким образом, мы сделаем битву за главные призы максимально честной. </p>
+            </article>
+          </div>
+          <div class="item">
+            <input id="ac-15" name="acc" type="radio"  />
+            <label for="ac-15"> За что могут отстранить от участия? </label>
+            <article class="ac-small">
+              <p> - За невыполнение ежедневного отчёта о тренировках и питании.<br/>
+                - За невыполнение в установленные сроки еженедельного задания.<br/>
+                - За некорректное поведение по отношению к другим участникам и персоналу проекта. </p>
+            </article>
+          </div>
+          <div class="item">
+            <input id="ac-16" name="acc" type="radio"  />
+            <label for="ac-16"> Можно ли подделать фотографии «до» и «после»? </label>
+            <article class="ac-small">
+              <p> Для каждой фото будут сообщаться кодовые слова, которые необходимо будет указывать на листке с датой. Более подробные инструкции получат участники накануне дня фотографирования. </p>
+            </article>
+          </div>
+          <div class="item">
+            <input id="ac-17" name="acc" type="radio"  />
+            <label for="ac-17"> Есть ли правила для видеосъемки? </label>
+            <article class="ac-small">
+              <p> Видео можно снимать на камеру телефона или веб-камеру. Главное, чтобы на видео было видно все ваше тело в движении и было достаточно света. Также необходимо, чтобы снимающий считал количество сделанных упражнений громко и внятно. Видео должно быть сделано одним кадром, без монтажа. </p>
+            </article>
+          </div>
+          <div class="item">
+            <input id="ac-18" name="acc" type="radio"  />
+            <label for="ac-18"> Как я буду получать задания? </label>
+            <article class="ac-small">
+              <p> Каждый день в личном кабинете у тебя будет открываться новый день недели с новым заданием. </p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="btnStartSec">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <button class="redBtn" data-toggle="modal" data-target="#regModal">Стартую!</button>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="partnersSec" id="partnersSec">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center ">
+        <h1>Партнер</h1>
+        <div class="partnerCarousel">
+          <div class="partners">
+            <div class="item">
+              <img src="<%= asset_path('partners/WomensHealth.png') %>" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="sendMailSec">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1>Обратная связь</h1>
+        <div class="formWrapper">
+          <form action="https://docs.google.com/a/dshop24.ru/forms/d/18oTL6wxrzsF01bCGyfbIMh8vHgkNLQQ8jToL9VKtdJ4/formResponse" method="POST" id="ss-form" target="hidden_iframe" onsubmit="thankU()" class="">
+            <div class="row">
+              <div class="col-md-offset-3 col-md-6">
+                <ul class="typeInput">
+                  <input name="entry.1701123117" value="" class="ss-q-short valid required" id="entry_1701123117" dir="auto" aria-label="Имя  " title="" type="text"placeholder="Имя" >
+                  <input name="entry.1936099184" value="" class="ss-q-short valid required" id="entry_1936099184" dir="auto" aria-label="email  " title="" type="text" placeholder="E-mail">
+                </ul>
+              </div>
+              <div class="col-md-offset-3 col-md-6">
+                <ul class="mailParth">
+                  <input name="entry.1402429403" value="" class="ss-q-short valid required" id="entry_1402429403" dir="auto" aria-label="Тема  " title="" type="text" placeholder="Тема">
+                  <textarea name="entry.1954887874" placeholder="Ваше сообщение" rows="4" class="ss-q-long valid required" id="entry_1954887874" dir="auto" aria-label="Сообщение  "></textarea>
+                </ul>
+              </div>
+              <div class="col-md-offset-3 col-md-6">
+                <div class="selectType">
+                  <input name="entry.1053870246" value="Участник" id="group_1053870246_1" role="radio" class="ss-q-radio hide-radio" aria-label="Участник" type="radio" id="radioOne" >
+                  <label for="group_1053870246_1">Участник </label>
+                  <input name="entry.1053870246" id="group_1053870246_2" role="radio" class="ss-q-radio hide-radio" aria-label="Партнер" type="radio" id="radioDva" value="Партнер">
+                  <label for="group_1053870246_2">Партнер</label>
+                  <input name="entry.1053870246" id="group_1053870246_3" role="radio" class="ss-q-radio hide-radio" aria-label="Другой" type="radio" id="radioTri" checked="checked">
+                  <label for="group_1053870246_3" value="Другой">Другой</label>
+                </div>
+              </div>
+              <div class="col-md-offset-3 col-md-6">
+                <button class="redBtn" onclick="yaCounter38070020.reachGoal('otpravit'); return true;">Отправить</button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <!--  <div class="thankU"> CКРЫТО (ПОКАЗАТЬ ПО ОТПРАВКЕ ФОРМЫ)
+              <h1 class="text-center">Спасибо ваше письмо отправлено!</h1>
+            </div> -->
+      </div>
+    </div>
+  </div>
+</section>
