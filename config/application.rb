@@ -18,7 +18,6 @@ module Bbetter
     config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
     config.assets.precompile += Ckeditor.assets
     config.assets.precompile += %w(ckeditor/*)
-    config.assets.precompile += %w( home.css home.js )
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

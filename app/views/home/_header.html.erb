@@ -56,17 +56,16 @@
       <a data-toggle="modal" data-target="#signInModal">Войти</a>
       <button class="grayBtn" type="button" onclick="yaCounter38070020.reachGoal('registracija'); return true;" type="button" data-toggle="modal" data-target="#regModal">Регистрация</button>
     <% end %>
-    <!-- <a ng-show="$ctrl.user.authorized" ng-click="$ctrl.logout()" href="">Выйти</a> -->
-    
-    <!--
-          <button class="grayBtn menuLoginBtn"><span>user name</span></button>
-           <div class="menuLogin text-center" >
-            <div class="menuLoginWrap">
-              <p><a class="" >Кабинет</a></p>
-              <p><a class="" ><span>Редактировать</span></a></p>
-              <p><a class=""><span>Выйти</span></a></p>
-            </div>
-          </div> -->
+    <a ng-show="$ctrl.user.authorized" ng-click="$ctrl.logout()" href="">Выйти</a>
   </ul>
+  <div class="dropdown right">
+  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+  <button class="grayBtn menuLoginBtn"><span>user name</span></button>
+    <ul class="dropdown-menu ">
+      <li><a href="#">Кабинет</a></li>
+      <li><a href="#">Редактировать</a></li>
+      <li><a href="#">Выйти</a></li>
+    </ul>
+  </button>
 </nav>
 </nav>

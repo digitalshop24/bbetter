@@ -60,7 +60,9 @@ nav img.mobileLogo {
   display: none; }
 
 nav ul.right {
-  flex-direction: column; }
+  flex-direction: column;
+  position: relative;
+}
   nav ul.right a {
     font-size: 18px;
     margin-bottom: 5px; }
@@ -1054,6 +1056,18 @@ footer {
   border-radius: 25px;
   color: #fff;
   font-size: 18px; }
+.whiteBtn {
+  background-color:#fff;
+  border-radius: 25px;
+  border:2px solid #fff;
+  padding: 10px 25px;
+  color:#555;
+  font-size: 20px;
+  transition:color .4s,border .4s;
+  &:hover {
+    color:#d8003d;
+  }
+}
 
 .redBtn {
   background-color: #d8003d;
@@ -1063,58 +1077,187 @@ footer {
   color: #fff;
   font-size: 20px;
   transition: background-color .4s,color .4s; }
-  .redBtn:hover {
+  .redBtn:hover,.redBtn:focus {
     background-color: #fff;
     color: #d8003d;
     border: 2px solid #d8003d; }
 
 .user_data {
-  background-color: #fff; }
-  .user_data .user_data_titel {
-    padding: 30px 0; }
-    .user_data .user_data_titel h2 {
+  background-color: #fff;
+  .user_data_titel {
+    padding: 30px 0;
+    h2 {
       display: inline-block;
       padding-left: 27%;
-      padding-right: 80px; }
-    .user_data .user_data_titel p {
+      padding-right: 80px;
+    }
+    p {
       display: inline-block;
       padding-right: 20px;
       position: relative;
-      top: 9px; }
-  .user_data .form input, .user_data .form button {
-    border: none;
-    border-radius: 50px;
-    background-color: #f5f5f5;
-    color: #a0a0a0;
-    font-size: 20px; }
-  .user_data .form .motivation_word {
-    width: 100%;
-    text-align: center;
-    padding: 10px 20px;
-    margin-top: 30px; }
-  .user_data .form .user_data_btn {
-    height: 300px;
-    width: 30%;
-    margin-top: 30px; }
-  .user_data .form .btn_left {
-    border-radius: 10px 0 0 10px; }
-  .user_data .form .btn_center {
-    border-radius: 0 10px 10px 0; }
-  .user_data .form .btn_right {
-    margin-left: 20px;
-    border-radius: 10px; }
-  .user_data .user_paramentry ul {
-    display: inline-block;
-    width: 45%; }
-    .user_data .user_paramentry ul li {
-      margin: 10px 0; }
-      .user_data .user_paramentry ul li input {
-        width: 100%;
-        padding: 10px 0 10px 12px; }
-  .user_data .footer_user_data {
-    margin-bottom: 70px; }
-    .user_data .footer_user_data .pink {
-      padding: 20px 0; }
+      top: 9px;
+    }
+  }
+  .form {
+    input,button {
+      border: none;
+      border-radius:50px;
+      background-color: #f5f5f5;
+      color: #a0a0a0;
+      font-size: 20px;
+
+    }
+    .motivation_word {
+      width: 100%;
+      text-align: center;
+      padding: 10px 20px;
+      margin-top:30px;
+    }
+    .aploadCarousel {
+      .item {
+        text-align: center;
+      }
+      .slick-dots {
+        li {
+          button {
+            background-color: transparent;
+            font-size:0;
+            &:before {
+              font-size: 15px;
+              color:red;
+            }
+          }
+          &.active {
+
+          }
+        }
+      }
+    }
+    .user_data_btn {
+      height: 300px;
+      width: 49%;
+      margin-top: 30px;
+    }
+    .btn_left {
+      border-radius: 10px 0 0 10px;
+    }
+    .btn_center {
+      border-radius: 0 10px 10px 0;
+    }
+    .btn_right {
+      margin-left: 20px; 
+      border-radius:10px;
+      width:100%;
+    }
+  }
+  .user_paramentry {
+    ul {
+      display: inline-block;
+      width: 45%;
+      li {
+        margin: 10px 0;
+        input {
+          width: 100%;
+          padding: 10px 0 10px 12px;
+        }
+      }
+    }
+  }
+  .footer_user_data {
+    margin-bottom: 70px;
+    .pink {
+      padding: 20px 0;
+    }
+  }
+}
+.lk_tariff {
+  border-bottom: none;
+  .titel_tariff {
+      color: #fff;
+      font-size: 40px;
+      font-weight: bold;
+      font-family: meta;
+  }
+  .infinity {
+    .redBtn {
+      margin: 30px auto 100px;
+    }
+    .DrugsBtn {
+      margin: 10px -50px;
+    }
+  }
+}
+.week_plan_drugs_eat {
+  background-color: #e8698d;
+  background-image: url("../img/lk/bg_plan.png");
+  background-size: cover;
+  background-repeat: no-repeat; 
+  background-position: center center;
+  button {
+    margin: 5px 5px 20px 5px; 
+    width: 163px;
+  }
+  .sendType {
+    .selectType {
+      display: flex;
+      justify-content: center;
+    }
+    .redBtn {
+      margin:20px auto 0;
+      display: block;
+    }
+  }
+  
+  .titel_tariff {
+      color: #fff;
+      font-size: 50px;
+      font-weight: bold;
+      margin: 0;
+      padding: 70px 0 30px 0; 
+      font-family: meta;
+  }
+  .table_plan {
+    padding-bottom:70px;
+    h3 {
+      color: #000;
+      font-style: italic;
+      padding-left: 10px;
+      font-size: 40px;
+      font-weight: bold;
+      font-family: meta;
+    }
+    p {
+      color: #fff;
+      padding-left: 10px;
+      padding-bottom: 30px;
+      font-size: 20px;
+      height: 90px;
+    }
+    table {
+      width: 100%;
+      thead {
+        tr {
+          td {
+            color: #000;
+            padding: 0px 10px 10px 10px;
+          }
+        }
+      }
+      tbody {
+        tr {
+          td {
+            padding: 0px 10px 10px 10px;
+            color: #fff;
+            vertical-align: top;
+          }
+          td:nth-child(2) {
+            border-right: 1px solid #fff;
+          }
+        }
+      }
+    }
+  }
+}
 
 .lk_tariff {
   border-bottom: none; }
@@ -1129,14 +1272,57 @@ footer {
     margin: 10px -50px; }
 
 .week_plan_drugs_eat {
+  padding-bottom:50px;
   background-color: #e8698d;
   background-image: asset-url("lk/bg_plan.png");
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center center; }
-  .week_plan_drugs_eat button {
-    margin: 5px 5px 20px 5px;
-    width: 163px; }
+  background-position: center center; 
+  .tabs-menu {
+    margin-bottom: 20px;
+    li {
+      display: inline-table;
+        margin:5px 10px;
+      a {
+        
+      }
+    }
+    li.current {
+      a {
+        border:2px solid #000;
+        color:#000
+      }
+    }
+  }
+  .tab-content {
+    display: none;
+  }
+  #monday,#monday2,#monday3 {
+    display: block;
+  }
+  .dopInfo {
+    display: flex;
+    justify-content: center;
+    .left,.right {
+      max-width:34em;
+      margin:20px;
+      h2 {
+          font-family: meta;
+          font-weight:800;
+          font-size:32px;
+          color:#000;
+        }
+      ul {
+
+        li {
+          color:#fff;
+          margin-bottom:5px;
+        }
+      }
+
+    }
+  }
+}
   .week_plan_drugs_eat .titel_tariff {
     color: #fff;
     font-size: 50px;
@@ -1144,8 +1330,6 @@ footer {
     margin: 0;
     padding: 70px 0 30px 0;
     font-family: meta; }
-  .week_plan_drugs_eat .table_plan {
-    padding-bottom: 70px; }
     .week_plan_drugs_eat .table_plan h3 {
       color: #000;
       font-style: italic;
@@ -1156,9 +1340,7 @@ footer {
     .week_plan_drugs_eat .table_plan p {
       color: #fff;
       padding-left: 10px;
-      padding-bottom: 30px;
-      font-size: 20px;
-      height: 90px; }
+      font-size: 20px;}
     .week_plan_drugs_eat .table_plan table {
       width: 100%; }
       .week_plan_drugs_eat .table_plan table thead tr td {
@@ -1170,6 +1352,7 @@ footer {
         vertical-align: top; }
       .week_plan_drugs_eat .table_plan table tbody tr td:nth-child(2) {
         border-right: 1px solid #fff; }
+
 
 .calculate {
   background-color: #52acff;
@@ -1274,7 +1457,9 @@ footer {
     margin: -35px auto 0;
     display: block; }
 
-.modalSec .modal-body .formWrapper form input[type="text"], .modalSec .modal-body .formWrapper form input[type="email"], .modalSec .modal-body .formWrapper form input[type="password"] {
+.modalSec .modal-body .formWrapper form input[type="text"],
+.modalSec .modal-body .formWrapper form input[type="email"],
+.modalSec .modal-body .formWrapper form input[type="password"] {
   background-color: #f5f5f5;
   border-radius: 20px;
   border: 0;
