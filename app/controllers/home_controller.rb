@@ -1,6 +1,12 @@
 class HomeController < ApplicationController
-	layout 'home'
-	def index
+  layout 'home'
+  def index
+    @user = User.new
+  end
 
-	end
+  def profile
+    @user = current_user
+    @summaries = current_user.summaries
+    @tariffs = Tariff.all
+  end
 end
