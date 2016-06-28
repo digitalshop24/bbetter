@@ -59,6 +59,12 @@ $(document).ready(function(){
       }
     }]
   });
+  $('.aploadCarousel').slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: false,
+    dots:true
+  });
 
   $(".tabs-menu a").click(function(event) {
       event.preventDefault();
@@ -69,6 +75,10 @@ $(document).ready(function(){
       $(tab).fadeIn();
   });
 
+});
+
+$('.closeNotif').click(function() {
+  $('.notif').addClass('hidden');
 });
 
 function measureScrollBar() {
