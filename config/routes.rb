@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get '/testcheck', to: "application#testcheck"
   post '/check', to: "yandex_kassa#testcheck"
   post '/pay', to: "yandex_kassa#testpay"
+  post 'registration', to: "home#registration"
   controller 'yandex_kassa', constraints: { subdomain: 'ssl' } do
       post :testcheck
       post :testpay
