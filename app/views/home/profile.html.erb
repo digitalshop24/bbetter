@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <section class="lineSec" id="fiveStep">
   <%if @user_tariff.present?%>
     <h1>Тариф &laquo;Парный старт&raquo; </h1>
@@ -13,39 +14,54 @@
             <p>Доступно еще<br> <span class="pink">2</span> участника</p>
             <button class="redBtn">Пригласить</button>
           </div> -->
-      <div class="col-md-12 text-left form">
-        <input type="text" placeholder="Мотивирующие слова" class="motivation_word">
-        <div class="row">
-          <div class="col-md-9">
-            <button class="user_data_btn btn_left text-center">Загрузить <br>
-              <<До>></button>
-              <button class="user_data_btn btn_center text-center">Загрузить <br>
-                <<После>></button>
-                <button class="user_data_btn btn_right text-center">Загрузить <br>
-                  Мотивашку</button>
-              </div>
-              <div class="col-md-3 text-center user_paramentry">
-                <h3>Показатели участника</h3>
-                <p>Замеры веса и объемов производить<br>
-                  в расслабленном состоянии и минимуме одежды.</p>
-                <ul>
-                  <li><input type="text" placeholder="Вес"></li>
-                  <li><input type="text" placeholder="Рост"></li>
-                  <li><input type="text" placeholder="Возраст"></li>
-                </ul>
-                <ul style="margin-left: 20px;">
-                  <li><input type="text" placeholder="Грудь"></li>
-                  <li><input type="text" placeholder="Талия"></li>
-                  <li><input type="text" placeholder="Бедра"></li>
-                </ul>
-              </div>
-            </div>
+          <div class="col-md-12 text-left form">
+             <input type="text" placeholder="Мотивирующие слова" class="motivation_word">
+             <div class="row">
+                <div class="col-md-6">
+                  <div class="aploadCarousel">
+                    <div>
+                      <ul class="item">
+                        <button class="user_data_btn btn_left text-center"><<ДО>><br/><br/> Загрузить  <br/> <<Спереди>></button>
+                        <button class="user_data_btn btn_center text-center"><<ДО>><br/><br/>Загрузить <br> <<Сзади>></button>
+                      </ul>
+                    </div>
+                    <div>
+                        <ul class="item">
+                          <button class="user_data_btn btn_left text-center"><<ДО>><br/><br/> Загрузить <br> <<Слева>></button>
+                          <button class="user_data_btn btn_center text-center"><<ДО>><br/><br/> Загрузить <br> <<Справа>></button>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul class="item">
+                          <button class="user_data_btn btn_left text-center"><<После>><br/><br/> Загрузить <br> <<Спереди>></button>
+                          <button class="user_data_btn btn_center text-center"><<После>><br/><br/> Загрузить <br> <<Сзади>></button>
+                        </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <button class="user_data_btn btn_right text-center">Загрузить <br> Мотивашку</button>
+                </div>
+                <div class="col-md-3 text-center user_paramentry">
+                  <h3>Показатели участника</h3>
+                  <p>Замеры веса и объемов производить<br> в расслабленном состоянии и минимуме одежды.</p>
+                  <ul>
+                    <li><input type="text" placeholder="Вес"></li>
+                    <li><input type="text" placeholder="Рост"></li>
+                    <li><input type="text" placeholder="Возраст"></li>
+                  </ul>
+                  <ul style="margin-left: 20px;">
+                    <li><input type="text" placeholder="Грудь"></li>
+                    <li><input type="text" placeholder="Талия"></li>
+                    <li><input type="text" placeholder="Бедра"></li>
+                  </ul>
+                </div>
+             </div>
           </div>
           <div class="col-md-12 text-center footer_user_data">
             <p class="pink " style="">Загрузка фотографий станет доступной после оплаты тарифа</p>
             <button class="redBtn" >Сохранить изменения</button>
-            <br/>
-            <br/>
+              <br/><br/>
             <button class="redBtn">Ещё</button>
           </div>
         </div>
@@ -1059,6 +1075,20 @@
   </section>
   <section class="week_plan_drugs_eat">
     <h2 class="titel_tariff text-center">План тренировок будет доступен 08.07.2016</h2>
+  </section>
+  <section class="week_plan_drugs_eat">
+    <h2 class="titel_tariff text-center">Выберите программу тренировок</h2>
+    <form class="sendType">
+      <div class="selectType">
+        <input name="sel" id="Kar"  type="radio">
+        <label for="Kar">Карьеристка </label>
+        <input name="sel" id="bez"  type="radio">
+        <label for="bez">Беззаботная</label>
+        <input name="sel" id="dom" type="radio" checked="checked">
+        <label for="dom">Домохозяйка</label>
+      </div>
+      <button class="redBtn">Отправить</button>
+    </form>
   </section>
 
   <section class="calculate">
