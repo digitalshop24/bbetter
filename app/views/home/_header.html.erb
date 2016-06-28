@@ -50,9 +50,14 @@
     </a>
   </ul>
   <ul class="right">
-    <a data-toggle="modal" data-target="#signInModal">Войти</a>
+    <% if current_user %>
+      <%= link_to 'Выйти', :destroy_user_session, method: :delete %>
+    <% else %>
+      <a data-toggle="modal" data-target="#signInModal">Войти</a>
+      <button class="grayBtn" type="button" onclick="yaCounter38070020.reachGoal('registracija'); return true;" type="button" data-toggle="modal" data-target="#regModal">Регистрация</button>
+    <% end %>
     <!-- <a ng-show="$ctrl.user.authorized" ng-click="$ctrl.logout()" href="">Выйти</a> -->
-    <button class="grayBtn" type="button" onclick="yaCounter38070020.reachGoal('registracija'); return true;" type="button" data-toggle="modal" data-target="#regModal">Регистрация</button>
+    
     <!--
           <button class="grayBtn menuLoginBtn"><span>user name</span></button>
            <div class="menuLogin text-center" >

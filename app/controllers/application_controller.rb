@@ -7,6 +7,10 @@ class ApplicationController < ActionController::Base
     redirect_to main_app.new_user_session_path, alert: exception.message
   end
 
+  def after_sign_in_path_for user
+    profile_path
+  end
+
   def testcheck
     p "------------------------------------------------------------------------"
     p "------------------------------------------------------------------------"

@@ -69,28 +69,28 @@
         </div>
         <div class="modal-body">
           <div class="formWrapper">
-            <form>
+            <%= form_for(@user, as: :user, url: session_path(:user)) do |f| %>
               <div class="row">
                 <div class="col-md-12">
-                  <input type="text" name="" placeholder="Электронная почта" />
+                  <%= f.email_field :email, autofocus: true, placeholder: 'Электронная почта' %>
                 </div>
               </div>
               <div class="row">
                 <div class="col-md-12">
-                  <input type="text" name="" placeholder="Пароль" />
+                  <%= f.password_field :password, autocomplete: "off", placeholder: 'Пароль' %>
                 </div>
               </div>
               <div class="modal-footer">
                 <div class="row">
                   <div class="col-md-12">
-                    <a class="redBtn" href="profile.html"> Войти</a>
+                    <%= f.submit "Войти", class: 'redBtn' %>
                     <br/>
                     <br/>
                     <p data-toggle="modal" data-dismiss="modal"  data-target="#restorePasModal"> Забыли пароль?</p>
                   </div>
                 </div>
               </div>
-            </form>
+            <% end %>
           </div>
         </div>
         <!-- modal-body -->
