@@ -60,7 +60,7 @@
       </div>
     </div>
   </div>
-  <div class="modal fade" id="signInModal" tabindex="-1" role="dialog" aria-hidden="true" a>
+  <div class="modal fade" id="signInModal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
@@ -86,7 +86,7 @@
                     <a class="redBtn" href="profile.html"> Войти</a>
                     <br/>
                     <br/>
-                    <p data-toggle="modal" data-dismiss="modal"  data-target="#restorePasModal"> Забыли пароль?</p>
+                    <p  data-dismiss="modal" data-toggle="modal" data-target="#restorePasModal" aria-hidden="false"> Забыли пароль?</p>
                   </div>
                 </div>
               </div>
@@ -131,7 +131,7 @@
           <div class="modal-content">
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal">&times;</button>
-              <img class="modalLogo" src="img/modal/infinityModal.png" alt="logo modal" />
+              <img class="modalLogo" src="<%= asset_path('modal/infinityModal.png') %>" alt="logo modal" />
             </div>
             <div class="modal-body">
               <div class="formWrapper">
@@ -247,7 +247,7 @@
                   <div class="modal-footer">
                     <div class="row">
                       <div class="col-md-12">
-                        <button type="submit" name="submit" class="redBtn" data-toggle="modal" data-dismiss="modal" data-target="#signInModal">Восстановить</button>
+                        <button type="submit" name="submit" class="redBtn" aria-hidden="true" data-target="#signInModal">Восстановить</button>
                       </div>
                     </div>
                   </div>
