@@ -12,5 +12,10 @@
     <%= render 'modals' %>
     <%= render 'footer' %>
     <%= javascript_include_tag 'home', 'data-turbolinks-track' => true %>
+    <% if flash[:modal] %>
+      <script>
+        $("#<%= flash[:modal] %>").modal('show')
+      </script>
+    <% end %>
   </body>
 </html>

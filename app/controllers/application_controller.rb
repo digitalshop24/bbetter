@@ -33,4 +33,17 @@ class ApplicationController < ActionController::Base
     p params
     render :nothing => true, :status => 200, :content_type => 'text/html'
   end
+
+  protected
+  def authenticate_user!
+    if user_signed_in?
+      super
+    else
+      flash[:modal] = 'signInModal'
+      flash[:notice] = 'Неверный логин или пароль'
+      redirect_to root_path
+      ## if you want render 404 page
+      ## render :file => File.join(Rails.root, 'public/404'), :formats => [:html], :status => 404, :layout => false
+    end
+  end
 end
