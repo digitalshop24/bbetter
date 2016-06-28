@@ -1,6 +1,8 @@
+<% if @user.active_tariff %>
 <section class="lineSec" id="fiveStep">
-  <h1>Тариф &laquo;Парный старт&raquo;</h1>
+  <h1>Тариф &laquo;<%= @user.active_tariff.name %>&raquo;</h1>
 </section>
+<% end %>
 <section class="user_data">
   <div class="container ">
     <div class="row">

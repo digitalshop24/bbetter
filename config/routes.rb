@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   mount GrapeSwaggerRails::Engine => '/apidoc'
   devise_for :users
   root 'home#index' 
+  post '/registration', to: "home#registration", as: :home_registration
   get '/profile', to: "home#profile", as: :profile
   get '/testcheck', to: "application#testcheck"
   post '/testcheck', to: "yandex_kassa#testcheck"
