@@ -100,3 +100,13 @@ $(document.body)
 .on('hidden.bs.modal', function () {
   $(document.body).css('padding-right', 0)
 });
+
+function calcCol(sex,weight,growth,age,activity){
+  if (sex=='male') {
+    // return (10*weight+6.25*growth-5*age+5)*activity;
+    console.log('MALE',(10*weight+6.25*growth-5*age+5)*activity);
+  } else if (sex=='female') {
+    // return (10*weight+6.25*growth-5*age+5)*activity;
+    console.log('FEMALE',(10*weight+6.25*growth-5*age+161)*activity);
+  }
+}

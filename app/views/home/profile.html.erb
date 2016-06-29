@@ -1082,7 +1082,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12 text-center">
-          <form name="calorieCalculatorForm" ng-submit="$ctrl.calculate(parameters)">
+          <form name="calorieCalculatorForm" onsubmit="calcCol()">
             <h2>Калькулятор калорий</h2>
             <input type="text" placeholder="Возраст" ng-model="parameters.age" required>
             <select ng-model="parameters.sex" required>
