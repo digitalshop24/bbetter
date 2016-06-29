@@ -1,4 +1,5 @@
 @charset "UTF-8";
+$red:#d8003d;
 ul {
   padding: 0;
   margin: 0; }
@@ -48,9 +49,9 @@ nav ul {
     text-decoration: none;
     transition: all .5s ease; }
     nav ul a:hover {
-      color: #d8003d; }
+      color: $red; }
     nav ul a:focus {
-      color: #d8003d; }
+      color: $red; }
     nav ul a li {
       margin: 0 20px;
       font-size: 18px;
@@ -120,7 +121,7 @@ nav .desctopLogo, nav .mobileLogo {
     top: 60px;
     right: 20px; }
     nav .label-toggle span {
-      background-color: #d8003d;
+      background-color: $red;
       display: block;
       margin-bottom: 6px;
       width: 35px;
@@ -159,13 +160,13 @@ nav .desctopLogo, nav .mobileLogo {
     .accordeonSection .tariffsCarousel div .item {
       padding: 50px 30px; }
     .accordeonSection .tariffsCarousel div h2 {
-      color: #d8003d;
+      color: $red;
       font-size: 32px;
       font-weight: 800;
       margin-bottom: 20px; }
     .accordeonSection .tariffsCarousel div span {
       margin-bottom: 20px;
-      color: #d8003d;
+      color: $red;
       display: block;
       font-weight: 800; }
     .accordeonSection .tariffsCarousel div p {
@@ -260,7 +261,7 @@ nav .desctopLogo, nav .mobileLogo {
         background-color: rgba(255, 255, 255, 0.4);
         align-items: flex-end; }
         .accordeonSection .accordion ul li.active a h2 {
-          color: #d8003d;
+          color: $red;
           margin-right: 30px;
           height: auto;
           margin-bottom: 20px;
@@ -282,7 +283,7 @@ nav .desctopLogo, nav .mobileLogo {
           opacity: 1; }
           .accordeonSection .accordion ul li.active a p span {
             display: block;
-            color: #d8003d;
+            color: $red;
             height: auto;
             font-size: 24px; }
           .accordeonSection .accordion ul li.active a p .redBtn.tarifBtn {
@@ -299,7 +300,7 @@ nav .desctopLogo, nav .mobileLogo {
 .lineSec {
   text-align: center;
   background-position: center center;
-  background-color: #d8003d;
+  background-color: $red;
   background-image: asset-url("lineSec/lineBg.png");
   background-size: 100%;
   height: 60px; }
@@ -311,7 +312,7 @@ nav .desctopLogo, nav .mobileLogo {
 .stepByStep ul li {
   display: inline-flex; }
   .stepByStep ul li figure p.stepNum {
-    background-color: #d8003d;
+    background-color: $red;
     border-radius: 50%;
     width: 35px;
     height: 35px;
@@ -321,7 +322,7 @@ nav .desctopLogo, nav .mobileLogo {
     font-size: 22px; }
   .stepByStep ul li figure p.stepNum:before {
     content: "│";
-    color: #d8003d;
+    color: $red;
     position: absolute;
     transform: rotate(160deg);
     margin: -35px 0 0 -15px;
@@ -350,7 +351,7 @@ nav .desctopLogo, nav .mobileLogo {
   .contestSec .leftSide p:nth-child(1) {
     font-size: 32px;
     font-weight: 800;
-    color: #d8003d; }
+    color: $red; }
   .contestSec .rightSide h3 i {
     color: #fff;
     margin-left: 45px;
@@ -382,18 +383,18 @@ nav .desctopLogo, nav .mobileLogo {
       background-image: asset-url("contestSection/1Bg.png"); }
     .contestSec .rightSide ul li:nth-child(2) {
       margin-right: 4px;
-      color: #d8003d;
+      color: $red;
       background-image: asset-url("contestSection/2Bg.png"); }
       .contestSec .rightSide ul li:nth-child(2) span.some {
         bottom: 0;
         top: 60px;
-        color: #d8003d; }
+        color: $red; }
     .contestSec .rightSide ul li:nth-child(3) {
       margin-right: 32px;
-      color: #d8003d;
+      color: $red;
       background-image: asset-url("contestSection/3Bg.png"); }
     .contestSec .rightSide ul li:nth-child(4) {
-      color: #d8003d;
+      color: $red;
       background-image: asset-url("contestSection/2Bg.png");
       background-size: 70%;
       margin-right: 25px; }
@@ -416,7 +417,7 @@ nav .desctopLogo, nav .mobileLogo {
       color: #000;
       margin-bottom: 50px; }
     .contestSec .wrapperContest h3 {
-      color: #d8003d;
+      color: $red;
       margin: 0 40px;
       font-style: italic;
       font-weight: 800;
@@ -435,7 +436,7 @@ nav .desctopLogo, nav .mobileLogo {
     white-space: nowrap;
     right: 10px; }
   .contestSec .rightSide ul li:nth-child(1) {
-    background-color: #d8003d;
+    background-color: $red;
     background-image: none; }
   .contestSec .rightSide ul li:nth-child(2) {
     background-color: rgba(255, 89, 136, 0.3);
@@ -469,7 +470,7 @@ nav .desctopLogo, nav .mobileLogo {
   background-size: cover;
   background-position: center;
   color: #fff;
-  border-bottom: 4px solid #d8003d; }
+  border-bottom: 4px solid $red; }
   .tariffSec .wrapper {
     display: flex;
     justify-content: space-between;
@@ -481,7 +482,7 @@ nav .desctopLogo, nav .mobileLogo {
       flex-direction: column;
       justify-content: space-between; }
       .tariffSec .wrapper .itWrap h2 {
-        color: #d8003d; }
+        color: $red; }
       .tariffSec .wrapper .itWrap p {
         color: #fff; }
       .tariffSec .wrapper .itWrap span {
@@ -499,7 +500,7 @@ nav .desctopLogo, nav .mobileLogo {
         padding: 0 25px;
         margin-top: 40px; }
       .tariffSec .wrapper .itWrap button.DrugsBtn {
-        border: 4px solid #d8003d;
+        border: 4px solid $red;
         width: 80px;
         height: 80px;
         background-image: asset-url("tariffSec/drugs.png");
@@ -697,7 +698,7 @@ nav .desctopLogo, nav .mobileLogo {
         vertical-align: middle; }
     .wrpapRulIcon .item .imgWrap:before {
       content: "│";
-      color: #d8003d;
+      color: $red;
       position: absolute;
       transform: rotate(145deg);
       margin: 0 0 0 -16px;
@@ -706,7 +707,7 @@ nav .desctopLogo, nav .mobileLogo {
       left: -4px; }
     .wrpapRulIcon .item .imgWrap:after {
       content: "│";
-      color: #d8003d;
+      color: $red;
       position: absolute;
       transform: rotate(145deg);
       margin: -35px 0 0 -15px;
@@ -907,14 +908,14 @@ nav .desctopLogo, nav .mobileLogo {
       border-radius: 50%;
       font-size: 45px;
       font-weight: 800;
-      border: 2px solid #d8003d;
-      background-color: #d8003d;
+      border: 2px solid $red;
+      background-color: $red;
       color: #fff;
       transition: background-color .4s, color .4s; }
   .FAQsec .item input:checked + label:before {
     background-color: transparent;
     border: 2px solid;
-    color: #d8003d;
+    color: $red;
     content: "-"; }
   .FAQsec .item input:checked ~ article p {
     display: block;
@@ -988,7 +989,7 @@ nav .desctopLogo, nav .mobileLogo {
         margin-left: -60px; }
       .sendMailSec form .selectType .hide-radio:checked + label {
         display: inline-block;
-        background-color: #d8003d;
+        background-color: $red;
         color: #fff; }
     .sendMailSec form .typeInput {
       display: flex;
@@ -1026,7 +1027,7 @@ nav .desctopLogo, nav .mobileLogo {
         padding: 10px; }
   .sendMailSec .thankU h1 {
     padding: 50px 0;
-    color: #d8003d; }
+    color: $red; }
 
 footer {
   background-color: #8b8b8b;
@@ -1045,7 +1046,7 @@ footer {
       transition: color .4s;
     }
     a:hover,a:focus {
-      color: #d8003d;
+      color: $red;
     }
     .socialWrap {
       display: flex;
@@ -1076,22 +1077,22 @@ footer {
   font-size: 20px;
   transition:color .4s,border .4s;
   &:hover {
-    color:#d8003d;
+    color:$red;
   }
 }
 
 .redBtn {
-  background-color: #d8003d;
+  background-color: $red;
   padding: 10px 25px;
-  border: 2px solid #d8003d;
+  border: 2px solid $red;
   border-radius: 25px;
   color: #fff;
   font-size: 20px;
   transition: background-color .4s,color .4s; }
   .redBtn:hover,.redBtn:focus {
     background-color: #fff;
-    color: #d8003d;
-    border: 2px solid #d8003d; }
+    color: $red;
+    border: 2px solid $red; }
 
 .user_data {
   background-color: #fff;
@@ -1508,14 +1509,14 @@ footer {
 .modalSec .modal-body .formWrapper form .hide-radio:checked + label {
   display: inline-block;
   width: 50px;
-  background-color: #d8003d;
+  background-color: $red;
   color: #fff; }
 
 .modalSec .modal-body .formWrapper form .checked_Male input {
   display: none; }
 
 .modalSec .modal-body .thankU h2 {
-  color: #d8003d;
+  color: $red;
   text-align: center;
   margin: 40px auto 80px; }
 
@@ -1524,7 +1525,7 @@ footer {
   text-align: center;
   max-height: 125px; }
   .modalSec .modal-footer p.redLabel {
-    color: #d8003d;
+    color: $red;
     font-size: 22px;
     font-weight: 800;
     letter-spacing: .4;
@@ -1537,23 +1538,94 @@ footer {
 .thankU {
   display: none; }
 
-
 .tabs-left {
-  border-right: 1px solid #ddd;
+  border:0;
 }
 .tabs-left>li, .tabs-right>li {
   float: none;
   margin-bottom: 2px;
 }
 
-.tabs-left>li.active>a,
-.tabs-left>li.active>a:hover,
-.tabs-left>li.active>a:focus {
-  border-bottom-color: #ddd;
-  border-right-color: transparent;
+
+.tabs-left {
+  margin-top:40px;
+  li{
+    a {
+    border-radius: 30px 0 0 30px;
+    border:0;
+    color:#fff;
+    display:block;
+    margin-right:0;
+      &:hover {
+       color:#fff;
+       background-color: transparent;
+       
+      }
+    }
+  }
+  li.active {
+    a{
+      border:0;
+      color:#fff;
+      text-shadow:5px 5px 30px rgba(0, 216, 198, 1),-5px 5px 30px rgba(0, 216, 198, 1),5px -5px 30px rgba(0, 216, 198, 1),5px 3px 30px rgba(0, 216, 198, 1),3px 3px 30px rgba(0, 216, 198, 1);
+      background-color:#fff;
+      filter:progid:DXImageTransform.Microsoft.gradient(GradientType=1,startColorstr=#fff, endColorstr=#00d8c6);
+      background-image:-moz-linear-gradient(right, #fff 20%, #00d8c6 100%);
+      background-image:-webkit-linear-gradient(right, #fff 20%, #00d8c6 100%);
+      background-image:-ms-linear-gradient(right, #fff 20%, #00d8c6 100%);
+      background-image:linear-gradient(right, #fff 20%, #00d8c6 100%);
+      background-image:-o-linear-gradient(right, #fff 20%, #00d8c6 100%);
+      background-image:-webkit-gradient(linear, right bottom, left bottom, color-stop(20%,#fff), color-stop(100%,#00d8c6));
+      &:hover,&:focus{
+        color:#fff;
+      }
+    }
+    a:focus,a:hover {
+      border:0;
+    }
+  }
 }
-.tabs-left>li>a {
-  border-radius: 4px 0 0 4px;
-  margin-right: 0;
-  display:block;
+
+.tab-content {
+  margin-top:40px;
+  color: #000;
+  background-color:#fff;
+  padding:10px 30px;
+  border-radius: 0 30px 30px 0;
+  h4 {
+    margin-top: 0;
+    font-family:meta;
+  }
+  ul {
+    li {
+      a {
+        color:$red;
+      }
+    }
+  }
+  .btnWrap {
+    padding:20px 0;
+    display: flex;
+    justify-content: flex-start;
+    div {
+      margin-right: 30px;
+    }
+  }
+  p {
+    margin:0;
+    strong{
+      font-family:meta;
+    }
+  }
+
 }
+
+.prNone {
+  padding-right:0;
+}
+.plNone {
+  padding-left:0;
+}
+
+
+ 
