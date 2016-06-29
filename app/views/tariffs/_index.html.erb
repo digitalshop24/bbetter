@@ -1,0 +1,72 @@
+<section class="tariffSec" id="tariffSec">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="wrapper">
+          <!-- <% @tariffs.each do |tariff| %>
+            <div class="itWrap">
+              <h2><%= tariff.name %></h2>
+              <p><%= tariff.people_number %> человек</p>
+              <span><%= tariff.price %> <i class="fa fa-rub"></i></span>
+              <button class="redBtn" ng-show="!ctrl.user.authorized" ng-click="ctrl.registrationPopup.registration()">Это я!</button>
+            </div>
+          <% end %> -->
+          <div class="itWrap">
+            <h2>Спортсмен<br/>
+              одиночка</h2>
+            <p>1 человек</p>
+            <span>2 000 <i class="fa fa-rub"></i></span>
+            <button class="redBtn" ng-show="!ctrl.user.authorized" onclick="document.getElementById('payform1').submit();">Это я!</button>
+          </div>
+          <div class="itWrap">
+            <h2>Парный<br/>
+              старт</h2>
+            <p>2 человека</p>
+            <span>3 000 <i class="fa fa-rub"></i></span>
+            <button class="redBtn" ng-show="!ctrl.user.authorized" onclick="document.getElementById('payform2').submit();">Это мы!</button>
+          </div>
+          <div class="itWrap">
+            <h2>Командный <br/>
+              зачет</h2>
+            <p>5 человек</p>
+            <span>5 000 <i class="fa fa-rub"></i></span>
+            <button class="redBtn" ng-show="!ctrl.user.authorized" onclick="document.getElementById('payform3').submit();">Начать!</button>
+          </div>
+        </div>
+        <!-- <div class="itWrap">
+          <h2>Допинг</h2>
+          <p>Доспупен каждую неделю за исключением финала. Дает возможность проходить в следующий уровень без недельного соревнования</p>
+          <span>1 000 <i class="fa fa-rub"></i></span>
+          <div class="DrugsBtnWrap">
+            <button class="DrugsBtn"></button>
+          </div>
+        </div> -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<form id="payform1" action="https://money.yandex.ru/eshop.xml" method="post">
+  <!-- Обязательные поля -->
+  <input name="shopId" value="62054" type="hidden"/>
+  <input name="scid" value="58153" type="hidden"/>
+  <input name="sum" value="2000" type="hidden"/>
+  <input name="customerNumber" value="<%=@user.id%>" type="hidden"/>
+  <input name="tariffId" value="1" type="hidden" type="hidden"/>
+</form>
+<form id="payform2" action="https://money.yandex.ru/eshop.xml" method="post">
+  <!-- Обязательные поля -->
+  <input name="shopId" value="62054" type="hidden"/>
+  <input name="scid" value="58153" type="hidden"/>
+  <input name="sum" value="3000" type="hidden"/>
+  <input name="customerNumber" value="<%=@user.id%>" type="hidden"/>
+  <input name="tariffId" value="2" type="hidden" type="hidden"/>
+</form>
+<form id="payform3" action="https://money.yandex.ru/eshop.xml" method="post">
+  <!-- Обязательные поля -->
+  <input name="shopId" value="62054" type="hidden"/>
+  <input name="scid" value="58153" type="hidden"/>
+  <input name="sum" value="5000" type="hidden"/>
+  <input name="customerNumber" value="<%=@user.id%>" type="hidden"/>
+  <input name="tariffId" value="3" type="hidden" type="hidden"/>
+</form>
