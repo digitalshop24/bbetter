@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160620144936) do
+ActiveRecord::Schema.define(version: 20160629174919) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -129,15 +129,23 @@ ActiveRecord::Schema.define(version: 20160620144936) do
     t.datetime "updated_at",                    null: false
   end
 
+  create_table "training_programs", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "user_tariffs", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "tariff_id"
-    t.integer  "status",     default: 0, null: false
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.integer  "status",              default: 0, null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.integer  "training_program_id"
   end
 
   add_index "user_tariffs", ["tariff_id"], name: "index_user_tariffs_on_tariff_id", using: :btree
+  add_index "user_tariffs", ["training_program_id"], name: "index_user_tariffs_on_training_program_id", using: :btree
   add_index "user_tariffs", ["user_id"], name: "index_user_tariffs_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
@@ -190,6 +198,7 @@ ActiveRecord::Schema.define(version: 20160620144936) do
   add_foreign_key "subscriptions", "users"
   add_foreign_key "summaries", "users"
   add_foreign_key "user_tariffs", "tariffs"
+  add_foreign_key "user_tariffs", "training_programs"
   add_foreign_key "user_tariffs", "users"
   add_foreign_key "videos", "users"
 end
