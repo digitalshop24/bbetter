@@ -1,14 +1,31 @@
- <section class="lineSec" id="fiveStep">
-      <h1>Тариф &laquo;Парный старт&raquo;</h1>
-    </section>
-    <section class="user_data">
+<%if @user_tariff.present?%>
+      <section class="lineSec" id="fiveStep">
+        <h1>Тариф &laquo;<%=@current_tarrif.name%>&raquo;</h1>
+      </section>
+    <%else%>
+      <section class="notif" ng-show="ctrl.openBord">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="notifWrap" >
+                <h2>
+                 <%= image_tag('notificationSec/notif.png') %>
+                  Ваш аккаунт не оплачен</h2>
+                  <p class="closeNotif">Закрыть</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    <%end%>
+   <!--  <section class="user_data">
       <div class="container">
         <div class="row">
-          <!-- <div class="col-md-12 text-center user_data_titel">
+           <div class="col-md-12 text-center user_data_titel">
             <h2>Дина Богачева</h2>
             <p>Доступно еще<br> <span class="pink">2</span> участника</p>
             <button class="redBtn">Пригласить</button>
-          </div> -->
+          </div>
           <div class="col-md-12 text-left form">
              <input type="text" placeholder="Мотивирующие слова" class="motivation_word">
              <div class="row">
@@ -61,55 +78,81 @@
           </div>
         </div>
       </div>
-    </section>
-    <section class="tariffSec" id="tariffSec">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="wrapper">
-<!--               <% @tariffs.each do |tariff| %>
-                <div class="itWrap">
-                  <h2><%= tariff.name %></h2>
-                  <p><%= tariff.people_number %> человек</p>
-                  <span><%= tariff.price %> <i class="fa fa-rub"></i></span>
-                  <button class="redBtn" ng-show="!ctrl.user.authorized" ng-click="ctrl.registrationPopup.registration()">Это я!</button>
-                </div>
-              <% end %> -->
-              <div class="itWrap">
-                  <h2>Спортсмен<br/> одиночка</h2>
-                  <p>1 человек</p>
-                  <span>2 000 <i class="fa fa-rub"></i></span>
-                  <button class="redBtn" ng-show="!ctrl.user.authorized" ng-click="ctrl.registrationPopup.registration()">Это я!</button>
-                </div>
-                <div class="itWrap">
-                  <h2>Парный<br/> старт</h2>
-                  <p>2 человека</p>
-                  <span>3 000 <i class="fa fa-rub"></i></span>
-                  <button class="redBtn" ng-show="!ctrl.user.authorized" ng-click="ctrl.registrationPopup.registration()">Это мы!</button>
-                </div>
-                <div class="itWrap">
-                  <h2>Командный <br/>зачет</h2>
-                  <p>5 человек</p>
-                  <span>5 000 <i class="fa fa-rub"></i></span>
-                  <button class="redBtn" ng-show="!ctrl.user.authorized" ng-click="ctrl.registrationPopup.registration()">Начать!</button>
-                </div>
-            </div>
-            <!-- <div class="itWrap">
-                  <h2>Допинг</h2>
-                  <p>Доспупен каждую неделю за исключением финала. Дает возможность проходить в следующий уровень без недельного соревнования</p>
-                  <span>1 000 <i class="fa fa-rub"></i></span>
-                  <div class="DrugsBtnWrap">
-                    <button class="DrugsBtn"></button>
+    </section> -->
+    <form id="payform1" action="https://money.yandex.ru/eshop.xml" method="post">
+<!-- Обязательные поля -->
+      <input name="shopId" value="62054" type="hidden"/>
+      <input name="scid" value="58153" type="hidden"/>
+      <input name="sum" value="2000" type="hidden"/>
+      <input name="customerNumber" value="<%=@user.id%>" type="hidden"/>
+      <input name="tariffId" value="1" type="hidden" type="hidden"/>
+    </form>
+    <form id="payform2" action="https://money.yandex.ru/eshop.xml" method="post">
+<!-- Обязательные поля -->
+      <input name="shopId" value="62054" type="hidden"/>
+      <input name="scid" value="58153" type="hidden"/>
+      <input name="sum" value="3000" type="hidden"/>
+      <input name="customerNumber" value="<%=@user.id%>" type="hidden"/>
+      <input name="tariffId" value="2" type="hidden" type="hidden"/>
+    </form>
+    <form id="payform3" action="https://money.yandex.ru/eshop.xml" method="post">
+<!-- Обязательные поля -->
+      <input name="shopId" value="62054" type="hidden"/>
+      <input name="scid" value="58153" type="hidden"/>
+      <input name="sum" value="5000" type="hidden"/>
+      <input name="customerNumber" value="<%=@user.id%>" type="hidden"/>
+      <input name="tariffId" value="3" type="hidden" type="hidden"/>
+    </form>
+    <%if !@user_tariff.present?%>
+      <section class="tariffSec" id="tariffSec">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="wrapper">
+  <!--               <% @tariffs.each do |tariff| %>
+                  <div class="itWrap">
+                    <h2><%= tariff.name %></h2>
+                    <p><%= tariff.people_number %> человек</p>
+                    <span><%= tariff.price %> <i class="fa fa-rub"></i></span>
+                    <button class="redBtn" ng-show="!ctrl.user.authorized" ng-click="ctrl.registrationPopup.registration()">Это я!</button>
                   </div>
-                </div> -->
+                <% end %> -->
+                <div class="itWrap">
+                    <h2>Спортсмен<br/> одиночка</h2>
+                    <p>1 человек</p>
+                    <span>2 000 <i class="fa fa-rub"></i></span>
+                    <button class="redBtn" ng-show="!ctrl.user.authorized" onclick="document.getElementById('payform1').submit();">Это я!</button>
+                  </div>
+                  <div class="itWrap">
+                    <h2>Парный<br/> старт</h2>
+                    <p>2 человека</p>
+                    <span>3 000 <i class="fa fa-rub"></i></span>
+                    <button class="redBtn" ng-show="!ctrl.user.authorized" onclick="document.getElementById('payform2').submit();">Это мы!</button>
+                  </div>
+                  <div class="itWrap">
+                    <h2>Командный <br/>зачет</h2>
+                    <p>5 человек</p>
+                    <span>5 000 <i class="fa fa-rub"></i></span>
+                    <button class="redBtn" ng-show="!ctrl.user.authorized" onclick="document.getElementById('payform3').submit();">Начать!</button>
+                  </div>
+              </div>
+              <!-- <div class="itWrap">
+                    <h2>Допинг</h2>
+                    <p>Доспупен каждую неделю за исключением финала. Дает возможность проходить в следующий уровень без недельного соревнования</p>
+                    <span>1 000 <i class="fa fa-rub"></i></span>
+                    <div class="DrugsBtnWrap">
+                      <button class="DrugsBtn"></button>
+                    </div>
+                  </div> -->
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
+    <%end%>
 
 
-  <section class="week_plan_drugs_eat">
+  <!-- <section class="week_plan_drugs_eat">
     <div class="container">
       <div id="tabs-container">
         <div class="row text-center">
@@ -254,7 +297,7 @@
                   </tbody>
                 </table>
               </div>
-            </div> <!--ROW END-->
+            </div>
             <div class="row">
               <div class="dopInfo">
                 <div class="left">
@@ -272,7 +315,7 @@
                 </div>
               </div>
             </div>
-          </div> <!-- MONDAY PARTH -->
+          </div>
           <div id="tuesday" class="tab-content">
             <div class="row">
               <div class="col-md-3 text-left table_plan">
@@ -403,7 +446,7 @@
                   </tbody>
                 </table>
               </div>
-            </div> <!--ROW END-->
+            </div>
             <div class="row">
               <div class="dopInfo">
                 <div class="left">
@@ -421,7 +464,7 @@
                 </div>
               </div>
             </div>
-          </div><!-- tuesday PARTH -->
+          </div>
         </div>
       </div>
     </div>
@@ -571,7 +614,7 @@
                   </tbody>
                 </table>
               </div>
-            </div> <!--ROW END-->
+            </div>
             <div class="row">
               <div class="dopInfo">
                 <div class="left">
@@ -589,7 +632,7 @@
                 </div>
               </div>
             </div>
-          </div> <!-- MONDAY PARTH -->
+          </div>
           <div id="tuesday2" class="tab-content">
             <div class="row">
               <div class="col-md-3 text-left table_plan">
@@ -720,7 +763,7 @@
                   </tbody>
                 </table>
               </div>
-            </div> <!--ROW END-->
+            </div>
             <div class="row">
               <div class="dopInfo">
                 <div class="left">
@@ -738,7 +781,7 @@
                 </div>
               </div>
             </div>
-          </div><!-- tuesday PARTH -->
+          </div>
         </div>
       </div>
     </div>
@@ -888,7 +931,7 @@
                   </tbody>
                 </table>
               </div>
-            </div> <!--ROW END-->
+            </div>
             <div class="row">
               <div class="dopInfo">
                 <div class="left">
@@ -906,7 +949,7 @@
                 </div>
               </div>
             </div>
-          </div> <!-- MONDAY PARTH -->
+          </div>
           <div id="tuesday3" class="tab-content">
             <div class="row">
               <div class="col-md-3 text-left table_plan">
@@ -1037,7 +1080,7 @@
                   </tbody>
                 </table>
               </div>
-            </div> <!--ROW END-->
+            </div>
             <div class="row">
               <div class="dopInfo">
                 <div class="left">
@@ -1055,15 +1098,16 @@
                 </div>
               </div>
             </div>
-          </div><!-- tuesday PARTH -->
+          </div><
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
+  <%if @user_tariff.present?%>
   <section class="week_plan_drugs_eat">
     <h2 class="titel_tariff text-center">План тренировок будет доступен 08.07.2016</h2>
   </section>
-  <section class="week_plan_drugs_eat">
+ <!--  <section class="week_plan_drugs_eat">
     <h2 class="titel_tariff text-center">Выберите программу тренировок</h2>
     <form class="sendType">
       <div class="selectType">
@@ -1076,7 +1120,8 @@
       </div>
       <button class="redBtn">Отправить</button>
     </form>
-  </section>
+  </section> -->
+  <%end%>
 
   <section class="calculate">
     <div class="container">
@@ -1084,31 +1129,31 @@
         <div class="col-md-12 text-center">
           <form name="calorieCalculatorForm" onsubmit="calcCol()">
             <h2>Калькулятор калорий</h2>
-            <input type="text" placeholder="Возраст" ng-model="parameters.age" required>
-            <select ng-model="parameters.sex" required>
+            <input type="text" id="age" placeholder="Возраст" ng-model="parameters.age" required>
+            <select id="sex" required>
               <option disabled selected style="display:none;">Пол</option>
               <option value="male">М</option>
               <option value="female">Ж</option>
             </select>
-            <input type="text" placeholder="Вес, кг" required>
-            <input type="text" placeholder="Рост, см" required>
-            <select class="activity" required>
+            <input type="text" id="weight" placeholder="Вес, кг" required>
+            <input type="text" id="growth" placeholder="Рост, см" required>
+            <select class="activity" id="activity" required>
               <option disabled selected style="display:none;">Активность</option>
-              <option>Минимальная</option>
-              <option>Слабая</option>
-              <option>Средняя</option>
-              <option>Высокая</option>
-              <option>Экстра-активность</option>
+              <option value="1.2">Минимальная</option>
+              <option value="1.375">Слабая</option>
+              <option value="1.55">Средняя</option>
+              <option value="1.725">Высокая</option>
+              <option value="1.9">Экстра-активность</option>
             </select>
             <p>Расчёт ежедневного потребления калорий можно произвести по двум разным
                 <br>
               методикам: одной из самых современных, по формуле Миффлина-Сан Жеора
               </p>
-            <button class="redBtn" ng-disabled="calorieCalculatorForm.$pristine || calorieCalculatorForm.$invalid">Рассчитать</button>
+            <button type="button" class="redBtn" id="calcCol">Рассчитать</button>
           </form>
-          <!-- <div ng-show="$ctrl.caloriesPerDay">
-              <h2><span ng-bind="$ctrl.caloriesPerDay"></span><span> ккал</span></h2>
-            </div> -->
+           <div>
+              <h2><span id="calRez"></span></h2>
+            </div>
         </div>
       </div>
     </div>

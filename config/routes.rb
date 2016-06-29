@@ -8,9 +8,10 @@ Rails.application.routes.draw do
   get '/testcheck', to: "application#testcheck"
   post '/check', to: "yandex_kassa#testcheck"
   post '/pay', to: "yandex_kassa#testpay"
+  post 'registration', to: "home#registration"
   controller 'yandex_kassa', constraints: { subdomain: 'ssl' } do
-      post :check
-      post :pay
+      post :testcheck
+      post :testpay
       get :success
       get :fail
       post :fail # исключение: при неуспехе оплаты из кошелька Яндекс.Денег приходит запрос методом POST

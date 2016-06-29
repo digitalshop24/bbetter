@@ -20,7 +20,7 @@ $('.accordion li').click(function(e) {
 });
 
 $(document).ready(function(){
-
+  console.log('AGE');
   $('.beforeAfter').slick({
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -100,13 +100,20 @@ $(document.body)
 .on('hidden.bs.modal', function () {
   $(document.body).css('padding-right', 0)
 });
-
-function calcCol(sex,weight,growth,age,activity){
+document.getElementById('calcCol').onclick = function() {
+  var sex = document.getElementById("sex").value;
+  var age = document.getElementById("age").value;
+  var weight = document.getElementById("weight").value;
+  var growth = document.getElementById("growth").value;
+  var activity = document.getElementById("activity").value;
+  var rezult;
   if (sex=='male') {
-    // return (10*weight+6.25*growth-5*age+5)*activity;
-    console.log('MALE',(10*weight+6.25*growth-5*age+5)*activity);
+    rezult = (10*weight+6.25*growth-5*age+5)*activity;
   } else if (sex=='female') {
-    // return (10*weight+6.25*growth-5*age+5)*activity;
-    console.log('FEMALE',(10*weight+6.25*growth-5*age+161)*activity);
+    rezult = (10*weight+6.25*growth-5*age+161)*activity;
   }
+  document.getElementById("calRez").innerHTML = rezult + ' ккал';
+
+
+      
 }
