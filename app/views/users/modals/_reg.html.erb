@@ -6,6 +6,7 @@
         <img class="modalLogo" src="<%= asset_path('modal/infinityModal.png') %>" alt="logo modal" />
       </div>
       <div class="modal-body">
+        <%= render partial: 'users/errors', locals: { errors: flash[:new_solution_errors] } if flash[:new_solution_errors].present? %> 
         <div class="formWrapper">
           <%= form_for @user, as: :user, url: :home_registration, onsubmit: "thankU()" do |f| %>
             <div class="row">
@@ -25,7 +26,7 @@
             </div>
             <div class="row">
               <div class="col-md-12">
-                <%= text_field_tag :promo, nil, placeholder: 'Промокод' %>
+                <%= text_field_tag :promocode, nil, placeholder: 'Промокод' %>
               </div>
             </div>
             <div class="row">

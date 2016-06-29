@@ -50,7 +50,23 @@ class HomeController < ApplicationController
 
   def edit_profile
     @user = current_user
-    @user.update(user_params)
+    if @user.update(user_params)
+      if params[:promocode].present?
+        pc = Promocode.available.find_by(code: params[:promocode])
+        tariff = Tariff.find_by(people_number: 1)
+        if pc && tariff
+          pc.update(activated_at: Time.now, user: @user)
+          UserTariff.create(user: @user, tariff: tariff)
+        else
+          @user.errors[:promocode] << "имеет неверное значение" unless pc
+          @user.errors[:promocode] << "нету подходящего тарифа" unless tariff
+        end
+      end
+    end
+    if @user.errors.present?
+      flash[:modal] = 'editProfileModal'
+      flash[:new_solution_errors] = @user.errors.full_messages
+    end
     redirect_to :back
   end
 
@@ -65,8 +81,8 @@ class HomeController < ApplicationController
       tariff = Tariff.find_by(people_number: 1)
       @user.errors[:promocode] << "нету подходящего тарифа" unless tariff
     end
-    if @user.save
-      pc.update(activated_at: Time.now, user: @user) if pc
+    if pc && tariff && @user.save
+      pc.update(activated_at: Time.now, user: @user)
       UserTariff.create(user: @user, tariff: tariff)
       begin
         UserMailer.password_email(user, generated_password).deliver_now
@@ -79,6 +95,7 @@ class HomeController < ApplicationController
       redirect_to :profile
     else
       flash[:info] = "Регистрация не было успешной"
+      flash[:new_solution_errors] = @user.errors.full_messages
       flash[:modal] = 'regModal'
       render 'index'
     end
