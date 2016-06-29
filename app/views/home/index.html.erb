@@ -59,7 +59,11 @@
           <h2>Беззаботная</h2>
           <span>Жизнь – это большой праздник! Зачем забивать себе голову лишними проблемами, когда уже есть готовое решение?!</span>
           <p>Ты экономишь на абонементе в спортзал и покупаешь новое платье. Ты не мучаешься, составляя себе план тренировок и питания. Ты всегда можешь рассчитывать на советы личного тренера и диетолога. Ты становишься все красивее - и за это получаешь призы и подарки! </p>
+            <% if current_user %>
+            <button class="redBtn tarifBtn" onclick="location.href='/profile';">Начать!</button>
+            <%else%>
           <button class="redBtn tarifBtn" data-toggle="modal" data-target="#regModal">Начать!</button>
+          <%end%>
         </li>
       </ul>
     </div>
@@ -69,7 +73,11 @@
           <h2>Домохозяйка</h2>
           <span>Быть хранительницей очага – трудная работа. Иногда тебе кажется, что в сутках не больше 10 часов! Как найти время на себя?</span>
           <p>«Быть Лучше» - это для тебя! Ты занимаешься спортом не выходя из дома. Ты получаешь простую схему питания и не тратишь много времени на готовку. Ты можешь тренироваться в любое свободное время. Ты становишься все красивее - и за это получаешь призы и подарки!</p>
+             <% if current_user %>
+            <button class="redBtn tarifBtn" onclick="location.href='/profile';">Начать!</button>
+            <%else%>
           <button class="redBtn tarifBtn" data-toggle="modal" data-target="#regModal">Начать!</button>
+          <%end%>
         </li>
       </ul>
     </div>
@@ -93,7 +101,11 @@
               Ты делаешь себя лучше в своем личном ритме.<br/>
               Ты становишься все красивее - и за это получаешь призы и подарки!
 
-                <button class="redBtn tarifBtn" data-toggle="modal" data-target="#regModal">Начать!</button>
+               <% if current_user %>
+            <button class="redBtn tarifBtn" onclick="location.href='/profile';">Начать!</button>
+            <%else%>
+          <button class="redBtn tarifBtn" data-toggle="modal" data-target="#regModal">Начать!</button>
+          <%end%>
             </p>
           </a>
         </div>
@@ -113,7 +125,11 @@
               Ты не мучаешься, составляя себе план тренировок и питания.<br/>
               Ты всегда можешь рассчитывать на советы личного тренера и диетолога.<br/>
               Ты становишься все красивее - и за это получаешь призы и подарки!
-                <button class="redBtn tarifBtn" data-toggle="modal" data-target="#regModal">Начать!</button>
+                <% if current_user %>
+            <button class="redBtn tarifBtn" onclick="location.href='/profile';">Начать!</button>
+            <%else%>
+          <button class="redBtn tarifBtn" data-toggle="modal" data-target="#regModal">Начать!</button>
+          <%end%>
             </p>
           </a>
         </div>
@@ -134,7 +150,11 @@
               Ты получаешь простую схему питания и не тратишь много времени на готовку.<br/>
               Ты можешь тренироваться в любое свободное время. <br/>
               Ты становишься все красивее - и за это получаешь призы и подарки!
-                  <button class="redBtn tarifBtn" data-toggle="modal" data-target="#regModal">Начать!</button>
+                 <% if current_user %>
+            <button class="redBtn tarifBtn" onclick="location.href='/profile';">Начать!</button>
+            <%else%>
+          <button class="redBtn tarifBtn" data-toggle="modal" data-target="#regModal">Начать!</button>
+          <%end%>
             </p>
           </a>
         </div>
@@ -264,25 +284,61 @@
       <div class="col-md-12">
         <div class="wrapper">
           <div class="itWrap">
+           <form id="payform1" action="https://money.yandex.ru/eshop.xml" method="post">
+<!-- Обязательные поля -->
+      <input name="shopId" value="62054" type="hidden"/>
+      <input name="scid" value="58153" type="hidden"/>
+      <input name="sum" value="2000" type="hidden"/>
+      <input name="customerNumber" value="<%=@user.id%>" type="hidden"/>
+      <input name="tariffId" value="1" type="hidden" type="hidden"/>
+    </form>
+    <form id="payform2" action="https://money.yandex.ru/eshop.xml" method="post">
+<!-- Обязательные поля -->
+      <input name="shopId" value="62054" type="hidden"/>
+      <input name="scid" value="58153" type="hidden"/>
+      <input name="sum" value="3000" type="hidden"/>
+      <input name="customerNumber" value="<%=@user.id%>" type="hidden"/>
+      <input name="tariffId" value="2" type="hidden" type="hidden"/>
+    </form>
+    <form id="payform3" action="https://money.yandex.ru/eshop.xml" method="post">
+<!-- Обязательные поля -->
+      <input name="shopId" value="62054" type="hidden"/>
+      <input name="scid" value="58153" type="hidden"/>
+      <input name="sum" value="5000" type="hidden"/>
+      <input name="customerNumber" value="<%=@user.id%>" type="hidden"/>
+      <input name="tariffId" value="3" type="hidden" type="hidden"/>
+    </form>
             <h2>Спортсмен<br/>
               одиночка</h2>
             <p>1 человек</p>
             <span>2 000 <i class="fa fa-rub"></i></span>
-            <button class="redBtn" data-toggle="modal" data-target="#regModal">Это я!</button>
+             <% if current_user %>
+            <button class="redBtn " onclick="document.getElementById('payform1').submit();">Это я!</button>
+            <%else%>
+          <button class="redBtn" data-toggle="modal" data-target="#regModal">Это я!</button>
+          <%end%>
           </div>
           <div class="itWrap">
             <h2>Парный<br/>
               старт</h2>
             <p>2 человека</p>
             <span>3 000 <i class="fa fa-rub"></i></span>
-            <button class="redBtn" data-toggle="modal" data-target="#regModal">Это мы!</button>
+             <% if current_user %>
+            <button class="redBtn " onclick="document.getElementById('payform1').submit();">Это мы!</button>
+            <%else%>
+          <button class="redBtn" data-toggle="modal" data-target="#regModal">Это мы!</button>
+          <%end%>
           </div>
           <div class="itWrap">
             <h2>Командный <br/>
               зачет</h2>
             <p>5 человек</p>
             <span>5 000 <i class="fa fa-rub"></i></span>
-            <button class="redBtn" data-toggle="modal" data-target="#regModal">Начать!</button>
+            <% if current_user %>
+            <button class="redBtn " onclick="document.getElementById('payform1').submit();">Начать!</button>
+            <%else%>
+          <button class="redBtn" data-toggle="modal" data-target="#regModal">Начать!</button>
+          <%end%>
           </div>
           <!-- <div class="itWrap">
                   <h2>Допинг</h2>

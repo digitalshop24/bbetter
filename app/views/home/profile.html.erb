@@ -18,14 +18,14 @@
         </div>
       </section>
     <%end%>
-    <section class="user_data">
+   <!--  <section class="user_data">
       <div class="container">
         <div class="row">
-          <!-- <div class="col-md-12 text-center user_data_titel">
+           <div class="col-md-12 text-center user_data_titel">
             <h2>Дина Богачева</h2>
             <p>Доступно еще<br> <span class="pink">2</span> участника</p>
             <button class="redBtn">Пригласить</button>
-          </div> -->
+          </div>
           <div class="col-md-12 text-left form">
              <input type="text" placeholder="Мотивирующие слова" class="motivation_word">
              <div class="row">
@@ -78,7 +78,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
     <form id="payform1" action="https://money.yandex.ru/eshop.xml" method="post">
 <!-- Обязательные поля -->
       <input name="shopId" value="62054" type="hidden"/>
@@ -152,7 +152,7 @@
     <%end%>
 
 
-  <section class="week_plan_drugs_eat">
+  <!-- <section class="week_plan_drugs_eat">
     <div class="container">
       <div id="tabs-container">
         <div class="row text-center">
@@ -297,7 +297,7 @@
                   </tbody>
                 </table>
               </div>
-            </div> <!--ROW END-->
+            </div>
             <div class="row">
               <div class="dopInfo">
                 <div class="left">
@@ -315,7 +315,7 @@
                 </div>
               </div>
             </div>
-          </div> <!-- MONDAY PARTH -->
+          </div>
           <div id="tuesday" class="tab-content">
             <div class="row">
               <div class="col-md-3 text-left table_plan">
@@ -446,7 +446,7 @@
                   </tbody>
                 </table>
               </div>
-            </div> <!--ROW END-->
+            </div>
             <div class="row">
               <div class="dopInfo">
                 <div class="left">
@@ -464,7 +464,7 @@
                 </div>
               </div>
             </div>
-          </div><!-- tuesday PARTH -->
+          </div>
         </div>
       </div>
     </div>
@@ -614,7 +614,7 @@
                   </tbody>
                 </table>
               </div>
-            </div> <!--ROW END-->
+            </div>
             <div class="row">
               <div class="dopInfo">
                 <div class="left">
@@ -632,7 +632,7 @@
                 </div>
               </div>
             </div>
-          </div> <!-- MONDAY PARTH -->
+          </div>
           <div id="tuesday2" class="tab-content">
             <div class="row">
               <div class="col-md-3 text-left table_plan">
@@ -763,7 +763,7 @@
                   </tbody>
                 </table>
               </div>
-            </div> <!--ROW END-->
+            </div>
             <div class="row">
               <div class="dopInfo">
                 <div class="left">
@@ -781,7 +781,7 @@
                 </div>
               </div>
             </div>
-          </div><!-- tuesday PARTH -->
+          </div>
         </div>
       </div>
     </div>
@@ -931,7 +931,7 @@
                   </tbody>
                 </table>
               </div>
-            </div> <!--ROW END-->
+            </div>
             <div class="row">
               <div class="dopInfo">
                 <div class="left">
@@ -949,7 +949,7 @@
                 </div>
               </div>
             </div>
-          </div> <!-- MONDAY PARTH -->
+          </div>
           <div id="tuesday3" class="tab-content">
             <div class="row">
               <div class="col-md-3 text-left table_plan">
@@ -1080,7 +1080,7 @@
                   </tbody>
                 </table>
               </div>
-            </div> <!--ROW END-->
+            </div>
             <div class="row">
               <div class="dopInfo">
                 <div class="left">
@@ -1098,11 +1098,12 @@
                 </div>
               </div>
             </div>
-          </div><!-- tuesday PARTH -->
+          </div><
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
+  <%if @user_tariff.present?%>
   <section class="week_plan_drugs_eat">
     <h2 class="titel_tariff text-center">План тренировок будет доступен 08.07.2016</h2>
   </section>
@@ -1120,6 +1121,7 @@
       <button class="redBtn">Отправить</button>
     </form>
   </section>
+  <%end%>
 
   <section class="calculate">
     <div class="container">
