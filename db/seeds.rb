@@ -13,6 +13,7 @@ Tariff.create(name: "Командный зачет", people_number: 5, price: 50
 
 puts 'destroying training programs...'
 TrainingProgram.destroy_all
+ActiveRecord::Base.connection.reset_pk_sequence!('training_programs')
 puts 'creating training programs...'
 TrainingProgram.create(name: "Карьеристка")
 TrainingProgram.create(name: "Беззаботная")
