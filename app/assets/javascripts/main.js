@@ -112,7 +112,10 @@ document.getElementById('calcCol').onclick = function() {
   } else if (sex=='female') {
     rezult = (10*weight+6.25*growth-5*age+161)*activity;
   }
-  document.getElementById("calRez").innerHTML = rezult + ' ккал';
+  if (rezult > 0) {
+    document.getElementById("calRez").innerHTML = Math.round(rezult) + ' ккал';
+  } else document.getElementById("calRez").innerHTML = 'Введите корректные данные'
+  
 
 
       

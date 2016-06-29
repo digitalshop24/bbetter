@@ -1152,12 +1152,42 @@
             <button type="button" class="redBtn" id="calcCol">Рассчитать</button>
           </form>
            <div>
-              <h2><span id="calRez"></span></h2>
+              <h3><span id="calRez"></span></h3>
             </div>
         </div>
       </div>
     </div>
   </section>
+  <section class="regimAndFoodSec">
+  <div class="container">
+    <div dir="row">
+      <div class="col-md-3"> <!-- required for floating -->
+          <!-- Nav tabs -->
+          <ul class="nav nav-tabs tabs-left">
+            <li class="active"><a href="#home" data-toggle="tab">Питание</a></li>
+            <li><a href="#messages" data-toggle="tab">Способы приготовления продуктов</a></li>
+            <li><a href="#profile" data-toggle="tab">Разрешенное спортивное питание</a></li>
+            <li><a href="#profile" data-toggle="tab">Разрешённые овощи и фрукты</a></li>
+            <li><a href="#profile" data-toggle="tab">Разрешенные белковые продукты</a></li>
+            <li><a href="#profile" data-toggle="tab">Разрешённые источники жира</a></li>
+            <li><a href="#settings" data-toggle="tab">Напитки</a></li>
+            <li><a href="#settings" data-toggle="tab">Примеры рационов питания на день</a></li>
+
+          </ul>
+      </div>
+
+      <div class="col-md-9">
+          <!-- Tab panes -->
+          <div class="tab-content">
+            <div class="tab-pane active" id="home">Home Tab.</div>
+            <div class="tab-pane" id="profile">Profile Tab.</div>
+            <div class="tab-pane" id="messages">Messages Tab.</div>
+            <div class="tab-pane" id="settings">Settings Tab.</div>
+          </div>
+      </div>  
+    </div>
+  </div>
+</section>
   <section class="sendMailSec trainMail">
     <div class="container" ng-hide="$ctrl.messageWasSent" >
       <div class="row">
