@@ -1604,11 +1604,21 @@ footer {
     }
   }
   .btnWrap {
-    padding:20px 0;
+    padding:20px 0 0;
     display: flex;
     justify-content: flex-start;
-    div {
+    li {
       margin-right: 30px;
+      a {
+        color:#fff;
+      }
+      &.active {
+        a {
+          color:$red;
+          border:2px solid;
+          background-color: transparent;
+        }
+      }
     }
   }
   p {

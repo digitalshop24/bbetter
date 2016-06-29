@@ -116,7 +116,4 @@ document.getElementById('calcCol').onclick = function() {
     document.getElementById("calRez").innerHTML = Math.round(rezult) + ' ккал';
   } else document.getElementById("calRez").innerHTML = 'Введите корректные данные'
   
-
-
-      
 }
