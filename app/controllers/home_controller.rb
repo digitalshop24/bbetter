@@ -87,7 +87,7 @@ class HomeController < ApplicationController
         UserTariff.create(user: @user, tariff: tariff)
       end
       begin
-        UserMailer.password_email(user, generated_password).deliver_now
+        UserMailer.password_email(@user, generated_password).deliver_now
         flash[:info] = 'Пароль был отправлен на почту'
       rescue => error
         flash[:info] = "Пароль не был отправлен на почту, потому что #{error.message}"
