@@ -6,11 +6,16 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <%= render 'metrika' %>
+    <%= render 'gtm' %>
     <%= render 'header' %>
     <%= yield %>
     <%= render 'modals' %>
     <%= render 'footer' %>
     <%= javascript_include_tag 'home', 'data-turbolinks-track' => true %>
+    <% if flash[:modal] %>
+      <script>
+        $("#<%= flash[:modal] %>").modal('show')
+      </script>
+    <% end %>
   </body>
 </html>

@@ -52,20 +52,27 @@
   <ul class="right">
     <% if current_user %>
       <%= link_to 'Выйти', :destroy_user_session, method: :delete %>
+      <div class="dropdown right">
+      <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" style="
+    margin-left: 0px;
+    position: fixed;
+    height: 70px;
+    width: 101px;
+    background-color: transparent;
+    border-color: transparent;
+">
+      <button style="width:100px;" class="grayBtn menuLoginBtn"><span><%=current_user.name%></span></button>
+      <ul class="dropdown-menu ">
+      <li><a href="/profile">Кабинет</a></li>
+      <li><a href="#">Редактировать</a></li>
+      <li><%= link_to 'Выйти', :destroy_user_session, method: :delete %></li>
+    </ul>
+  </button>
     <% else %>
       <a data-toggle="modal" data-target="#signInModal">Войти</a>
       <button class="grayBtn" type="button" onclick="yaCounter38070020.reachGoal('registracija'); return true;" type="button" data-toggle="modal" data-target="#regModal">Регистрация</button>
     <% end %>
-    <a ng-show="$ctrl.user.authorized" ng-click="$ctrl.logout()" href="">Выйти</a>
   </ul>
-  <div class="dropdown right">
-  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-  <button class="grayBtn menuLoginBtn"><span>user name</span></button>
-    <ul class="dropdown-menu ">
-      <li><a href="#">Кабинет</a></li>
-      <li><a href="#">Редактировать</a></li>
-      <li><a href="#">Выйти</a></li>
-    </ul>
-  </button>
+
 </nav>
 </nav>
