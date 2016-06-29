@@ -1,9 +1,11 @@
 <nav class="navBar">
   <nav class="wrapper">
+  <%= link_to root_path do %>
     <div class="logo">
       <img  alt="logo" class="desctopLogo" src="<%= asset_path('header/logoNav.png') %>" name="Быть лучше" ui-sref="bbetter.landing"/>
       <img  alt="logo" class="mobileLogo" src="<%= asset_path('header/logoNavMob.png') %>" name="Быть лучше" ui-sref="bbetter.landing"/>
     </div>
+  <% end %>
     <input type="checkbox" id="menuToggle">
     <label for="menuToggle" class="label-toggle">
       <span></span>
