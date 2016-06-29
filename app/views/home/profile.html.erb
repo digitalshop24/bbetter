@@ -1,156 +1,1213 @@
-<% if @user.active_tariff %>
-<section class="lineSec" id="fiveStep">
-  <h1>Тариф &laquo;<%= @user.active_tariff.name %>&raquo;</h1>
-</section>
-<% end %>
-<section class="user_data">
-  <div class="container ">
-    <div class="row">
-      <!-- <div class="col-md-12 text-center user_data_titel">
+<%if @user_tariff.present?%>
+  <section class="lineSec" id="fiveStep">
+    <h1>Тариф &laquo;<%= @current_tarrif.name%>&raquo;</h1>
+  </section>
+<%else%>
+  <section class="notif" ng-show="ctrl.openBord">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="notifWrap" >
+            <h2>
+              <%= image_tag('notificationSec/notif.png') %>
+              Ваш аккаунт не оплачен</h2>
+            <p class="closeNotif">Закрыть</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+<%end%>
+<!--  <section class="user_data">
+      <div class="container">
+        <div class="row">
+           <div class="col-md-12 text-center user_data_titel">
             <h2>Дина Богачева</h2>
             <p>Доступно еще<br> <span class="pink">2</span> участника</p>
             <button class="redBtn">Пригласить</button>
-          </div> -->
-      <div class="col-md-12 text-left form">
-        <input type="text" placeholder="Мотивирующие слова" class="motivation_word">
-        <div class="row">
-          <div class="col-md-9">
-            <button class="user_data_btn btn_left text-center">Загрузить <br>
-              <<До>></button>
-              <button class="user_data_btn btn_center text-center">Загрузить <br>
-                <<После>></button>
-                <button class="user_data_btn btn_right text-center">Загрузить <br>
-                  Мотивашку</button>
-              </div>
-              <div class="col-md-3 text-center user_paramentry">
-                <h3>Показатели участника</h3>
-                <p>Замеры веса и объемов производить<br>
-                  в расслабленном состоянии и минимуме одежды.</p>
-                <ul>
-                  <li><input type="text" placeholder="Вес"></li>
-                  <li><input type="text" placeholder="Рост"></li>
-                  <li><input type="text" placeholder="Возраст"></li>
-                </ul>
-                <ul style="margin-left: 20px;">
-                  <li><input type="text" placeholder="Грудь"></li>
-                  <li><input type="text" placeholder="Талия"></li>
-                  <li><input type="text" placeholder="Бедра"></li>
-                </ul>
-              </div>
-            </div>
+          </div>
+          <div class="col-md-12 text-left form">
+             <input type="text" placeholder="Мотивирующие слова" class="motivation_word">
+             <div class="row">
+                <div class="col-md-6">
+                  <div class="aploadCarousel">
+                    <div>
+                      <ul class="item">
+                        <button class="user_data_btn btn_left text-center"><<ДО>><br/><br/> Загрузить  <br/> <<Спереди>></button>
+                        <button class="user_data_btn btn_center text-center"><<ДО>><br/><br/>Загрузить <br> <<Сзади>></button>
+                      </ul>
+                    </div>
+                    <div>
+                        <ul class="item">
+                          <button class="user_data_btn btn_left text-center"><<ДО>><br/><br/> Загрузить <br> <<Слева>></button>
+                          <button class="user_data_btn btn_center text-center"><<ДО>><br/><br/> Загрузить <br> <<Справа>></button>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul class="item">
+                          <button class="user_data_btn btn_left text-center"><<После>><br/><br/> Загрузить <br> <<Спереди>></button>
+                          <button class="user_data_btn btn_center text-center"><<После>><br/><br/> Загрузить <br> <<Сзади>></button>
+                        </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <button class="user_data_btn btn_right text-center">Загрузить <br> Мотивашку</button>
+                </div>
+                <div class="col-md-3 text-center user_paramentry">
+                  <h3>Показатели участника</h3>
+                  <p>Замеры веса и объемов производить<br> в расслабленном состоянии и минимуме одежды.</p>
+                  <ul>
+                    <li><input type="text" placeholder="Вес"></li>
+                    <li><input type="text" placeholder="Рост"></li>
+                    <li><input type="text" placeholder="Возраст"></li>
+                  </ul>
+                  <ul style="margin-left: 20px;">
+                    <li><input type="text" placeholder="Грудь"></li>
+                    <li><input type="text" placeholder="Талия"></li>
+                    <li><input type="text" placeholder="Бедра"></li>
+                  </ul>
+                </div>
+             </div>
           </div>
           <div class="col-md-12 text-center footer_user_data">
             <p class="pink " style="">Загрузка фотографий станет доступной после оплаты тарифа</p>
             <button class="redBtn" >Сохранить изменения</button>
-            <br/>
-            <br/>
+              <br/><br/>
             <button class="redBtn">Ещё</button>
           </div>
         </div>
       </div>
-    </section>
-    <section class="tariffSec" id="tariffSec">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="wrapper">
-<!--               <% @tariffs.each do |tariff| %>
-                <div class="itWrap">
-                  <h2><%= tariff.name %></h2>
-                  <p><%= tariff.people_number %> человек</p>
-                  <span><%= tariff.price %> <i class="fa fa-rub"></i></span>
-                  <button class="redBtn" ng-show="!ctrl.user.authorized" ng-click="ctrl.registrationPopup.registration()">Это я!</button>
-                </div>
-              <% end %> -->
-              <div class="itWrap">
-                  <h2>Спортсмен<br/> одиночка</h2>
-                  <p>1 человек</p>
-                  <span>2 000 <i class="fa fa-rub"></i></span>
-                  <button class="redBtn" ng-show="!ctrl.user.authorized" ng-click="ctrl.registrationPopup.registration()">Это я!</button>
-                </div>
-                <div class="itWrap">
-                  <h2>Парный<br/> старт</h2>
-                  <p>2 человека</p>
-                  <span>3 000 <i class="fa fa-rub"></i></span>
-                  <button class="redBtn" ng-show="!ctrl.user.authorized" ng-click="ctrl.registrationPopup.registration()">Это мы!</button>
-                </div>
-                <div class="itWrap">
-                  <h2>Командный <br/>зачет</h2>
-                  <p>5 человек</p>
-                  <span>5 000 <i class="fa fa-rub"></i></span>
-                  <button class="redBtn" ng-show="!ctrl.user.authorized" ng-click="ctrl.registrationPopup.registration()">Начать!</button>
-                </div>
-            </div>
-            <!-- <div class="itWrap">
-                  <h2>Допинг</h2>
-                  <p>Доспупен каждую неделю за исключением финала. Дает возможность проходить в следующий уровень без недельного соревнования</p>
-                  <span>1 000 <i class="fa fa-rub"></i></span>
-                  <div class="DrugsBtnWrap">
-                    <button class="DrugsBtn"></button>
+    </section> -->
+<form id="payform1" action="https://money.yandex.ru/eshop.xml" method="post">
+  <!-- Обязательные поля -->
+  <input name="shopId" value="62054" type="hidden"/>
+  <input name="scid" value="58153" type="hidden"/>
+  <input name="sum" value="2000" type="hidden"/>
+  <input name="customerNumber" value="<%=@user.id%>" type="hidden"/>
+  <input name="tariffId" value="1" type="hidden" type="hidden"/>
+</form>
+<form id="payform2" action="https://money.yandex.ru/eshop.xml" method="post">
+  <!-- Обязательные поля -->
+  <input name="shopId" value="62054" type="hidden"/>
+  <input name="scid" value="58153" type="hidden"/>
+  <input name="sum" value="3000" type="hidden"/>
+  <input name="customerNumber" value="<%=@user.id%>" type="hidden"/>
+  <input name="tariffId" value="2" type="hidden" type="hidden"/>
+</form>
+<form id="payform3" action="https://money.yandex.ru/eshop.xml" method="post">
+  <!-- Обязательные поля -->
+  <input name="shopId" value="62054" type="hidden"/>
+  <input name="scid" value="58153" type="hidden"/>
+  <input name="sum" value="5000" type="hidden"/>
+  <input name="customerNumber" value="<%=@user.id%>" type="hidden"/>
+  <input name="tariffId" value="3" type="hidden" type="hidden"/>
+</form>
+<%if !@user_tariff.present?%>
+  <section class="tariffSec" id="tariffSec">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="wrapper">
+            <!--               <% @tariffs.each do |tariff| %>
+                  <div class="itWrap">
+                    <h2><%= tariff.name %></h2>
+                    <p><%= tariff.people_number %> человек</p>
+                    <span><%= tariff.price %> <i class="fa fa-rub"></i></span>
+                    <button class="redBtn" ng-show="!ctrl.user.authorized" ng-click="ctrl.registrationPopup.registration()">Это я!</button>
                   </div>
-                </div> -->
+                <% end %> -->
+            <div class="itWrap">
+              <h2>Спортсмен<br/>
+                 одиночка</h2>
+              <p>1 человек</p>
+              <span>2 000 <i class="fa fa-rub"></i></span>
+              <button class="redBtn" ng-show="!ctrl.user.authorized" onclick="document.getElementById('payform1').submit();">Это я!</button>
+            </div>
+            <div class="itWrap">
+              <h2>Парный<br/>
+                 старт</h2>
+              <p>2 человека</p>
+              <span>3 000 <i class="fa fa-rub"></i></span>
+              <button class="redBtn" ng-show="!ctrl.user.authorized" onclick="document.getElementById('payform2').submit();">Это мы!</button>
+            </div>
+            <div class="itWrap">
+              <h2>Командный <br/>
+                зачет</h2>
+              <p>5 человек</p>
+              <span>5 000 <i class="fa fa-rub"></i></span>
+              <button class="redBtn" ng-show="!ctrl.user.authorized" onclick="document.getElementById('payform3').submit();">Начать!</button>
+            </div>
+          </div>
+          <!-- <div class="itWrap">
+                    <h2>Допинг</h2>
+                    <p>Доспупен каждую неделю за исключением финала. Дает возможность проходить в следующий уровень без недельного соревнования</p>
+                    <span>1 000 <i class="fa fa-rub"></i></span>
+                    <div class="DrugsBtnWrap">
+                      <button class="DrugsBtn"></button>
+                    </div>
+                  </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<%end%>
+<!-- <section class="week_plan_drugs_eat">
+    <div class="container">
+      <div id="tabs-container">
+        <div class="row text-center">
+        <h2 class="titel_tariff">План тренировок ( домохозяйка )</h2>
+          <ul class="col-md-12 tabs-menu">
+            <li class="current"><a href="#monday" class="whiteBtn">Понедельник</a></li>
+            <li><a href="#tuesday" class="whiteBtn">Вторник</a></li>
+            <li><a href="" class="whiteBtn">Среда</a></li>
+            <li><a href="" class="whiteBtn">Четверг</a></li>
+            <li><a href="" class="whiteBtn">Пятница</a></li>
+            <li><a href="" class="whiteBtn">Суббота</a></li>
+          </ul>
+        </div>
+        <div class="tab">
+          <div id="monday" class="tab-content">
+            <div class="row">
+              <div class="col-md-3 text-left table_plan">
+                <h3>Утро</h3>
+                <p>Тренировка из 3-х частей</p>
+                <table>
+                  <thead>
+                    <tr>
+                      <td>Упражнения</td>
+                      <td>Раз</td>
+                      <td>Минут</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Jumping Jack</td>
+                      <td>500</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+                <br/>
+                <p>Обеденный перерыв</p>
+                <p>Разминка</p>
+                <table>
+                  <thead>
+                    <tr>
+                      <td>Упражнения</td>
+                      <td>Раз</td>
+                      <td>Минут</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Jumping Jack</td>
+                      <td>40</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="col-md-3 text-left table_plan">
+                <h3>Основная часть</h3>
+                <p>6 упражнений, 3 круга, отдых между кругами 1 минута</p>
+                <table class="">
+                  <thead>
+                    <tr>
+                      <td>Упражнения</td>
+                      <td>Раз</td>
+                      <td>Минут</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Приседания</td>
+                      <td>15</td>
+                      <td> </td>
+                    </tr>
+                    <tr>
+                      <td>Книжка</td>
+                      <td>10</td>
+                      <td> </td>
+                    </tr>
+                    <tr>
+                      <td>Берпи</td>
+                      <td>5</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>Ситап</td>
+                      <td>15</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>Отжимания</td>
+                      <td>5</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>Лодочка</td>
+                      <td>10</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="col-md-3 text-left table_plan">
+                <h3>Заминка</h3>
+                <p>1 упражнение, табата 30/40, 3 раунда</p>
+                <table class="">
+                  <thead>
+                    <tr>
+                      <td>Упражнения</td>
+                      <td>Раз</td>
+                      <td>Минут</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Табата</td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>Планка</td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="col-md-3 text-left table_plan">
+                <h3 class="h3Fix">Вечер</h3>
+                <table class="">
+                  <thead>
+                    <tr>
+                      <td>Упражнения</td>
+                      <td>Раз</td>
+                      <td>Минут</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>jumping jack</td>
+                      <td>500</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="row">
+              <div class="dopInfo">
+                <div class="left">
+                  <h2>Рекомендация к заданиям</h2>
+                  <ul>
+                    <li>Табата 30/40, это 30 сек дале 40 секунд отдыха и выполнить 3 раунда;</li>
+                    <li>Если у Вас по графику не получается делать утрение и вечернии тренировки, рекомендуем Вам объеденить их и выполнить в течении дня в любое удобное для Вас время.</li>
+                  </ul>
+                </div>
+                <div class="right">
+                  <h2>Задания на день</h2>
+                  <ul>
+                    <li>Jumping Jack 1000</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="tuesday" class="tab-content">
+            <div class="row">
+              <div class="col-md-3 text-left table_plan">
+                <h3>Утро</h3>
+                <p>Тренировка из 3-х частей</p>
+                <table>
+                  <thead>
+                    <tr>
+                      <td>Упражнения</td>
+                      <td>Раз</td>
+                      <td>Минут</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Jumping Jack</td>
+                      <td>500</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+                <br/>
+                <p>Обеденный перерыв</p>
+                <p>Разминка</p>
+                <table>
+                  <thead>
+                    <tr>
+                      <td>Упражнения</td>
+                      <td>Раз</td>
+                      <td>Минут</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Jumping Jack</td>
+                      <td>40</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="col-md-3 text-left table_plan">
+                <h3>Основная часть</h3>
+                <p>6 упражнений, 3 круга, отдых между кругами 1 минута</p>
+                <table class="">
+                  <thead>
+                    <tr>
+                      <td>Упражнения</td>
+                      <td>Раз</td>
+                      <td>Минут</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Приседания</td>
+                      <td>15</td>
+                      <td> </td>
+                    </tr>
+                    <tr>
+                      <td>Книжка</td>
+                      <td>10</td>
+                      <td> </td>
+                    </tr>
+                    <tr>
+                      <td>Берпи</td>
+                      <td>5</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>Ситап</td>
+                      <td>15</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>Отжимания</td>
+                      <td>5</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>Лодочка</td>
+                      <td>10</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="col-md-3 text-left table_plan">
+                <h3>Заминка</h3>
+                <p>1 упражнение, табата 30/40, 3 раунда</p>
+                <table class="">
+                  <thead>
+                    <tr>
+                      <td>Упражнения</td>
+                      <td>Раз</td>
+                      <td>Минут</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Табата</td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>Планка</td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="col-md-3 text-left table_plan">
+                <h3 class="h3Fix">Вечер</h3>
+                <table class="">
+                  <thead>
+                    <tr>
+                      <td>Упражнения</td>
+                      <td>Раз</td>
+                      <td>Минут</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>jumping jack</td>
+                      <td>500</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="row">
+              <div class="dopInfo">
+                <div class="left">
+                  <h2>Рекомендация к заданиям</h2>
+                  <ul>
+                    <li>Табата 30/40, это 30 сек дале 40 секунд отдыха и выполнить 3 раунда;</li>
+                    <li>Если у Вас по графику не получается делать утрение и вечернии тренировки, рекомендуем Вам объеденить их и выполнить в течении дня в любое удобное для Вас время.</li>
+                  </ul>
+                </div>
+                <div class="right">
+                  <h2>Задания на день</h2>
+                  <ul>
+                    <li>Jumping Jack 1000</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </section>
-  <section class="calculate">
+  <section class="week_plan_drugs_eat">
     <div class="container">
-      <div class="row">
-        <div class="col-md-12 text-center">
-          <form name="calorieCalculatorForm" ng-submit="$ctrl.calculate(parameters)">
-            <h2>Калькулятор калорий</h2>
-            <input type="text" placeholder="Возраст" ng-model="parameters.age" required>
-            <select ng-model="parameters.sex" required>
-              <option disabled selected style="display:none;">Пол</option>
-              <option value="male">М</option>
-              <option value="female">Ж</option>
-            </select>
-            <input type="text" placeholder="Вес, кг" ng-model="parameters.weight" required>
-            <input type="text" placeholder="Рост, см" ng-model="parameters.height" required>
-            <select class="activity" required>
-              <option disabled selected style="display:none;">Активность</option>
-              <option>Минимальная</option>
-              <option>Слабая</option>
-              <option>Средняя</option>
-              <option>Высокая</option>
-              <option>Экстра-активность</option>
-            </select>
-            <p>Расчёт ежедневного потребления калорий можно произвести по двум разным
-                <br>
-              методикам: одной из самых современных, по формуле Миффлина-Сан Жеора
-              </p>
-            <button class="redBtn" ng-disabled="calorieCalculatorForm.$pristine || calorieCalculatorForm.$invalid">Рассчитать</button>
-          </form>
-          <!-- <div ng-show="$ctrl.caloriesPerDay">
-              <h2><span ng-bind="$ctrl.caloriesPerDay"></span><span> ккал</span></h2>
-            </div> -->
+      <div id="tabs-container">
+        <div class="row text-center">
+        <h2 class="titel_tariff">План тренировок ( Карьеристка )</h2>
+          <ul class="col-md-12 tabs-menu">
+            <li class="current"><a href="#monday2" class="whiteBtn">Понедельник</a></li>
+            <li><a href="#tuesday2" class="whiteBtn">Вторник</a></li>
+            <li><a href="" class="whiteBtn">Среда</a></li>
+            <li><a href="" class="whiteBtn">Четверг</a></li>
+            <li><a href="" class="whiteBtn">Пятница</a></li>
+            <li><a href="" class="whiteBtn">Суббота</a></li>
+          </ul>
         </div>
-      </div>
-    </div>
-  </section>
-  <section class="sendMailSec trainMail">
-    <div class="container" ng-hide="$ctrl.messageWasSent" >
-      <div class="row">
-        <div class="col-md-12">
-          <h1>Задать вопросы тренеру и диетологу</h1>
-          <form name="contactTrainerForm" ng-submit="$ctrl.contactTrainer(message)">
+        <div class="tab">
+          <div id="monday2" class="tab-content">
             <div class="row">
-              <div class="col-md-offset-2 col-md-8">
-                <ul class="mailParth">
-                  <input type="text" ng-model="message.theme" placeholder="Тема" required />
-                  <textarea ng-model="message.text" placeholder="Ваше сообщение" rows="6" required></textarea>
-                </ul>
+              <div class="col-md-3 text-left table_plan">
+                <h3>Утро</h3>
+                <p>Тренировка из 3-х частей</p>
+                <table>
+                  <thead>
+                    <tr>
+                      <td>Упражнения</td>
+                      <td>Раз</td>
+                      <td>Минут</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Jumping Jack</td>
+                      <td>500</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+                <br/>
+                <p>Обеденный перерыв</p>
+                <p>Разминка</p>
+                <table>
+                  <thead>
+                    <tr>
+                      <td>Упражнения</td>
+                      <td>Раз</td>
+                      <td>Минут</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Jumping Jack</td>
+                      <td>40</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
-              <div class="col-md-offset-2 col-md-8">
-                <button class="redBtn" type="submit" ng-disabled="contactTrainerForm.$pristine || contactTrainerForm.$invalid">Отправить</button>
+              <div class="col-md-3 text-left table_plan">
+                <h3>Основная часть</h3>
+                <p>6 упражнений, 3 круга, отдых между кругами 1 минута</p>
+                <table class="">
+                  <thead>
+                    <tr>
+                      <td>Упражнения</td>
+                      <td>Раз</td>
+                      <td>Минут</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Приседания</td>
+                      <td>15</td>
+                      <td> </td>
+                    </tr>
+                    <tr>
+                      <td>Книжка</td>
+                      <td>10</td>
+                      <td> </td>
+                    </tr>
+                    <tr>
+                      <td>Берпи</td>
+                      <td>5</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>Ситап</td>
+                      <td>15</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>Отжимания</td>
+                      <td>5</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>Лодочка</td>
+                      <td>10</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="col-md-3 text-left table_plan">
+                <h3>Заминка</h3>
+                <p>1 упражнение, табата 30/40, 3 раунда</p>
+                <table class="">
+                  <thead>
+                    <tr>
+                      <td>Упражнения</td>
+                      <td>Раз</td>
+                      <td>Минут</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Табата</td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>Планка</td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="col-md-3 text-left table_plan">
+                <h3 class="h3Fix">Вечер</h3>
+                <table class="">
+                  <thead>
+                    <tr>
+                      <td>Упражнения</td>
+                      <td>Раз</td>
+                      <td>Минут</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>jumping jack</td>
+                      <td>500</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
               </div>
             </div>
-          </form>
+            <div class="row">
+              <div class="dopInfo">
+                <div class="left">
+                  <h2>Рекомендация к заданиям</h2>
+                  <ul>
+                    <li>Табата 30/40, это 30 сек дале 40 секунд отдыха и выполнить 3 раунда;</li>
+                    <li>Если у Вас по графику не получается делать утрение и вечернии тренировки, рекомендуем Вам объеденить их и выполнить в течении дня в любое удобное для Вас время.</li>
+                  </ul>
+                </div>
+                <div class="right">
+                  <h2>Задания на день</h2>
+                  <ul>
+                    <li>Jumping Jack 1000</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="tuesday2" class="tab-content">
+            <div class="row">
+              <div class="col-md-3 text-left table_plan">
+                <h3>Утро</h3>
+                <p>Тренировка из 3-х частей</p>
+                <table>
+                  <thead>
+                    <tr>
+                      <td>Упражнения</td>
+                      <td>Раз</td>
+                      <td>Минут</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Jumping Jack</td>
+                      <td>500</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+                <br/>
+                <p>Обеденный перерыв</p>
+                <p>Разминка</p>
+                <table>
+                  <thead>
+                    <tr>
+                      <td>Упражнения</td>
+                      <td>Раз</td>
+                      <td>Минут</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Jumping Jack</td>
+                      <td>40</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="col-md-3 text-left table_plan">
+                <h3>Основная часть</h3>
+                <p>6 упражнений, 3 круга, отдых между кругами 1 минута</p>
+                <table class="">
+                  <thead>
+                    <tr>
+                      <td>Упражнения</td>
+                      <td>Раз</td>
+                      <td>Минут</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Приседания</td>
+                      <td>15</td>
+                      <td> </td>
+                    </tr>
+                    <tr>
+                      <td>Книжка</td>
+                      <td>10</td>
+                      <td> </td>
+                    </tr>
+                    <tr>
+                      <td>Берпи</td>
+                      <td>5</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>Ситап</td>
+                      <td>15</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>Отжимания</td>
+                      <td>5</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>Лодочка</td>
+                      <td>10</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="col-md-3 text-left table_plan">
+                <h3>Заминка</h3>
+                <p>1 упражнение, табата 30/40, 3 раунда</p>
+                <table class="">
+                  <thead>
+                    <tr>
+                      <td>Упражнения</td>
+                      <td>Раз</td>
+                      <td>Минут</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Табата</td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>Планка</td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="col-md-3 text-left table_plan">
+                <h3 class="h3Fix">Вечер</h3>
+                <table class="">
+                  <thead>
+                    <tr>
+                      <td>Упражнения</td>
+                      <td>Раз</td>
+                      <td>Минут</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>jumping jack</td>
+                      <td>500</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="row">
+              <div class="dopInfo">
+                <div class="left">
+                  <h2>Рекомендация к заданиям</h2>
+                  <ul>
+                    <li>Табата 30/40, это 30 сек дале 40 секунд отдыха и выполнить 3 раунда;</li>
+                    <li>Если у Вас по графику не получается делать утрение и вечернии тренировки, рекомендуем Вам объеденить их и выполнить в течении дня в любое удобное для Вас время.</li>
+                  </ul>
+                </div>
+                <div class="right">
+                  <h2>Задания на день</h2>
+                  <ul>
+                    <li>Jumping Jack 1000</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <!-- <div class="container center-align" ng-show="$ctrl.messageWasSent">
+  </section>
+  <section class="week_plan_drugs_eat">
+    <div class="container">
+      <div id="tabs-container">
+        <div class="row text-center">
+        <h2 class="titel_tariff">План тренировок ( Беззаботная )</h2>
+          <ul class="col-md-12 tabs-menu">
+            <li class="current"><a href="#monday3" class="whiteBtn">Понедельник</a></li>
+            <li><a href="#tuesday3" class="whiteBtn">Вторник</a></li>
+            <li><a href="" class="whiteBtn">Среда</a></li>
+            <li><a href="" class="whiteBtn">Четверг</a></li>
+            <li><a href="" class="whiteBtn">Пятница</a></li>
+            <li><a href="" class="whiteBtn">Суббота</a></li>
+          </ul>
+        </div>
+        <div class="tab">
+          <div id="monday3" class="tab-content">
+            <div class="row">
+              <div class="col-md-3 text-left table_plan">
+                <h3>Утро</h3>
+                <p>Тренировка из 3-х частей</p>
+                <table>
+                  <thead>
+                    <tr>
+                      <td>Упражнения</td>
+                      <td>Раз</td>
+                      <td>Минут</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Jumping Jack</td>
+                      <td>500</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+                <br/>
+                <p>Обеденный перерыв</p>
+                <p>Разминка</p>
+                <table>
+                  <thead>
+                    <tr>
+                      <td>Упражнения</td>
+                      <td>Раз</td>
+                      <td>Минут</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Jumping Jack</td>
+                      <td>40</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="col-md-3 text-left table_plan">
+                <h3>Основная часть</h3>
+                <p>6 упражнений, 3 круга, отдых между кругами 1 минута</p>
+                <table class="">
+                  <thead>
+                    <tr>
+                      <td>Упражнения</td>
+                      <td>Раз</td>
+                      <td>Минут</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Приседания</td>
+                      <td>15</td>
+                      <td> </td>
+                    </tr>
+                    <tr>
+                      <td>Книжка</td>
+                      <td>10</td>
+                      <td> </td>
+                    </tr>
+                    <tr>
+                      <td>Берпи</td>
+                      <td>5</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>Ситап</td>
+                      <td>15</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>Отжимания</td>
+                      <td>5</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>Лодочка</td>
+                      <td>10</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="col-md-3 text-left table_plan">
+                <h3>Заминка</h3>
+                <p>1 упражнение, табата 30/40, 3 раунда</p>
+                <table class="">
+                  <thead>
+                    <tr>
+                      <td>Упражнения</td>
+                      <td>Раз</td>
+                      <td>Минут</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Табата</td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>Планка</td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="col-md-3 text-left table_plan">
+                <h3 class="h3Fix">Вечер</h3>
+                <table class="">
+                  <thead>
+                    <tr>
+                      <td>Упражнения</td>
+                      <td>Раз</td>
+                      <td>Минут</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>jumping jack</td>
+                      <td>500</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="row">
+              <div class="dopInfo">
+                <div class="left">
+                  <h2>Рекомендация к заданиям</h2>
+                  <ul>
+                    <li>Табата 30/40, это 30 сек дале 40 секунд отдыха и выполнить 3 раунда;</li>
+                    <li>Если у Вас по графику не получается делать утрение и вечернии тренировки, рекомендуем Вам объеденить их и выполнить в течении дня в любое удобное для Вас время.</li>
+                  </ul>
+                </div>
+                <div class="right">
+                  <h2>Задания на день</h2>
+                  <ul>
+                    <li>Jumping Jack 1000</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="tuesday3" class="tab-content">
+            <div class="row">
+              <div class="col-md-3 text-left table_plan">
+                <h3>Утро</h3>
+                <p>Тренировка из 3-х частей</p>
+                <table>
+                  <thead>
+                    <tr>
+                      <td>Упражнения</td>
+                      <td>Раз</td>
+                      <td>Минут</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Jumping Jack</td>
+                      <td>500</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+                <br/>
+                <p>Обеденный перерыв</p>
+                <p>Разминка</p>
+                <table>
+                  <thead>
+                    <tr>
+                      <td>Упражнения</td>
+                      <td>Раз</td>
+                      <td>Минут</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Jumping Jack</td>
+                      <td>40</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="col-md-3 text-left table_plan">
+                <h3>Основная часть</h3>
+                <p>6 упражнений, 3 круга, отдых между кругами 1 минута</p>
+                <table class="">
+                  <thead>
+                    <tr>
+                      <td>Упражнения</td>
+                      <td>Раз</td>
+                      <td>Минут</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Приседания</td>
+                      <td>15</td>
+                      <td> </td>
+                    </tr>
+                    <tr>
+                      <td>Книжка</td>
+                      <td>10</td>
+                      <td> </td>
+                    </tr>
+                    <tr>
+                      <td>Берпи</td>
+                      <td>5</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>Ситап</td>
+                      <td>15</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>Отжимания</td>
+                      <td>5</td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>Лодочка</td>
+                      <td>10</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="col-md-3 text-left table_plan">
+                <h3>Заминка</h3>
+                <p>1 упражнение, табата 30/40, 3 раунда</p>
+                <table class="">
+                  <thead>
+                    <tr>
+                      <td>Упражнения</td>
+                      <td>Раз</td>
+                      <td>Минут</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Табата</td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <td>Планка</td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="col-md-3 text-left table_plan">
+                <h3 class="h3Fix">Вечер</h3>
+                <table class="">
+                  <thead>
+                    <tr>
+                      <td>Упражнения</td>
+                      <td>Раз</td>
+                      <td>Минут</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>jumping jack</td>
+                      <td>500</td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <div class="row">
+              <div class="dopInfo">
+                <div class="left">
+                  <h2>Рекомендация к заданиям</h2>
+                  <ul>
+                    <li>Табата 30/40, это 30 сек дале 40 секунд отдыха и выполнить 3 раунда;</li>
+                    <li>Если у Вас по графику не получается делать утрение и вечернии тренировки, рекомендуем Вам объеденить их и выполнить в течении дня в любое удобное для Вас время.</li>
+                  </ul>
+                </div>
+                <div class="right">
+                  <h2>Задания на день</h2>
+                  <ul>
+                    <li>Jumping Jack 1000</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div><
+        </div>
+      </div>
+    </div>
+  </section> -->
+<%if @user_tariff.present?%>
+  <section class="week_plan_drugs_eat">
+    <h2 class="titel_tariff text-center">План тренировок будет доступен 08.07.2016</h2>
+  </section>
+  <!--  <section class="week_plan_drugs_eat">
+    <h2 class="titel_tariff text-center">Выберите программу тренировок</h2>
+    <form class="sendType">
+      <div class="selectType">
+        <input name="sel" id="Kar"  type="radio">
+        <label for="Kar">Карьеристка </label>
+        <input name="sel" id="bez"  type="radio">
+        <label for="bez">Беззаботная</label>
+        <input name="sel" id="dom" type="radio" checked="checked">
+        <label for="dom">Домохозяйка</label>
+      </div>
+      <button class="redBtn">Отправить</button>
+    </form>
+  </section> -->
+<%end%>
+<section class="calculate">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <form name="calorieCalculatorForm" onsubmit="calcCol()">
+          <h2>Калькулятор калорий</h2>
+          <input type="text" id="age" placeholder="Возраст" ng-model="parameters.age" required>
+          <select id="sex" required>
+            <option disabled selected style="display:none;">Пол</option>
+            <option value="male">М</option>
+            <option value="female">Ж</option>
+          </select>
+          <input type="text" id="weight" placeholder="Вес, кг" required>
+          <input type="text" id="growth" placeholder="Рост, см" required>
+          <select class="activity" id="activity" required>
+            <option disabled selected style="display:none;">Активность</option>
+            <option value="1.2">Минимальная</option>
+            <option value="1.375">Слабая</option>
+            <option value="1.55">Средняя</option>
+            <option value="1.725">Высокая</option>
+            <option value="1.9">Экстра-активность</option>
+          </select>
+          <p>Расчёт ежедневного потребления калорий можно произвести по двум разным
+                <br>
+            методикам: одной из самых современных, по формуле Миффлина-Сан Жеора
+              </p>
+          <button type="button" class="redBtn" id="calcCol">Рассчитать</button>
+        </form>
+        <div>
+          <h3><span id="calRez"></span></h3>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="regimAndFoodSec">
+  <div class="container">
+    <div dir="row">
+      <div class="col-md-3"> <!-- required for floating -->
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs tabs-left">
+          <li class="active"><a href="#home" data-toggle="tab">Питание</a></li>
+          <li><a href="#messages" data-toggle="tab">Способы приготовления продуктов</a></li>
+          <li><a href="#profile" data-toggle="tab">Разрешенное спортивное питание</a></li>
+          <li><a href="#profile" data-toggle="tab">Разрешённые овощи и фрукты</a></li>
+          <li><a href="#profile" data-toggle="tab">Разрешенные белковые продукты</a></li>
+          <li><a href="#profile" data-toggle="tab">Разрешённые источники жира</a></li>
+          <li><a href="#settings" data-toggle="tab">Напитки</a></li>
+          <li><a href="#settings" data-toggle="tab">Примеры рационов питания на день</a></li>
+        </ul>
+      </div>
+      <div class="col-md-9">
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <div class="tab-pane active" id="home">Home Tab.</div>
+          <div class="tab-pane" id="profile">Profile Tab.</div>
+          <div class="tab-pane" id="messages">Messages Tab.</div>
+          <div class="tab-pane" id="settings">Settings Tab.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="sendMailSec trainMail">
+  <div class="container" ng-hide="$ctrl.messageWasSent" >
+    <div class="row">
+      <div class="col-md-12">
+        <h1>Задать вопросы тренеру и диетологу</h1>
+        <form name="contactTrainerForm" ng-submit="$ctrl.contactTrainer(message)">
+          <div class="row">
+            <div class="col-md-offset-2 col-md-8">
+              <ul class="mailParth">
+                <input type="text" ng-model="message.theme" placeholder="Тема" required />
+                <textarea ng-model="message.text" placeholder="Ваше сообщение" rows="6" required></textarea>
+              </ul>
+            </div>
+            <div class="col-md-offset-2 col-md-8">
+              <button class="redBtn" type="submit" ng-disabled="contactTrainerForm.$pristine || contactTrainerForm.$invalid">Отправить</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="container center-align" ng-show="$ctrl.messageWasSent">
         <h1>Ваше сообщение успешно отправлено</h1>
       </div> -->
-  </section>
+</section>

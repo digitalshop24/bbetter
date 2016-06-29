@@ -8,8 +8,9 @@ Rails.application.routes.draw do
   put '/edit_profile', to: "home#edit_profile", as: :edit_profile
   get '/profile', to: "home#profile", as: :profile
   get '/testcheck', to: "application#testcheck"
-  post '/testcheck', to: "yandex_kassa#testcheck"
-  post '/testpay', to: "yandex_kassa#testpay"
+  post '/check', to: "yandex_kassa#testcheck"
+  post '/pay', to: "yandex_kassa#testpay"
+  post 'registration', to: "home#registration"
   controller 'yandex_kassa', constraints: { subdomain: 'ssl' } do
       post :testcheck
       post :testpay

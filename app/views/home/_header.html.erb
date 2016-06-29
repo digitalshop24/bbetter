@@ -51,23 +51,26 @@
   </ul>
   <ul class="right">
     <% if current_user %>
-      <%= link_to 'Выйти', :destroy_user_session, method: :delete %>
-      <a href=""  data-toggle="modal" data-target="#editProfileModal">Редактировать профиль</a>
-    <% else %>
-      <a data-toggle="modal" data-target="#signInModal">Войти</a>
-      <button class="grayBtn" type="button" onclick="yaCounter38070020.reachGoal('registracija'); return true;" type="button" data-toggle="modal" data-target="#regModal">Регистрация</button>
-    <% end %>
-    <!-- <a ng-show="$ctrl.user.authorized" ng-click="$ctrl.logout()" href="">Выйти</a> -->
-    
-    <!--
-          <button class="grayBtn menuLoginBtn"><span>user name</span></button>
-           <div class="menuLogin text-center" >
-            <div class="menuLoginWrap">
-              <p><a class="" >Кабинет</a></p>
-              <p><a class="" ><span>Редактировать</span></a></p>
-              <p><a class=""><span>Выйти</span></a></p>
-            </div>
-          </div> -->
-  </ul>
-</nav>
+      <div class="dropdown right">
+        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" style="
+            margin-left: 0px;
+            position: fixed;
+            height: 70px;
+            width: 101px;
+            background-color: transparent;
+            border-color: transparent;
+        ">
+          <button style="width:100px;" class="grayBtn menuLoginBtn"><span><%=current_user.name%></span></button>
+          <ul class="dropdown-menu">
+            <li><a href="/profile">Кабинет</a></li>
+            <li><a href=""  data-toggle="modal" data-target="#editProfileModal">Редактировать</a></li>
+            <li><%= link_to 'Выйти', :destroy_user_session, method: :delete %></li>
+          </ul>
+        </button>
+      <% else %>
+        <a data-toggle="modal" data-target="#signInModal">Войти</a>
+        <button class="grayBtn" type="button" onclick="yaCounter38070020.reachGoal('registracija'); return true;" type="button" data-toggle="modal" data-target="#regModal">Регистрация</button>
+      <% end %>
+    </ul>
+  </nav>
 </nav>
