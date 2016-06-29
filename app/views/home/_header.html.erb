@@ -52,6 +52,7 @@
   <ul class="right">
     <% if current_user %>
       <%= link_to 'Выйти', :destroy_user_session, method: :delete %>
+      <a href=""  data-toggle="modal" data-target="#editProfileModal">Редактировать профиль</a>
     <% else %>
       <a data-toggle="modal" data-target="#signInModal">Войти</a>
       <button class="grayBtn" type="button" onclick="yaCounter38070020.reachGoal('registracija'); return true;" type="button" data-toggle="modal" data-target="#regModal">Регистрация</button>

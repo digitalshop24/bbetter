@@ -1,65 +1,9 @@
 <section class="modalSec">
-  <div class="modal fade" id="regModal" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <img class="modalLogo" src="<%= asset_path('modal/infinityModal.png') %>" alt="logo modal" />
-        </div>
-        <div class="modal-body">
-          <div class="formWrapper">
-            <%= form_for @user, as: :user, url: :home_registration, onsubmit: "thankU()" do |f| %>
-              <div class="row">
-                <div class="col-md-12">
-                  <%= f.text_field :name, autofocus: true, placeholder: 'Имя', required: true %>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-12">
-                  <%= f.email_field :email, placeholder: 'Электронная почта', required: true %>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-12">
-                  <%= f.text_field :city, placeholder: 'Город', required: true %>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-12">
-                  <%= text_field_tag :promo, nil, placeholder: 'Промокод' %>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col-md-6">
-                  <%= f.text_field :city, placeholder: 'Возраст', required: true %>
-                </div>
-                <div class="col-md-6 text-right checked_Male">
-                  <input type="radio" id="radioMale" name="male" class="hide-radio" value="M" />
-                  <label for="radioMale">M </label>
-                  <input type="radio" id="radioFemale" checked="checked" name="male" class="hide-radio" value="Ж" />
-                  <label for="radioFemale">Ж</label>
-                </div>
-              </div>
-              <div class="modal-footer">
-                <div class="row">
-                  <div class="col-md-12">
-                    <p class="redLabel">Заполните, пожалуйста, все поля!</p>
-                    <p>В течении нескольких минут ожидайте письмо</p>
-                    <%= f.submit "Зарегистрироваться", class: 'redBtn' %>
-                  </div>
-                </div>
-              </div>
-            <% end %>
-          </div>
-          <!--  formWrapper -->
-          <div class="thankU">
-            <h2>Спасибо, Ваше письмо отправлено!</h2>
-          </div>
-        </div>
-        <!-- modal-body -->
-      </div>
-    </div>
-  </div>
+  <% if current_user %>
+    <%= render 'users/modals/edit_profile' %>
+  <% else %>
+    <%= render 'users/modals/reg' %>
+  <% end %>
   <div class="modal fade" id="signInModal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -150,6 +94,8 @@
                 <p>2.2. Заявка – намерение Заказчика воспользоваться услугами Исполнителя, выраженное в направлении электронного запроса по установленной форме на сайте Исполнителя;</p>
                 <p>2.3. Принятие – полное и безоговорочное признание всех условий оферты Заказчиком;
                     
+                  
+                  
                   <p>2.4. Технологии дистанционного предоставления информационных услуг – оказание информационных услуг дистанционно, с использованием сети Интернет (полностью либо частично);</p>
                   <p>2.5. Личный кабинет – вэб-страница под названием «Личный кабинет», находящаяся на сайте Исполнителя и содержащая статистическую информацию об объемах полученных услуг, а также информацию о текущем статусе прохождения информационного курса;</p>
                   <p>2.6. Официальный сайт Исполнителя (далее по тексту «Сайт») – вэб-страница, размещенная в сети Интернет по адресу: www.bbetter.club;</p>
