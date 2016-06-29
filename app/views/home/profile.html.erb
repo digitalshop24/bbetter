@@ -1,24 +1,24 @@
 <%if @user_tariff.present?%>
-      <section class="lineSec" id="fiveStep">
-        <h1>Тариф &laquo;<%=@current_tarrif.name%>&raquo;</h1>
-      </section>
-    <%else%>
-      <section class="notif" ng-show="ctrl.openBord">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12">
-              <div class="notifWrap" >
-                <h2>
-                 <%= image_tag('notificationSec/notif.png') %>
-                  Ваш аккаунт не оплачен</h2>
-                  <p class="closeNotif">Закрыть</p>
-              </div>
-            </div>
+  <section class="lineSec" id="fiveStep">
+    <h1>Тариф &laquo;<%= @current_tarrif.name%>&raquo;</h1>
+  </section>
+<%else%>
+  <section class="notif" ng-show="ctrl.openBord">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="notifWrap" >
+            <h2>
+              <%= image_tag('notificationSec/notif.png') %>
+              Ваш аккаунт не оплачен</h2>
+            <p class="closeNotif">Закрыть</p>
           </div>
         </div>
-      </section>
-    <%end%>
-   <!--  <section class="user_data">
+      </div>
+    </div>
+  </section>
+<%end%>
+<!--  <section class="user_data">
       <div class="container">
         <div class="row">
            <div class="col-md-12 text-center user_data_titel">
@@ -79,37 +79,37 @@
         </div>
       </div>
     </section> -->
-    <form id="payform1" action="https://money.yandex.ru/eshop.xml" method="post">
-<!-- Обязательные поля -->
-      <input name="shopId" value="62054" type="hidden"/>
-      <input name="scid" value="58153" type="hidden"/>
-      <input name="sum" value="2000" type="hidden"/>
-      <input name="customerNumber" value="<%=@user.id%>" type="hidden"/>
-      <input name="tariffId" value="1" type="hidden" type="hidden"/>
-    </form>
-    <form id="payform2" action="https://money.yandex.ru/eshop.xml" method="post">
-<!-- Обязательные поля -->
-      <input name="shopId" value="62054" type="hidden"/>
-      <input name="scid" value="58153" type="hidden"/>
-      <input name="sum" value="3000" type="hidden"/>
-      <input name="customerNumber" value="<%=@user.id%>" type="hidden"/>
-      <input name="tariffId" value="2" type="hidden" type="hidden"/>
-    </form>
-    <form id="payform3" action="https://money.yandex.ru/eshop.xml" method="post">
-<!-- Обязательные поля -->
-      <input name="shopId" value="62054" type="hidden"/>
-      <input name="scid" value="58153" type="hidden"/>
-      <input name="sum" value="5000" type="hidden"/>
-      <input name="customerNumber" value="<%=@user.id%>" type="hidden"/>
-      <input name="tariffId" value="3" type="hidden" type="hidden"/>
-    </form>
-    <%if !@user_tariff.present?%>
-      <section class="tariffSec" id="tariffSec">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12">
-              <div class="wrapper">
-  <!--               <% @tariffs.each do |tariff| %>
+<form id="payform1" action="https://money.yandex.ru/eshop.xml" method="post">
+  <!-- Обязательные поля -->
+  <input name="shopId" value="62054" type="hidden"/>
+  <input name="scid" value="58153" type="hidden"/>
+  <input name="sum" value="2000" type="hidden"/>
+  <input name="customerNumber" value="<%=@user.id%>" type="hidden"/>
+  <input name="tariffId" value="1" type="hidden" type="hidden"/>
+</form>
+<form id="payform2" action="https://money.yandex.ru/eshop.xml" method="post">
+  <!-- Обязательные поля -->
+  <input name="shopId" value="62054" type="hidden"/>
+  <input name="scid" value="58153" type="hidden"/>
+  <input name="sum" value="3000" type="hidden"/>
+  <input name="customerNumber" value="<%=@user.id%>" type="hidden"/>
+  <input name="tariffId" value="2" type="hidden" type="hidden"/>
+</form>
+<form id="payform3" action="https://money.yandex.ru/eshop.xml" method="post">
+  <!-- Обязательные поля -->
+  <input name="shopId" value="62054" type="hidden"/>
+  <input name="scid" value="58153" type="hidden"/>
+  <input name="sum" value="5000" type="hidden"/>
+  <input name="customerNumber" value="<%=@user.id%>" type="hidden"/>
+  <input name="tariffId" value="3" type="hidden" type="hidden"/>
+</form>
+<%if !@user_tariff.present?%>
+  <section class="tariffSec" id="tariffSec">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="wrapper">
+            <!--               <% @tariffs.each do |tariff| %>
                   <div class="itWrap">
                     <h2><%= tariff.name %></h2>
                     <p><%= tariff.people_number %> человек</p>
@@ -117,26 +117,29 @@
                     <button class="redBtn" ng-show="!ctrl.user.authorized" ng-click="ctrl.registrationPopup.registration()">Это я!</button>
                   </div>
                 <% end %> -->
-                <div class="itWrap">
-                    <h2>Спортсмен<br/> одиночка</h2>
-                    <p>1 человек</p>
-                    <span>2 000 <i class="fa fa-rub"></i></span>
-                    <button class="redBtn" ng-show="!ctrl.user.authorized" onclick="document.getElementById('payform1').submit();">Это я!</button>
-                  </div>
-                  <div class="itWrap">
-                    <h2>Парный<br/> старт</h2>
-                    <p>2 человека</p>
-                    <span>3 000 <i class="fa fa-rub"></i></span>
-                    <button class="redBtn" ng-show="!ctrl.user.authorized" onclick="document.getElementById('payform2').submit();">Это мы!</button>
-                  </div>
-                  <div class="itWrap">
-                    <h2>Командный <br/>зачет</h2>
-                    <p>5 человек</p>
-                    <span>5 000 <i class="fa fa-rub"></i></span>
-                    <button class="redBtn" ng-show="!ctrl.user.authorized" onclick="document.getElementById('payform3').submit();">Начать!</button>
-                  </div>
-              </div>
-              <!-- <div class="itWrap">
+            <div class="itWrap">
+              <h2>Спортсмен<br/>
+                 одиночка</h2>
+              <p>1 человек</p>
+              <span>2 000 <i class="fa fa-rub"></i></span>
+              <button class="redBtn" ng-show="!ctrl.user.authorized" onclick="document.getElementById('payform1').submit();">Это я!</button>
+            </div>
+            <div class="itWrap">
+              <h2>Парный<br/>
+                 старт</h2>
+              <p>2 человека</p>
+              <span>3 000 <i class="fa fa-rub"></i></span>
+              <button class="redBtn" ng-show="!ctrl.user.authorized" onclick="document.getElementById('payform2').submit();">Это мы!</button>
+            </div>
+            <div class="itWrap">
+              <h2>Командный <br/>
+                зачет</h2>
+              <p>5 человек</p>
+              <span>5 000 <i class="fa fa-rub"></i></span>
+              <button class="redBtn" ng-show="!ctrl.user.authorized" onclick="document.getElementById('payform3').submit();">Начать!</button>
+            </div>
+          </div>
+          <!-- <div class="itWrap">
                     <h2>Допинг</h2>
                     <p>Доспупен каждую неделю за исключением финала. Дает возможность проходить в следующий уровень без недельного соревнования</p>
                     <span>1 000 <i class="fa fa-rub"></i></span>
@@ -144,15 +147,13 @@
                       <button class="DrugsBtn"></button>
                     </div>
                   </div> -->
-            </div>
-          </div>
         </div>
       </div>
-    </section>
-    <%end%>
-
-
-  <!-- <section class="week_plan_drugs_eat">
+    </div>
+  </div>
+</section>
+<%end%>
+<!-- <section class="week_plan_drugs_eat">
     <div class="container">
       <div id="tabs-container">
         <div class="row text-center">
@@ -1103,11 +1104,11 @@
       </div>
     </div>
   </section> -->
-  <%if @user_tariff.present?%>
+<%if @user_tariff.present?%>
   <section class="week_plan_drugs_eat">
     <h2 class="titel_tariff text-center">План тренировок будет доступен 08.07.2016</h2>
   </section>
- <!--  <section class="week_plan_drugs_eat">
+  <!--  <section class="week_plan_drugs_eat">
     <h2 class="titel_tariff text-center">Выберите программу тренировок</h2>
     <form class="sendType">
       <div class="selectType">
@@ -1121,95 +1122,92 @@
       <button class="redBtn">Отправить</button>
     </form>
   </section> -->
-  <%end%>
-
-  <section class="calculate">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12 text-center">
-          <form name="calorieCalculatorForm" onsubmit="calcCol()">
-            <h2>Калькулятор калорий</h2>
-            <input type="text" id="age" placeholder="Возраст" ng-model="parameters.age" required>
-            <select id="sex" required>
-              <option disabled selected style="display:none;">Пол</option>
-              <option value="male">М</option>
-              <option value="female">Ж</option>
-            </select>
-            <input type="text" id="weight" placeholder="Вес, кг" required>
-            <input type="text" id="growth" placeholder="Рост, см" required>
-            <select class="activity" id="activity" required>
-              <option disabled selected style="display:none;">Активность</option>
-              <option value="1.2">Минимальная</option>
-              <option value="1.375">Слабая</option>
-              <option value="1.55">Средняя</option>
-              <option value="1.725">Высокая</option>
-              <option value="1.9">Экстра-активность</option>
-            </select>
-            <p>Расчёт ежедневного потребления калорий можно произвести по двум разным
+<%end%>
+<section class="calculate">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <form name="calorieCalculatorForm" onsubmit="calcCol()">
+          <h2>Калькулятор калорий</h2>
+          <input type="text" id="age" placeholder="Возраст" ng-model="parameters.age" required>
+          <select id="sex" required>
+            <option disabled selected style="display:none;">Пол</option>
+            <option value="male">М</option>
+            <option value="female">Ж</option>
+          </select>
+          <input type="text" id="weight" placeholder="Вес, кг" required>
+          <input type="text" id="growth" placeholder="Рост, см" required>
+          <select class="activity" id="activity" required>
+            <option disabled selected style="display:none;">Активность</option>
+            <option value="1.2">Минимальная</option>
+            <option value="1.375">Слабая</option>
+            <option value="1.55">Средняя</option>
+            <option value="1.725">Высокая</option>
+            <option value="1.9">Экстра-активность</option>
+          </select>
+          <p>Расчёт ежедневного потребления калорий можно произвести по двум разным
                 <br>
-              методикам: одной из самых современных, по формуле Миффлина-Сан Жеора
+            методикам: одной из самых современных, по формуле Миффлина-Сан Жеора
               </p>
-            <button type="button" class="redBtn" id="calcCol">Рассчитать</button>
-          </form>
-           <div>
-              <h3><span id="calRez"></span></h3>
-            </div>
+          <button type="button" class="redBtn" id="calcCol">Рассчитать</button>
+        </form>
+        <div>
+          <h3><span id="calRez"></span></h3>
         </div>
       </div>
-    </div>
-  </section>
-  <section class="regimAndFoodSec">
-  <div class="container">
-    <div dir="row">
-      <div class="col-md-3"> <!-- required for floating -->
-          <!-- Nav tabs -->
-          <ul class="nav nav-tabs tabs-left">
-            <li class="active"><a href="#home" data-toggle="tab">Питание</a></li>
-            <li><a href="#messages" data-toggle="tab">Способы приготовления продуктов</a></li>
-            <li><a href="#profile" data-toggle="tab">Разрешенное спортивное питание</a></li>
-            <li><a href="#profile" data-toggle="tab">Разрешённые овощи и фрукты</a></li>
-            <li><a href="#profile" data-toggle="tab">Разрешенные белковые продукты</a></li>
-            <li><a href="#profile" data-toggle="tab">Разрешённые источники жира</a></li>
-            <li><a href="#settings" data-toggle="tab">Напитки</a></li>
-            <li><a href="#settings" data-toggle="tab">Примеры рационов питания на день</a></li>
-
-          </ul>
-      </div>
-
-      <div class="col-md-9">
-          <!-- Tab panes -->
-          <div class="tab-content">
-            <div class="tab-pane active" id="home">Home Tab.</div>
-            <div class="tab-pane" id="profile">Profile Tab.</div>
-            <div class="tab-pane" id="messages">Messages Tab.</div>
-            <div class="tab-pane" id="settings">Settings Tab.</div>
-          </div>
-      </div>  
     </div>
   </div>
 </section>
-  <section class="sendMailSec trainMail">
-    <div class="container" ng-hide="$ctrl.messageWasSent" >
-      <div class="row">
-        <div class="col-md-12">
-          <h1>Задать вопросы тренеру и диетологу</h1>
-          <form name="contactTrainerForm" ng-submit="$ctrl.contactTrainer(message)">
-            <div class="row">
-              <div class="col-md-offset-2 col-md-8">
-                <ul class="mailParth">
-                  <input type="text" ng-model="message.theme" placeholder="Тема" required />
-                  <textarea ng-model="message.text" placeholder="Ваше сообщение" rows="6" required></textarea>
-                </ul>
-              </div>
-              <div class="col-md-offset-2 col-md-8">
-                <button class="redBtn" type="submit" ng-disabled="contactTrainerForm.$pristine || contactTrainerForm.$invalid">Отправить</button>
-              </div>
-            </div>
-          </form>
+<section class="regimAndFoodSec">
+  <div class="container">
+    <div dir="row">
+      <div class="col-md-3"> <!-- required for floating -->
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs tabs-left">
+          <li class="active"><a href="#home" data-toggle="tab">Питание</a></li>
+          <li><a href="#messages" data-toggle="tab">Способы приготовления продуктов</a></li>
+          <li><a href="#profile" data-toggle="tab">Разрешенное спортивное питание</a></li>
+          <li><a href="#profile" data-toggle="tab">Разрешённые овощи и фрукты</a></li>
+          <li><a href="#profile" data-toggle="tab">Разрешенные белковые продукты</a></li>
+          <li><a href="#profile" data-toggle="tab">Разрешённые источники жира</a></li>
+          <li><a href="#settings" data-toggle="tab">Напитки</a></li>
+          <li><a href="#settings" data-toggle="tab">Примеры рационов питания на день</a></li>
+        </ul>
+      </div>
+      <div class="col-md-9">
+        <!-- Tab panes -->
+        <div class="tab-content">
+          <div class="tab-pane active" id="home">Home Tab.</div>
+          <div class="tab-pane" id="profile">Profile Tab.</div>
+          <div class="tab-pane" id="messages">Messages Tab.</div>
+          <div class="tab-pane" id="settings">Settings Tab.</div>
         </div>
       </div>
     </div>
-    <!-- <div class="container center-align" ng-show="$ctrl.messageWasSent">
+  </div>
+</section>
+<section class="sendMailSec trainMail">
+  <div class="container" ng-hide="$ctrl.messageWasSent" >
+    <div class="row">
+      <div class="col-md-12">
+        <h1>Задать вопросы тренеру и диетологу</h1>
+        <form name="contactTrainerForm" ng-submit="$ctrl.contactTrainer(message)">
+          <div class="row">
+            <div class="col-md-offset-2 col-md-8">
+              <ul class="mailParth">
+                <input type="text" ng-model="message.theme" placeholder="Тема" required />
+                <textarea ng-model="message.text" placeholder="Ваше сообщение" rows="6" required></textarea>
+              </ul>
+            </div>
+            <div class="col-md-offset-2 col-md-8">
+              <button class="redBtn" type="submit" ng-disabled="contactTrainerForm.$pristine || contactTrainerForm.$invalid">Отправить</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- <div class="container center-align" ng-show="$ctrl.messageWasSent">
         <h1>Ваше сообщение успешно отправлено</h1>
       </div> -->
-  </section>
+</section>

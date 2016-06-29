@@ -20,7 +20,7 @@ $('.accordion li').click(function(e) {
 });
 
 $(document).ready(function(){
-  console.log('AGE');
+  //console.log('AGE');
   $('.beforeAfter').slick({
     slidesToShow: 1,
     slidesToScroll: 1,
