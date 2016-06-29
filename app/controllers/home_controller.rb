@@ -41,7 +41,6 @@ class HomeController < ApplicationController
       sign_in(:user, @user)
       redirect_to :profile
     else
-      binding.pry
       flash[:info] = "Регистрация не было успешной"
       flash[:modal] = 'regModal'
       render 'index'
