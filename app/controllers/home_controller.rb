@@ -81,9 +81,11 @@ class HomeController < ApplicationController
       tariff = Tariff.find_by(people_number: 1)
       @user.errors[:promocode] << "нету подходящего тарифа" unless tariff
     end
-    if pc && tariff && @user.save
-      pc.update(activated_at: Time.now, user: @user)
-      UserTariff.create(user: @user, tariff: tariff)
+    if @user.errors.empty? && @user.save
+      if pc && tariff
+        pc.update(activated_at: Time.now, user: @user)
+        UserTariff.create(user: @user, tariff: tariff)
+      end
       begin
         UserMailer.password_email(user, generated_password).deliver_now
         flash[:info] = 'Пароль был отправлен на почту'
