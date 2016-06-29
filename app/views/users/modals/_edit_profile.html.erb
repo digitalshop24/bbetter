@@ -1,0 +1,64 @@
+<div class="modal fade" id="editProfileModal" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <img class="modalLogo" src="<%= asset_path('modal/infinityModal.png') %>" alt="logo modal" />
+      </div>
+      <div class="modal-body">
+        <%= render partial: 'users/errors', locals: { errors: flash[:new_solution_errors] } if flash[:new_solution_errors].present? %> 
+        <div class="formWrapper">
+          <%= form_for @user, as: :user, url: :edit_profile, method: :put, onsubmit: "thankU()" do |f| %>
+            <div class="row">
+              <div class="col-md-12">
+                <%= f.text_field :name, autofocus: true, placeholder: 'Имя', required: true %>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <%= f.email_field :email, placeholder: 'Электронная почта', required: true %>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <%= f.text_field :city, placeholder: 'Город', required: true %>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <% if @user.promocode %>
+                  <%= text_field_tag :promocode, @user.promocode.code, disabled: true, class: 'text-muted' %>
+                <% else %>
+                  <%= text_field_tag :promocode, nil, placeholder: 'Промокод' %>
+                <% end %>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <%= f.text_field :age, placeholder: 'Возраст', required: true %>
+              </div>
+              <div class="col-md-6 text-right checked_Male">
+                <%= radio_button :user, :sex, :male, class: 'hide-radio' %>
+                <label for="user_sex_male">M </label>
+                <%= radio_button :user, :sex, :female, class: 'hide-radio' %>
+                <label for="user_sex_female">Ж</label>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <div class="row">
+                <div class="col-md-12">
+                  <%= f.submit "Сохранить", class: 'redBtn' %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+        <!--  formWrapper -->
+        <div class="thankU">
+          <h2>Спасибо, Ваше письмо отправлено!</h2>
+        </div>
+      </div>
+      <!-- modal-body -->
+    </div>
+  </div>
+</div>

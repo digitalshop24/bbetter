@@ -1,112 +1,159 @@
-<section class="lineSec" id="fiveStep">
-  <%if @user_tariff.present?%>
-    <h1>Тариф &laquo;Парный старт&raquo; </h1>
-  <%else%>
-    <h1>Оплата тарифов будет доступна в среду, мы обязательно уведомим Вас заранее. </h1>
-  <%end%>
-</section>
-<section class="user_data">
-  <div class="container ">
-    <div class="row">
-      <!-- <div class="col-md-12 text-center user_data_titel">
-            <h2>Дина Богачева</h2>
-            <p>Доступно еще<br> <span class="pink">2</span> участника</p>
-            <button class="redBtn">Пригласить</button>
-          </div> -->
-      <div class="col-md-12 text-left form">
-        <input type="text" placeholder="Мотивирующие слова" class="motivation_word">
-        <div class="row">
-          <div class="col-md-9">
-            <button class="user_data_btn btn_left text-center">Загрузить <br>
-              <<До>></button>
-              <button class="user_data_btn btn_center text-center">Загрузить <br>
-                <<После>></button>
-                <button class="user_data_btn btn_right text-center">Загрузить <br>
-                  Мотивашку</button>
-              </div>
-              <div class="col-md-3 text-center user_paramentry">
-                <h3>Показатели участника</h3>
-                <p>Замеры веса и объемов производить<br>
-                  в расслабленном состоянии и минимуме одежды.</p>
-                <ul>
-                  <li><input type="text" placeholder="Вес"></li>
-                  <li><input type="text" placeholder="Рост"></li>
-                  <li><input type="text" placeholder="Возраст"></li>
-                </ul>
-                <ul style="margin-left: 20px;">
-                  <li><input type="text" placeholder="Грудь"></li>
-                  <li><input type="text" placeholder="Талия"></li>
-                  <li><input type="text" placeholder="Бедра"></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-12 text-center footer_user_data">
-            <p class="pink " style="">Загрузка фотографий станет доступной после оплаты тарифа</p>
-            <button class="redBtn" >Сохранить изменения</button>
-            <br/>
-            <br/>
-            <button class="redBtn">Ещё</button>
-          </div>
-        </div>
-      </div>
-    </section>
-    <form id="payform" action="https://money.yandex.ru/eshop.xml" method="post">
-<!-- Обязательные поля -->
-      <input name="shopId" value="62054" type="hidden"/>
-      <input name="scid" value="58153" type="hidden"/>
-      <input name="sum" value="100" type="hidden"/>
-      <input name="customerNumber" value="<%=@user.id%>" type="hidden"/>
-      <input name="tariffId" value="2" type="hidden" type="hidden"/>
-    </form>
-    <section class="tariffSec" id="tariffSec">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="wrapper">
-<!--               <% @tariffs.each do |tariff| %>
-                <div class="itWrap">
-                  <h2><%= tariff.name %></h2>
-                  <p><%= tariff.people_number %> человек</p>
-                  <span><%= tariff.price %> <i class="fa fa-rub"></i></span>
-                  <button class="redBtn" ng-show="!ctrl.user.authorized" ng-click="ctrl.registrationPopup.registration()">Это я!</button>
-                </div>
-              <% end %> -->
-              <div class="itWrap">
-                  <h2>Спортсмен<br/> одиночка</h2>
-                  <p>1 человек</p>
-                  <span>2 000 <i class="fa fa-rub"></i></span>
-                  <button class="redBtn" onclick="document.getElementById('payform').submit();">Это я!</button>
-                </div>
-                <div class="itWrap">
-                  <h2>Парный<br/> старт</h2>
-                  <p>2 человека</p>
-                  <span>3 000 <i class="fa fa-rub"></i></span>
-                  <button class="redBtn" ng-show="!ctrl.user.authorized" ng-click="ctrl.registrationPopup.registration()">Это мы!</button>
-                </div>
-                <div class="itWrap">
-                  <h2>Командный <br/>зачет</h2>
-                  <p>5 человек</p>
-                  <span>5 000 <i class="fa fa-rub"></i></span>
-                  <button class="redBtn" ng-show="!ctrl.user.authorized" ng-click="ctrl.registrationPopup.registration()">Начать!</button>
-                </div>
-            </div>
-            <!-- <div class="itWrap">
-                  <h2>Допинг</h2>
-                  <p>Доспупен каждую неделю за исключением финала. Дает возможность проходить в следующий уровень без недельного соревнования</p>
-                  <span>1 000 <i class="fa fa-rub"></i></span>
-                  <div class="DrugsBtnWrap">
-                    <button class="DrugsBtn"></button>
-                  </div>
-                </div> -->
+<%if @user_tariff.present?%>
+  <section class="lineSec" id="fiveStep">
+    <h1>Тариф &laquo;<%= @current_tarrif.name%>&raquo;</h1>
+  </section>
+<%else%>
+  <section class="notif" ng-show="ctrl.openBord">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="notifWrap" >
+            <h2>
+              <%= image_tag('notificationSec/notif.png') %>
+              Ваш аккаунт не оплачен</h2>
+            <p class="closeNotif">Закрыть</p>
           </div>
         </div>
       </div>
     </div>
   </section>
-
-
-  <section class="week_plan_drugs_eat">
+<%end%>
+<!--  <section class="user_data">
+      <div class="container">
+        <div class="row">
+           <div class="col-md-12 text-center user_data_titel">
+            <h2>Дина Богачева</h2>
+            <p>Доступно еще<br> <span class="pink">2</span> участника</p>
+            <button class="redBtn">Пригласить</button>
+          </div>
+          <div class="col-md-12 text-left form">
+             <input type="text" placeholder="Мотивирующие слова" class="motivation_word">
+             <div class="row">
+                <div class="col-md-6">
+                  <div class="aploadCarousel">
+                    <div>
+                      <ul class="item">
+                        <button class="user_data_btn btn_left text-center"><<ДО>><br/><br/> Загрузить  <br/> <<Спереди>></button>
+                        <button class="user_data_btn btn_center text-center"><<ДО>><br/><br/>Загрузить <br> <<Сзади>></button>
+                      </ul>
+                    </div>
+                    <div>
+                        <ul class="item">
+                          <button class="user_data_btn btn_left text-center"><<ДО>><br/><br/> Загрузить <br> <<Слева>></button>
+                          <button class="user_data_btn btn_center text-center"><<ДО>><br/><br/> Загрузить <br> <<Справа>></button>
+                        </ul>
+                    </div>
+                    <div>
+                        <ul class="item">
+                          <button class="user_data_btn btn_left text-center"><<После>><br/><br/> Загрузить <br> <<Спереди>></button>
+                          <button class="user_data_btn btn_center text-center"><<После>><br/><br/> Загрузить <br> <<Сзади>></button>
+                        </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3">
+                  <button class="user_data_btn btn_right text-center">Загрузить <br> Мотивашку</button>
+                </div>
+                <div class="col-md-3 text-center user_paramentry">
+                  <h3>Показатели участника</h3>
+                  <p>Замеры веса и объемов производить<br> в расслабленном состоянии и минимуме одежды.</p>
+                  <ul>
+                    <li><input type="text" placeholder="Вес"></li>
+                    <li><input type="text" placeholder="Рост"></li>
+                    <li><input type="text" placeholder="Возраст"></li>
+                  </ul>
+                  <ul style="margin-left: 20px;">
+                    <li><input type="text" placeholder="Грудь"></li>
+                    <li><input type="text" placeholder="Талия"></li>
+                    <li><input type="text" placeholder="Бедра"></li>
+                  </ul>
+                </div>
+             </div>
+          </div>
+          <div class="col-md-12 text-center footer_user_data">
+            <p class="pink " style="">Загрузка фотографий станет доступной после оплаты тарифа</p>
+            <button class="redBtn" >Сохранить изменения</button>
+              <br/><br/>
+            <button class="redBtn">Ещё</button>
+          </div>
+        </div>
+      </div>
+    </section> -->
+<form id="payform1" action="https://money.yandex.ru/eshop.xml" method="post">
+  <!-- Обязательные поля -->
+  <input name="shopId" value="62054" type="hidden"/>
+  <input name="scid" value="58153" type="hidden"/>
+  <input name="sum" value="2000" type="hidden"/>
+  <input name="customerNumber" value="<%=@user.id%>" type="hidden"/>
+  <input name="tariffId" value="1" type="hidden" type="hidden"/>
+</form>
+<form id="payform2" action="https://money.yandex.ru/eshop.xml" method="post">
+  <!-- Обязательные поля -->
+  <input name="shopId" value="62054" type="hidden"/>
+  <input name="scid" value="58153" type="hidden"/>
+  <input name="sum" value="3000" type="hidden"/>
+  <input name="customerNumber" value="<%=@user.id%>" type="hidden"/>
+  <input name="tariffId" value="2" type="hidden" type="hidden"/>
+</form>
+<form id="payform3" action="https://money.yandex.ru/eshop.xml" method="post">
+  <!-- Обязательные поля -->
+  <input name="shopId" value="62054" type="hidden"/>
+  <input name="scid" value="58153" type="hidden"/>
+  <input name="sum" value="5000" type="hidden"/>
+  <input name="customerNumber" value="<%=@user.id%>" type="hidden"/>
+  <input name="tariffId" value="3" type="hidden" type="hidden"/>
+</form>
+<%if !@user_tariff.present?%>
+  <section class="tariffSec" id="tariffSec">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="wrapper">
+            <!--               <% @tariffs.each do |tariff| %>
+                  <div class="itWrap">
+                    <h2><%= tariff.name %></h2>
+                    <p><%= tariff.people_number %> человек</p>
+                    <span><%= tariff.price %> <i class="fa fa-rub"></i></span>
+                    <button class="redBtn" ng-show="!ctrl.user.authorized" ng-click="ctrl.registrationPopup.registration()">Это я!</button>
+                  </div>
+                <% end %> -->
+            <div class="itWrap">
+              <h2>Спортсмен<br/>
+                 одиночка</h2>
+              <p>1 человек</p>
+              <span>2 000 <i class="fa fa-rub"></i></span>
+              <button class="redBtn" ng-show="!ctrl.user.authorized" onclick="document.getElementById('payform1').submit();">Это я!</button>
+            </div>
+            <div class="itWrap">
+              <h2>Парный<br/>
+                 старт</h2>
+              <p>2 человека</p>
+              <span>3 000 <i class="fa fa-rub"></i></span>
+              <button class="redBtn" ng-show="!ctrl.user.authorized" onclick="document.getElementById('payform2').submit();">Это мы!</button>
+            </div>
+            <div class="itWrap">
+              <h2>Командный <br/>
+                зачет</h2>
+              <p>5 человек</p>
+              <span>5 000 <i class="fa fa-rub"></i></span>
+              <button class="redBtn" ng-show="!ctrl.user.authorized" onclick="document.getElementById('payform3').submit();">Начать!</button>
+            </div>
+          </div>
+          <!-- <div class="itWrap">
+                    <h2>Допинг</h2>
+                    <p>Доспупен каждую неделю за исключением финала. Дает возможность проходить в следующий уровень без недельного соревнования</p>
+                    <span>1 000 <i class="fa fa-rub"></i></span>
+                    <div class="DrugsBtnWrap">
+                      <button class="DrugsBtn"></button>
+                    </div>
+                  </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<%end%>
+<!-- <section class="week_plan_drugs_eat">
     <div class="container">
       <div id="tabs-container">
         <div class="row text-center">
@@ -251,7 +298,7 @@
                   </tbody>
                 </table>
               </div>
-            </div> <!--ROW END-->
+            </div>
             <div class="row">
               <div class="dopInfo">
                 <div class="left">
@@ -269,7 +316,7 @@
                 </div>
               </div>
             </div>
-          </div> <!-- MONDAY PARTH -->
+          </div>
           <div id="tuesday" class="tab-content">
             <div class="row">
               <div class="col-md-3 text-left table_plan">
@@ -400,7 +447,7 @@
                   </tbody>
                 </table>
               </div>
-            </div> <!--ROW END-->
+            </div>
             <div class="row">
               <div class="dopInfo">
                 <div class="left">
@@ -418,7 +465,7 @@
                 </div>
               </div>
             </div>
-          </div><!-- tuesday PARTH -->
+          </div>
         </div>
       </div>
     </div>
@@ -568,7 +615,7 @@
                   </tbody>
                 </table>
               </div>
-            </div> <!--ROW END-->
+            </div>
             <div class="row">
               <div class="dopInfo">
                 <div class="left">
@@ -586,7 +633,7 @@
                 </div>
               </div>
             </div>
-          </div> <!-- MONDAY PARTH -->
+          </div>
           <div id="tuesday2" class="tab-content">
             <div class="row">
               <div class="col-md-3 text-left table_plan">
@@ -717,7 +764,7 @@
                   </tbody>
                 </table>
               </div>
-            </div> <!--ROW END-->
+            </div>
             <div class="row">
               <div class="dopInfo">
                 <div class="left">
@@ -735,7 +782,7 @@
                 </div>
               </div>
             </div>
-          </div><!-- tuesday PARTH -->
+          </div>
         </div>
       </div>
     </div>
@@ -885,7 +932,7 @@
                   </tbody>
                 </table>
               </div>
-            </div> <!--ROW END-->
+            </div>
             <div class="row">
               <div class="dopInfo">
                 <div class="left">
@@ -903,7 +950,7 @@
                 </div>
               </div>
             </div>
-          </div> <!-- MONDAY PARTH -->
+          </div>
           <div id="tuesday3" class="tab-content">
             <div class="row">
               <div class="col-md-3 text-left table_plan">
@@ -1034,7 +1081,7 @@
                   </tbody>
                 </table>
               </div>
-            </div> <!--ROW END-->
+            </div>
             <div class="row">
               <div class="dopInfo">
                 <div class="left">
@@ -1052,72 +1099,224 @@
                 </div>
               </div>
             </div>
-          </div><!-- tuesday PARTH -->
+          </div><
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
+<%if @user_tariff.present?%>
   <section class="week_plan_drugs_eat">
     <h2 class="titel_tariff text-center">План тренировок будет доступен 08.07.2016</h2>
   </section>
-
-  <section class="calculate">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-12 text-center">
-          <form name="calorieCalculatorForm" ng-submit="$ctrl.calculate(parameters)">
-            <h2>Калькулятор калорий</h2>
-            <input type="text" placeholder="Возраст" ng-model="parameters.age" required>
-            <select ng-model="parameters.sex" required>
-              <option disabled selected style="display:none;">Пол</option>
-              <option value="male">М</option>
-              <option value="female">Ж</option>
-            </select>
-            <input type="text" placeholder="Вес, кг" required>
-            <input type="text" placeholder="Рост, см" required>
-            <select class="activity" required>
-              <option disabled selected style="display:none;">Активность</option>
-              <option>Минимальная</option>
-              <option>Слабая</option>
-              <option>Средняя</option>
-              <option>Высокая</option>
-              <option>Экстра-активность</option>
-            </select>
-            <p>Расчёт ежедневного потребления калорий можно произвести по двум разным
+  <!--  <section class="week_plan_drugs_eat">
+    <h2 class="titel_tariff text-center">Выберите программу тренировок</h2>
+    <form class="sendType">
+      <div class="selectType">
+        <input name="sel" id="Kar"  type="radio">
+        <label for="Kar">Карьеристка </label>
+        <input name="sel" id="bez"  type="radio">
+        <label for="bez">Беззаботная</label>
+        <input name="sel" id="dom" type="radio" checked="checked">
+        <label for="dom">Домохозяйка</label>
+      </div>
+      <button class="redBtn">Отправить</button>
+    </form>
+  </section> -->
+<%end%>
+<section class="calculate">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <form name="calorieCalculatorForm" onsubmit="calcCol()">
+          <h2>Калькулятор калорий</h2>
+          <input type="text" id="age" placeholder="Возраст" ng-model="parameters.age" required>
+          <select id="sex" required>
+            <option disabled selected style="display:none;">Пол</option>
+            <option value="male">М</option>
+            <option value="female">Ж</option>
+          </select>
+          <input type="text" id="weight" placeholder="Вес, кг" required>
+          <input type="text" id="growth" placeholder="Рост, см" required>
+          <select class="activity" id="activity" required>
+            <option disabled selected style="display:none;">Активность</option>
+            <option value="1.2">Минимальная</option>
+            <option value="1.375">Слабая</option>
+            <option value="1.55">Средняя</option>
+            <option value="1.725">Высокая</option>
+            <option value="1.9">Экстра-активность</option>
+          </select>
+          <p>Расчёт ежедневного потребления калорий можно произвести по двум разным
                 <br>
-              методикам: одной из самых современных, по формуле Миффлина-Сан Жеора
+            методикам: одной из самых современных, по формуле Миффлина-Сан Жеора
               </p>
-            <button class="redBtn" ng-disabled="calorieCalculatorForm.$pristine || calorieCalculatorForm.$invalid">Рассчитать</button>
-          </form>
-          <!-- <div ng-show="$ctrl.caloriesPerDay">
-              <h2><span ng-bind="$ctrl.caloriesPerDay"></span><span> ккал</span></h2>
-            </div> -->
+          <button type="button" class="redBtn" id="calcCol">Рассчитать</button>
+        </form>
+        <div>
+          <h3><span id="calRez"></span></h3>
         </div>
       </div>
     </div>
-  </section>
-  <section class="sendMailSec trainMail">
-    <div class="container" ng-hide="$ctrl.messageWasSent" >
-      <div class="row">
-        <div class="col-md-12">
-          <h1>Задать вопросы тренеру и диетологу</h1>
-          <form name="contactTrainerForm" ng-submit="$ctrl.contactTrainer(message)">
-            <div class="row">
-              <div class="col-md-offset-2 col-md-8">
-                <ul class="mailParth">
-                  <input type="text" ng-model="message.theme" placeholder="Тема" required />
-                  <textarea ng-model="message.text" placeholder="Ваше сообщение" rows="6" required></textarea>
-                </ul>
-              </div>
-              <div class="col-md-offset-2 col-md-8">
-                <button class="redBtn" type="submit" ng-disabled="contactTrainerForm.$pristine || contactTrainerForm.$invalid">Отправить</button>
-              </div>
+  </div>
+</section>
+<section class="regimAndFoodSec">
+  <div class="container">
+    <div dir="row">
+
+        <div class="col-md-12 text-center">
+          <h1>Режим и питание</h1>
+        </div>
+    </div>
+    <div dir="row">
+
+      <div class="col-md-3 prNone"> <!-- required for floating -->
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs tabs-left">
+          <li class="active"><a href="#sec1" data-toggle="tab">Питание</a></li>
+          <li><a href="#sec2" data-toggle="tab">Советы</a></li>
+          <li><a href="#sec3" data-toggle="tab">Разрешенные продукты,  напитки и спортивное питание</a></li>
+          <li><a href="#sec4" data-toggle="tab">Примеры рационов питания на день</a></li>
+        </ul>
+      </div>
+      <div class="col-md-9 plNone">
+          <!-- Tab panes -->
+          <div class="tab-content">
+            <div class="tab-pane active" id="sec1">
+              <h3>Теперь поговорим о самом главном — о еде! Идеальное тело формируют: на 50% питание, на 40% — твоя мотивация и на 10% - правильная схема тренировок. Так что,  если хочешь не просто поучаствовать в игре, а получить тело своей мечты и суперприз, очень серьезно отнесись к питанию! Результаты обязательно будут видны на фото «после», которое решит твою судьбу.</h3>
+              <article>Составить себе систему питания несложно. Вот твои действия:</article>
+              <ul>
+                <li>1. Зайди по <a target="_blank" href="">ссылке</a> в наш калькулятор ккалорий.</li>
+                <li>2. Высчитай свою рекомендуемую суточную норму калорий (РСК).</li>
+                <li>3. Скачай на телефон приложение, в котором можно вести свой дневник питания. Я считаю наиболее удобными FatSecret или My Fitness Pal, но ты выбирай то, что понравится именно тебе.</li>
+                <li>4. В настройках, ориентируясь на полученный тобой в калькуляторе РСК, установи пропорцию БЖУ 45% 25% 30%, где Б - это белок, Ж - жиры, У - углеводы. Приложение найдет любые продукты. Ты можешь указывать их количество и видеть их калорийность и БЖУ.</li>
+                <li>5. Занеси все желаемые продукты в приложение сразу, чтоб не терять на это время потом. И - главное условие - забудь о разнообразии! Поверь, это провоцирует срывы!</li>
+                <li>6. Начинай новую жизнь прямо сейчас! </li>
+              </ul>
             </div>
-          </form>
-        </div>
+            <div class="tab-pane" id="sec2">
+              <br/>
+              <p><strong>Купи кухонные весы и готовь еду сразу на весь день. Готовые блюда распредели по боксам. Каждый бокс = 1 приему пищи.</strong></p>
+              <p><strong>Все продукты нужно взвешивать только в сухом (крупы) и в сыром (мясо) виде!</strong></p><br/>
+              <p><strong>Желаемая частота приемов пищи - не реже 2-х-3-х часов. Но, скажу по секрету, это не очень важно. Главное - съедать нужный объем за день! </strong></p><br/>
+              <p><strong>Я рекомендую сделать порядка 4-х -5-ти приемов пищи в течение дня. Если объем пищи из расчета твоего РСК будет велик, разбей на 6 приемов</strong></p><br/>
+              <p><strong>Лучше пей чистую воду! Если твой вес 50-70 кг, пей от 1,7 литра до 2,5 литров.  Если твой вес 80-100 кг, пей от 2,7 литра до 3,3 литров.</strong></p><br/>
+            </div>
+            <div class="tab-pane" id="sec3">
+              <br/>
+              <p><strong> Способы приготовления продуктов:</strong></p>
+              <p>Варка, пар, гриль, жарка без масла.</p>
+              <p><strong>Разрешенное спортивное питание:</strong></p>
+              <p>Протеин whey / isolate. <br/>Витамины for women.</p>
+              <p><strong>Разрешённые овощи</strong></p>
+              <p>Цветная капуста, белокочанная капуста, брокколи, спаржа, зелень (петрушка, укроп, листья шпината), все виды листового салата, кабачки, огурцы, помидоры, стручковая фасоль, болгарский перец, редис, морковь и свекла (совсем немного, в качестве добавки к основному блюду). </p>
+              <p><strong>Разрешенные фрукты:</strong></p>
+              <p>Зеленое яблоко, грейпфрут, киви. </p>
+              <p><strong>Разрешенные белковые продукты:</strong></p>
+              <p>Яйца (белок).<br/>
+              Постная говядина, телятина (иногда), печень (иногда), филе грудок курицы и индейки (без кожи!).<br/>
+              Творог низкой жирности (максимум 5%).<br/>
+              Рыба и морепродукты (креветки, мидии, кальмары, гребешки, мясо краба (не перепутай с палочками!), осьминоги и т.п.).</p>
+              <p><strong>Разрешённые источники жира:</strong></p>
+              <p>Орехи не более 30 гр./сутки. <br/>
+              Сыр не более 30 гр./сутки. <br/>
+              Оливковое или льняное масло не более 15 гр./сутки. </p>
+              <p><strong>Разрешенные углеводы:</strong></p>
+              <p>Гречка, бурый рис, белый длиннозерный рис, булгур, кукуруза, овсянка, чечевица, кус-кус, киноа, макаронные изделия из муки грубого помола, зерновые хлебцы типа Dr. Koerner, отруби.</p><br/>
+              <p><strong>СОЛЬ И СПЕЦИИ ДОБАВЛЯТЬ МОЖНО, НО в малом количестве! ГОТОВЫЕ СОУСЫ - НЕТ!</strong></p><br/>
+            </div>
+            <div class="tab-pane" id="sec4">
+              <h3>Ориентируясь на них, составь свою систему!<br/> Прием пищи должен быть за 2 часа до тренировки и через 20-30 минут после. </h3>
+              <ul class="btnWrap">
+                <li class="active"><a href="#subSec1" class="redBtn" data-toggle="tab">Пример1</a></li>
+                <li><a href="#subSec2" class="redBtn" data-toggle="tab">Пример2</a></li>
+                <li><a href="#subSec3" class="redBtn" data-toggle="tab">Пример3</a></li>
+                <li><a href="#subSec4" class="redBtn" data-toggle="tab">Пример4</a></li>
+              </ul>
+              <div class="tab-content">
+                <div class="tab-pane active" id="subSec1">
+                  <p><strong>Завтрак</strong></p>
+                  <p>5 яиц (2 из них с желтком), 40 гр. овсянки на 260 мл молока, 25 гр. миндаля. 1 яблоко/апельсин. Кофе/чай и 2 капсулы витаминов.</p>
+                  <p><strong>Перекус</strong></p>
+                  <p>120 гр. фруктов. Кофе. </p>
+                  <p><strong>Обед</strong></p>
+                  <p>125 гр. филе курицы, 70 гр. макарон + ст. ложка оливкового масла + 10 гр. клетчатки. 1-2 овоща. Вода.</p>
+                  <p><strong>Полдник</strong></p>
+                  <p>125 гр. филе курицы, 60 гр. риса + 1 ст. ложка оливкового масла, 1-2 овоща. Вода.</p>
+                  <p><strong>Ужин</strong></p>
+                  <p>125 гр. филе курицы, 50 гр. риса + 1 ст. ложка оливкового масла + 10 гр. клетчатки, 1-2 овоща</p>
+                </div>
+                <div class="tab-pane" id="subSec2">
+                  <p><strong>Завтрак</strong></p>
+                  <p>200 гр. творога/ или 1,3 черпака протеина на 200 воды, 70 гр. макарон или любой крупы, 25 гр. миндаля. Кофе/чай и 2 капсулы витаминов. </p>
+                  <p><strong>Обед</strong></p>
+                  <p>125 гр. филе курицы или любого другого источника белка, 70 гр. макарон или крупы , 1-2 овоща. Вода.</p>
+                  <p><strong>Полдник</strong></p>
+                  <p>125 гр. филе индейки или другого источника белка, 70 гр. макарон или крупы, 1-2 овоща. Вода.</p>
+                  <p><strong>Ужин</strong></p>
+                  <p> 200 гр. яичных белков, 1-2 овоща. </p>
+                  <br/>
+                  <p>Перед сном 15 мл льняного масла. Прием пищи должен быть за 2 часа до тренировки и через 20-30 мин после.</p> 
+                </div>
+                <div class="tab-pane " id="subSec3">
+                  <p><strong>Завтрак в 8:00</strong></p>
+                  <p>Овсянка 70 гр. + 1 фрукт, 25 гр. миндаля. Вода.</p>
+                  <p><strong>Перекус в 11:00</strong></p>
+                  <p>200 гр. курицы + 1 овощ. Вода.</p>
+                  <p><strong>Обед в 14:00</strong></p>
+                  <p>125 гр. филе индейки или другого источника белка, 70 гр. макарон или крупы, 1-2 овоща. Вода.</p>
+                  <p><strong>Полдник в 17:00</strong></p>
+                  <p>150 гр. курицы + 1 овощ. Вода.</p>
+                  <p><strong>Ужин в 20:00</strong></p>
+                  <p>150 гр. курицы + 70 гр. гречки + 1 овощ. Вода.</p>
+                  <p><strong>Перекус в 22-23:00</strong></p>
+                  <p>250 гр. яичных белков + 1 овощ + 25 гр. масла. Вода.</p>
+                  
+                </div>
+                <div class="tab-pane" id="subSec4">
+                  <p><strong>Завтрак в 8:00</strong></p>
+                  <p>Углеводы:  x грамм крупы + 1 фрукт = 1/4 по суточной норме, 25 гр. миндаля. Вода.</p>
+                  <p><strong>Перекус в 11:00</strong></p>
+                  <p>200 гр. курицы + 1 овощ. Вода</p>
+                  <p><strong>Обед в 14:00</strong></p>
+                  <p>150 гр. курицы + 65 гр. макарон + 1 овощ. Вода.</p>
+                  <p><strong>Полдник в 17:00</strong></p>
+                  <p>150 гр. курицы + 1 овощ. Вода.</p>
+                  <p><strong>Ужин в 20:00</strong></p>
+                  <p>150 гр. курицы + 70 гр. гречки + 1 овощ. Вода.</p>
+                  <p><strong>Перекус в 22-23:00</strong></p>
+                  <p>250 гр. яичных белков + 1 овощ + 25 гр. масла. Вода.</p>
+                </div>
+              </div>
+              
+            </div>
+          </div>
+      </div>  
+      
+
+    </div>
+  </div>
+</section>
+<section class="sendMailSec trainMail">
+  <div class="container" ng-hide="$ctrl.messageWasSent" >
+    <div class="row">
+      <div class="col-md-12">
+        <h1>Задать вопросы тренеру и диетологу</h1>
+        <form name="contactTrainerForm" ng-submit="$ctrl.contactTrainer(message)">
+          <div class="row">
+            <div class="col-md-offset-2 col-md-8">
+              <ul class="mailParth">
+                <input type="text" ng-model="message.theme" placeholder="Тема" required />
+                <textarea ng-model="message.text" placeholder="Ваше сообщение" rows="6" required></textarea>
+              </ul>
+            </div>
+            <div class="col-md-offset-2 col-md-8">
+              <button class="redBtn" type="submit" ng-disabled="contactTrainerForm.$pristine || contactTrainerForm.$invalid">Отправить</button>
+            </div>
+          </div>
+        </form>
       </div>
     </div>
-    <!-- <div class="container center-align" ng-show="$ctrl.messageWasSent">
+  </div>
+  <!-- <div class="container center-align" ng-show="$ctrl.messageWasSent">
         <h1>Ваше сообщение успешно отправлено</h1>
       </div> -->
-  </section>
+</section>
