@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   root 'home#index' 
   post '/registration', to: "home#registration", as: :home_registration
   put '/edit_profile', to: "home#edit_profile", as: :edit_profile
+  put '/restore_password', to: "home#restore_password", as: :restore_password
   get '/profile', to: "home#profile", as: :profile
   get '/testcheck', to: "application#testcheck"
   post '/check', to: "yandex_kassa#testcheck"

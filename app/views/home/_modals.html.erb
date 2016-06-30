@@ -11,7 +11,7 @@
             <img class="modalLogo" src="<%= asset_path('modal/infinityModal.png') %>" alt="logo modal" />
           </div>
           <div class="modal-body">
-            <%= render partial: 'users/errors', locals: { errors: flash[:new_solution_errors] } if flash[:new_solution_errors].present? %>
+            <%= render partial: 'users/errors', locals: { errors: flash[:new_solution_errors], info_messages: flash[:info_messages] } if flash[:modal] == 'signInModal' %>
             <div class="formWrapper">
               <%= form_for(@user, as: :user, url: session_path(:user)) do |f| %>
                 <div class="row">
@@ -40,7 +40,7 @@
           <!-- modal-body -->
         </div>
       </div>
-    </div>
+    </div>   
     <div class="modal fade" id="restorePasModal" tabindex="-1" role="dialog" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -49,21 +49,22 @@
             <img class="modalLogo" src="<%= asset_path('modal/infinityModal.png') %>" alt="logo modal" />
           </div>
           <div class="modal-body">
+            <%= render partial: 'users/errors', locals: { errors: flash[:new_solution_errors], info_messages: flash[:info_messages] } if flash[:modal] == 'restorePasModal' %> 
             <div class="formWrapper">
-              <form>
+              <%= form_for(@user, as: :user, url: restore_password_path, html: { method: :put }) do |f| %>
                 <div class="row">
                   <div class="col-md-12">
-                    <input type="text" name="" placeholder="Электронная почта" />
+                    <%= f.email_field :email, autofocus: true, placeholder: 'Электронная почта' %>
                   </div>
                 </div>
                 <div class="modal-footer">
                   <div class="row">
                     <div class="col-md-12">
-                      <button type="submit" name="submit" class="redBtn" data-toggle="modal" data-dismiss="modal" data-target="#signInModal">Восстановить</button>
+                      <%= f.submit "Восстановить", class: 'redBtn' %>
                     </div>
                   </div>
                 </div>
-              </form>
+              <% end %>
             </div>
           </div>
           <!-- modal-body -->
