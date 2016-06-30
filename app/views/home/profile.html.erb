@@ -152,8 +152,11 @@
           <li><a href="#sec3" data-toggle="tab">Cпортивное питание</a></li>
           <li><a href="#sec4" data-toggle="tab">Овощи и фрукты</a></li>
           <li><a href="#sec5" data-toggle="tab">Белки, жиры, углеводы</a></li>
-
-          <li><a href="#sec6" data-toggle="tab">Примеры рационов питания на день</a></li>
+          <%if current_user%>
+            <%if current_user.tariffs.present?%>
+              <li><a href="#sec6" data-toggle="tab">Примеры рационов питания на день</a></li>
+            <%end%>
+          <%end%>
         </ul>
       </div>
       <div class="col-md-9 plNone">
@@ -237,7 +240,7 @@
                   <p><strong>Ужин</strong></p>
                   <p> 200 гр. яичных белков, 1-2 овоща. </p>
                   <br/>
-                  <p>Перед сном 15 мл льняного масла. Прием пищи должен быть за 2 часа до тренировки и через 20-30 мин после.</p> 
+                  <p>Перед сном 15 мл льняного масла. Прием пищи должен быть за 2 часа до тренировки и через 20-30 мин после.</p>
                 </div>
                 <div class="tab-pane " id="subSec3">
                   <p><strong>Завтрак в 8:00</strong></p>
@@ -252,7 +255,7 @@
                   <p>150 гр. курицы + 70 гр. гречки + 1 овощ. Вода.</p>
                   <p><strong>Перекус в 22-23:00</strong></p>
                   <p>250 гр. яичных белков + 1 овощ + 25 гр. масла. Вода.</p>
-                  
+
                 </div>
                 <div class="tab-pane" id="subSec4">
                   <p><strong>Завтрак в 8:00</strong></p>
@@ -269,11 +272,11 @@
                   <p>250 гр. яичных белков + 1 овощ + 25 гр. масла. Вода.</p>
                 </div>
               </div>
-              
+
             </div>
           </div>
-      </div>  
-      
+      </div>
+
 
     </div>
   </div>

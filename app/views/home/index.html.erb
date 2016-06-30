@@ -29,7 +29,26 @@
         </div>
       </div>
     </section>
-     
+<%if current_user%>
+  <%if current_user.tariffs.present?%>
+    <section class="notif" ng-show="ctrl.openBord">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="notifWrap" >
+              <h2>
+                <%= image_tag('notificationSec/notif.png') %>
+                Тариф <%=current_user.tariffs.first.name%> активирован. Подробней <a href='/profile'>Личном кабинете</a></h2>
+              <p class="closeNotif">Закрыть</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  <%end%>
+<%end%>
+
 <section class="accordeonSection">
   <slick responsive="ctrl.responsCarousel" class="tariffsCarousel hidden-sm hidden-md hidden-lg" >
     <div class="t1">
@@ -659,7 +678,15 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12 text-center">
-        <button class="redBtn" data-toggle="modal" data-target="#regModal">Стартую!</button>
+       <%if current_user%>
+        <%if current_user.tariffs.present?%>
+          <button class="redBtn" onclick="window.location.href='/profile'">Стартую!</button>
+        <%else%>
+          <button class="redBtn" onclick="window.location.href='#tariffSec'">Стартую!</button>
+        <%end%>
+      <%else%>
+          <button class="redBtn" data-toggle="modal" data-target="#regModal">Стартую!</button>
+      <%end%>
       </div>
     </div>
   </div>
