@@ -75,6 +75,7 @@ class HomeController < ApplicationController
     @user = User.new(user_params.merge(password: generated_password))
     pc = nil
     tariff = nil
+    flash[:info_messages] = []
     if params[:promocode].present?
       pc = Promocode.available.find_by(code: params[:promocode])
       @user.errors[:promocode] << "имеет неверное значение" unless pc
@@ -82,24 +83,44 @@ class HomeController < ApplicationController
       @user.errors[:promocode] << "нету подходящего тарифа" unless tariff
     end
     if @user.errors.empty? && @user.save
+      flash[:info_messages] << 'Вы успешно зарегистрировались'
       if pc && tariff
         pc.update(activated_at: Time.now, user: @user)
         UserTariff.create(user: @user, tariff: tariff)
       end
       begin
         UserMailer.password_email(@user, generated_password).deliver_now
-        flash[:info] = 'Пароль был отправлен на почту'
+        flash[:info_messages] << 'Пароль был отправлен на почту'
       rescue => error
-        flash[:info] = "Пароль не был отправлен на почту, потому что #{error.message}"
+        flash[:info_messages] << "Пароль не был отправлен на почту, потому что #{error.message}"
       end
-      flash[:info] = "Вы успешно зарегистрировались"
       sign_in(:user, @user)
       redirect_to :profile
     else
-      flash[:info] = "Регистрация не было успешной"
       flash[:new_solution_errors] = @user.errors.full_messages
       flash[:modal] = 'regModal'
       render 'index'
+    end
+  end
+
+  def restore_password
+    flash[:info_messages] = []
+    @user = User.find_by(email: params[:user][:email])
+    if @user
+      new_password = Devise.friendly_token.first(8)
+      @user.update(password: new_password)
+      begin
+        UserMailer.restore_password_email(@user, new_password).deliver_now
+        flash[:info_messages] << 'Пароль был отправлен на почту'
+      rescue => error
+        flash[:info_messages] << "Пароль не был отправлен на почту, потому что #{error.message}"
+      end
+      flash[:modal] = 'signInModal'
+      redirect_to :back
+    else
+      flash[:new_solution_errors] = ['Пользователь с таким email не найден']
+      flash[:modal] = 'restorePasModal'
+      redirect_to :back
     end
   end
 

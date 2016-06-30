@@ -1,5 +1,14 @@
-<div class="new_solution_errors">
-  <% errors.each do |error| %>
-    <p><%= error %></p>
-  <% end %>
-</div>
+<% if errors.present? %>
+  <div class="new_solution_errors modal_messages">
+    <% errors.each do |error| %>
+      <p><%= error %></p>
+    <% end %>
+  </div>
+<% end %>
+<% if info_messages.present? %>
+  <div class="info_messages modal_messages">
+    <% info_messages.each do |msg| %>
+      <p><%= msg %></p>
+    <% end %>
+  </div>
+<% end %>
