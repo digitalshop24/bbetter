@@ -74,7 +74,7 @@
       <%= form_for @user_tariff, url: set_training_program_path(@user_tariff), method: :put, html: {class: 'sendType'} do |f| %>
         <div class="selectType">
           <% TrainingProgram.all.each do |tp| %>
-            <%= f.radio_button :training_program_id, tp.id %>
+            <%= f.radio_button :training_program_id, tp.id, checked: tp.id == 1 %>
             <%= label_tag "user_tariff_training_program_id_#{tp.id}", tp.name %>
           <% end %>
         </div>
@@ -83,7 +83,7 @@
     </section>
   <% end %>
 <% else %>
-  <section class="notif" ng-show="ctrl.openBord">
+  <section class="notif">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
