@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-  before_action :authenticate_user!, only: :profile
+  before_action :authenticate_user!, only: [:profile, :edit_profile]
   layout 'home'
   def index
     @user = current_user || User.new
@@ -39,6 +39,7 @@ class HomeController < ApplicationController
   # end
 
   def profile
+    @message = Message.new
     @user = current_user
     @summaries = current_user.summaries
     @tariffs = Tariff.all
