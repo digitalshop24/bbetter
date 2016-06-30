@@ -13,13 +13,13 @@ $(function() {
   });
 });
 
-$('.accordion li').click(function(e) {
+$(document).ready(function(){
+  $('.accordion li').click(function(e) {
     e.preventDefault(); //prevent the link from being followed
     $('.accordion li').removeClass('active');
     $(this).addClass('active');
-});
+  });
 
-$(document).ready(function(){
   //console.log('AGE');
   $('.beforeAfter').slick({
     slidesToShow: 1,
@@ -75,11 +75,13 @@ $(document).ready(function(){
       $(tab).fadeIn();
   });
 
+  $('.closeNotif').click(function() {
+    $('.notif').addClass('hidden');
+  });
+
 });
 
-$('.closeNotif').click(function() {
-  $('.notif').addClass('hidden');
-});
+
 
 function measureScrollBar() {
   // david walsh

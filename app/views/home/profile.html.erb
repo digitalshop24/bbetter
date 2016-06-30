@@ -278,28 +278,25 @@
     </div>
   </div>
 </section>
-<section class="sendMailSec trainMail">
-  <div class="container" ng-hide="$ctrl.messageWasSent" >
+<section class="sendMailSec trainMail" id="trainMail">
+  <div class="container" >
     <div class="row">
       <div class="col-md-12">
         <h1>Задать вопросы тренеру и диетологу</h1>
-        <form name="contactTrainerForm" ng-submit="$ctrl.contactTrainer(message)">
+        <%= form_for @message, url: messages_path, remote: true do |f| %>
           <div class="row">
             <div class="col-md-offset-2 col-md-8">
               <ul class="mailParth">
-                <input type="text" ng-model="message.theme" placeholder="Тема" required />
-                <textarea ng-model="message.text" placeholder="Ваше сообщение" rows="6" required></textarea>
+                <%= f.text_field :theme, placeholder: 'Тема', required: true %>
+                <%= f.text_area :text, placeholder: 'Ваше сообщение', required: true, rows: 6 %>
               </ul>
             </div>
             <div class="col-md-offset-2 col-md-8">
-              <button class="redBtn" type="submit" ng-disabled="contactTrainerForm.$pristine || contactTrainerForm.$invalid">Отправить</button>
+              <%= f.submit 'Отправить', class: 'redBtn' %>
             </div>
           </div>
-        </form>
+        <% end %>
       </div>
     </div>
   </div>
-  <!-- <div class="container center-align" ng-show="$ctrl.messageWasSent">
-        <h1>Ваше сообщение успешно отправлено</h1>
-      </div> -->
 </section>

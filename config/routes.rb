@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   post '/pay', to: "yandex_kassa#testpay"
   post 'registration', to: "home#registration"
   get '/promo', to: "home#promo", as: :promo
+  resources :messages, only: [:create]
 
   put 'user_tariffs/:id/set_training_program', to: 'user_tariffs#set_training_program', as: :set_training_program
 
