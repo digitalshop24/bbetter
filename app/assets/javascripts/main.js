@@ -113,7 +113,7 @@ document.getElementById('calcCol').onclick = function() {
     rezult = (10*weight+6.25*growth-5*age+161)*activity;
   }
   if (rezult > 0) {
-    document.getElementById("calRez").innerHTML = Math.round(rezult) + ' ккал';
+    document.getElementById("calRez").innerHTML = 'Ваша норма: ' + Math.round(rezult) + ' ккал';
   } else document.getElementById("calRez").innerHTML = 'Введите корректные данные'
   
 }
