@@ -100,6 +100,7 @@ $(document.body)
 .on('hidden.bs.modal', function () {
   $(document.body).css('padding-right', 0)
 });
+
 document.getElementById('calcCol').onclick = function() {
   var sex = document.getElementById("sex").value;
   var age = document.getElementById("age").value;
@@ -234,3 +235,4 @@ $('.remove').live("click", function(event) {
 
 
 });
+

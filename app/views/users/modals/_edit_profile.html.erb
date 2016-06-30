@@ -6,7 +6,7 @@
         <img class="modalLogo" src="<%= asset_path('modal/infinityModal.png') %>" alt="logo modal" />
       </div>
       <div class="modal-body">
-        <%= render partial: 'users/errors', locals: { errors: flash[:new_solution_errors] } if flash[:new_solution_errors].present? %> 
+        <%= render partial: 'users/errors', locals: { errors: flash[:new_solution_errors], info_messages: flash[:info_messages] } if flash[:modal] == 'editProfileModal' %>
         <div class="formWrapper">
           <%= form_for @user, as: :user, url: :edit_profile, method: :put, onsubmit: "thankU()" do |f| %>
             <div class="row">

@@ -1,5 +1,16 @@
 @charset "UTF-8";
 $red:#d8003d;
+$gray:#555555;
+
+html {
+    width: 100%;
+    height: 100%;
+}
+body {
+    width: 100%;
+    height: 100%;
+}
+
 ul {
   padding: 0;
   margin: 0; }
@@ -63,6 +74,31 @@ nav img.mobileLogo {
 nav ul.right {
   flex-direction: column;
   position: relative;
+  .dropdown{
+    .dropdown-menu {
+      background-color:$gray;
+      justify-content: center;
+      flex-direction: column;
+      right: 0;
+      left: auto;
+      min-width: 130px;
+      li {
+        
+        a {
+          color:#fff;
+        &:hover,&:focus {
+          color:$red;
+          background-color: transparent;
+        }
+        }
+      }
+    }
+  &.open {
+    .dropdown-menu {
+      display:flex;
+    }
+  }
+  }
 }
   nav ul.right a {
     font-size: 18px;
@@ -1062,7 +1098,7 @@ footer {
 
 
 .grayBtn {
-  background-color: #555555;
+  background-color: $gray;
   padding: 15px 25px;
   border: 0;
   border-radius: 25px;
@@ -1088,11 +1124,20 @@ footer {
   border-radius: 25px;
   color: #fff;
   font-size: 20px;
-  transition: background-color .4s,color .4s; }
-  .redBtn:hover,.redBtn:focus {
+  transition: background-color .4s,color .4s;
+}
+.redBtn:hover,.redBtn:focus {
     background-color: #fff;
     color: $red;
-    border: 2px solid $red; }
+    border: 2px solid $red;
+}
+
+.new_solution_errors {
+  color:$red;
+  p {
+    margin: 0 0 0 35px;
+  }
+}
 
 .user_data {
   background-color: #fff;
@@ -1591,7 +1636,11 @@ footer {
   color: #000;
   background-color:#fff;
   padding:10px 30px;
-  border-radius: 0 30px 30px 0;
+  
+  &.wrapperTab {
+    min-height: 586px;
+    border-radius:30px;
+  }
   h4 {
     margin-top: 0;
     font-family:meta;
@@ -1631,11 +1680,142 @@ footer {
 }
 
 .prNone {
-  padding-right:0;
+  padding-right: 0;
+  margin-top: 50px;
+  min-height: 576px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
 }
 .plNone {
   padding-left:0;
 }
 
+.promoPageSec {
+  background-color: #e2e2e2;
+  padding:50px 0;
+  min-height: calc(100vh - 339px);
+  .textWrpper {
+    max-width:42em;
+    margin:20px auto 50px;
+
+  }
+  .table-responsive {
+    max-width:42em;
+    margin: auto;
+    tbody {
+      tr {
+        td {
+          vertical-align: middle;
+        }
+      }
+    }
+    a {
+      display: block;
+      color:#000;
+      margin:20px 0;
+      padding:5px 10px;
+      background-color: transparent;
+      border:1px solid;
+      transition:color .4s,border .4s;
+      &:hover,&:focus {
+        color:$red;
+        border:1px solid;
+      }
+    }
+  }
+}
+
+.promoFormModal {
+  .selectType{
+    text-align: center;
+    article,input[type="radio"] {
+      display: none;
+    }
+    input.tel:checked ~ article.tel {
+      display: block;
+    }
+    input.mail:checked ~ article.mail {
+      display: block;
+    }
+    label {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      padding: 0;
+      background-color: #F5F5F5;
+      color: #8C8C9C;
+      font-size: 16px;
+      transition: background-color 0.3s ease-in-out;
+      line-height: 12px;
+      text-indent: 20px;
+      text-align: center;
+      margin-right: 90px;
+      
+    }
+    input:checked + label {
+        display: inline-block;
+        background-color: $red;
+        color: #000;
+    }
+  }
+  
+}
+
+.week_plan_drugs_eat {
+  .selectType{
+    input[type="radio"] {
+      display: none;
+    }
+    label {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      padding: 0;
+      background-color: #F5F5F5;
+      color: #fff;
+      font-size: 16px;
+      transition: background-color 0.3s ease-in-out;
+      line-height: 12px;
+      text-indent: 20px;
+      text-align: center;
+      margin-right: 140px;
+      
+    }
+    input:checked + label {
+        display: inline-block;
+        background-color: $red;
+        color: #000;
+    }
+
+  }
+
+}
+
+.timmerSec {
+  background-color:$red;
+  .Timer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom:10px;
+    h2 {
+      color:#fff;
+      font-size:30px;
+      margin-right:40px;
+    }
+    .eTimer {
+      .etUnit{
+        .etNumber {
+          font-family:meta;
+        }
+      }
+
+      }  
+  }
+}
+
+  
+ 
 
  
