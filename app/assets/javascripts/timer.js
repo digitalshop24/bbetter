@@ -6,7 +6,7 @@
  * @license     MIT License
  * http://e-timer.ru/
  */
-;(function($) {
+(function($) {
   var units = {
       en: ['Days', 'Hours', 'Minutes', 'Seconds'],
       ru: ['дней', 'часов', 'минут', 'секунд'],
