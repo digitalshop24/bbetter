@@ -1,38 +1,72 @@
-<!--  <section class="user_data">
+ <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <!-- <input accept="image/*" id="fileElem" multiple="" onchange="handleFiles(this.files)" style="display:none" type="file">
+          <a href="#" id="fileSelect">Select some files</a>
+          <div id="filelist"></div> -->
+        
+        </div>
+      </div>
+    </div>   
+
+ <section class="user_data">
       <div class="container">
         <div class="row">
-           <div class="col-md-12 text-center user_data_titel">
+           <!-- <div class="col-md-12 text-center user_data_titel">
+
             <h2>Дина Богачева</h2>
             <p>Доступно еще<br> <span class="pink">2</span> участника</p>
             <button class="redBtn">Пригласить</button>
-          </div>
+          </div> -->
           <div class="col-md-12 text-left form">
+          <form action="">
              <input type="text" placeholder="Мотивирующие слова" class="motivation_word">
+              
              <div class="row">
                 <div class="col-md-6">
                   <div class="aploadCarousel">
                     <div>
                       <ul class="item">
-                        <button class="user_data_btn btn_left text-center"><<ДО>><br/><br/> Загрузить  <br/> <<Спереди>></button>
-                        <button class="user_data_btn btn_center text-center"><<ДО>><br/><br/>Загрузить <br> <<Сзади>></button>
+                      
+                        <input accept="image/*" id="fileElem" multiple="" onchange="handleFiles(this.files)" style="display:none" type="file">
+                        <button class="user_data_btn btn_left text-center" id="fileSelect"><<ДО>><br/><br/> Загрузить  <br/> <<Спереди>></button>
+                        <span id="filelist"></span>
+
+                        <input accept="image/*" id="fileElem_2" multiple="" onchange="handleFiles(this.files)" style="display:none" type="file">
+                        <button class="user_data_btn btn_center text-center" id="fileSelect_2"><<ДО>><br/><br/>Загрузить <br> <<Сзади>></button>
+                        <span id="filelist_2"></span>
                       </ul>
                     </div>
                     <div>
-                        <ul class="item">
-                          <button class="user_data_btn btn_left text-center"><<ДО>><br/><br/> Загрузить <br> <<Слева>></button>
-                          <button class="user_data_btn btn_center text-center"><<ДО>><br/><br/> Загрузить <br> <<Справа>></button>
-                        </ul>
+                      <ul class="item">
+                        <input accept="image/*" id="fileElem_3" multiple="" onchange="handleFiles(this.files)" style="display:none" type="file">
+                        <button class="user_data_btn btn_left text-center" id="fileSelect_3"><<<ДО>><br/><br/> Загрузить <br> <<Слева>></button>
+                        <span id="filelist_3"></span>
+
+                        <input accept="image/*" id="fileElem_4" multiple="" onchange="handleFiles(this.files)" style="display:none" type="file">
+                        <button class="user_data_btn btn_center text-center" id="fileSelect_4"><<ДО>><br/><br/> Загрузить <br> <<Справа>></button>
+                        <span id="filelist_4"></span>
+                      </ul>
                     </div>
                     <div>
-                        <ul class="item">
-                          <button class="user_data_btn btn_left text-center"><<После>><br/><br/> Загрузить <br> <<Спереди>></button>
-                          <button class="user_data_btn btn_center text-center"><<После>><br/><br/> Загрузить <br> <<Сзади>></button>
-                        </ul>
+                      <ul class="item">
+                        <input accept="image/*" id="fileElem_5" multiple="" onchange="handleFiles(this.files)" style="display:none" type="file">
+                        <button class="user_data_btn btn_left text-center" id="fileSelect_5"><<После>><br/><br/> Загрузить <br> <<Спереди>></button>
+                        <span id="filelist_5"></span>
+
+                        <input accept="image/*" id="fileElem_6" multiple="" onchange="handleFiles(this.files)" style="display:none" type="file">
+                        <button class="user_data_btn btn_center text-center" id="fileSelect_6"><<После>><br/><br/> Загрузить <br> <<Сзади>></button>
+                        <span id="filelist_6"></span>
+                      </ul>
+                        
                     </div>
                   </div>
                 </div>
                 <div class="col-md-3">
-                  <button class="user_data_btn btn_right text-center">Загрузить <br> Мотивашку</button>
+                        <input accept="image/*" id="fileElem_7" multiple="" onchange="handleFiles(this.files)" style="display:none" type="file">
+                        <button class="user_data_btn btn_right text-center" id="fileSelect_7">Загрузить <br> Мотивашку</button>
+                        <span id="filelist_7"></span>
+                       <!-- <button class="user_data_btn btn_right text-center"></button> -->
                 </div>
                 <div class="col-md-3 text-center user_paramentry">
                   <h3>Показатели участника</h3>
@@ -49,6 +83,7 @@
                   </ul>
                 </div>
              </div>
+          </form>
           </div>
           <div class="col-md-12 text-center footer_user_data">
             <p class="pink " style="">Загрузка фотографий станет доступной после оплаты тарифа</p>
@@ -58,7 +93,7 @@
           </div>
         </div>
       </div>
-    </section> -->
+    </section>
 <%if @user_tariff.present?%>
   <section class="lineSec" id="fiveStep">
     <h1>Тариф &laquo;<%= @current_tarrif.name%>&raquo;</h1>
