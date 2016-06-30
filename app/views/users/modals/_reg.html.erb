@@ -6,7 +6,7 @@
         <img class="modalLogo" src="<%= asset_path('modal/infinityModal.png') %>" alt="logo modal" />
       </div>
       <div class="modal-body">
-        <%= render partial: 'users/errors', locals: { errors: flash[:new_solution_errors] } if flash[:new_solution_errors].present? %> 
+        <%= render partial: 'users/errors', locals: { errors: flash[:new_solution_errors], info_messages: flash[:info_messages] } if flash[:modal] == 'regModal' %>
         <div class="formWrapper">
           <%= form_for @user, as: :user, url: :home_registration, onsubmit: "thankU()" do |f| %>
             <div class="row">
@@ -45,8 +45,8 @@
                 <div class="col-md-12">
                   <p class="redLabel">Заполните, пожалуйста, все поля!</p>
                   <p>В течении нескольких минут ожидайте письмо</p>
-                  <%= f.submit "Зарегистрироваться", class: 'redBtn' %>
-                </div>
+                  <%= f.submit "Зарегистрироваться", class: 'redBtn', onclick: "yaCounter38070020.reachGoal('zaregistrirovatsja'); return true;" %>
+                </div> 
               </div>
             </div>
           <% end %>

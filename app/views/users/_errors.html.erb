@@ -1,10 +1,22 @@
-<div class="new_solution_errors">
-  <% errors.each do |error| %>
-  	<div class="row">
-  		<div class="col-md-12">
-  			<p><%= error %></p>
-  		</div>
-  	</div>
-    
-  <% end %>
-</div>
+<% if errors.present? %>
+  <div class="new_solution_errors modal_messages">
+    <% errors.each do |error| %>
+      <div class="row">
+        <div class="col-md-12">
+          <p><%= error %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+<% if info_messages.present? %>
+  <div class="info_messages modal_messages">
+    <% info_messages.each do |msg| %>
+      <div class="row">
+        <div class="col-md-12">
+          <p><%= msg %></p>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>
