@@ -1792,6 +1792,29 @@ footer {
 
 }
 
+.timmerSec {
+  background-color:$red;
+  .Timer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom:10px;
+    h2 {
+      color:#fff;
+      font-size:30px;
+      margin-right:40px;
+    }
+    .eTimer {
+      .etUnit{
+        .etNumber {
+          font-family:meta;
+        }
+      }
+
+      }  
+  }
+}
+
   
  
 
