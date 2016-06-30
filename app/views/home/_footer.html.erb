@@ -4,7 +4,14 @@
   </div>
   <div class="navWrap hidden-xs">
     <!--Будет скрыта, когда пользователь авторизирован -->
-    <a href="" data-toggle="modal" data-target="#regModal">Купить</a>
+    <%if current_user%>
+      <%if current_user.tariffs.present?%>
+      <%else%>
+        <a href="#tariffSec" >Купить</a>
+      <%end%>
+    <%else%>
+      <a href="#tariffSec" >Купить</a>
+    <%end%>
     <!--  Будет показана, когда пользователь авторизирован
     <a href="">Купить</a> -->
 
