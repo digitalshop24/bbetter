@@ -12,28 +12,39 @@
     </div>
   </div>
 </section>-->
-<!--
+
     <section class="timmerSec">
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-
-
-            <div>
-              <div class="TitleTimer"><h5>Старт сезона 08.07.16</h5></div>
-              <ul class="Timer">
-                <li><p style="position: relative; left: -7px;">дни</p><h5><timer end-time="1467936000000">{{days}}</timer><span class="two_dots">:</span> </h5> </li>
-                <li><p style="position: relative; left: -7px;">часы</p><h5><timer end-time="1467936000000">{{hhours}}</timer><span class="two_dots">:</span></h5> </li>
-                <li><p>минуты</p><h5><timer end-time="1467936000000">{{mminutes}}</timer></h5> </li>
-              </ul>
-
-            </div>
-
+              <div class="Timer">
+                <h2>Старт сезона 08.07.16</h2>
+                <div class="eTimer"></div>
+              </div>
           </div>
         </div>
       </div>
     </section>
-     -->
+<%if current_user%>
+  <%if current_user.tariffs.present?%>
+    <section class="notif" ng-show="ctrl.openBord">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="notifWrap" >
+              <h2>
+                <%= image_tag('notificationSec/notif.png') %>
+                Тариф <%=current_user.tariffs.first.name%> активирован. Подробней в <a href='/profile'>Личном кабинете</a></h2>
+              <p class="closeNotif">Закрыть</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  <%end%>
+<%end%>
+
 <section class="accordeonSection">
   <slick responsive="ctrl.responsCarousel" class="tariffsCarousel hidden-sm hidden-md hidden-lg" >
     <div class="t1">
@@ -663,7 +674,15 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12 text-center">
-        <button class="redBtn" data-toggle="modal" data-target="#regModal">Стартую!</button>
+       <%if current_user%>
+        <%if current_user.tariffs.present?%>
+          <button class="redBtn" onclick="window.location.href='/profile'">Стартую!</button>
+        <%else%>
+          <button class="redBtn" onclick="window.location.href='#tariffSec'">Стартую!</button>
+        <%end%>
+      <%else%>
+          <button class="redBtn" data-toggle="modal" data-target="#regModal">Стартую!</button>
+      <%end%>
       </div>
     </div>
   </div>

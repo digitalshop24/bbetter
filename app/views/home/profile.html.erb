@@ -1,38 +1,72 @@
-<!--  <section class="user_data">
+ <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <!-- <input accept="image/*" id="fileElem" multiple="" onchange="handleFiles(this.files)" style="display:none" type="file">
+          <a href="#" id="fileSelect">Select some files</a>
+          <div id="filelist"></div> -->
+        
+        </div>
+      </div>
+    </div>   
+
+ <section class="user_data">
       <div class="container">
         <div class="row">
-           <div class="col-md-12 text-center user_data_titel">
+           <!-- <div class="col-md-12 text-center user_data_titel">
+
             <h2>Дина Богачева</h2>
             <p>Доступно еще<br> <span class="pink">2</span> участника</p>
             <button class="redBtn">Пригласить</button>
-          </div>
+          </div> -->
           <div class="col-md-12 text-left form">
+          <form action="">
              <input type="text" placeholder="Мотивирующие слова" class="motivation_word">
+              
              <div class="row">
                 <div class="col-md-6">
                   <div class="aploadCarousel">
                     <div>
                       <ul class="item">
-                        <button class="user_data_btn btn_left text-center"><<ДО>><br/><br/> Загрузить  <br/> <<Спереди>></button>
-                        <button class="user_data_btn btn_center text-center"><<ДО>><br/><br/>Загрузить <br> <<Сзади>></button>
+                      
+                        <input accept="image/*" id="fileElem" multiple="" onchange="handleFiles(this.files)" style="display:none" type="file">
+                        <button class="user_data_btn btn_left text-center" id="fileSelect"><<ДО>><br/><br/> Загрузить  <br/> <<Спереди>></button>
+                        <span id="filelist"></span>
+
+                        <input accept="image/*" id="fileElem_2" multiple="" onchange="handleFiles(this.files)" style="display:none" type="file">
+                        <button class="user_data_btn btn_center text-center" id="fileSelect_2"><<ДО>><br/><br/>Загрузить <br> <<Сзади>></button>
+                        <span id="filelist_2"></span>
                       </ul>
                     </div>
                     <div>
-                        <ul class="item">
-                          <button class="user_data_btn btn_left text-center"><<ДО>><br/><br/> Загрузить <br> <<Слева>></button>
-                          <button class="user_data_btn btn_center text-center"><<ДО>><br/><br/> Загрузить <br> <<Справа>></button>
-                        </ul>
+                      <ul class="item">
+                        <input accept="image/*" id="fileElem_3" multiple="" onchange="handleFiles(this.files)" style="display:none" type="file">
+                        <button class="user_data_btn btn_left text-center" id="fileSelect_3"><<<ДО>><br/><br/> Загрузить <br> <<Слева>></button>
+                        <span id="filelist_3"></span>
+
+                        <input accept="image/*" id="fileElem_4" multiple="" onchange="handleFiles(this.files)" style="display:none" type="file">
+                        <button class="user_data_btn btn_center text-center" id="fileSelect_4"><<ДО>><br/><br/> Загрузить <br> <<Справа>></button>
+                        <span id="filelist_4"></span>
+                      </ul>
                     </div>
                     <div>
-                        <ul class="item">
-                          <button class="user_data_btn btn_left text-center"><<После>><br/><br/> Загрузить <br> <<Спереди>></button>
-                          <button class="user_data_btn btn_center text-center"><<После>><br/><br/> Загрузить <br> <<Сзади>></button>
-                        </ul>
+                      <ul class="item">
+                        <input accept="image/*" id="fileElem_5" multiple="" onchange="handleFiles(this.files)" style="display:none" type="file">
+                        <button class="user_data_btn btn_left text-center" id="fileSelect_5"><<После>><br/><br/> Загрузить <br> <<Спереди>></button>
+                        <span id="filelist_5"></span>
+
+                        <input accept="image/*" id="fileElem_6" multiple="" onchange="handleFiles(this.files)" style="display:none" type="file">
+                        <button class="user_data_btn btn_center text-center" id="fileSelect_6"><<После>><br/><br/> Загрузить <br> <<Сзади>></button>
+                        <span id="filelist_6"></span>
+                      </ul>
+                        
                     </div>
                   </div>
                 </div>
                 <div class="col-md-3">
-                  <button class="user_data_btn btn_right text-center">Загрузить <br> Мотивашку</button>
+                        <input accept="image/*" id="fileElem_7" multiple="" onchange="handleFiles(this.files)" style="display:none" type="file">
+                        <button class="user_data_btn btn_right text-center" id="fileSelect_7">Загрузить <br> Мотивашку</button>
+                        <span id="filelist_7"></span>
+                       <!-- <button class="user_data_btn btn_right text-center"></button> -->
                 </div>
                 <div class="col-md-3 text-center user_paramentry">
                   <h3>Показатели участника</h3>
@@ -49,6 +83,7 @@
                   </ul>
                 </div>
              </div>
+          </form>
           </div>
           <div class="col-md-12 text-center footer_user_data">
             <p class="pink " style="">Загрузка фотографий станет доступной после оплаты тарифа</p>
@@ -58,7 +93,7 @@
           </div>
         </div>
       </div>
-    </section> -->
+    </section>
 <%if @user_tariff.present?%>
   <section class="lineSec" id="fiveStep">
     <h1>Тариф &laquo;<%= @current_tarrif.name%>&raquo;</h1>
@@ -74,7 +109,7 @@
       <%= form_for @user_tariff, url: set_training_program_path(@user_tariff), method: :put, html: {class: 'sendType'} do |f| %>
         <div class="selectType">
           <% TrainingProgram.all.each do |tp| %>
-            <%= f.radio_button :training_program_id, tp.id %>
+            <%= f.radio_button :training_program_id, tp.id, checked: tp.id == 1 %>
             <%= label_tag "user_tariff_training_program_id_#{tp.id}", tp.name %>
           <% end %>
         </div>
@@ -83,7 +118,7 @@
     </section>
   <% end %>
 <% else %>
-  <section class="notif" ng-show="ctrl.openBord">
+  <section class="notif">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
@@ -152,8 +187,11 @@
           <li><a href="#sec3" data-toggle="tab">Cпортивное питание</a></li>
           <li><a href="#sec4" data-toggle="tab">Овощи и фрукты</a></li>
           <li><a href="#sec5" data-toggle="tab">Белки, жиры, углеводы</a></li>
-
-          <li><a href="#sec6" data-toggle="tab">Примеры рационов питания на день</a></li>
+          <%if current_user%>
+            <%if current_user.tariffs.present?%>
+              <li><a href="#sec6" data-toggle="tab">Примеры рационов питания на день</a></li>
+            <%end%>
+          <%end%>
         </ul>
       </div>
       <div class="col-md-9 plNone">
@@ -237,7 +275,7 @@
                   <p><strong>Ужин</strong></p>
                   <p> 200 гр. яичных белков, 1-2 овоща. </p>
                   <br/>
-                  <p>Перед сном 15 мл льняного масла. Прием пищи должен быть за 2 часа до тренировки и через 20-30 мин после.</p> 
+                  <p>Перед сном 15 мл льняного масла. Прием пищи должен быть за 2 часа до тренировки и через 20-30 мин после.</p>
                 </div>
                 <div class="tab-pane " id="subSec3">
                   <p><strong>Завтрак в 8:00</strong></p>
@@ -252,7 +290,7 @@
                   <p>150 гр. курицы + 70 гр. гречки + 1 овощ. Вода.</p>
                   <p><strong>Перекус в 22-23:00</strong></p>
                   <p>250 гр. яичных белков + 1 овощ + 25 гр. масла. Вода.</p>
-                  
+
                 </div>
                 <div class="tab-pane" id="subSec4">
                   <p><strong>Завтрак в 8:00</strong></p>
@@ -269,11 +307,11 @@
                   <p>250 гр. яичных белков + 1 овощ + 25 гр. масла. Вода.</p>
                 </div>
               </div>
-              
+
             </div>
           </div>
-      </div>  
-      
+      </div>
+
 
     </div>
   </div>
@@ -300,3 +338,7 @@
     </div>
   </div>
 </section>
+
+<% content_for :js do %>
+  <%= javascript_include_tag 'profile' %>
+<% end %>

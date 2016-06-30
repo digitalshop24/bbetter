@@ -8,6 +8,7 @@
 // MY JS
 //= require main
 //= require second
+//= require timer
 
 // TURBOLINKS
 //= require turbolinks
