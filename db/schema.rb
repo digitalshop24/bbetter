@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160701110458) do
+ActiveRecord::Schema.define(version: 20160701164059) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -97,14 +97,6 @@ ActiveRecord::Schema.define(version: 20160701110458) do
 
   create_table "summaries", force: :cascade do |t|
     t.integer  "user_id"
-    t.string   "before_file_name"
-    t.string   "before_content_type"
-    t.integer  "before_file_size"
-    t.datetime "before_updated_at"
-    t.string   "after_file_name"
-    t.string   "after_content_type"
-    t.integer  "after_file_size"
-    t.datetime "after_updated_at"
     t.string   "motivation_file_name"
     t.string   "motivation_content_type"
     t.integer  "motivation_file_size"
@@ -115,9 +107,33 @@ ActiveRecord::Schema.define(version: 20160701110458) do
     t.integer  "chest"
     t.integer  "waist"
     t.integer  "thigh"
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
     t.string   "motivation_words"
+    t.string   "before_front_file_name"
+    t.string   "before_front_content_type"
+    t.integer  "before_front_file_size"
+    t.datetime "before_front_updated_at"
+    t.string   "before_back_file_name"
+    t.string   "before_back_content_type"
+    t.integer  "before_back_file_size"
+    t.datetime "before_back_updated_at"
+    t.string   "before_left_file_name"
+    t.string   "before_left_content_type"
+    t.integer  "before_left_file_size"
+    t.datetime "before_left_updated_at"
+    t.string   "before_right_file_name"
+    t.string   "before_right_content_type"
+    t.integer  "before_right_file_size"
+    t.datetime "before_right_updated_at"
+    t.string   "after_front_file_name"
+    t.string   "after_front_content_type"
+    t.integer  "after_front_file_size"
+    t.datetime "after_front_updated_at"
+    t.string   "after_back_file_name"
+    t.string   "after_back_content_type"
+    t.integer  "after_back_file_size"
+    t.datetime "after_back_updated_at"
   end
 
   add_index "summaries", ["user_id"], name: "index_summaries_on_user_id", using: :btree

@@ -15,48 +15,62 @@ var fileSelect = document.getElementById("fileSelect"),
     fileSelect_7 = document.getElementById("fileSelect_7"),
     fileElem_7 = document.getElementById("fileElem_7");
 
-fileSelect.addEventListener("click", function (e) {
-  if (fileElem) {
-    fileElem.click();
-  }
-  e.preventDefault(); // prevent navigation to "#"
-}, false);
-fileSelect_2.addEventListener("click", function (e) {
-  if (fileElem_2) {
-    fileElem_2.click();
-  }
-  e.preventDefault(); // prevent navigation to "#"
-}, false);
-fileSelect_3.addEventListener("click", function (e) {
-  if (fileElem_3) {
-    fileElem_3.click();
-  }
-  e.preventDefault(); // prevent navigation to "#"
-}, false);
-fileSelect_4.addEventListener("click", function (e) {
-  if (fileElem_4) {
-    fileElem_4.click();
-  }
-  e.preventDefault(); // prevent navigation to "#"
-}, false);
-fileSelect_5.addEventListener("click", function (e) {
-  if (fileElem_5) {
-    fileElem_5.click();
-  }
-  e.preventDefault(); // prevent navigation to "#"
-}, false);
-fileSelect_6.addEventListener("click", function (e) {
-  if (fileElem_6) {
-    fileElem_6.click();
-  }
-  e.preventDefault(); // prevent navigation to "#"
-}, false);
-fileSelect_7.addEventListener("click", function (e) {
-  if (fileElem_7) {
-    fileElem_7.click();
-  }
-  e.preventDefault(); // prevent navigation to "#"
-}, false);
+if(fileSelect){
+  fileSelect.addEventListener("click", function (e) {
+    if (fileElem) {
+      fileElem.click();
+    }
+    e.preventDefault(); // prevent navigation to "#"
+  }, false);
+}
+if(fileSelect_2){
+  fileSelect_2.addEventListener("click", function (e) {
+    if (fileElem_2) {
+      fileElem_2.click();
+    }
+    e.preventDefault(); // prevent navigation to "#"
+  }, false);
+}
+if(fileSelect_3){
+  fileSelect_3.addEventListener("click", function (e) {
+    if (fileElem_3) {
+      fileElem_3.click();
+    }
+    e.preventDefault(); // prevent navigation to "#"
+  }, false);
+}
+if(fileSelect_4){
+  fileSelect_4.addEventListener("click", function (e) {
+    if (fileElem_4) {
+      fileElem_4.click();
+    }
+    e.preventDefault(); // prevent navigation to "#"
+  }, false);
+}
+if(fileSelect_5){
+  fileSelect_5.addEventListener("click", function (e) {
+    if (fileElem_5) {
+      fileElem_5.click();
+    }
+    e.preventDefault(); // prevent navigation to "#"
+  }, false);
+}
+if(fileSelect_6){
+  fileSelect_6.addEventListener("click", function (e) {
+    if (fileElem_6) {
+      fileElem_6.click();
+    }
+    e.preventDefault(); // prevent navigation to "#"
+  }, false);
+}
+if(fileSelect_7){
+  fileSelect_7.addEventListener("click", function (e) {
+    if (fileElem_7) {
+      fileElem_7.click();
+    }
+    e.preventDefault(); // prevent navigation to "#"
+  }, false);
+}
 
 //$("#other").click(function() {
 //  $("#target").click();

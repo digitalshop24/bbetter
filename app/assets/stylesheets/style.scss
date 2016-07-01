@@ -53,6 +53,12 @@ body {
 h1 {
   font-family: meta; }
 
+form input[type='number']::-webkit-outer-spin-button,
+form input[type='number']::-webkit-inner-spin-button {
+   -webkit-appearance: none;
+   margin: 0;
+}
+
 nav ul {
   display: flex;
   justify-content: space-between;
@@ -1183,11 +1189,20 @@ footer {
   color: #fff;
   font-size: 20px;
   transition: background-color .4s,color .4s;
+  &.disabled {
+    background-color: lighten( $red, 35% );
+    border: 2px solid lighten( $red, 35% );
+  }
 }
 .redBtn:hover,.redBtn:focus {
     background-color: #fff;
     color: $red;
     border: 2px solid $red;
+    &.disabled {
+      background-color: lighten( $red, 35% );
+      border: 2px solid lighten( $red, 35% );
+      color: #fff;
+    }
 }
 
 .new_solution_errors {
