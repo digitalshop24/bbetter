@@ -19,6 +19,16 @@
                 <%= f.email_field :email, placeholder: 'Электронная почта', required: true %>
               </div>
             </div>
+             <div class="row">
+              <div class="col-md-12">
+                <%= f.email_field :phone, placeholder: 'Номер телефона', required: true %>
+              </div>
+            </div>
+             <div class="row">
+              <div class="col-md-12">
+                <%= f.email_field :moto, placeholder: 'Цель', required: true %>
+              </div>
+            </div>
             <div class="row">
               <div class="col-md-12">
                 <%= f.text_field :city, placeholder: 'Город', required: true %>
@@ -46,7 +56,7 @@
                   <p class="redLabel">Заполните, пожалуйста, все поля!</p>
                   <p>В течении нескольких минут ожидайте письмо</p>
                   <%= f.submit "Зарегистрироваться", class: 'redBtn', onclick: "yaCounter38070020.reachGoal('zaregistrirovatsja'); return true;" %>
-                </div> 
+                </div>
               </div>
             </div>
           <% end %>
