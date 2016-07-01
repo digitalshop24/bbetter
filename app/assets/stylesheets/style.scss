@@ -863,7 +863,6 @@ nav .desctopLogo, nav .mobileLogo {
       .feedbackSec .feedbackCarousel .item li:nth-child(3) {
         display: inline-block;
         vertical-align: top;
-        max-width: 200px;
         margin: -50px 0 0 70px;
         max-width: 66%;
         p {
@@ -920,8 +919,26 @@ nav .desctopLogo, nav .mobileLogo {
       .feedbackSec .feedbackCarousel .slick-dots {
         bottom: -25px; }
         .feedbackSec .feedbackCarousel .slick-dots li.slick-active button::before {
-          color: #fff; } }
+          color: #fff; }
+}
 
+@media screen and (max-width: 1280px) {
+
+  .feedbackSec {
+    .feedbackCarousel{
+      margin: 0 5em;
+      .item {
+        padding: 0px 25px;
+        .li{
+          &:nth-child(3){
+            max-width: 85%;
+          }
+        }
+      }
+    }
+  }
+
+}
 .rulesSec {
   background-color: #262626;
   padding: 50px 0; }
