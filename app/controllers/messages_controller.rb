@@ -1,8 +1,9 @@
 class MessagesController < ApplicationController
   before_action :authenticate_user!
 	def create
-		current_user.messages.create(message_params)
-		render json: { result: 'Ваше сообщение отправлено' }
+		message = current_user.messages.create(message_params)
+		res = message.errors.any? ? 'Ошибка при отправке сообщения' : 'Ваше сообщение отправлено' 
+		render json: { result: res }
 	end
 
 	private
