@@ -9,6 +9,7 @@
 //= require main
 //= require second
 //= require timer
+//= require upload-foto.js
 
 // TURBOLINKS
 //= require turbolinks
