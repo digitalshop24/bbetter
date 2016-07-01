@@ -136,8 +136,8 @@ var fileSelect = document.getElementById("fileSelect"),
     fileElem_5 = document.getElementById("fileElem_5"),
     fileSelect_6 = document.getElementById("fileSelect_6"),
     fileElem_6 = document.getElementById("fileElem_6"),
-    fileSelect_6 = document.getElementById("fileSelect_7"),
-    fileElem_6 = document.getElementById("fileElem_7");
+    fileSelect_7 = document.getElementById("fileSelect_7"),
+    fileElem_7 = document.getElementById("fileElem_7");
 
 fileSelect.addEventListener("click", function (e) {
   if (fileElem) {
@@ -211,30 +211,30 @@ $('#fileElem_7').change(function() {
 
 function handleFiles(files, select, filelist) {
   
-  $(select).addClass('hidden');
-  var list = $("<ul style = 'display: inline-block; height: 300px; width: 49%;'></ul>");
-  $(filelist).append(list);
+  // $(select).addClass('hidden');
+  // $(filelist).removeClass('hidden');
+  // var list = $("<ul style = ''></ul>");
+  // $(filelist).append(list);
   for (var i = 0, f; f = files[i]; i++) {
     var reader = new FileReader();
     reader.onload = (function(f) {
       return function(e) {
-        var li = $("<li></li>");
-        $(list).append(li);
-        var a = $("<a href='#'></a>");
-        $(li).append(a);
-        $(a).append("<img style='width: 100%;' src='"+e.target.result +"'/>");
+        // var li = $("<li></li>");
+        // $(list).append(li);
+        // var a = $("<a href='#'></a>");
+        // $(li).append(a);
+        // $(a).append("<img style='width: 100%; position: relative; top: 48px;' src='"+e.target.result +"'/>");
+        // $(a).append("<div style='width: 100%; height:300px; position: relative; top: 48px; background-image:url("+e.target.result +");'> </div>");
+
+        
+        $(select).empty()
+        var url = 'background-image: url('+e.target.result+')';
+        $(select).attr('style', url);
       };
     })(f);
     reader.readAsDataURL(f);
   }
 }
-
-
-$('.remove').live("click", function(event) {
-  event.preventDefault();
-  alert("Handler for .click() called.");
-});
-
 
 });
 
