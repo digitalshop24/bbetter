@@ -1250,6 +1250,9 @@ footer {
   background-size: cover;
   background-repeat: no-repeat; 
   background-position: center center;
+  .tab-content {
+    background-color: transparent;
+  }
   button {
     margin: 5px 5px 20px 5px; 
     width: 163px;
@@ -1632,7 +1635,7 @@ footer {
 }
 
 .tab-content {
-  margin-top:40px;
+  margin-top:20px;
   color: #000;
   background-color:#fff;
   padding:10px 30px;
