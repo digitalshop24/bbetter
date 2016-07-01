@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
   has_many :messages, dependent: :destroy
   has_many :subscriptions, dependent: :destroy
   has_many :images, through: :galleries
-  has_many :summaries, dependent: :destroy
+  has_one :summary, dependent: :destroy
   has_one :promocode, dependent: :nullify
 
   before_save :ensure_auth_token
