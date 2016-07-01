@@ -15,3 +15,11 @@ document.getElementById('calcCol').onclick = function() {
   } else document.getElementById("calRez").innerHTML = 'Введите корректные данные'
   
 }
+
+$( document ).ready(function() {
+  $('.new_summary,.edit_summary').change(function(){
+    console.log('asd');
+    $(this).find('input[type=submit]').removeClass('disabled');
+    $(this).find('input[type=submit]').removeAttr('disabled');
+  });
+});
