@@ -797,11 +797,15 @@ nav .desctopLogo, nav .mobileLogo {
   padding: 50px 0;
   background-image: asset-url("feedbackSec/pinkBg2.png");
   background-size: cover;
-  background-position: center; }
-  .feedbackSec h1 {
-    color: #fff; }
-  .feedbackSec p.text-center {
-    color: #fff; }
+  background-position: center;
+  h1 {
+    color: #fff;
+  }
+  p.text-center {
+    color: #fff;
+  }
+}
+  
   .feedbackSec .feedbackCarousel {
     margin: 0 10em; }
     .feedbackSec .feedbackCarousel .item {
@@ -846,8 +850,16 @@ nav .desctopLogo, nav .mobileLogo {
         display: inline-block;
         vertical-align: top;
         max-width: 200px;
-        margin: -20px 0 0 70px;
-        max-width: 66%; }
+        margin: -50px 0 0 70px;
+        max-width: 66%;
+        p {
+          color:#000;
+            strong {
+              font-weight:800;
+              font-family:meta;
+            }
+          }
+        }
       .feedbackSec .feedbackCarousel .item li:nth-child(4) {
         background-color: red; }
     .feedbackSec .feedbackCarousel .slick-prev,
@@ -1162,7 +1174,20 @@ footer {
       background-color: #f5f5f5;
       color: #a0a0a0;
       font-size: 20px;
-
+    }
+    .btn_fo_div {
+      border: none;
+      border-radius:50px;
+      background-color: #f5f5f5;
+      color: #a0a0a0;
+      font-size: 20px;
+      display: inline-block;
+      background-position: center center;
+      background-size: cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
     }
     .motivation_word {
       width: 100%;
@@ -1173,6 +1198,16 @@ footer {
     .aploadCarousel {
       .item {
         text-align: center;
+        display: flex;
+        .img_show_block {
+          display: inline-block;
+          width:49%;
+          height: 300px;
+
+          
+          // position: relative;
+          // top: 103px;
+        }
       }
       .slick-dots {
         li {
@@ -1190,6 +1225,7 @@ footer {
         }
       }
     }
+
     .user_data_btn {
       height: 300px;
       width: 49%;
