@@ -24,7 +24,11 @@ a:hover, a:focus {
   text-decoration: none;
   outline: none; }
 
-input:focus, textarea:focus, select:focus, button:focus {
+input:focus,
+textarea:focus,
+select:focus,
+button:visited,
+ {
   outline: none; }
 
 a:hover, a:focus, input {
@@ -118,7 +122,7 @@ nav .wrapper {
 nav .desctopLogo, nav .mobileLogo {
   cursor: pointer; }
 
-@media screen and (max-width: 1000px) {
+@media screen and (max-width: 1124px) {
   nav .logo img.mobileLogo {
     display: block;
     margin: 40px;
@@ -463,6 +467,10 @@ nav .desctopLogo, nav .mobileLogo {
       font-size: 18px; }
 
 @media screen and (max-width: 768px) {
+  .contestSec {
+    background-image:none;
+    background-color:#c6c6c6;
+  }
   .contestSec .rightSide ul li:not(:last-child) {
     margin: 15px 0; }
   .contestSec .rightSide ul li span {
@@ -485,6 +493,12 @@ nav .desctopLogo, nav .mobileLogo {
     background-color: rgba(0, 0, 0, 0.5); }
     .contestSec .rightSide ul li:nth-child(4) span.some {
       top: 95px; }
+  .contestSec .rightSide ul li:nth-child(5) span.some {
+        position: relative;
+        display: block;
+        text-align: right;
+        top: 0;
+  }
   .contestSec .rightSide h3 {
     margin: 0 5px 0 0;
     font-size: 22px; }
@@ -849,7 +863,6 @@ nav .desctopLogo, nav .mobileLogo {
       .feedbackSec .feedbackCarousel .item li:nth-child(3) {
         display: inline-block;
         vertical-align: top;
-        max-width: 200px;
         margin: -50px 0 0 70px;
         max-width: 66%;
         p {
@@ -906,8 +919,26 @@ nav .desctopLogo, nav .mobileLogo {
       .feedbackSec .feedbackCarousel .slick-dots {
         bottom: -25px; }
         .feedbackSec .feedbackCarousel .slick-dots li.slick-active button::before {
-          color: #fff; } }
+          color: #fff; }
+}
 
+@media screen and (max-width: 1280px) {
+
+  .feedbackSec {
+    .feedbackCarousel{
+      margin: 0 5em;
+      .item {
+        padding: 0px 25px;
+        .li{
+          &:nth-child(3){
+            max-width: 85%;
+          }
+        }
+      }
+    }
+  }
+
+}
 .rulesSec {
   background-color: #262626;
   padding: 50px 0; }
@@ -998,9 +1029,12 @@ nav .desctopLogo, nav .mobileLogo {
 
 @media screen and (max-width: 768px) {
   .FAQsec {
-    padding: 30px 0; }
-    .FAQsec h1 {
-      margin: 0 auto; } }
+    padding: 30px 0;
+    h1 {
+      margin: 0 auto;
+    }
+  }
+}
 
 .sendMailSec {
   background-color: #2b2b2b;
@@ -1107,6 +1141,18 @@ footer {
       }
     }
   }
+@media screen and (max-width: 768px) {
+  footer {
+    height: 150px;
+    padding:0;
+    text-align: center;
+  }
+}
+@media screen and (max-width: 1024px) {
+  footer {
+    padding:0 2em 0 0;
+  }
+}
 
 
 .grayBtn {
@@ -1827,7 +1873,9 @@ footer {
   }
 
 }
-
+.slick-slide {
+  outline:none;
+}
 .timmerSec {
   background-color:$red;
   .Timer {

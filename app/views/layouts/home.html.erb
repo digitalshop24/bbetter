@@ -5,6 +5,11 @@
     <%= stylesheet_link_tag    'home', media: 'all', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:url" content=""/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="Быть лучше"/>
+    <meta property="og:image" content="<%= asset_path('logo.png') %>"/>
+    <meta property="og:description" content="Нельзя вернуться в прошлое и изменить свой старт, но можно стартовать сейчас и изменить свой финиш."/>
   </head>
   <body>
     <%= render 'gtm' %>

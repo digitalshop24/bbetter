@@ -1,8 +1,9 @@
 <footer>
   <div class="logoWrap">
-    <img src="<%= image_path('footer/logoFooter.png') %>" class="img-responsive" alt="logo" name="лого" />
+    <img src="<%= image_path('footer/logoFooter.png') %>" class="hidden-xs" alt="logo" name="лого" />
+    <img  alt="logo" class="hidden-md hidden-sm hidden-lg"src="<%= asset_path('header/logoNavMob.png') %>" name="Быть лучше" ui-sref="bbetter.landing"/>
   </div>
-  <div class="navWrap hidden-xs">
+  <div class="navWrap">
     <!--Будет скрыта, когда пользователь авторизирован -->
     <%if current_user%>
       <%if current_user.tariffs.present?%>
