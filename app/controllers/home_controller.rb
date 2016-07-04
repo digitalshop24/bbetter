@@ -142,6 +142,9 @@ class HomeController < ApplicationController
     # end
     # render json: { result: }
   end
+  def forum
+    @user = User.new
+  end
 
   def unsubscribe
     user = User.find_by_auth_token(params[:auth_token]) if params[:auth_token].present?
