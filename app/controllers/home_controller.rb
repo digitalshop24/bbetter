@@ -124,8 +124,7 @@ class HomeController < ApplicationController
         return
       end
       begin
-        # UserMailer.promocode_email(current_user, params[:email], params[:promocode]).deliver_now
-        UserMailer.pay_reminder_email(User.new(email: params[:email])).deliver_now
+        UserMailer.promocode_email(current_user, params[:email], params[:promocode]).deliver_now
         render json: { status: 'ok', message: 'Приглашение успешно отправлено' }
       rescue => error
         render json: { status: 'error', errors: ["Ошибка при отправке email: #{error.message}"] }
