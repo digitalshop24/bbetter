@@ -12,8 +12,13 @@ class YandexKassaController < ActionController::Base
   def testpay
     aviso = YandexKassa::PaymentAviso.new(params)
     if aviso.valid_signature?
-      if params["orderSumAmount"].to_i == Tariff.find(params["tariffId"]).price.to_i
-        UserTariff.create(user_id: params["customerNumber"], tariff_id: params["tariffId"])
+      tariff = Tariff.find(params["tariffId"])
+      if params["orderSumAmount"].to_i == tariff.price.to_i
+        user = User.find(params["customerNumber"])
+        UserTariff.create(user: user, tariff: tariff)
+        if tariff.people_number > 1
+          Promocode.available.limit(tariff.people_number - 1).update_all(referrer_id: user.id)
+        end
       end
     end
     render text: aviso.response

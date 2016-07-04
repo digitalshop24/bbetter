@@ -58,6 +58,9 @@ form input[type='number']::-webkit-inner-spin-button {
    -webkit-appearance: none;
    margin: 0;
 }
+input[type=number] {
+    -moz-appearance:textfield;
+}
 
 nav ul {
   display: flex;
@@ -1620,6 +1623,7 @@ footer {
 
 .modalSec .modal-body .formWrapper form input[type="text"],
 .modalSec .modal-body .formWrapper form input[type="email"],
+.modalSec .modal-body .formWrapper form input[type="tel"],
 .modalSec .modal-body .formWrapper form input[type="password"] {
   background-color: #f5f5f5;
   border-radius: 20px;
