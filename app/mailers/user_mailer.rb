@@ -12,4 +12,8 @@ class UserMailer < ApplicationMailer
 		@message = message
 		mail(to: email, subject: subject)
 	end
+	def promocode_email user, email, promocode
+		@user, @promocode = user, promocode
+		mail(to: email, subject: 'Приглашение на сайт bbetter.club')
+	end
 end
