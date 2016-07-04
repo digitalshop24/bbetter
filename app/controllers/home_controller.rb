@@ -106,6 +106,9 @@ class HomeController < ApplicationController
   def promo
     @user = User.new
   end
+  def forum
+    @user = User.new
+  end
 
   def restore_password
     flash[:info_messages] = []
