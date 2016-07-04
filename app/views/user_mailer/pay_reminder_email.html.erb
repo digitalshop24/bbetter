@@ -1,0 +1,271 @@
+
+
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>Похудей и выйграй приз</title>
+
+<style type="text/css">
+	.ReadMsgBody {width: 100%; background-color: #ffffff;}
+	.ExternalClass {width: 100%; background-color: #ffffff;}
+	body	 {width: 100%; background-color: #ffffff; margin:0; padding:0; -webkit-font-smoothing: antialiased;font-family: Georgia, Times, serif}
+	table {border-collapse: collapse;}
+
+	@media only screen and (max-width: 640px)  {
+					body[yahoo] .deviceWidth {width:440px!important; padding:0;}
+					body[yahoo] .center {text-align: center!important;}
+			}
+
+	@media only screen and (max-width: 479px) {
+					body[yahoo] .deviceWidth {width:280px!important; padding:0;}
+					body[yahoo] .center {text-align: center!important;}
+			}
+  a{outline: 0;}
+  input::-moz-focus-inner { border: 0; }
+  input[type=submit] { cursor: pointer; cursor: hand; }
+
+  .payBtn{
+    background-color:#fff;
+    width:100px;
+    border-width:0;
+    height:37px;
+  }
+
+</style>
+</head>
+
+<body leftmargin="0" topmargin="0" marginwidth="0" marginheight="0" yahoo="fix" style="font-family: Helvetica, Verdana, serif">
+
+<!-- Wrapper -->
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+	<tr>
+		<td width="100%" valign="top" bgcolor="#ffffff" style="padding-top:20px">
+
+			<!-- Start Header-->
+			<table width="580" border="0" cellpadding="0" cellspacing="0" align="center" class="deviceWidth" style="margin:0 auto;">
+				<tr>
+					<td width="100%" bgcolor="#ffffff">
+
+                        <table border="0" cellpadding="0" cellspacing="0" align="left" class="deviceWidth">
+                            <tr>
+
+                                <td class="center" style="position:relative;">
+                                    <img src="<%= image_url('email/header.png') %>" style="width:100%; height=auto">
+                                    <a href="http://www.bbetter.club/" target="_blank">
+                                    <img src="<%= image_url('email/logo.png') %>" style="position: absolute; right:20px; top:20px;" >
+                                    </a>
+
+                                </td>
+                            </tr>
+                        </table>
+					</td>
+				</tr>
+			</table>
+
+			<!-- One Column -->
+			<table width="580"  class="deviceWidth" border="0" cellpadding="0" cellspacing="0" align="center" style="margin:0 auto;">
+                <tr>
+                    <td style="padding:10px 8px 10px 8px">
+
+                        <table>
+                            <tr>
+                                <td style="padding:0 10px 10px 0">
+                                    <h1>Здравствуйте!</h1>
+                                    <p>Поздравляем, вы встали на путь к тому, чтобы с каждым днем быть лучше! Напоминаем, если вы еще не оплатили участие, у вас осталось совсем немного времени – срок оплаты истекает 7 июля в 23.59.</p>
+                                    <p>Как только система зарегистрирует поступившую оплату, для вас откроется возможность выбрать варианты программы тренировок и питания, максимально подходящих вашим целям и образу жизни.</p>
+                                    <p>И не забывайте – становясь красивее с «Быть лучше» самые активные и целеустремленные каждую неделю получают подарки и движутся к завоеванию главных призов конкурса!</p>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+			</table><!-- End One Column -->
+
+</table>
+<!-- Two Column (Images Stacked over Text) -->
+<table width="580" border="0" cellpadding="0" cellspacing="0" align="center" class="deviceWidth" style="margin:0 auto;">
+	<tr>
+		<td class="center" style="padding:10px 0 0 5px">
+
+            <table width="49%" border="0" cellpadding="0" cellspacing="0" align="left" class="deviceWidth">
+                <tr>
+                    <td align="left" style="border:1px solid #e2e2e2">
+                      <form id="payform1" action="https://money.yandex.ru/eshop.xml" method="post">
+                        <!-- Обязательные поля -->
+                        <input name="shopId" value="62054" type="hidden"/>
+                        <input name="scid" value="58153" type="hidden"/>
+                        <input name="sum" value="2000" type="hidden"/>
+                        <input name="customerNumber" value="<%=@user.id%>" type="hidden"/>
+                        <input name="tariffId" value="1" type="hidden" type="hidden"/>
+                        <p style="mso-table-lspace:0;mso-table-rspace:0; margin:0">
+                        <img width="267" src="<%= image_url('email/bg1.png') %>" alt="" border="0" style="width:100%;" class="deviceWidth" />
+                        <h3 style="padding:0 0 0 15px">Спортсмен<br/> одиночка</h3>
+                        <p style="color:#424242;padding:0 0 0 15px">1 человек</p>
+                        <ul style="width:100%;list-style-type:none;padding:0 15px">
+                            <li style="display:inline-block; width:49%;vertical-align: top;padding: 8px 0 0 0;">2000 руб.</li>
+                            <li style="display:inline-block;" >
+                              <input class="payBtn" type="submit" value="" style="background-image:<%= image_url('email/btn1.png') %>">
+                            </li>
+                        </ul>
+                        </p>
+                      </form>
+                    </td>
+
+                </tr>
+            </table>
+
+            <table width="49%" border="0" cellpadding="0" cellspacing="0" align="center" class="deviceWidth">
+                <tr>
+                    <td align="left" style="border:1px solid #e2e2e2">
+                        <form id="payform2" action="https://money.yandex.ru/eshop.xml" method="post">
+                          <!-- Обязательные поля -->
+                          <input name="shopId" value="62054" type="hidden"/>
+                          <input name="scid" value="58153" type="hidden"/>
+                          <input name="sum" value="3000" type="hidden"/>
+                          <input name="customerNumber" value="<%=@user.id%>" type="hidden"/>
+                          <input name="tariffId" value="2" type="hidden" type="hidden"/><p style="mso-table-lspace:0;mso-table-rspace:0; margin:0">
+                        <img width="267" src="<%= image_url('email/bg2.png') %>" alt="" border="0" style="width:100%;" class="deviceWidth" />
+                        <h3 style="padding:0 0 0 15px">Парный<br/> старт</h3>
+                        <p style="color:#424242;padding:0 0 0 15px">2 человека</p>
+                        <ul style="width:100%;list-style-type:none;padding:0 15px">
+                            <li style="display:inline-block; width:49%;vertical-align: top;padding: 8px 0 0 0;">3000 руб.</li>
+                            <li style="display:inline-block;" ><input class="payBtn" type="submit" value="" style="background-image:<%= image_url('email/btn2.png') %>"></li>
+                        </ul>
+                        </a>
+                        </p>
+                      </form>
+                    </td>
+                </tr>
+            </table>
+        </td>
+</table>
+<table width="580" border="0" cellpadding="0" cellspacing="0" align="center" class="deviceWidth" style="margin:0 auto; ">
+    <tr>
+        <td class="center" style="padding:10px 0 0 5px">
+
+            <table width="49%" border="0" cellpadding="0" cellspacing="0" align="left" class="deviceWidth">
+                <tr>
+                    <td align="left" style="border:1px solid #e2e2e2;">
+                      <form id="payform3" action="https://money.yandex.ru/eshop.xml" method="post">
+                        <!-- Обязательные поля -->
+                        <input name="shopId" value="62054" type="hidden"/>
+                        <input name="scid" value="58153" type="hidden"/>
+                        <input name="sum" value="5000" type="hidden"/>
+                        <input name="customerNumber" value="<%=@user.id%>" type="hidden"/>
+                        <input name="tariffId" value="3" type="hidden" type="hidden"/>
+                        <p style="mso-table-lspace:0;mso-table-rspace:0; margin:0">
+                        <img width="267" src="<%= image_url('email/bg3.png') %>" alt="" border="0" style="width:100%;" class="deviceWidth" />
+                        <h3 style="padding:0 0 0 15px">Командный<br/> зачет</h3>
+                        <p style="color:#424242;padding:0 0 0 15px">5 человек</p>
+                        <ul style="width:100%;list-style-type:none;padding:0 15px">
+                            <li style="display:inline-block; width:49%;vertical-align: top;padding: 8px 0 0 0;">5000 руб.</li>
+                            <li style="display:inline-block;" ><input class="payBtn" type="submit" value="" style="background-image:<%= image_url('email/btn3.png') %>"></li>
+                        </ul>
+                        </a>
+                        </p>
+                      </form>
+                    </td>
+
+                </tr>
+            </table>
+
+            <table width="49%" border="0" cellpadding="0" cellspacing="0" align="center" class="deviceWidth">
+                <tr>
+                    <td align="left" style="border:1px solid #e2e2e2">
+                        <p style="mso-table-lspace:0;mso-table-rspace:0; margin:0">
+                        <a href="http://www.bbetter.club/?utm_source=email&utm_medium=sendpulse&utm_campaign=advice#partnersSec" style="color:#000; text-decoration:none;">
+                        <img width="267" src="<%= image_url('email/bg4.png') %>" alt="" border="0" style="width:100%;" class="deviceWidth" />
+                        <h3 style="padding:0 0 0 15px">Получить<br/> консультацию</h3>
+                        <p style="color:#424242;padding:0 0 0 15px">2 эксперта</p>
+                        <ul style="width:100%;list-style-type:none;padding:0 15px">
+                            <li style="display:inline-block; width:49%;vertical-align: top;padding: 8px 0 0 0;">0 руб.</li>
+                            <li style="display:inline-block;" ><img src="<%= image_url('email/btn4.png') %>"></li>
+                        </ul>
+                        </a>
+                        </p>
+                    </td>
+                </tr>
+            </table>
+        </td>
+</table>
+
+<!-- Wrapper -->
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+    <tr>
+        <td width="100%" valign="top" bgcolor="#ffffff">
+            <table width="580"  class="deviceWidth" border="0" cellpadding="0" cellspacing="0" align="center" style="margin:0 auto;">
+                <tr>
+                    <td style="padding:10px 0 10px 0">
+                        <table>
+                            <tr>
+                                <td style="padding:0 12px 0 12px">
+                                    <p><strong>Длительность проекта 5 недель, включая неделю финальных соревнований.</strong></p>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table><!-- End One Column -->
+        </td>
+    </tr>
+</table>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+    <tr>
+        <td width="100%" valign="top" bgcolor="#ffffff">
+            <table width="580"  class="deviceWidth" border="0" cellpadding="0" cellspacing="0" align="center" style="margin:0 auto;">
+                <tr>
+                    <td style="padding:10px 0 10px 0">
+                        <table align="center">
+                            <tr>
+                                <td>
+                                <br/>
+                                <br/>
+                                    <a href="https://www.facebook.com/bbetterclub" target="_blank" style="margin:10px 10px 10px 10px;" ><img src="<%= image_url('email/fb.png') %>" width="42" height="42" alt="facebook" title="facebook" border="0" /></a>
+
+                                    <a href="https://vk.com/bbetter_club" target="_blank" style="margin:10px 10px 10px 10px;"><img src="<%= image_url('email/vk.png') %>" width="42" height="42" alt="vk" title="vk" border="0" /></a>
+
+                                    <a href="https://www.instagram.com/bbetter.club/" target="_blank" style="margin:10px 10px 10px 10px;"><img src="<%= image_url('email/inst.png') %>" width="42" height="42" alt="inst" title="ok" border="0" /></a>
+                                    <br />
+                                    <br/>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table><!-- End One Column -->
+        </td>
+    </tr>
+</table>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+    <tr>
+        <td width="100%" valign="top" bgcolor="#ffffff">
+            <table width="580"  class="deviceWidth" border="0" cellpadding="0" cellspacing="0" align="center" style="margin:0 auto;">
+                <tr>
+                    <td style="padding:10px 0 10px 0">
+                        <table align="center">
+                            <tr>
+                                <td>
+                                    <p align="center" style="line-height:25px">
+                                        Aвторские права © 2010–2016 bbetter.club<br/>
+                                        Вы получили эту рассылку на адрес<br/> <%= @user.email %>,<br/>
+                                        поскольку являетесь участником клуба<br/><strong> <a style="color:#000; text-decoration: none;" href="http://www.bbetter.club/">bbetter.club</a></strong>.<br/>
+                                        <!-- <a href="" style="color:#000; text-decoration: none; border-bottom:2px solid #afafaf; ">Выбрать тему и частоту рассылок.</a><br/> -->
+                                        <a href="http://bbetter.club/unsubscribe?auth_token=<%=@user.auth_token%>" style="color:#000; text-decoration: none; border-bottom:2px solid #afafaf; ">Отказаться</a> от получения персональных<br/> бонусов и анонсов акций.
+                                        <br/><br/><br/><br/>
+                                    </p>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table><!-- End One Column -->
+        </td>
+    </tr>
+</table>
+			
+</body>
+</html>

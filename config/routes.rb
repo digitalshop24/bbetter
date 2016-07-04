@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   post '/pay', to: "yandex_kassa#testpay"
   post 'registration', to: "home#registration"
   get '/promo', to: "home#promo", as: :promo
+  get '/unsubscribe', to: "home#unsubscribe", as: :unsubscribe
   get '/forum', to: "home#forum", as: :forum
   post '/promo', to: "home#send_promo", as: :send_promo
   resources :messages, only: [:create]
