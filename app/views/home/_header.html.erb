@@ -66,6 +66,7 @@
           <ul class="dropdown-menu" data-no-turbolink="true">
             <li><a href="/profile">Кабинет</a></li>
             <li><a href=""  data-toggle="modal" data-target="#editProfileModal">Редактировать</a></li>
+            <li><%= link_to 'Промокоды', promo_path %></li>
             <li><%= link_to 'Выйти', :destroy_user_session, method: :delete %></li>
           </ul>
         </button>
