@@ -141,6 +141,9 @@ class HomeController < ApplicationController
     # end
     # render json: { result: }
   end
+  def forum
+    @user = User.new
+  end
 
   def restore_password
     flash[:info_messages] = []
