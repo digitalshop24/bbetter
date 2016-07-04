@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
-  before_action :authenticate_user!, only: [:profile, :edit_profile]
+  before_action :authenticate_user!, only: [:profile, :edit_profile, :promo, :send_promo]
   layout 'home'
   def index
     @user = current_user || User.new
@@ -42,7 +42,7 @@ class HomeController < ApplicationController
     @message = Message.new
     @user = current_user
     @tariffs = Tariff.all
-    @user_tariff = UserTariff.where(user_id: @user.id).first
+    @user_tariff = UserTariff.where(user_id: @user.id).last
     @summary = @user.summary || Summary.new
     if @user_tariff.present?
       @current_tarrif = Tariff.find(@user_tariff.tariff_id)
@@ -53,7 +53,7 @@ class HomeController < ApplicationController
     @user = current_user
     if @user.update(user_params)
       if params[:promocode].present?
-        pc = Promocode.available.find_by(code: params[:promocode])
+        pc = Promocode.not_activated.find_by(code: params[:promocode])
         tariff = Tariff.find_by(people_number: 1)
         if pc && tariff
           pc.update(activated_at: Time.now, user: @user)
@@ -78,7 +78,7 @@ class HomeController < ApplicationController
     tariff = nil
     flash[:info_messages] = []
     if params[:promocode].present?
-      pc = Promocode.available.find_by(code: params[:promocode])
+      pc = Promocode.not_activated.find_by(code: params[:promocode])
       @user.errors[:promocode] << "имеет неверное значение" unless pc
       tariff = Tariff.find_by(people_number: 1)
       @user.errors[:promocode] << "нету подходящего тарифа" unless tariff
@@ -103,8 +103,43 @@ class HomeController < ApplicationController
       render 'index'
     end
   end
+
   def promo
-    @user = User.new
+    @user = current_user
+    @promocodes = @user.promocodes
+    @user_tariff = @user.user_tariffs.last
+    @current_tarrif = @user_tariff.tariff if @user_tariff.present?
+  end
+
+  def send_promo
+    if params[:accPromo] == 'phone'
+      unless params[:phone].present?
+        render json: { status: 'error', errors: ['Не введен номер телефона'] }
+        return
+      end
+      render json: { status: 'ok', message: 'Приглашение успешно отправлено' }
+    elsif params[:accPromo] == 'email'
+      unless params[:email].present?
+        render json: { status: 'error', errors: ['Не введен email'] }
+        return
+      end
+      begin
+        UserMailer.promocode_email(current_user, params[:email], params[:promocode]).deliver_now
+        render json: { status: 'ok', message: 'Приглашение успешно отправлено' }
+      rescue => error
+        render json: { status: 'error', errors: ["Ошибка при отправке email: #{error.message}"] }
+      end
+    else
+      render json: { status: 'error', errors: ['Что-то пошло не так'] }
+    end
+
+
+    # elsif params[:promocode].present? && params[:email].present?
+    #   res = 'email '
+    # else
+
+    # end
+    # render json: { result: }
   end
   def forum
     @user = User.new

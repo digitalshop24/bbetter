@@ -76,13 +76,15 @@
               </div>
             </div>
             <div class="col-md-3">
-              <%= f.file_field :motivation, id: 'fileElem_7', style: 'display:none', accept: 'image/*' %>
-              <!-- <input accept="image/*" id="fileElem_7" multiple=""  style="display:none" type="file"> -->
-              <%= button_tag class: 'btn_fo_div user_data_btn btn_right text-center', style: "background-image: url(#{@summary.motivation.url(:big) if @summary.motivation?})", id: 'fileSelect_7', disabled: @summary.motivation? do %>
-                <%= "Загрузить<br>Мотивашку".html_safe unless @summary.motivation? %>
+              <% if @summary.motivation? %>
+                <div class="btn_fo_div user_data_btn btn_right text-center" style="background-image: url(<%=@summary.motivation.url(:big)%>)"></div>
+              <% else %>
+                <%= f.file_field :motivation, id: 'fileElem_7', style: 'display:none', accept: 'image/*' %>
+                <div class="btn_fo_div user_data_btn btn_right text-center" id="fileSelect_7">
+                  Загрузить<br>Мотивашку
+                </div>
               <% end %>
-              <span id="filelist_7" class="img_show_block hidden"></span>
-              <!-- <button class="user_data_btn btn_right text-center"></button> -->
+              <%= f.file_field :motivation, id: 'fileElem_7', style: 'display:none', accept: 'image/*' %>
             </div>
             <div class="col-md-3 text-center user_paramentry">
               <h3>Показатели участника</h3>
@@ -91,12 +93,12 @@
               <ul>
                 <li><%= f.number_field :weight, min: 30, max: 300, placeholder: 'Вес', required:true, disabled: f.object.weight.present? %></li>
                 <li><%= f.number_field :height, min: 50, max: 250, placeholder: 'Рост', required:true, disabled: f.object.height.present? %></li>
-                <li><%= f.text_field :age, min: 10, max: 140, placeholder: 'Возраст', required:true, disabled: f.object.age.present? %></li>
+                <li><%= f.number_field :age, min: 10, max: 140, placeholder: 'Возраст', required:true, disabled: f.object.age.present? %></li>
               </ul>
               <ul style="margin-left: 20px;">
-                <li><%= f.text_field :chest, min: 30, max: 200, placeholder: 'Грудь', required:true, disabled: f.object.chest.present? %></li>
-                <li><%= f.text_field :waist, min: 30, max: 200, placeholder: 'Талия', required:true, disabled: f.object.waist.present? %></li>
-                <li><%= f.text_field :thigh, min: 30, max: 200, placeholder: 'Бедра', required:true, disabled: f.object.thigh.present? %></li>
+                <li><%= f.number_field :chest, min: 30, max: 200, placeholder: 'Грудь', required:true, disabled: f.object.chest.present? %></li>
+                <li><%= f.number_field :waist, min: 30, max: 200, placeholder: 'Талия', required:true, disabled: f.object.waist.present? %></li>
+                <li><%= f.number_field :thigh, min: 30, max: 200, placeholder: 'Бедра', required:true, disabled: f.object.thigh.present? %></li>
               </ul>
             </div>
           </div>
