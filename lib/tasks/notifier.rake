@@ -1,6 +1,16 @@
 require 'open-uri'
+task remind_pay: :environment do
+  users = User.where(subscribed: true)
+  count = users.count
+  users.each_with_index do |user, i|
+    UserMailer.pay_reminder_email(user).deliver_now
+    puts "#{i+1}/#{count} done"
+  end
+end
+
 namespace :notifier do
   desc "Send all email and sms, perform calls for all subscriptions"
+
 
   task notify_one_time: :environment do
     sts = SubscriptionType.one_time
