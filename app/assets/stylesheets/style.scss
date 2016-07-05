@@ -96,7 +96,7 @@ nav ul.right {
       left: auto;
       min-width: 130px;
       li {
-        
+
         a {
           color:#fff;
         &:hover,&:focus {
@@ -828,7 +828,11 @@ nav .desctopLogo, nav .mobileLogo {
     color: #fff;
   }
 }
-  
+<<<<<<< HEAD
+
+=======
+
+>>>>>>> 0ed255df0a91a33a05ad29ab988dff754f6125f3
   .feedbackSec .feedbackCarousel {
     margin: 0 10em; }
     .feedbackSec .feedbackCarousel .item {
@@ -930,9 +934,15 @@ nav .desctopLogo, nav .mobileLogo {
         .feedbackSec .feedbackCarousel .slick-dots li.slick-active button::before {
           color: #fff; }
 }
+<<<<<<< HEAD
 
 @media screen and (max-width: 1280px) {
 
+=======
+
+@media screen and (max-width: 1280px) {
+
+>>>>>>> 0ed255df0a91a33a05ad29ab988dff754f6125f3
   .feedbackSec {
     .feedbackCarousel{
       margin: 0 5em;
@@ -1126,7 +1136,7 @@ footer {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  padding: 0 10em; 
+  padding: 0 10em;
     .navWrap {
       flex: 1 0 auto;
     }
@@ -1268,7 +1278,11 @@ footer {
           width:49%;
           height: 300px;
 
-          
+<<<<<<< HEAD
+
+=======
+
+>>>>>>> 0ed255df0a91a33a05ad29ab988dff754f6125f3
           // position: relative;
           // top: 103px;
         }
@@ -1302,7 +1316,7 @@ footer {
       border-radius: 0 10px 10px 0;
     }
     .btn_right {
-      margin-left: 20px; 
+      margin-left: 20px;
       border-radius:10px;
       width:100%;
     }
@@ -1348,13 +1362,13 @@ footer {
   background-color: #e8698d;
   background-image: url("../img/lk/bg_plan.png");
   background-size: cover;
-  background-repeat: no-repeat; 
+  background-repeat: no-repeat;
   background-position: center center;
   .tab-content {
     background-color: transparent;
   }
   button {
-    margin: 5px 5px 20px 5px; 
+    margin: 5px 5px 20px 5px;
     width: 163px;
   }
   .sendType {
@@ -1367,13 +1381,13 @@ footer {
       display: block;
     }
   }
-  
+
   .titel_tariff {
       color: #fff;
       font-size: 50px;
       font-weight: bold;
       margin: 0;
-      padding: 70px 0 30px 0; 
+      padding: 70px 0 30px 0;
       font-family: meta;
   }
   .table_plan {
@@ -1437,14 +1451,14 @@ footer {
   background-image: asset-url("lk/bg_plan.png");
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center center; 
+  background-position: center center;
   .tabs-menu {
     margin-bottom: 20px;
     li {
       display: inline-table;
         margin:5px 10px;
       a {
-        
+
       }
     }
     li.current {
@@ -1556,7 +1570,7 @@ footer {
   .calculate h3 {
     color: #fff;
     padding-bottom:20px;
-  }  
+  }
   .calculate ul {
     width: 30%;
     display: inline-block; }
@@ -1705,7 +1719,7 @@ footer {
       &:hover {
        color:#fff;
        background-color: transparent;
-       
+
       }
     }
   }
@@ -1737,7 +1751,7 @@ footer {
   color: #000;
   background-color:#fff;
   padding:10px 30px;
-  
+
   &.wrapperTab {
     min-height: 586px;
     border-radius:30px;
@@ -1852,7 +1866,7 @@ footer {
       text-indent: 20px;
       text-align: center;
       margin-right: 90px;
-      
+
     }
     input:checked + label {
         display: inline-block;
@@ -1860,7 +1874,7 @@ footer {
         color: #000;
     }
   }
-  
+
 }
 
 .week_plan_drugs_eat {
@@ -1881,7 +1895,7 @@ footer {
       text-indent: 20px;
       text-align: center;
       margin-right: 140px;
-      
+
     }
     input:checked + label {
         display: inline-block;
@@ -1914,7 +1928,11 @@ footer {
         }
       }
 
-      }  
+<<<<<<< HEAD
+      }
+=======
+      }
+>>>>>>> 0ed255df0a91a33a05ad29ab988dff754f6125f3
   }
 }
 
@@ -1993,8 +2011,24 @@ footer {
 
   }
 }
+.forumbtn {
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  font-family: Arial;
+  color: #000000;
+  font-size: 20px;
+  background: #ffffff;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
 
-  
- 
+.forumbtn:hover {
+  background: #ededed;
+  text-decoration: none;
+}
 
- 
+
+
+
+

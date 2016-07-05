@@ -12,11 +12,11 @@
     <meta property="og:description" content="Нельзя вернуться в прошлое и изменить свой старт, но можно стартовать сейчас и изменить свой финиш."/>
   </head>
   <body>
-    <%= render 'gtm' %>
-    <%= render 'header' %>
+    <%= render 'home/gtm' %>
+    <%= render 'home/header' %>
     <%= yield %>
-    <%= render 'modals' %>
-    <%= render 'footer' %>
+    <%= render 'home/modals' %>
+    <%= render 'home/footer' %>
     <%= javascript_include_tag 'home', 'data-turbolinks-track' => true, 'data-turbolinks-eval' => false %>
     <%= yield :js %>
     <% if flash[:modal] %>

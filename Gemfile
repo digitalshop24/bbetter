@@ -29,6 +29,7 @@ gem 'cancancan', '~> 1.14'
 gem 'paperclip', '~> 4.3'
 gem 'rails_admin', '~> 0.8.1'
 gem 'aws-sdk', '< 2.0'
+gem 'will_paginate', '~> 3.0.5'
 
 gem 'ckeditor', github: 'galetahub/ckeditor'
 
@@ -57,6 +58,7 @@ gem 'rspec-rails', '~> 3.4', '>= 3.4.2'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem "nifty-generators"
   gem 'pry', '~> 0.10.3'
 end
 
@@ -68,3 +70,5 @@ group :development do
   gem 'spring'
 end
 
+
+gem 'mocha', group: :test

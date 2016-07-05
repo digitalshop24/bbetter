@@ -13,3 +13,6 @@
 
 // TURBOLINKS
 //= require turbolinks
+
+
+//= require ckeditor/init
