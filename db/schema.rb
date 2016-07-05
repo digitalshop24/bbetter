@@ -53,8 +53,7 @@ ActiveRecord::Schema.define(version: 20160704145037) do
   add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
   add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
 
-=======
->>>>>>> 0ed255df0a91a33a05ad29ab988dff754f6125f3
+
   create_table "galleries", force: :cascade do |t|
     t.integer  "user_id"
     t.datetime "created_at", null: false
