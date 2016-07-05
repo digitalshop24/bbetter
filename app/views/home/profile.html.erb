@@ -4,12 +4,12 @@
   </section>
   <%= render 'user_data' %>
   <% if @user_tariff.training_program %>
-    <!--<section class="week_plan_drugs_eat">
-    <h2 class="titel_tariff text-center">План тренировок будет доступен 08.07.2016</h2>
-    </section>-->
-    <%= render partial: 'training_programs/show', locals: { training_program: @user_tariff.training_program } %>
-  <% else %>
     <section class="week_plan_drugs_eat">
+    <h2 class="titel_tariff text-center">План тренировок будет доступен 08.07.2016</h2>
+    </section>
+   <!--  <%= render partial: 'training_programs/show', locals: { training_program: @user_tariff.training_program } %> -->
+  <% else %>
+    <!-- <section class="week_plan_drugs_eat">
       <h2 class="titel_tariff text-center">Выберите программу тренировок</h2>
       <%= form_for @user_tariff, url: set_training_program_path(@user_tariff), method: :put, html: {class: 'sendType'} do |f| %>
         <div class="selectType">
@@ -20,6 +20,9 @@
         </div>
         <%= f.submit 'Отправить', class: 'redBtn' %>
       <% end %>
+    </section> -->
+     <section class="week_plan_drugs_eat">
+      <h2 class="titel_tariff text-center">План тренировок будет доступен 08.07.2016</h2>
     </section>
   <% end %>
 <% else %>
