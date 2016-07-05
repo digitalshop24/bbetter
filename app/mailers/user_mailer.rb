@@ -16,4 +16,8 @@ class UserMailer < ApplicationMailer
 		@user, @promocode = user, promocode
 		mail(to: email, subject: 'Приглашение на сайт bbetter.club')
 	end
+	def pay_reminder_email user
+		@user = user
+		mail(to: @user.email, subject: 'Напоминание об оплате')
+	end
 end

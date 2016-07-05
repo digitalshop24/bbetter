@@ -96,7 +96,7 @@ nav ul.right {
       left: auto;
       min-width: 130px;
       li {
-        
+
         a {
           color:#fff;
         &:hover,&:focus {
@@ -828,7 +828,7 @@ nav .desctopLogo, nav .mobileLogo {
     color: #fff;
   }
 }
-  
+
   .feedbackSec .feedbackCarousel {
     margin: 0 10em; }
     .feedbackSec .feedbackCarousel .item {
@@ -931,7 +931,9 @@ nav .desctopLogo, nav .mobileLogo {
           color: #fff; }
 }
 
+
 @media screen and (max-width: 1280px) {
+
 
   .feedbackSec {
     .feedbackCarousel{
@@ -1126,7 +1128,7 @@ footer {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  padding: 0 10em; 
+  padding: 0 10em;
     .navWrap {
       flex: 1 0 auto;
     }
@@ -1268,7 +1270,7 @@ footer {
           width:49%;
           height: 300px;
 
-          
+
           // position: relative;
           // top: 103px;
         }
@@ -1302,7 +1304,7 @@ footer {
       border-radius: 0 10px 10px 0;
     }
     .btn_right {
-      margin-left: 20px; 
+      margin-left: 20px;
       border-radius:10px;
       width:100%;
     }
@@ -1348,13 +1350,13 @@ footer {
   background-color: #e8698d;
   background-image: url("../img/lk/bg_plan.png");
   background-size: cover;
-  background-repeat: no-repeat; 
+  background-repeat: no-repeat;
   background-position: center center;
   .tab-content {
     background-color: transparent;
   }
   button {
-    margin: 5px 5px 20px 5px; 
+    margin: 5px 5px 20px 5px;
     width: 163px;
   }
   .sendType {
@@ -1367,13 +1369,13 @@ footer {
       display: block;
     }
   }
-  
+
   .titel_tariff {
       color: #fff;
       font-size: 50px;
       font-weight: bold;
       margin: 0;
-      padding: 70px 0 30px 0; 
+      padding: 70px 0 30px 0;
       font-family: meta;
   }
   .table_plan {
@@ -1437,14 +1439,14 @@ footer {
   background-image: asset-url("lk/bg_plan.png");
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center center; 
+  background-position: center center;
   .tabs-menu {
     margin-bottom: 20px;
     li {
       display: inline-table;
         margin:5px 10px;
       a {
-        
+
       }
     }
     li.current {
@@ -1556,7 +1558,7 @@ footer {
   .calculate h3 {
     color: #fff;
     padding-bottom:20px;
-  }  
+  }
   .calculate ul {
     width: 30%;
     display: inline-block; }
@@ -1705,7 +1707,7 @@ footer {
       &:hover {
        color:#fff;
        background-color: transparent;
-       
+
       }
     }
   }
@@ -1737,7 +1739,7 @@ footer {
   color: #000;
   background-color:#fff;
   padding:10px 30px;
-  
+
   &.wrapperTab {
     min-height: 586px;
     border-radius:30px;
@@ -1852,7 +1854,7 @@ footer {
       text-indent: 20px;
       text-align: center;
       margin-right: 90px;
-      
+
     }
     input:checked + label {
         display: inline-block;
@@ -1860,7 +1862,7 @@ footer {
         color: #000;
     }
   }
-  
+
 }
 
 .week_plan_drugs_eat {
@@ -1881,7 +1883,7 @@ footer {
       text-indent: 20px;
       text-align: center;
       margin-right: 140px;
-      
+
     }
     input:checked + label {
         display: inline-block;
@@ -1914,11 +1916,105 @@ footer {
         }
       }
 
-      }  
+
+      }
+
   }
 }
 
-  
- 
+.forumSec {
+  background-color:$red;
+  padding:50px 0;
+  .headPage {
+    color:#fff;
+    border-bottom:4px solid #fff;
+    display: flex;
+    align-items: center;
+    max-width: 60em;
+    margin: 0 auto 30px;
+    .tags {
+      display: flex;
+      margin:0 0 0 auto;
+      li {
+        a{
+          color:#fff;
+          transition:color .4s;
+          &:hover {
+            color:#000;
+          }
+        }
+      }
+      li:not(:last-child) {
+        margin-right:20px;
+      }
+    }
 
- 
+    h1 {
+      font-size:44px;
+      margin:0;
+    }
+  }
+  .postItem {
+    background-color:#fff;
+    display: flex;
+    max-width: 60em;
+    padding: 20px;
+    margin: 0 auto;
+    align-items: center;
+    .imgWrap {
+      background-size: cover;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-image: none;
+      width:130px;
+      height:130px;
+      border-radius:50%;
+    }
+    .textWrap {
+      padding:0 35px;
+      width: calc(100% - 150px);
+      transition:color .4s;
+      .into {
+        display: flex;
+        li {
+          margin-right:20px;
+          i {margin-right:5px;}
+        }
+        li:last-child{
+          margin: 0 0 0 auto;
+          color:#959595;
+        }
+      }
+    }
+  }
+  .postItem:not(:last-child){
+    margin-bottom:20px;
+  }
+  .postItem:hover {
+    .textWrap {
+      color:$red;
+    }
+
+  }
+}
+.forumbtn {
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  font-family: Arial;
+  color: #000000;
+  font-size: 20px;
+  background: #ffffff;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.forumbtn:hover {
+  background: #ededed;
+  text-decoration: none;
+}
+
+
+
+
+

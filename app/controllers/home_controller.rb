@@ -141,6 +141,15 @@ class HomeController < ApplicationController
     # end
     # render json: { result: }
   end
+  def forum
+    @user = User.new
+  end
+
+  def unsubscribe
+    user = User.find_by_auth_token(params[:auth_token]) if params[:auth_token].present?
+    user.update(subscribed: false)
+    render text: '<h2 style="text-align:center;">Вы отказались от рассылок</h2>'.html_safe
+  end
 
   def restore_password
     flash[:info_messages] = []
