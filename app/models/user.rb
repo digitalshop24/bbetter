@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
     :recoverable, :rememberable, :trackable, :validatable
 
+  has_many :posts, dependent: :destroy
+  has_many :comments, dependent: :destroy
   has_many :user_tariffs, dependent: :destroy
   has_many :videos, dependent: :destroy
   has_many :tariffs, through: :user_tariffs
@@ -31,7 +33,7 @@ class User < ActiveRecord::Base
     object_label_method do
       :display_name
     end
-    
+
     edit do
       fields :email, :password, :roles, :name, :city, :age, :sex, :promocode
     end

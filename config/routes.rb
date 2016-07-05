@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
+  resources :posts
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   mount API::Root => '/'
   mount GrapeSwaggerRails::Engine => '/apidoc'
   devise_for :users, controllers: { sessions: "users/sessions" }
-  root 'home#index' 
+  root 'home#index'
   post '/registration', to: "home#registration", as: :home_registration
   put '/edit_profile', to: "home#edit_profile", as: :edit_profile
   put '/restore_password', to: "home#restore_password", as: :restore_password
@@ -13,7 +14,7 @@ Rails.application.routes.draw do
   post '/pay', to: "yandex_kassa#testpay"
   post 'registration', to: "home#registration"
   get '/promo', to: "home#promo", as: :promo
-
+  post '/comment/:id', to: "posts#comment"
   put 'user_tariffs/:id/set_training_program', to: 'user_tariffs#set_training_program', as: :set_training_program
 
   controller 'yandex_kassa', constraints: { subdomain: 'ssl' } do
