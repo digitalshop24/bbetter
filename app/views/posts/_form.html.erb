@@ -12,18 +12,14 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :title %><br>
+    <%= f.label "Заголовок" %><br>
     <%= f.text_field :title %>
   </div>
   <div class="field">
-    <%= f.label :content %><br>
-    <%= f.text_area :content %>
+    <%= f.label "Содержание" %><br>
+    <%= f.cktext_area :content, :ckeditor => {:toolbar => 'mini'} %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Создать тему" %>
   </div>
 <% end %>

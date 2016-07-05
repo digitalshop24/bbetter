@@ -13,14 +13,26 @@ $(function() {
   });
 });
 
-$('.accordion li').click(function(e) {
+$(document).ready(function(){
+  $('.accordion li').click(function(e) {
     e.preventDefault(); //prevent the link from being followed
     $('.accordion li').removeClass('active');
     $(this).addClass('active');
-});
+  });
 
-$(document).ready(function(){
-  //console.log('AGE');
+
+  $('.tariffsCarousel').slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: true,
+    responsive: [{
+      breakpoint: 768,
+      settings: {
+         arrows: false,
+         dots:true
+      }
+    }]
+  });
   $('.beforeAfter').slick({
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -65,21 +77,27 @@ $(document).ready(function(){
     arrows: false,
     dots:true
   });
-
   $(".tabs-menu a").click(function(event) {
       event.preventDefault();
       $(this).parent().addClass("current");
       $(this).parent().siblings().removeClass("current");
       var tab = $(this).attr("href");
-      $(".tab-content").not(tab).css("display", "none");
+      $(".tab-content.trPl").not(tab).css("display", "none");
       $(tab).fadeIn();
+  });
+
+  $('.closeNotif').click(function() {
+    $('.notif').addClass('hidden');
+  });
+
+  $(document).on("click", ".inviteButton", function () {
+     var promocode = $(this).data('promocode');
+     $('#promo_promocode').val(promocode);
   });
 
 });
 
-$('.closeNotif').click(function() {
-  $('.notif').addClass('hidden');
-});
+
 
 function measureScrollBar() {
   // david walsh
@@ -100,20 +118,6 @@ $(document.body)
 .on('hidden.bs.modal', function () {
   $(document.body).css('padding-right', 0)
 });
-document.getElementById('calcCol').onclick = function() {
-  var sex = document.getElementById("sex").value;
-  var age = document.getElementById("age").value;
-  var weight = document.getElementById("weight").value;
-  var growth = document.getElementById("growth").value;
-  var activity = document.getElementById("activity").value;
-  var rezult;
-  if (sex=='male') {
-    rezult = (10*weight+6.25*growth-5*age+5)*activity;
-  } else if (sex=='female') {
-    rezult = (10*weight+6.25*growth-5*age+161)*activity;
-  }
-  if (rezult > 0) {
-    document.getElementById("calRez").innerHTML = 'Ваша норма: ' + Math.round(rezult) + ' ккал';
-  } else document.getElementById("calRez").innerHTML = 'Введите корректные данные'
-  
-}
+
+
+

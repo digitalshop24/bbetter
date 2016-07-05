@@ -15,6 +15,13 @@ Rails.application.routes.draw do
   post 'registration', to: "home#registration"
   get '/promo', to: "home#promo", as: :promo
   post '/comment/:id', to: "posts#comment"
+  get '/unsubscribe', to: "home#unsubscribe", as: :unsubscribe
+  get '/forum', to: "home#forum", as: :forum
+  post '/promo', to: "home#send_promo", as: :send_promo
+  resources :messages, only: [:create]
+  resources :feedbacks, only: [:create]
+  resources :summaries
+
   put 'user_tariffs/:id/set_training_program', to: 'user_tariffs#set_training_program', as: :set_training_program
 
   controller 'yandex_kassa', constraints: { subdomain: 'ssl' } do

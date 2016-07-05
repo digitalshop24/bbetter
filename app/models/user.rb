@@ -14,8 +14,11 @@ class User < ActiveRecord::Base
   has_many :messages, dependent: :destroy
   has_many :subscriptions, dependent: :destroy
   has_many :images, through: :galleries
-  has_many :summaries, dependent: :destroy
+  has_one :summary, dependent: :destroy
   has_one :promocode, dependent: :nullify
+  has_many :promocodes, foreign_key: "referrer_id", dependent: :nullify
+  has_many :referrals, through: :promocodes, source: :user
+  has_one :referrer, through: :promocode
 
   before_save :ensure_auth_token
 

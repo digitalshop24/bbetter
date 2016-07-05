@@ -1,0 +1,115 @@
+<section class="user_data">
+  <div class="container">
+    <%= form_for @summary, html: { multipart: true } do |f| %>
+      <div class="row">
+        <!-- <div class="col-md-12 text-center user_data_titel">
+
+            <h2>Дина Богачева</h2>
+            <p>Доступно еще<br> <span class="pink">2</span> участника</p>
+            <button class="redBtn">Пригласить</button>
+          </div> -->
+        <div class="col-md-12 text-left form">
+          <h2 class="text-center"><%=  @user.moto %></h2>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="aploadCarousel">
+                <div>
+                  <ul class="item">
+                    <% if @summary.before_front? %>
+                      <div class="btn_fo_div user_data_btn btn_left" style="background-image: url(<%=@summary.before_front.url(:big)%>)"></div>
+                    <% else %>
+                      <%= f.file_field :before_front, id: 'fileElem', style: 'display:none', accept: 'image/*' %>
+                      <div class="btn_fo_div user_data_btn btn_left text-center" id="fileSelect">
+                        &lt;&lt;До&gt;&gt;<br/><br/>Загрузить<br>&lt;&lt;Спереди&gt;&gt;
+                      </div>
+                    <% end %>
+                    <% if @summary.before_back? %>
+                      <div class="btn_fo_div user_data_btn btn_center" style="background-image: url(<%=@summary.before_back.url(:big)%>)"></div>
+                    <% else %>
+                      <%= f.file_field :before_back, id: 'fileElem_2', style: 'display:none', accept: 'image/*' %>
+                      <div class="btn_fo_div user_data_btn btn_center text-center" id="fileSelect_2">
+                        &lt;&lt;До&gt;&gt;<br/><br/>Загрузить<br>&lt;&lt;Сзади&gt;&gt;
+                      </div>
+                    <% end %>
+                  </ul>
+                </div>
+                <div>
+                  <ul class="item">
+                    <% if @summary.before_left? %>
+                      <div class="btn_fo_div user_data_btn btn_left" style="background-image: url(<%=@summary.before_left.url(:big)%>)"></div>
+                    <% else %>
+                      <%= f.file_field :before_left, id: 'fileElem_3', style: 'display:none', accept: 'image/*' %>
+                      <div class="btn_fo_div user_data_btn btn_left text-center" id="fileSelect_3">
+                        &lt;&lt;До&gt;&gt;<br/><br/>Загрузить<br>&lt;&lt;Слева&gt;&gt;
+                      </div>
+                    <% end %>
+                    <% if @summary.before_right? %>
+                      <div class="btn_fo_div user_data_btn btn_center" style="background-image: url(<%=@summary.before_right.url(:big)%>)"></div>
+                    <% else %>
+                      <%= f.file_field :before_right, id: 'fileElem_4', style: 'display:none', accept: 'image/*' %>
+                      <div class="btn_fo_div user_data_btn btn_center text-center" id="fileSelect_4">
+                        &lt;&lt;До&gt;&gt;<br/><br/>Загрузить<br>&lt;&lt;Справа&gt;&gt;
+                      </div>
+                    <% end %>
+                  </ul>
+                </div>
+                <div>
+                  <ul class="item">
+                    <% if @summary.after_front? %>
+                      <div class="btn_fo_div user_data_btn btn_left" style="background-image: url(<%=@summary.after_front.url(:big)%>)"></div>
+                    <% else %>
+                      <%= f.file_field :after_front, id: 'fileElem_5', style: 'display:none', accept: 'image/*' %>
+                      <div class="btn_fo_div user_data_btn btn_left text-center" id="fileSelect_5">
+                        &lt;&lt;После&gt;&gt;<br/><br/>Загрузить<br>&lt;&lt;Спереди&gt;&gt;
+                      </div>
+                    <% end %>
+                    <% if @summary.after_back? %>
+                      <div class="btn_fo_div user_data_btn btn_center" style="background-image: url(<%=@summary.after_back.url(:big)%>)"></div>
+                    <% else %>
+                      <%= f.file_field :after_back, id: 'fileElem_6', style: 'display:none', accept: 'image/*' %>
+                      <div class="btn_fo_div user_data_btn btn_center text-center" id="fileSelect_6">
+                        &lt;&lt;После&gt;&gt;<br/><br/>Загрузить<br>&lt;&lt;Сзади&gt;&gt;
+                      </div>
+                    <% end %>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <% if @summary.motivation? %>
+                <div class="btn_fo_div user_data_btn btn_right text-center" style="background-image: url(<%=@summary.motivation.url(:big)%>)"></div>
+              <% else %>
+                <%= f.file_field :motivation, id: 'fileElem_7', style: 'display:none', accept: 'image/*' %>
+                <div class="btn_fo_div user_data_btn btn_right text-center" id="fileSelect_7">
+                  Загрузить<br>Мотивашку
+                </div>
+              <% end %>
+              <%= f.file_field :motivation, id: 'fileElem_7', style: 'display:none', accept: 'image/*' %>
+            </div>
+            <div class="col-md-3 text-center user_paramentry">
+              <h3>Показатели участника</h3>
+              <p>Замеры веса и объемов производить<br>
+                в расслабленном состоянии и минимуме одежды.</p>
+              <ul>
+                <li><%= f.number_field :weight, min: 30, max: 300, placeholder: 'Вес', required:true, disabled: f.object.weight.present? %></li>
+                <li><%= f.number_field :height, min: 50, max: 250, placeholder: 'Рост', required:true, disabled: f.object.height.present? %></li>
+                <li><%= f.number_field :age, min: 10, max: 140, placeholder: 'Возраст', required:true, disabled: f.object.age.present? %></li>
+              </ul>
+              <ul style="margin-left: 20px;">
+                <li><%= f.number_field :chest, min: 30, max: 200, placeholder: 'Грудь', required:true, disabled: f.object.chest.present? %></li>
+                <li><%= f.number_field :waist, min: 30, max: 200, placeholder: 'Талия', required:true, disabled: f.object.waist.present? %></li>
+                <li><%= f.number_field :thigh, min: 30, max: 200, placeholder: 'Бедра', required:true, disabled: f.object.thigh.present? %></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-12 text-center footer_user_data">
+          <% unless @user_tariff %>
+            <p class="pink" style="">Загрузка фотографий станет доступной после оплаты тарифа</p>
+          <% end %>
+          <%= f.submit 'Сохранить изменения', class: 'redBtn disabled', disabled: true %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</section>

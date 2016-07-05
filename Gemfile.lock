@@ -136,6 +136,9 @@ GEM
       thor (>= 0.14, < 2.0)
     jquery-slick-rails (1.5.9.1)
       railties (>= 3.1)
+    jquery-turbolinks (2.1.0)
+      railties (>= 3.1.0)
+      turbolinks
     jquery-ui-rails (5.0.5)
       railties (>= 3.2.16)
     json (1.8.3)
@@ -309,6 +312,7 @@ DEPENDENCIES
   grape-swagger-rails (~> 0.2.1)
   jquery-rails
   jquery-slick-rails
+  jquery-turbolinks
   mocha
   nifty-generators
   paperclip (~> 4.3)

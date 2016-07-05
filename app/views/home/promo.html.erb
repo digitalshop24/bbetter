@@ -1,7 +1,6 @@
-
-  <section class="lineSec" id="fiveStep">
-    <h1>Тариф &laquo;@current_tarrif.name&raquo;</h1>
-  </section>
+<section class="lineSec" id="fiveStep">
+  <h1>Тариф &laquo;<%= @current_tarrif.name %>&raquo;</h1>
+</section>
 <section class="promoPageSec">
 	<div class="container">
 
@@ -34,14 +33,19 @@
 			            </tr>
 			          </thead>
 			          <tbody>
-			            <tr>
-			              <td>23423</td>
-			              <td>12.04.2016</td>
-			              <td>активирован</td>
-			              <td>SFf asf sf as asd a sd</td>
-			              <td class="text-center"><a data-toggle="modal" data-target="#promoModal">Пригласить</a></td>
-
-			            </tr>
+                  <% @promocodes.each do |promocode| %>
+                    <tr>
+                      <td><%= promocode.code %></td>
+                      <td><%= promocode.activated_at.strftime('%d.%m.%Y') if promocode.activated_at %></td>
+                      <td><%= promocode.activated_at ? 'Активирован' : 'Не активирован' %></td>
+                      <td><%= "#{promocode.user.name} (#{promocode.user.email})" if promocode.user %></td>
+                      <td class="text-center">
+                        <% unless promocode.activated_at %>
+                          <a data-toggle="modal" data-target="#promoModal" data-promocode="<%= promocode.code %>" class="inviteButton">Пригласить</a>
+                        <% end %>
+                      </td>
+                    </tr>
+                  <% end %>
 			           </tbody>
 				  </table>
 				</div>

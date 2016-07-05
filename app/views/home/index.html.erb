@@ -12,19 +12,14 @@
     </div>
   </div>
 </section>-->
-
     <section class="timmerSec">
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-            <div>
-              <div class="TitleTimer"><h5>Старт сезона 08.07.16</h5></div>
-              <ul class="Timer">
-                <li><p style="position: relative; left: -7px;">дни</p><h5><timer end-time="1467936000000">{{days}}</timer><span class="two_dots">:</span> </h5> </li>
-                <li><p style="position: relative; left: -7px;">часы</p><h5><timer end-time="1467936000000">{{hhours}}</timer><span class="two_dots">:</span></h5> </li>
-                <li><p>минуты</p><h5><timer end-time="1467936000000">{{mminutes}}</timer></h5> </li>
-              </ul>
-            </div>
+              <div class="Timer">
+                <h2>Старт сезона 08.07.16</h2>
+                <div class="eTimer"></div>
+              </div>
           </div>
         </div>
       </div>
@@ -38,7 +33,7 @@
             <div class="notifWrap" >
               <h2>
                 <%= image_tag('notificationSec/notif.png') %>
-                Тариф <%=current_user.tariffs.first.name%> активирован. Подробней <a href='/profile'>Личном кабинете</a></h2>
+                Тариф <%=current_user.tariffs.first.name%> активирован. Подробней в <a href='/profile'>Личном кабинете</a></h2>
               <p class="closeNotif">Закрыть</p>
             </div>
           </div>
@@ -50,7 +45,7 @@
 <%end%>
 
 <section class="accordeonSection">
-  <slick responsive="ctrl.responsCarousel" class="tariffsCarousel hidden-sm hidden-md hidden-lg" >
+  <div class="tariffsCarousel hidden-md hidden-lg" >
     <div class="t1">
       <ul class="item">
         <li class="bg1">
@@ -90,8 +85,8 @@
         </li>
       </ul>
     </div>
-  </slick>
-  <div class="accordion hidden-xs">
+  </div>
+  <div class="accordion hidden-xs hidden-sm">
     <ul>
       <li class="active">
         <div>
@@ -408,7 +403,7 @@
   </div>
 </div>
 </section>
-<section class="quoteSec">
+<section id="quoteSec" class="quoteSec">
   <div class="container">
     <div dir="row">
       <div class="col-md-12 text-center">
@@ -419,20 +414,21 @@
     </div>
     <div class="row">
       <div class="col-md-12">
-        <ul>
+
+        <ul class="a2a_kit a2a_kit_size_32">
           <li>Поделиться: </li>
           <li>
-            <a href="#">
+            <a class="a2a_button_facebook" href="#">
               <img src="<%= asset_path('quote/fb.png') %>" />
             </a>
           </li>
           <li>
-            <a href="#">
+            <a class="a2a_button_twitter" href="#">
               <img src="<%= asset_path('quote/twi.png') %>" />
             </a>
           </li>
           <li>
-            <a href="">
+            <a class="a2a_button_vk" href="">
               <img src="<%= asset_path('quote/vk.png') %>" />
             </a>
           </li>
@@ -475,6 +471,7 @@
     <div class="row">
       <div class="col-md-12">
         <h1 class="text-center">От тренеров</h1>
+        <p class="text-center">Всего 296 отзывов</p>
         <slick class="feedbackCarousel" responsive="ctrl.responsCarousel">
           <div>
             <ul class="item">
@@ -486,7 +483,11 @@
                 </label>
               </li>
               <li>
-                <p>Разработанная программа тренировок поможет вам сформировать красивые формы, подтянуть общий тонус мышц, укрепит здоровье. Фитнес дома также эффективен, как в зале, если правильно подобран комплекс упражнений. Набор техник из кросс-фита для этой программы был разработан для достижения быстрого и стабильного результата в домашних условиях.</p>
+                <p>
+                Разработанная программа тренировок поможет вам сформировать красивые формы, подтянуть общий тонус мышц, укрепит здоровье. Фитнес дома также эффективен, как в зале, если правильно подобран комплекс упражнений. Набор техник из кросс-фита для этой программы был разработан для достижения быстрого и стабильного результата в домашних условиях.
+                <br/><br/>
+                Окончил курсы FPA и коллеж Б. Вейдера в 2001 г. Окончил в РХТУ им ДИ Менделеева. С 2002года являлся главным тренером сборной команды института по пауэрлифтингу. С 2002-2008 года выступал сам и принимал активное участие в подготовке чемпионов и призеров различного уровня от областных соревнований до чемпионатов мира по бодибилдингу и пауэрлифтингу. С 2004 г начал сотрудничать с ЦСКА, работает с тяжелоатлетами, хоккеистами, теннисистами, баскетболистами, борцами, легкоатлетами. В 2008 получил диплом по ЛФК (лечебная физкультура). Проводит курсы реабилитации после травм, операций, врожденных и приобретенных заболеваний позвоночника.
+                </p>
               </li>
             </ul>
           </div>
@@ -500,7 +501,14 @@
               </li>
               <li>Автор программы питания</li>
               <li>
-                <p> Эта программа питания разработана специально под комплекс упражнений фитнес-программы для похудения. Сочетая программу тренировок, эту систему питания и, конечно же, свою целеустремленность, вы достигнете результатов без голодовок и вреда для здоровья. А главное - эффект будет намного дольше и стабильнее, чем после жестких и вредных диет. Питайтесь правильно!</p>
+                <p>
+                   Эта программа питания разработана специально под комплекс упражнений фитнес-программы для похудения. Сочетая программу тренировок, эту систему питания и, конечно же, свою целеустремленность, вы достигнете результатов без голодовок и вреда для здоровья. А главное - эффект будет намного дольше и стабильнее, чем после жестких и вредных диет. Питайтесь правильно!
+                   <br/><br/>
+                  Кандидат в мастера спорта по лёгкой атлетике,
+                  Тренер групповых программ и тренажерного зала (диплом колледжа им. Бена Вейдера)
+                  5-й гуп по Таэквон-До (ITF),
+                  Участница шоу "Боевая модель" (Академия Бокса),
+                  Сертификаты семинаров Ассоциации Профессионалов Фитнеса, Федерации Фитнес-аэробики России, колледжа им. Бена Вейдера.</p>
               </li>
             </ul>
           </div>
@@ -545,7 +553,7 @@
             <input id="ac-1" name="acc" type="radio" />
             <label for="ac-1">Когда стартует проект?</label>
             <article >
-              <p> сезон стартует 4го июля, но зарегистрироваться и оплатить необходимо до 3го июля. </p>
+              <p> сезон стартует 8го июля, но зарегистрироваться и оплатить необходимо до 7го июля. </p>
             </article>
           </div>
           <div class="item">
@@ -712,40 +720,35 @@
     <div class="row">
       <div class="col-md-12">
         <h1>Обратная связь</h1>
-        <div class="formWrapper">
-          <form action="https://docs.google.com/a/dshop24.ru/forms/d/18oTL6wxrzsF01bCGyfbIMh8vHgkNLQQ8jToL9VKtdJ4/formResponse" method="POST" id="ss-form" target="hidden_iframe" onsubmit="thankU()" class="">
+        <div class="formWrapper" id="feedbackFormWrapper">
+          <%= form_for Feedback.new, remote: true do |f| %>
             <div class="row">
               <div class="col-md-offset-3 col-md-6">
                 <ul class="typeInput">
-                  <input name="entry.1701123117" value="" class="ss-q-short valid required" id="entry_1701123117" dir="auto" aria-label="Имя  " title="" type="text"placeholder="Имя" >
-                  <input name="entry.1936099184" value="" class="ss-q-short valid required" id="entry_1936099184" dir="auto" aria-label="email  " title="" type="text" placeholder="E-mail">
+                  <%= f.text_field :name, class: "ss-q-short valid required", placeholder: 'Имя', required: true %>
+                  <%= f.email_field :email, class: "ss-q-short valid required", placeholder: 'E-mail', required: true %>
                 </ul>
               </div>
               <div class="col-md-offset-3 col-md-6">
                 <ul class="mailParth">
-                  <input name="entry.1402429403" value="" class="ss-q-short valid required" id="entry_1402429403" dir="auto" aria-label="Тема  " title="" type="text" placeholder="Тема">
-                  <textarea name="entry.1954887874" placeholder="Ваше сообщение" rows="4" class="ss-q-long valid required" id="entry_1954887874" dir="auto" aria-label="Сообщение  "></textarea>
+                  <%= f.text_field :theme, class: "ss-q-short valid required", placeholder: 'Тема' %>
+                  <%= f.text_area :message, class: "ss-q-short valid required", placeholder: 'Ваше сообщение', required: true, rows: 4 %>
                 </ul>
               </div>
               <div class="col-md-offset-3 col-md-6">
                 <div class="selectType">
-                  <input name="entry.1053870246" value="Участник" id="group_1053870246_1" role="radio" class="ss-q-radio hide-radio" aria-label="Участник" type="radio" id="radioOne" >
-                  <label for="group_1053870246_1">Участник </label>
-                  <input name="entry.1053870246" id="group_1053870246_2" role="radio" class="ss-q-radio hide-radio" aria-label="Партнер" type="radio" id="radioDva" value="Партнер">
-                  <label for="group_1053870246_2">Партнер</label>
-                  <input name="entry.1053870246" id="group_1053870246_3" role="radio" class="ss-q-radio hide-radio" aria-label="Другой" type="radio" id="radioTri" checked="checked">
-                  <label for="group_1053870246_3" value="Другой">Другой</label>
+                  <% %w(Участник Партнер Другой).each_with_index do |value, i| %>
+                    <%= f.radio_button :sender_type, value, id: "feedback_sender_type_#{i}", class: 'ss-q-radio hide-radio', checked: i==2 %>
+                    <%= label_tag "feedback_sender_type_#{i}", value %>
+                  <% end %>
                 </div>
               </div>
               <div class="col-md-offset-3 col-md-6">
-                <button class="redBtn" onclick="yaCounter38070020.reachGoal('otpravit'); return true;">Отправить</button>
+                <%= f.submit 'Отправить', class: 'redBtn' %>
               </div>
             </div>
-          </form>
+          <% end %>
         </div>
-        <!--  <div class="thankU"> CКРЫТО (ПОКАЗАТЬ ПО ОТПРАВКЕ ФОРМЫ)
-              <h1 class="text-center">Спасибо ваше письмо отправлено!</h1>
-            </div> -->
       </div>
     </div>
   </div>

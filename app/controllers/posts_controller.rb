@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  layout 'home'
   load_and_authorize_resource
   before_action :authenticate_user!, only: [:create, :edit, :update, :destroy]
   before_action :set_post, only: [:show, :edit, :update, :destroy, :comment]
@@ -6,7 +7,8 @@ class PostsController < ApplicationController
 
   # GET /posts
   def index
-    @posts = Post.all.paginate(page: params[:page], per_page: 2)
+    @user = User.new
+    @posts = Post.all.paginate(page: params[:page], per_page: 10)
   end
 
   def comment
@@ -18,12 +20,14 @@ class PostsController < ApplicationController
 
   # GET /posts/1
   def show
+    @user = User.new
     @comment = Comment.new
-    @comments = @post.comments.paginate(page: params[:page], per_page: 2)
+    @comments = @post.comments.paginate(page: params[:page], per_page: 10)
   end
 
   # GET /posts/new
   def new
+    @user = User.new
     @post = Post.new
   end
 

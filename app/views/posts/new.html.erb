@@ -1,5 +1,19 @@
-<h1>New Post</h1>
+<section class="forumSec">
+  <div class="headPage">
+    <h1>Форум</h1>
+    <ul class="tags">
+    </ul>
+  </div>
 
-<%= render 'form' %>
+  <div class="postItem">
+    <div class="textWrap">
+      <%= render 'form' %>
+    </div>
 
-<%= link_to 'Back', posts_path %>
+  </div>
+
+<div class="row">
+    <div class="col-md-2 col-md-offset-5"><%= link_to 'Назад', posts_path, class: "forumbtn" %></div>
+</div>
+
+</section>
