@@ -3,6 +3,19 @@ default: &default
   host: localhost:3000
   database_username: postgres
   database_password: password1
+  # sendgrid
+  SENDGRID_USERNAME: app2342234@heroku.com
+  SENDGRID_PASSWORD: jasu2j1hga1
+  # amazon credentials
+  S3_BUCKET_NAME: bbetter
+  AWS_ACCESS_KEY_ID: JAHGY1JOJA21KKAa
+  AWS_SECRET_ACCESS_KEY: jasdUjqwHa+AKNNqnh12maJna23ma
+  # twilio
+  TWILIO_ACCOUNT_SID: ikJn2jakKHSNA212KKS
+  TWILIO_AUTH_TOKEN: 2j1kjna8asdjh21najn123
+  TWILIO_PHONE: '+18023212942'
+
+  info_email: info@bbetter.club
 development:
   <<: *default
 test:
