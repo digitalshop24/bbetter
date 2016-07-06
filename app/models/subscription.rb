@@ -21,44 +21,44 @@ class Subscription < ActiveRecord::Base
   end
 end
 
-class Notifier
-  def generate_message user, text
-    Subscription::TEXT_REPLACEMENTS.each do |tr|
-      text.gsub!("%user_#{tr}%", user.send(tr.to_sym).to_s)
-    end
-    text
-  end
-end
+# class Notifier
+#   def generate_message user, text
+#     Subscription::TEXT_REPLACEMENTS.each do |tr|
+#       text.gsub!("%user_#{tr}%", user.send(tr.to_sym).to_s)
+#     end
+#     text
+#   end
+# end
 
-class EmailSender < Notifier
-  def initialize user, text
-    @email = user.email
-    @message = generate_message(user, text).scan(/%email_body%([\s\S.]+)%email_body%/).flatten.first.gsub(/\n/, '')
-    @subject = generate_message(user, text).scan(/%email_subject%([\s\S.]+)%email_subject%/).flatten.first
-  end
-  def perform
-    UserMailer.subscription_email(@email, @message, @subject).deliver_now
-  end
-end
+# class EmailSender < Notifier
+#   def initialize user, text
+#     @email = user.email
+#     @message = generate_message(user, text).scan(/%email_body%([\s\S.]+)%email_body%/).flatten.first.gsub(/\n/, '')
+#     @subject = generate_message(user, text).scan(/%email_subject%([\s\S.]+)%email_subject%/).flatten.first
+#   end
+#   def perform
+#     UserMailer.subscription_email(@email, @message, @subject).deliver_now
+#   end
+# end
 
-class SmsSender < Notifier
-  def initialize user, text
-    # @phone = user.phone
-    @message = generate_message(user, text)
-  end
-  def perform
-    # Twilio
-    true
-  end
-end
+# class SmsSender < Notifier
+#   def initialize user, text
+#     # @phone = user.phone
+#     @message = generate_message(user, text)
+#   end
+#   def perform
+#     # Twilio
+#     true
+#   end
+# end
 
-class PhoneCaller < Notifier
-  def initialize user, text
-    # @phone = user.phone
-    @message = generate_message(user, text)
-  end
-  def perform
-    # Twilio
-    true
-  end
-end
+# class PhoneCaller < Notifier
+#   def initialize user, text
+#     # @phone = user.phone
+#     @message = generate_message(user, text)
+#   end
+#   def perform
+#     # Twilio
+#     true
+#   end
+# end

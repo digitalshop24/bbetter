@@ -29,7 +29,6 @@ gem 'cancancan', '~> 1.14'
 gem 'paperclip', '~> 4.3'
 gem 'rails_admin', '~> 0.8.1'
 gem 'aws-sdk', '< 2.0'
-gem 'will_paginate', '~> 3.0.5'
 
 gem 'ckeditor', github: 'galetahub/ckeditor'
 
@@ -47,6 +46,7 @@ gem 'figaro', '~> 1.1', '>= 1.1.1'
 gem 'rspec', '~> 3.4'
 gem 'rspec-rails', '~> 3.4', '>= 3.4.2'
 
+gem 'twilio-ruby', '~> 4.11', '>= 4.11.1'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
