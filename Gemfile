@@ -47,6 +47,7 @@ gem 'figaro', '~> 1.1', '>= 1.1.1'
 gem 'rspec', '~> 3.4'
 gem 'rspec-rails', '~> 3.4', '>= 3.4.2'
 
+gem 'twilio-ruby', '~> 4.11', '>= 4.11.1'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

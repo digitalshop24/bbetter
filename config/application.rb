@@ -15,7 +15,8 @@ module Bbetter
       end
     end
 
-    config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
+    config.autoload_paths += %W(#{config.root}/app/models/ckeditor #{config.root}/lib/sms)
+
     config.assets.precompile += Ckeditor.assets
     config.assets.precompile += %w(ckeditor/*)
     # Settings in config/environments/* take precedence over those specified here.
