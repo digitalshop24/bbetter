@@ -1,0 +1,23 @@
+<table class="email_table">
+  <tr>
+    <td style="border: 1px solid #333; padding: 4px; min-width: 130px;"><strong>Имя</strong></td>
+    <td style="border: 1px solid #333; padding: 4px;"><%= @feedback.name %></td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #333; padding: 4px;"><strong>Email</strong></td>
+    <td style="border: 1px solid #333; padding: 4px;"><%= @feedback.email %></td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #333; padding: 4px;"><strong>Тема</strong></td>
+    <td style="border: 1px solid #333; padding: 4px;"><%= @feedback.theme %></td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #333; padding: 4px;"><strong>Сообщение</strong></td>
+    <td style="border: 1px solid #333; padding: 4px;"><%= @feedback.message %></td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid #333; padding: 4px;"><strong>Тип отправителя</strong></td>
+    <td style="border: 1px solid #333; padding: 4px;"><%= @feedback.sender_type %></td>
+  </tr>
+</table>
+<p>Вы можете ответить на сообщение пользователя, просто ответив на это письмо.</p>
