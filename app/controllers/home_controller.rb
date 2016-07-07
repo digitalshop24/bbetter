@@ -192,6 +192,6 @@ class HomeController < ApplicationController
 
   private
   def user_params
-    params[:user].permit(:email, :name, :city, :age, :sex, :motivation, :phone, :moto)
+    params[:user].permit(:email, :name, :city, :age, :sex, :motivation, :phone, :moto, :avatar)
   end
 end
