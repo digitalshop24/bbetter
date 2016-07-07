@@ -126,4 +126,17 @@ function handleFiles(files, select, filelist) {
   }
 }
 
+function fileInputStylize(input, div){
+  div = div || input + '_preview';
+  $(div).click(function(){
+    $(input).click();
+  });
+
+  $(input).change(function() {
+    handleFiles(this.files, div);
+  });
+}
+
+fileInputStylize("#user_avatar");
+
 });
