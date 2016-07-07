@@ -5,7 +5,7 @@
    <section class="week_plan_drugs_eat">
     <h2 class="titel_tariff text-center">План тренировок будет доступен 08.07.2016</h2>
     </section>
-<!--   <%# render 'user_data' %>
+ <!-- <%# render 'user_data' %>
   <%# if @user_tariff.training_program %>
 
     <%# render partial: 'training_programs/show', locals: { training_program: @user_tariff.training_program } %>
@@ -22,8 +22,11 @@
         <%# f.submit 'Отправить', class: 'redBtn' %>
       <%# end %>
     </section>
-  <%# end %> -->
-<% else %>
+  <%# end %>
+<%# else %> -->
+<%#= render 'training_programs/hardcoded_programs/careerist' %>
+<%= render 'training_programs/hardcoded_programs/carefree' %>
+<%#= render 'training_programs/hardcoded_programs/housewife' %>
   <section class="notif">
     <div class="container">
       <div class="row">
@@ -92,7 +95,7 @@
           <li><a href="#sec5" data-toggle="tab">Белки, жиры, углеводы</a></li>
           <%if current_user%>
             <%if current_user.tariffs.present?%>
-              <li><a href="#sec6" data-toggle="tab">Примеры рационов питания на день</a></li>
+              <li><a href="#sec6" data-toggle="tab">Примеры рационов</a></li>
             <%end%>
           <%end%>
         </ul>
