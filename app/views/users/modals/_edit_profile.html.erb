@@ -21,7 +21,11 @@
             </div>
              <div class="row">
               <div class="col-md-12">
-                 <%= f.file_field :avatar, placeholder: "Аватар" %>
+                <% style = "background-image:url('#{@user.avatar.url}');" if @user.avatar? %>
+                <div style="<%= style %>" class="avatar" id="user_avatar_preview">
+                  <!-- <div class="help">Загрузить</div> -->
+                </div>
+                 <%= f.file_field :avatar, placeholder: "Аватар", style: 'display:none', accept: 'image/*' %>
               </div>
             </div>
               <div class="row">
