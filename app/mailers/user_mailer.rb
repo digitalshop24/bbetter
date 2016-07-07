@@ -20,4 +20,8 @@ class UserMailer < ApplicationMailer
 		@user = user
 		mail(to: @user.email, subject: 'Напоминание об оплате')
 	end
+	def feedback_info_email email, feedback
+		@feedback = feedback
+		mail(to: email, subject: 'Новое сообщение через форму обратной связи', from: "\"#{@feedback.name}\" <#{@feedback.email}>")
+	end
 end

@@ -117,15 +117,33 @@ class HomeController < ApplicationController
         render json: { status: 'error', errors: ['Не введен номер телефона'] }
         return
       end
-      render json: { status: 'ok', message: 'Приглашение успешно отправлено' }
+      phone = Phone.new(params[:phone]).formatted_phone
+      if phone
+        if params[:promocode].present?
+          sms = SmsTwilio.new.send(phone, "#{current_user.name} приглашает зарегистрироваться в bbetter.club. Ваш промо-код: #{params[:promocode]}")
+          if sms.status = 'ok'
+            render json: { status: 'ok', errors: 'Приглашение успешно отправлено' }
+          else
+            render json: { status: 'error', errors: ['Что-то пошло не так'] }
+          end
+        else
+          render json: { status: 'error', errors: ["Нету промокода"] }
+        end
+      else
+        render json: { status: 'error', errors: ['Неверный формат телефона'] }
+      end
     elsif params[:accPromo] == 'email'
       unless params[:email].present?
         render json: { status: 'error', errors: ['Не введен email'] }
         return
       end
       begin
-        UserMailer.promocode_email(current_user, params[:email], params[:promocode]).deliver_now
-        render json: { status: 'ok', message: 'Приглашение успешно отправлено' }
+        if params[:promocode].present?
+          UserMailer.promocode_email(current_user, params[:email], params[:promocode]).deliver_now
+          render json: { status: 'ok', message: 'Приглашение успешно отправлено' }
+        else
+          render json: { status: 'error', errors: ["Нету промокода"] }
+        end
       rescue => error
         render json: { status: 'error', errors: ["Ошибка при отправке email: #{error.message}"] }
       end
@@ -174,6 +192,6 @@ class HomeController < ApplicationController
 
   private
   def user_params
-    params[:user].permit(:email, :name, :city, :age, :sex, :motivation, :phone, :moto)
+    params[:user].permit(:email, :name, :city, :age, :sex, :motivation, :phone, :moto, :avatar)
   end
 end

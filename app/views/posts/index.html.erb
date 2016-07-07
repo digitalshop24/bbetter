@@ -2,7 +2,7 @@
   <div class="headPage">
     <h1>Форум</h1>
     <ul class="tags">
-      <li><%= will_paginate @posts %></li>
+      <li><%= paginate @posts %></li>
     </ul>
   </div>
 
@@ -16,8 +16,10 @@
       <li><a href="posts/<%=post.id%>"><i class="fa fa-commenting-o" aria-hidden="true"></i><%= post.comments.count if post.comments.present? %></a></li>
       <li><i class="fa fa-user" aria-hidden="true"></i><%= post.user.name if post.user.present? %></li>
       <li><%= post.updated_at.strftime("%H:%M")%></li>
-      <li><%= link_to 'Изменить', edit_post_path(post) %></li>
-      <li><%= link_to 'Удалить', post, method: :delete, data: { confirm: 'Вы уверены?' } %></li>
+      <%if current_user.has_role? :admin%>
+        <li><%= link_to 'Изменить', edit_post_path(post) %></li>
+        <li><%= link_to 'Удалить', post, method: :delete, data: { confirm: 'Вы уверены?' } %></li>
+      <%end%>
       </ul>
     <% end %>
 
@@ -25,9 +27,11 @@
 
   </div>
 
-<div class="row">
+<%if current_user.has_role? :admin%>
+  <div class="row">
     <div class="col-md-2 col-md-offset-5"><%= link_to 'Создать тему', new_post_path, class: "forumbtn" %></div>
-</div>
+  </div>
+<%end%>
 
 </section>
 

@@ -1842,7 +1842,106 @@ footer {
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
+
+  justify-content: center; }
+
+.modalSec .modal-header {
+  border: 0; }
+  .modalSec .modal-header .close {
+    font-size: 60px;
+    line-height: 0px;
+    transition: opacity .4s;
+    height: 30px; }
+  .modalSec .modal-header .modalLogo {
+    max-width: 75px;
+    margin: -35px auto 0;
+    display: block; }
+
+.modalSec .modal-body .formWrapper form input[type="text"],
+.modalSec .modal-body .formWrapper form input[type="email"],
+.modalSec .modal-body .formWrapper form input[type="tel"],
+.modalSec .modal-body .formWrapper form input[type="password"] {
+  background-color: #f5f5f5;
+  border-radius: 20px;
+  border: 0;
+  padding: 10px 15px;
+  font-size: 18px;
+  margin: 15px 30px;
+  width: 90%; }
+.modalSec .modal-body .formWrapper form div.avatar{
+  cursor: pointer; cursor: hand;
+  background-color: #f5f5f5;
+  background-size: cover;
+  margin: 15px 30px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' version='1.1' height='130px' width='130px'><text y='58' x='20' fill='rgb(33,33,33)'>Загрузить</text><text y='78' x='34' fill='rgb(33,33,33)'>аватар</text></svg>");
+}
+
+.modalSec .modal-body .formWrapper form div.avatar .help {
+  display: none;
+}
+
+.modalSec .modal-body .formWrapper form div.avatar:hover .help {
+  display: block;
+}
+
+.modalSec .modal-body .formWrapper form .MG {
+  text-align: right; }
+  .modalSec .modal-body .formWrapper form .MG input {
+    display: inline-block; }
+
+.modalSec .modal-body .formWrapper form .hide-radio + label {
+  display: block;
+  float: right;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  padding: 10px 0;
+  text-align: center;
+  background-color: #F5F5F5;
+  color: #8C8C9C;
+  font-size: 20px;
+  -webkit-transition: background-color 0.3s ease-in-out;
+  -moz-transition: background-color 0.3s ease-in-out;
+  -o-transition: background-color 0.3s ease-in-out;
+  transition: background-color 0.3s ease-in-out;
+  margin: 10px 30px 0 -20px; }
+
+.modalSec .modal-body .formWrapper form .hide-radio:checked + label {
+  display: inline-block;
+  width: 50px;
+  background-color: $red;
+  color: #fff; }
+
+.modalSec .modal-body .formWrapper form .checked_Male input {
+  display: none; }
+
+.modalSec .modal-body .thankU h2 {
+  color: $red;
+  text-align: center;
+  margin: 40px auto 80px; }
+
+.modalSec .modal-footer {
+  border: 0;
+  text-align: center;
+  max-height: 125px; }
+  .modalSec .modal-footer p.redLabel {
+    color: $red;
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: .4;
+    margin-bottom: 30px; }
+  .modalSec .modal-footer .redBtn {
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: .9; }
+
+.tabs-left {
+  border:0;
 }
 
 .modalSec {
