@@ -7,7 +7,7 @@ class PostsController < ApplicationController
   # GET /posts
   def index
     @user = User.new
-    @posts = Post.all.paginate(page: params[:page], per_page: 5)
+    @posts = Post.all.page params[:page]
   end
 
   def comment
@@ -21,7 +21,7 @@ class PostsController < ApplicationController
   def show
     @user = User.new
     @comment = Comment.new
-    @comments = @post.comments.paginate(page: params[:page], per_page: 10)
+    @comments = @post.comments.page params[:page]
   end
 
   # GET /posts/new
