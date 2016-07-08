@@ -1,2 +1,35 @@
 <% hash = { 1 => 'careerist', 2 => 'carefree', 3 => 'housewife'} %>
-<%= render "training_programs/hardcoded_programs/#{hash[training_program.id]}" %>
+
+<section class="week_plan_drugs_eat">
+  <div class="container">
+    <div id="tabs-container">
+      <div class="row text-center">
+        <h2 class="titel_tariff">План тренировок ( <%= training_program.name %> )</h2>
+        <ul class="col-md-12 tabs-menu ">
+        	<%
+        		wdays = Date::DAYNAMES.map(&:downcase)[1..-1]
+        	  wdays_localed = I18n.t(:"date.day_names")[1..-1]
+        	  day = Time.now.strftime("%A").downcase
+        	  index = wdays.index(day)
+        	%>
+        	<% wdays.each_with_index do |wday, i| %>
+        	  <%
+        	    klass = 'current' if wday == day
+        	    href_class = 'disabled' if i > index
+        	    href = '#'
+        	  	href += wday.downcase unless i > index
+        	  %>
+        		<%= content_tag(:li, class: klass) do %>
+							<%= link_to wdays_localed[i], href, class: "whiteBtn #{href_class}"  %>
+        		<% end %>
+        	<% end %>
+        </ul>
+      </div>
+      <div class="tab">
+      	<% wdays[0..index].each do |wday| %>
+        	<%= render "training_programs/hardcoded_programs/#{hash[training_program.id]}/#{wday}" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>
