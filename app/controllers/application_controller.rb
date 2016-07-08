@@ -12,6 +12,9 @@ class ApplicationController < ActionController::Base
   end
 
   protected
+  def set_user
+    @user = current_user || User.new
+  end
   def authenticate_user!
     if user_signed_in?
       super

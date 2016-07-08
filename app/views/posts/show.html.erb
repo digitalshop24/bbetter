@@ -8,6 +8,7 @@
   </div>
 
   <div class="postItem">
+    <div class="imgWrap" style="background-image:url('<%= @post.user.avatar %>');"></div>
     <div class="textWrap">
       <h4>Автор поста:  <%=@post.user.name%></h4>
       <h5><%= @post.title %></h5>
@@ -17,7 +18,7 @@
   </div>
 
   <% @comments.each do |comment| %>
-  <div class="postItem">
+  <div class="postItem comment">
     <div class="imgWrap" style="background-image:url('<%= comment.user.avatar.url %>');"></div>
     <div class="textWrap">
       <h5><%= comment.content.html_safe %></h5>
