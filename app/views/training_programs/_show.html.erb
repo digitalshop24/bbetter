@@ -15,12 +15,12 @@
         	<% wdays.each_with_index do |wday, i| %>
         	  <%
         	    klass = 'current' if wday == day
-        	    klass = 'disabled' if i > index
+        	    href_class = 'disabled' if i > index
         	    href = '#'
         	  	href += wday.downcase unless i > index
         	  %>
         		<%= content_tag(:li, class: klass) do %>
-							<%= link_to wdays_localed[i], href, class: 'whiteBtn' %>
+							<%= link_to wdays_localed[i], href, class: "whiteBtn #{href_class}"  %>
         		<% end %>
         	<% end %>
         </ul>

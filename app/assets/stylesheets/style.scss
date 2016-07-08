@@ -1406,6 +1406,12 @@ footer {
     color:$red;
   }
 }
+.whiteBtn.disabled  {
+  color:#A2A2A2;
+  &:hover {
+    cursor: default;
+  }
+}
 .redBtn {
   background-color: $red;
   padding: 10px 25px;
@@ -1679,9 +1685,6 @@ footer {
   }
   .tab-content {
     display: none;
-  }
-  #monday,#monday2,#monday3 {
-    display: block;
   }
   .dopInfo {
     display: flex;
