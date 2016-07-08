@@ -9,6 +9,7 @@
   <% if @posts.present? %>
   <% @posts.each do |post| %>
   <div class="postItem" >
+
     <div class="imgWrap" style="background-image:url('<%= post.user.avatar.url %>');"></div>
     <div class="textWrap">
      
@@ -16,7 +17,7 @@
       <h5><%= post.content.html_safe %></h5>
       <ul class="into">
 
-      <li><a href="posts/<%=post.id%>"><i class="fa fa-commenting-o" aria-hidden="true"></i><%= post.comments.count if post.comments.present? %></a></li>
+      <li><a href="posts/<%=post.id%>"><i class="fa fa-eye" aria-hidden="true"></i> Посмотреть ( <%= post.comments.count if post.comments.present? %> <i class="fa fa-commenting-o" aria-hidden="true"></i>)</a></li>
       <li><i class="fa fa-user" aria-hidden="true"></i><%= post.user.name if post.user.present? %></li>
       <li><%= post.updated_at.strftime("%H:%M")%></li>
       <%if current_user.has_role? :admin%>

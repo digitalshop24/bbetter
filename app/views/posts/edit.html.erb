@@ -1,6 +1,19 @@
-<h1>Editing Post</h1>
+<section class="forumSec">
+    
 
-<%= render 'form' %>
 
-<%= link_to 'Show', @post %> |
-<%= link_to 'Back', posts_path %>
+
+
+	<div class="postItem editPost" >
+		<h3>Редактирование поста</h3>
+		<div class="textWrap">
+			<%= render 'form' %>
+		</div>
+
+		<ul class="settings">
+			<li><%= link_to 'Посмотреть', @post %></li>
+			<li><%= link_to 'Вернуться', posts_path %></li>
+		</ul>
+		
+	</div>
+</section>

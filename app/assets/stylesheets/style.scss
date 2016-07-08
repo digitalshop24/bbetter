@@ -2314,7 +2314,11 @@ footer {
     max-width: 60em;
     padding: 20px;
     margin: 0 auto;
-    align-items: center;
+    align-items: flex-start;
+    .linkPost {
+      color:#000;
+      display: block;
+    }
     .imgWrap {
       background-size: cover;
       background-position: center center;
@@ -2327,7 +2331,13 @@ footer {
     .textWrap {
       padding:0 35px;
       width:100%;
-      transition:color .4s;
+      a {
+        color:#000;
+        transition:color .4s;
+        &:hover {
+          color:$red;
+        }
+      }
       .into {
         display: flex;
         li {
@@ -2365,16 +2375,28 @@ footer {
         min-height: 80px;
       }
     }
+    &.editPost {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+  .settings {
+    a {
+      color:#424242;
+      &:hover {
+        color:$red;
+      }
+    }
   }
   .postItem:not(:last-child){
     margin-bottom:20px;
   }
   .postItem:hover {
     .textWrap {
-      color:$red;
-    }
 
+    }
   }
+
 }
 .wrapAddItem {
   display: flex;
