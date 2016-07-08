@@ -2,9 +2,6 @@
   <section class="lineSec" id="fiveStep">
     <h1>Тариф &laquo;<%= @current_tarrif.name%>&raquo;</h1>
   </section>
-  <section class="week_plan_drugs_eat">
-    <h2 class="titel_tariff text-center">План тренировок будет доступен 08.07.2016</h2>
-  </section>
   <%= render 'user_data' %>
   <% if @user_tariff.training_program %>
     <%= render partial: 'training_programs/show', locals: { training_program: @user_tariff.training_program } %>
