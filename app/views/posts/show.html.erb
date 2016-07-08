@@ -10,10 +10,17 @@
   <div class="postItem">
     <div class="imgWrap" style="background-image:url('<%= @post.user.avatar %>');"></div>
     <div class="textWrap">
-      <h4>Автор поста:  <%=@post.user.name%></h4>
-      <h5><%= @post.title %></h5>
+      <h5>Автор поста:  <%=@post.user.name%></h5>
+      <h3><%= @post.title %></h3>
+      <p><%= @post.content %></p>
     </div>
+    <% if current_user.has_role? :admin%>
+    <ul class="settings">
+      <li><%= link_to 'Редактировать', edit_post_path(@post) %></li>
+      <li><%= link_to 'Вернуться', posts_path %></li>
+    </ul>
 
+<%end%>
 
   </div>
 
@@ -26,22 +33,30 @@
       <li><i class="fa fa-user" aria-hidden="true"></i><%= comment.user.name if comment.user.present? %></li>
       <li><%= comment.updated_at.strftime("%H:%M")%></li>
       </ul>
+      <!-- ВАНЯ ДОБАВЬ ТУТ ПЛИЗ УДАЛЕНЕ И РЕДАКТИРОВАНИЕ КОММЕНТОВ;
+         + юзай канканкан (KK) 
+      %>-->
+
     </div>
 
 
   </div>
   <% end %>
 <div class="postItem">
+    <div class="textWrap">
      <%= form_for @comment, url: '/comment/'+ @post.id.to_s do |f|%>
-     <%= f.cktext_area :content, row: 10, :ckeditor => {:toolbar => 'mini'}%>
-     <%= f.submit %>
+     <div class="field">
+     <%= f.text_area :content,placeholder: 'Оставьте комментарий',rows:'1'%>
+     </div>
+     <div class="actions">
+     <%= f.submit "Комментировать", class:"redBtn" %>
+     </div>
   <%end%>
+  </div>
 </div>
 
+
 </section>
-  <% if current_user.has_role? :admin%>
-    <%= link_to 'Edit', edit_post_path(@post) %> |
-    <%= link_to 'Back', posts_path %>
-  <%end%>
+  
 
 
