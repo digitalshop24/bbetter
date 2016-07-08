@@ -222,7 +222,22 @@ nav #menuToggle,nav .label-toggle  {
     }
   }
 }
-
+@media screen and (max-width: 768px) {
+  .notif {
+    padding: 30px 0;
+    .notifWrap {
+      display:block;
+      text-align: center;
+      h2 {
+        line-height: 34px;
+        img {
+          display: block;
+          margin:0 auto 20px;
+        }
+      }
+    }
+  }
+}
 .accordeonSection .tariffsCarousel {
   margin: 0;
   text-align: center; }
@@ -1054,6 +1069,7 @@ nav #menuToggle,nav .label-toggle  {
     }
   }
 }
+
 @media screen and (max-width: 768px) {
   .feedbackSec {
     padding: 30px 0;
@@ -1080,7 +1096,7 @@ nav #menuToggle,nav .label-toggle  {
             position: absolute;
             margin: 90px 0 0 20px; 
           }
-          &:li:nth-child(3) {
+          &:nth-child(3) {
             max-width: none;
             margin: 0;
           }
@@ -1137,8 +1153,12 @@ nav #menuToggle,nav .label-toggle  {
 @media screen and (max-width: 768px) {
   .rulesSec {
     padding: 30px 0;
-    h1 {
-      margin: 0;
+    .wrpapRul {
+      display: block;
+      text-align: center;
+      h1,span {
+        margin: 0;
+      }
     }
   }
 }
