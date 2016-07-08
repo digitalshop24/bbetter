@@ -32,11 +32,11 @@
                     <tr>
                       <td><%= promocode.code %></td>
                       <td><%= promocode.activated_at.strftime('%d.%m.%Y') if promocode.activated_at %></td>
-                      <td><%= promocode.activated_at ? 'Активирован' : 'Не активирован' %></td>
+                      <td class="<%= promocode.activated_at ? 'green' : 'red' %>"><%= promocode.activated_at ? 'Активирован' : 'Не активирован' %></td>
                       <td><%= "#{promocode.user.name} (#{promocode.user.email})" if promocode.user %></td>
                       <td class="text-center">
                         <% unless promocode.activated_at %>
-                          <a data-toggle="modal" data-target="#promoModal" data-promocode="<%= promocode.code %>" class="redBtn">Пригласить</a>
+                          <a data-toggle="modal" data-target="#promoModal" data-promocode="<%= promocode.code %>" id="inviteButton" class="redBtn">Пригласить</a>
                         <% end %>
                       </td>
                     </tr>
