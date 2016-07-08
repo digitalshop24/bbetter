@@ -90,7 +90,7 @@ $(document).ready(function(){
     $('.notif').addClass('hidden');
   });
 
-  $(document).on("click", ".inviteButton", function () {
+  $(document).on("click", "#inviteButton", function () {
      var promocode = $(this).data('promocode');
      $('#promo_promocode').val(promocode);
   });

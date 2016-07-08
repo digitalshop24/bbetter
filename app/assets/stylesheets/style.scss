@@ -22,8 +22,12 @@ ul {
     list-style-type: none;
   }
 }
-
-
+.red {
+  color:$red;
+}
+.green {
+  color:green;
+}
 button,
 a:hover,
 a:focus,
@@ -1328,16 +1332,17 @@ nav #menuToggle,nav .label-toggle  {
     }
 
   }
-  .thankU {
-    h1 {
-      padding: 50px 0;
-      color: $red;
-      max-width: 280px;
-      margin: auto;
-    }
-  }
+  
 }
 
+.thankU {
+  h1 {
+    padding: 50px 0;
+    color:#000;
+    max-width: 280px;
+    margin: auto;
+  }
+}
 footer {
   background-color: #8b8b8b;
   align-items: center;
@@ -2163,17 +2168,8 @@ footer {
       }
     }
     a {
-      display: block;
-      color:#000;
-      margin:20px 0;
-      padding:5px 10px;
-      background-color: transparent;
-      border:1px solid;
-      transition:color .4s,border .4s;
-      &:hover,&:focus {
-        color:$red;
-        border:1px solid;
-      }
+       margin:20px 0;
+       display: block;
     }
   }
 }
