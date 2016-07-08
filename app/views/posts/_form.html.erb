@@ -12,14 +12,13 @@
   <% end %>
 
   <div class="field">
-    <%= f.label "Заголовок" %><br>
-    <%= f.text_field :title %>
+
+    <%= f.text_field :title, placeholder: 'Название поста' %>
   </div>
   <div class="field">
-    <%= f.label "Содержание" %><br>
-    <%= f.cktext_area :content, :ckeditor => {:toolbar => 'mini'} %>
+    <%= f.text_area :content, placeholder: 'Содержание поста',rows:'1' %>
   </div>
   <div class="actions">
-    <%= f.submit "Создать тему" %>
+    <%= f.submit "Создать тему", class:"redBtn" %>
   </div>
 <% end %>

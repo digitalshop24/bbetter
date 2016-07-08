@@ -2275,6 +2275,7 @@ footer {
 .forumSec {
   background-color:$red;
   padding:50px 0;
+  min-height: calc(100vh - 279px);
   .headPage {
     color:#fff;
     border-bottom:4px solid #fff;
@@ -2316,13 +2317,13 @@ footer {
       background-position: center center;
       background-repeat: no-repeat;
       background-image: none;
-      width:130px;
-      height:130px;
+      min-width: 130px;
+      min-height: 130px;
       border-radius:50%;
     }
     .textWrap {
       padding:0 35px;
-      width: calc(100% - 150px);
+      width:100%;
       transition:color .4s;
       .into {
         display: flex;
@@ -2335,6 +2336,31 @@ footer {
           color:#959595;
         }
       }
+      .field {
+        display: flex;
+        input,textarea {
+          margin:30px auto 0;
+          color:$red;
+          font-size: 30px;
+          padding:10px;
+          border:0;
+          border-bottom:1px solid #000;
+        }
+      }
+      .actions {
+        display: flex;
+        input {
+          margin: 30px auto;
+        }
+      }
+      
+    }
+    &.comment {
+      padding:5px 20px;
+      .imgWrap {
+        min-width: 80px;
+        min-height: 80px;
+      }
     }
   }
   .postItem:not(:last-child){
@@ -2346,6 +2372,10 @@ footer {
     }
 
   }
+}
+.wrapAddItem {
+  display: flex;
+  justify-content: center;
 }
 .forumbtn {
   -webkit-border-radius: 28;

@@ -2,11 +2,11 @@ class PostsController < ApplicationController
   layout 'home'
   before_action :authenticate_user!
   before_action :set_post, only: [:show, :edit, :update, :destroy, :comment]
+  before_action :set_user, only: [:show, :edit, :index, :new]
   before_action :comment_params, only: [:comment]
 
   # GET /posts
   def index
-    @user = User.new
     @posts = Post.all.page params[:page]
   end
 
@@ -19,14 +19,12 @@ class PostsController < ApplicationController
 
   # GET /posts/1
   def show
-    @user = User.new
     @comment = Comment.new
     @comments = @post.comments.page params[:page]
   end
 
   # GET /posts/new
   def new
-    @user = User.new
     @post = Post.new
   end
 

@@ -1,5 +1,6 @@
 class HomeController < ApplicationController
   before_action :authenticate_user!, only: [:profile, :edit_profile, :promo, :send_promo]
+  before_action :set_user, only: [:edit_profile, :profile, :promo]
   layout 'home'
   def index
     @user = current_user || User.new
@@ -40,7 +41,6 @@ class HomeController < ApplicationController
 
   def profile
     @message = Message.new
-    @user = current_user
     @tariffs = Tariff.all
     @user_tariff = UserTariff.where(user_id: @user.id).last
     @summary = @user.summary || Summary.new
@@ -50,7 +50,6 @@ class HomeController < ApplicationController
   end
 
   def edit_profile
-    @user = current_user
     if @user.update(user_params)
       if params[:promocode].present?
         pc = Promocode.not_activated.find_by(code: params[:promocode])
@@ -105,7 +104,6 @@ class HomeController < ApplicationController
   end
 
   def promo
-    @user = current_user
     @promocodes = @user.promocodes
     @user_tariff = @user.user_tariffs.last
     @current_tarrif = @user_tariff.tariff if @user_tariff.present?
@@ -158,9 +156,6 @@ class HomeController < ApplicationController
 
     # end
     # render json: { result: }
-  end
-  def forum
-    @user = User.new
   end
 
   def unsubscribe
