@@ -62,7 +62,7 @@
             background-color: transparent;
             border-color: transparent;
         ">
-          <button style="width:100px;" class="grayBtn menuLoginBtn"><span><%=current_user.name%></span></button>
+          <a href="/profile"><button style="width:100px;" class="grayBtn menuLoginBtn"><%=current_user.name%></button></a>
           <ul class="dropdown-menu" data-no-turbolink="true">
             <li><a href="/profile">Кабинет</a></li>
             <li><a href=""  data-toggle="modal" data-target="#editProfileModal">Редактировать</a></li>
