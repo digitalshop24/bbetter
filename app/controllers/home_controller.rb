@@ -39,6 +39,7 @@ class HomeController < ApplicationController
   # end
 
   def profile
+    @opening_date = DateTime.new(2016, 07, 11, 03, 00)
     @message = Message.new
     @user = current_user
     @tariffs = Tariff.all
