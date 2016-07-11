@@ -7,7 +7,7 @@
   </div>
 
   <div class="postItem">
-    <div class="imgWrap" style="background-image:url('<%= @post.user.avatar %>');"></div>
+    <div class="imgWrap" style="background-image:url('<%= @post.user.avatar if @post.user.present? %>');"></div>
     <div class="textWrap">
       <h5>Автор поста:  <%=@post.user.name%></h5>
       <h3><%= @post.title %></h3>
@@ -25,7 +25,7 @@
 
   <% @comments.each do |comment| %>
   <div class="postItem comment">
-    <div class="imgWrap" style="background-image:url('<%= comment.user.avatar.url %>');"></div>
+    <div class="imgWrap" style="background-image:url('<%= comment.user.avatar.url if comment.user.present? %>');"></div>
     <div class="textWrap">
       <h5><%= comment.content.html_safe %></h5>
       <ul class="into">
@@ -33,7 +33,7 @@
       <li><%= comment.updated_at.strftime("%H:%M")%></li>
       </ul>
       <!-- ВАНЯ ДОБАВЬ ТУТ ПЛИЗ УДАЛЕНЕ И РЕДАКТИРОВАНИЕ КОММЕНТОВ;
-         + юзай канканкан (KK) 
+         + юзай канканкан (KK)
       %>-->
 
     </div>
@@ -56,6 +56,6 @@
 
 
 </section>
-  
+
 
 

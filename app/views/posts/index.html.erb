@@ -10,11 +10,11 @@
   <% @posts.each do |post| %>
   <div class="postItem" >
 
-    <div class="imgWrap" style="background-image:url('<%= post.user.avatar.url %>');"></div>
+    <div class="imgWrap" style="background-image:url('<%= post.user.avatar.url if post.user.present?%>');"></div>
     <div class="textWrap">
-     
-      <h3><%= post.title %></h3>
-      <h5><%= post.content.html_safe %></h5>
+
+      <h3><a href="posts/<%=post.id%>"><%= post.title %></a></h3>
+      <h5><a href="posts/<%=post.id%>"><%= post.content.html_safe %></a></h5>
       <ul class="into">
 
       <li><a href="posts/<%=post.id%>"><i class="fa fa-eye" aria-hidden="true"></i> Посмотреть ( <%= post.comments.count if post.comments.present? %> <i class="fa fa-commenting-o" aria-hidden="true"></i>)</a></li>
@@ -25,7 +25,7 @@
         <li><%= link_to 'Удалить', post, method: :delete, data: { confirm: 'Вы уверены?' } %></li>
       <%end%>
       </ul>
-    
+
     </div>
 
   </div>
