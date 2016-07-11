@@ -14,7 +14,7 @@
   <body>
     <%= render 'home/gtm' %>
     <%= render 'home/header' %>
-    <div style="height:500px;">По вашему запросу ничего не найдено</div>
+    <%= yield %>
     <%= render 'home/modals' %>
     <%= render 'home/footer' %>
     <%= javascript_include_tag 'home', 'data-turbolinks-track' => true, 'data-turbolinks-eval' => false %>
