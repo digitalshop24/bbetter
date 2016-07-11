@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bbetter</title>
+  <%= stylesheet_link_tag    'home', media: 'all', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta property="og:url" content=""/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="Быть лучше"/>
+  <meta property="og:image" content="<%= asset_path('logo.png') %>"/>
+  <meta property="og:description" content="Нельзя вернуться в прошлое и изменить свой старт, но можно стартовать сейчас и изменить свой финиш."/>
+</head>
+<body>
+  <%= render 'home/gtm' %>
+  <%= render 'home/header' %>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <img class="modalLogo" src="/assets/modal/infinityModal-e24a702534c1f77d6411fa8836064ef2b941950acd5ac663a113c18ecf247db8.png" alt="logo modal">
+      </div>
+      <div class="modal-body">
+        <div class="formWrapper">
+          <%= yield %>
+        </div>
+        <!--  formWrapper -->
+      </div>
+      <!-- modal-body -->
+    </div>
+  </div>
+  <%= render 'home/modals' %>
+  <%= render 'home/footer' %>
+  <%= javascript_include_tag 'home', 'data-turbolinks-track' => true, 'data-turbolinks-eval' => false %>
+  <%= yield :js %>
+  <% if flash[:modal] %>
+  <script>
+    $("#<%= flash[:modal] %>").modal('show')
+  </script>
+  <% end %>
+  <script async src="https://static.addtoany.com/menu/page.js"></script>
+</body>
+</html>

@@ -65,7 +65,7 @@
           <a href="/profile"><button style="width:100px;" class="grayBtn menuLoginBtn"><%=current_user.name%></button></a>
           <ul class="dropdown-menu" data-no-turbolink="true">
             <li><a href="/profile">Кабинет</a></li>
-            <li><a href=""  data-toggle="modal" data-target="#editProfileModal">Редактировать</a></li>
+            <li><a href="<%=edit_user_registration_path%>" >Редактировать</a></li>
             <% if current_user.promocodes.present? %>
               <li><%= link_to 'Промокоды', promo_path %></li>
             <% end %>
@@ -74,7 +74,8 @@
           </ul>
         </button>
       <% else %>
-        <a data-toggle="modal" data-target="#signInModal">Войти</a>
+
+        <a href="<%=new_user_session_path %>" >Войти</a>
         <!--         <button class="grayBtn" type="button" onclick="yaCounter38070020.reachGoal('registracija'); return true;" type="button" data-toggle="modal" data-target="#regModal">Регистрация</button> -->
         <%= link_to new_user_registration_path do %>
           <button class="grayBtn" type="button" onclick="yaCounter38070020.reachGoal('registracija'); return true;" type="button">Регистрация</button>

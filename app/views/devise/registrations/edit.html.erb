@@ -1,39 +1,63 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "off" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+<%= form_for @user, as: :user, url: :edit_profile, method: :put, onsubmit: "thankU()" do |f| %>
+            <div class="row">
+              <div class="col-md-12">
+                <%= f.text_field :name, autofocus: true, placeholder: 'Имя', required: true %>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <%= f.email_field :email, placeholder: 'Электронная почта', required: true %>
+              </div>
+            </div>
+             <div class="row">
+              <div class="col-md-12">
+                <% style = "background-image:url('#{@user.avatar.url}');" if @user.avatar? %>
+                <div style="<%= style %>" class="avatar" id="user_avatar_preview">
+                  <!-- <div class="help">Загрузить</div> -->
+                </div>
+                 <%= f.file_field :avatar, placeholder: "Аватар", style: 'display:none', accept: 'image/*' %>
+              </div>
+            </div>
+              <div class="row">
+              <div class="col-md-12">
+                <%= f.text_field :phone, placeholder: 'Номер телефона' %>
+              </div>
+            </div>
+             <div class="row">
+              <div class="col-md-12">
+                <%= f.text_field :moto, placeholder: 'Цель', required: true %>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <%= f.text_field :city, placeholder: 'Город', required: true %>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <% if @user.promocode %>
+                  <%= text_field_tag :promocode, @user.promocode.code, disabled: true, class: 'text-muted' %>
+                <% else %>
+                  <%= text_field_tag :promocode, nil, placeholder: 'Промокод' %>
+                <% end %>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <%= f.text_field :age, placeholder: 'Возраст', required: true %>
+              </div>
+              <div class="col-md-6 text-right checked_Male">
+                <%= radio_button :user, :sex, :male, class: 'hide-radio' %>
+                <label for="user_sex_male">M </label>
+                <%= radio_button :user, :sex, :female, class: 'hide-radio' %>
+                <label for="user_sex_female">Ж</label>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <div class="row">
+                <div class="col-md-12">
+                  <%= f.submit "Сохранить", class: 'redBtn' %>
+                </div>
+              </div>
+            </div>
+          <% end %>
