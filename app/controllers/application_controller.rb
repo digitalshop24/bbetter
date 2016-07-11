@@ -15,9 +15,9 @@ class ApplicationController < ActionController::Base
   def set_user
     @user = current_user || User.new
   end
-  def authenticate_user!
+  def authenticate_user!(options={})
     if user_signed_in?
-      super
+      super(options)
     else
       flash[:modal] = 'signInModal'
       flash[:notice] = 'Неверный логин или пароль'

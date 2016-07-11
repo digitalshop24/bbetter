@@ -1,4 +1,4 @@
- <%= render partial: 'users/errors', locals: { errors: flash[:new_solution_errors], info_messages: flash[:info_messages] } if flash[:modal] == 'restorePasModal' %> 
+ <%= render partial: 'users/errors', locals: { errors: flash[:new_solution_errors], info_messages: flash[:info_messages] } if flash[:modal] == 'restorePasModal' %>
 <div class="formWrapper">
   <%= form_for(@user, as: :user, url: restore_password_path, html: { method: :put }) do |f| %>
     <div class="row">
