@@ -10,12 +10,7 @@
 		<div class="row">
 			<div class="col-md-12">
 				<div class="textWrpper">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+					<p>Вы можете пригласить друзей для прохождения тренировок. Для этого отправьте на почту или телефон промокод который надо ввести при регистрации для активации аккаунта.</p>
 				</div>
 			</div>
 		</div>
@@ -37,11 +32,11 @@
                     <tr>
                       <td><%= promocode.code %></td>
                       <td><%= promocode.activated_at.strftime('%d.%m.%Y') if promocode.activated_at %></td>
-                      <td><%= promocode.activated_at ? 'Активирован' : 'Не активирован' %></td>
+                      <td class="<%= promocode.activated_at ? 'green' : 'red' %>"><%= promocode.activated_at ? 'Активирован' : 'Не активирован' %></td>
                       <td><%= "#{promocode.user.name} (#{promocode.user.email})" if promocode.user %></td>
                       <td class="text-center">
                         <% unless promocode.activated_at %>
-                          <a data-toggle="modal" data-target="#promoModal" data-promocode="<%= promocode.code %>" class="inviteButton">Пригласить</a>
+                          <a data-toggle="modal" data-target="#promoModal" data-promocode="<%= promocode.code %>" id="inviteButton" class="redBtn">Пригласить</a>
                         <% end %>
                       </td>
                     </tr>

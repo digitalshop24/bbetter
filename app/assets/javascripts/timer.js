@@ -120,6 +120,6 @@
 })(jQuery);
   $(document).ready(function() {
     jQuery(".eTimer").eTimer({
-      etType: 0, etDate: "08.07.2016.0.0", etTitleText: "", etTitleSize: 19, etShowSign: 1, etSep: ":", etFontFamily: "Trebuchet MS", etTextColor: "white", etPaddingTB: 5, etPaddingLR: 5, etBackground: "transparent", etBorderSize: 0, etBorderRadius: 2, etBorderColor: "transparent", etShadow: " 0px 0px 10px 0px transparent", etLastUnit: 3, etNumberFontFamily: "Impact", etNumberSize: 35, etNumberColor: "white", etNumberPaddingTB: 0, etNumberPaddingLR: 8, etNumberBackground: "transparent", etNumberBorderSize: 0, etNumberBorderRadius: 5, etNumberBorderColor: "white", etNumberShadow: "inset 0px 0px 10px 0px transparent"
+      etType: 0, etDate: "11.07.2016.0.0", etTitleText: "", etTitleSize: 19, etShowSign: 1, etSep: ":", etFontFamily: "Trebuchet MS", etTextColor: "white", etPaddingTB: 5, etPaddingLR: 5, etBackground: "transparent", etBorderSize: 0, etBorderRadius: 2, etBorderColor: "transparent", etShadow: " 0px 0px 10px 0px transparent", etLastUnit: 3, etNumberFontFamily: "Impact", etNumberSize: 35, etNumberColor: "white", etNumberPaddingTB: 0, etNumberPaddingLR: 8, etNumberBackground: "transparent", etNumberBorderSize: 0, etNumberBorderRadius: 5, etNumberBorderColor: "white", etNumberShadow: "inset 0px 0px 10px 0px transparent"
     });
   });

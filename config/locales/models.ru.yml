@@ -60,6 +60,12 @@ ru:
         updated_at: Обновлена
         images: Изображения
     models:
+      post:
+        zero: сообщений
+        one: сообщение
+        few: сообщений
+        many: сообщений
+        other: сообщения            
       user:
         zero: пользователей
         one: пользователь

@@ -14,6 +14,8 @@ Devise.setup do |config|
   # with default "from" parameter.
   config.mailer_sender = "\"BBetter\" <info@bbetter.ru>"
 
+  config.secret_key = 'e76940d909d8b9f466ae0fd4d2475a4d083f4d15f81306270d403f0ab3bb769149b87775e9cde63aeddd482a4e4df4acf9bc1eeced5f9de498203c12fe80c9a2'
+
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
 
