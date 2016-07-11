@@ -75,7 +75,10 @@
         </button>
       <% else %>
         <a data-toggle="modal" data-target="#signInModal">Войти</a>
-        <button class="grayBtn" type="button" onclick="yaCounter38070020.reachGoal('registracija'); return true;" type="button" data-toggle="modal" data-target="#regModal">Регистрация</button>
+        <!--         <button class="grayBtn" type="button" onclick="yaCounter38070020.reachGoal('registracija'); return true;" type="button" data-toggle="modal" data-target="#regModal">Регистрация</button> -->
+        <%= link_to new_user_registration_path do %>
+          <button class="grayBtn" type="button" onclick="yaCounter38070020.reachGoal('registracija'); return true;" type="button">Регистрация</button>
+        <% end %>
       <% end %>
     </ul>
   </nav>
