@@ -40,6 +40,7 @@ class HomeController < ApplicationController
   # end
 
   def profile
+    @opening_date = DateTime.new(2016, 07, 11, 03, 00)
     @message = Message.new
     @tariffs = Tariff.all
     @user_tariff = UserTariff.where(user_id: @user.id).last

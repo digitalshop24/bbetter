@@ -1,0 +1,58 @@
+<!-- <h2>Sign up</h2> -->
+
+<h2>Регистрация</h2>
+
+<%= form_for @user, as: :user, url: :home_registration, onsubmit: "thankU()" do |f| %>
+            <div class="row">
+              <div class="col-md-12">
+                <%= f.text_field :name, autofocus: true, placeholder: 'Имя', required: true %>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <%= f.email_field :email, placeholder: 'Электронная почта', required: true %>
+              </div>
+            </div>
+             <div class="row">
+              <div class="col-md-12">
+                <%= f.text_field :phone, placeholder: 'Номер телефона' %>
+              </div>
+            </div>
+             <div class="row">
+              <div class="col-md-12">
+                <%= f.text_field :moto, placeholder: 'Цель', required: true %>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <%= f.text_field :city, placeholder: 'Город', required: true %>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-12">
+                <%= text_field_tag :promocode, nil, placeholder: 'Промокод' %>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <%= f.text_field :age, placeholder: 'Возраст', required: true %>
+              </div>
+              <div class="col-md-6 text-right checked_Male">
+                <%= radio_button :user, :sex, :male, class: 'hide-radio' %>
+                <label for="user_sex_male">M </label>
+                <%= radio_button :user, :sex, :female, class: 'hide-radio' %>
+                <label for="user_sex_female">Ж</label>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <div class="row">
+                <div class="col-md-12">
+                  <p class="redLabel">Заполните, пожалуйста, все поля!</p>
+                  <p>В течении нескольких минут ожидайте письмо</p>
+                  <%= f.submit "Зарегистрироваться", class: 'redBtn', onclick: "yaCounter38070020.reachGoal('zaregistrirovatsja'); return true;" %>
+                </div>
+              </div>
+            </div>
+          <% end %>
+
+<%= render "devise/shared/links" %>

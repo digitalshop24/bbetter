@@ -2,24 +2,31 @@
   <section class="lineSec" id="fiveStep">
     <h1>Тариф &laquo;<%= @current_tarrif.name%>&raquo;</h1>
   </section>
-  <%= render 'user_data' %>
-  <% if @user_tariff.training_program %>
-    <%= render partial: 'training_programs/show', locals: { training_program: @user_tariff.training_program } %>
-  <% else %>
-    <section class="week_plan_drugs_eat">
-      <h2 class="titel_tariff text-center">Выберите программу тренировок</h2>
-      <%= form_for @user_tariff, url: set_training_program_path(@user_tariff), method: :put, html: {class: 'sendType'} do |f| %>
-        <div class="selectType">
+  <%if DateTime.now < @opening_date%>
+   <section class="week_plan_drugs_eat">
+    <h2 class="titel_tariff text-center">План тренировок будет доступен 11.07.2016</h2>
+    </section>
+    <%end%>
+    <%if DateTime.now >= @opening_date%>
+      <%= render 'user_data' %>
+      <% if @user_tariff.training_program %>
+        <%= render partial: 'training_programs/show', locals: { training_program: @user_tariff.training_program } %>
+      <% else %>
+      <section class="week_plan_drugs_eat">
+        <h2 class="titel_tariff text-center">Выберите программу тренировок</h2>
+        <%= form_for @user_tariff, url: set_training_program_path(@user_tariff), method: :put, html: {class: 'sendType'} do |f| %>
+          <div class="selectType">
           <% TrainingProgram.all.each do |tp| %>
             <%= f.radio_button :training_program_id, tp.id, checked: tp.id == 1 %>
             <%= label_tag "user_tariff_training_program_id_#{tp.id}", tp.name %>
           <% end %>
-        </div>
-        <%= f.submit 'Отправить', class: 'redBtn' %>
-      <% end %>
-    </section>
-  <% end %>
-<% else %>
+          </div>
+          <%= f.submit 'Отправить', class: 'redBtn' %>
+        <% end %>
+      </section>
+    <% end %>
+  <%end%>
+  <% else %>
   <section class="notif">
     <div class="container">
       <div class="row">

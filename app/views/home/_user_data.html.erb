@@ -58,16 +58,16 @@
                     <% if @summary.after_front? %>
                       <div class="btn_fo_div user_data_btn btn_left" style="background-image: url(<%=@summary.after_front.url(:big)%>)"></div>
                     <% else %>
-                      <%= f.file_field :after_front, id: 'fileElem_5', style: 'display:none', accept: 'image/*' %>
-                      <div class="btn_fo_div user_data_btn btn_left text-center" id="fileSelect_5">
+                      <% f.file_field :after_front, id: 'fileElem_5', style: 'display:none', accept: 'image/*' %>
+                      <div style="cursor: default;" class="btn_fo_div user_data_btn btn_left text-center" id="fileSelect_5">
                         &lt;&lt;После&gt;&gt;<br/><br/>Загрузить<br>&lt;&lt;Спереди&gt;&gt;
                       </div>
                     <% end %>
                     <% if @summary.after_back? %>
                       <div class="btn_fo_div user_data_btn btn_center" style="background-image: url(<%=@summary.after_back.url(:big)%>)"></div>
                     <% else %>
-                      <%= f.file_field :after_back, id: 'fileElem_6', style: 'display:none', accept: 'image/*' %>
-                      <div class="btn_fo_div user_data_btn btn_center text-center" id="fileSelect_6">
+                      <% f.file_field :after_back, id: 'fileElem_6', style: 'display:none', accept: 'image/*' %>
+                      <div style="cursor: default;" class="btn_fo_div user_data_btn btn_center text-center" id="fileSelect_6">
                         &lt;&lt;После&gt;&gt;<br/><br/>Загрузить<br>&lt;&lt;Сзади&gt;&gt;
                       </div>
                     <% end %>

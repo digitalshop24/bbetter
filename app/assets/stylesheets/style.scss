@@ -850,6 +850,26 @@ nav #menuToggle,nav .label-toggle  {
       font-size: 18px;
     }
   }
+  &.errorPage {
+    height:100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    h1 {
+      .error {
+        color:$red;
+      }
+      a {
+        color:$red;
+        border-bottom:2px solid transparent;
+        transition:border-bottom .4s;
+        &:hover {
+          color:$red;
+          border-bottom:2px solid;
+        }
+      }
+    }
+  }
 }
 
 

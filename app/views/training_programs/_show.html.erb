@@ -1,5 +1,4 @@
 <% hash = { 1 => 'careerist', 2 => 'carefree', 3 => 'housewife'} %>
-
 <section class="week_plan_drugs_eat">
   <div class="container">
     <div id="tabs-container">
@@ -10,7 +9,7 @@
         		wdays = Date::DAYNAMES.map(&:downcase)[1..-1]
         	  wdays_localed = I18n.t(:"date.day_names")[1..-1]
         	  day = Time.now.strftime("%A").downcase
-        	  index = wdays.index(day)
+        	  index = wdays.index(day) || 5
         	%>
         	<% wdays.each_with_index do |wday, i| %>
         	  <%
