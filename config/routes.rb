@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'errors/not_found'
+
+  get 'errors/internal_server_error'
+
   resources :posts
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   mount API::Root => '/'
@@ -30,4 +34,6 @@ Rails.application.routes.draw do
       get :fail
       post :fail # исключение: при неуспехе оплаты из кошелька Яндекс.Денег приходит запрос методом POST
   end
+
+  match "/404", :to => "errors#not_found", :via => :all
 end
