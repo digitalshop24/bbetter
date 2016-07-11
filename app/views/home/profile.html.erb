@@ -2,10 +2,12 @@
   <section class="lineSec" id="fiveStep">
     <h1>Тариф &laquo;<%= @current_tarrif.name%>&raquo;</h1>
   </section>
-  <!-- <section class="week_plan_drugs_eat">
-  <h2 class="titel_tariff text-center">План тренировок будет доступен 11.07.2016</h2>
-  </section> -->
-
+  <%if DateTime.now < @opening_date%>
+   <section class="week_plan_drugs_eat">
+    <h2 class="titel_tariff text-center">План тренировок будет доступен 11.07.2016</h2>
+    </section>
+    <%end%>
+    <%if DateTime.now >= @opening_date%>
       <%= render 'user_data' %>
       <% if @user_tariff.training_program %>
         <%= render partial: 'training_programs/show', locals: { training_program: @user_tariff.training_program } %>
@@ -23,6 +25,7 @@
         <% end %>
       </section>
     <% end %>
+  <%end%>
   <% else %>
   <section class="notif">
     <div class="container">
