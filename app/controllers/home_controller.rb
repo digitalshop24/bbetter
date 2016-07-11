@@ -98,7 +98,7 @@ class HomeController < ApplicationController
       sign_in(:user, @user)
       redirect_to :profile
     else
-
+      flash[:new_solution_errors] = @user.errors.full_messages
       render 'devise/registrations/new'
     end
   end

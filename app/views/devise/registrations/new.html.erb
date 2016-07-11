@@ -1,3 +1,4 @@
+<%= render partial: 'users/errors', locals: { errors: flash[:new_solution_errors], info_messages: flash[:info_messages] }%>
 <%= form_for @user, as: :user, url: :home_registration, onsubmit: "thankU()" do |f| %>
             <div class="row">
               <div class="col-md-12">
