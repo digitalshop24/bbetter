@@ -28,6 +28,7 @@
         <%= radio_button :user, :sex, :female, class: 'hidden' %>
         <label for="user_sex_female">Ж</label>
       </div>
+       <%= render partial: 'users/errors', locals: { errors: flash[:new_solution_errors], info_messages: flash[:info_messages] } if flash[:modal] == 'editProfileModal' %>
       <%= f.submit "Сохранить", class: 'redBtn' %>
       <ul class="goToParth">
         <li>
