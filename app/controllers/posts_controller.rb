@@ -2,12 +2,16 @@ class PostsController < ApplicationController
   layout 'home'
   before_action :authenticate_user!
   before_action :set_post, only: [:show, :edit, :update, :destroy, :comment]
-  before_action :set_user, only: [:show, :edit, :index, :new]
+  before_action :set_user, only: [:show, :edit, :index, :new, :topics]
   before_action :comment_params, only: [:comment]
 
   # GET /posts
+  def topics
+    @topics = Topic.all.page params[:page]
+  end
+
   def index
-    @posts = Post.all.page params[:page]
+    @posts = Topic.find(params[:id]).posts.all.page params[:page]
   end
 
   def comment
@@ -25,7 +29,7 @@ class PostsController < ApplicationController
 
   # GET /posts/new
   def new
-    @post = Post.new
+    @post = Topic.find(params[:id]).posts.new
   end
 
   # GET /posts/1/edit
@@ -34,10 +38,10 @@ class PostsController < ApplicationController
 
   # POST /posts
   def create
-    @post = Post.new(post_params)
+    @post = Topic.find(params[:id]).posts.new(post_params)
     current_user.posts << @post
     if @post.save
-      redirect_to @post, notice: 'Post was successfully created.'
+      redirect_to '/topics/'+params[:id], notice: 'Post was successfully created.'
     else
       render :new
     end

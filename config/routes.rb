@@ -3,7 +3,14 @@ Rails.application.routes.draw do
 
   get 'errors/internal_server_error'
 
-  resources :posts
+  get '/forum', to: "posts#topics"
+  get '/topics/:id', to: "posts#index", as: :posts
+  get '/topics/:id/post/new', to: "posts#new", as: :new_post
+  get '/topics/:id/posts/:id/edit', to: "posts#edit", as: :edit_post
+  get '/topics/:id/posts/:id', to: "posts#show", as: :post
+  put '/topics/:id/posts/:id', to: "posts#update"
+  patch '/topics/:id/posts/:id', to: "posts#update"
+  post '/topics/:id', to: "posts#create"
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   mount API::Root => '/'
   mount GrapeSwaggerRails::Engine => '/apidoc'
