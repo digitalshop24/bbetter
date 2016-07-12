@@ -2,21 +2,22 @@
   <div class="headPage">
     <h1><a href='/posts'>Форум</a></h1>
     <ul class="tags">
+      <li><a href='/forum'>Разделы</a> > <a href="/topics/<%=@post.topic.id%>">Топики</a> > <%=@post.title%> </li>
       <li><%= paginate @comments %></li>
     </ul>
   </div>
 
   <div class="postItem">
-    <div class="imgWrap" style="background-image:url('<%= @post.user.avatar %>');"></div>
+    <div class="imgWrap" style="background-image:url('<%= @post.user.avatar if @post.user.present? %>');"></div>
     <div class="textWrap">
       <h5>Автор поста:  <%=@post.user.name%></h5>
-      <h3><%= @post.title %></h3>
-      <p><%= @post.content %></p>
+      <h3><%= @post.title.html_safe %></h3>
+      <p><%= @post.content.html_safe %></p>
     </div>
     <% if current_user.has_role? :admin%>
     <ul class="settings">
       <li><%= link_to 'Редактировать', edit_post_path(@post) %></li>
-      <li><%= link_to 'Вернуться', posts_path %></li>
+      <li><%= link_to 'Вернуться', "/topics/#{@post.topic.id}" %></li>
     </ul>
 
 <%end%>
@@ -25,7 +26,7 @@
 
   <% @comments.each do |comment| %>
   <div class="postItem comment">
-    <div class="imgWrap" style="background-image:url('<%= comment.user.avatar.url %>');"></div>
+    <div class="imgWrap" style="background-image:url('<%= comment.user.avatar.url if comment.user.present? %>');"></div>
     <div class="textWrap">
       <h5><%= comment.content.html_safe %></h5>
       <ul class="into">
@@ -33,7 +34,7 @@
       <li><%= comment.updated_at.strftime("%H:%M")%></li>
       </ul>
       <!-- ВАНЯ ДОБАВЬ ТУТ ПЛИЗ УДАЛЕНЕ И РЕДАКТИРОВАНИЕ КОММЕНТОВ;
-         + юзай канканкан (KK) 
+         + юзай канканкан (KK)
       %>-->
 
     </div>
@@ -56,6 +57,6 @@
 
 
 </section>
-  
+
 
 
