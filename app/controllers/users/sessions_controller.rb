@@ -2,7 +2,7 @@ class Users::SessionsController < Devise::SessionsController
   def auth_options
     flash[:modal] = 'signInModal'
     flash[:new_solution_errors] = ["Неверный email либо пароль"]
-    { scope: resource_name, recall: "home#index" }
+    super
   end
   def create
     super

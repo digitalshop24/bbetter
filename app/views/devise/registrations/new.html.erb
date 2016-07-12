@@ -1,53 +1,41 @@
-<%= render partial: 'users/errors', locals: { errors: flash[:new_solution_errors], info_messages: flash[:info_messages] }%>
-<%= form_for @user, as: :user, url: :home_registration, onsubmit: "thankU()" do |f| %>
-            <div class="row">
-              <div class="col-md-12">
-                <%= f.text_field :name, autofocus: true, placeholder: 'Имя', required: true %>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-12">
-                <%= f.email_field :email, placeholder: 'Электронная почта', required: true %>
-              </div>
-            </div>
-             <div class="row">
-              <div class="col-md-12">
-                <%= f.text_field :phone, placeholder: 'Номер телефона' %>
-              </div>
-            </div>
-             <div class="row">
-              <div class="col-md-12">
-                <%= f.text_field :moto, placeholder: 'Цель', required: true %>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-12">
-                <%= f.text_field :city, placeholder: 'Город', required: true %>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-12">
-                <%= text_field_tag :promocode, nil, placeholder: 'Промокод' %>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-md-6">
-                <%= f.text_field :age, placeholder: 'Возраст', required: true %>
-              </div>
-              <div class="col-md-6 text-right checked_Male">
-                <%= radio_button :user, :sex, :male, class: 'hide-radio' %>
-                <label for="user_sex_male">M </label>
-                <%= radio_button :user, :sex, :female, class: 'hide-radio' %>
-                <label for="user_sex_female">Ж</label>
-              </div>
-            </div>
-            <div class="modal-footer">
-              <div class="row">
-                <div class="col-md-12">
-                  <p class="redLabel">Заполните, пожалуйста, все поля!</p>
-                  <p>В течении нескольких минут ожидайте письмо</p>
-                  <%= f.submit "Зарегистрироваться", class: 'redBtn', onclick: "yaCounter38070020.reachGoal('zaregistrirovatsja'); return true;" %>
-                </div>
-              </div>
-            </div>
-          <% end %>
+<section class="registrationSection authorize">
+    <%= link_to root_path do %>
+     <img class="modalLogo" src="<%= asset_path('header/logoNavMob.png') %>" alt="logo modal" />
+    <% end %>
+    <%= form_for @user, as: :user, url: :home_registration, onsubmit: "thankU()" do |f| %>
+    <div class="formWrapper">
+      <%= f.text_field :name, autofocus: true, placeholder: 'Имя', required: true %>
+      <%= f.email_field :email, placeholder: 'Электронная почта', required: true %>
+      <%= f.text_field :phone, placeholder: 'Номер телефона' %>
+      <%= f.text_field :moto, placeholder: 'Цель', required: true %>
+      <%= f.text_field :city, placeholder: 'Город', required: true %>
+      <div class="inputsWrapper">
+        <%= text_field_tag :promocode, nil, placeholder: 'Промокод' %>
+        <%= f.text_field :age, placeholder: 'Возраст', required: true %>
+      </div>
+      <div class="genderSelect">
+        <%= radio_button :user, :sex, :male, class: 'hidden' %>
+        <label for="user_sex_male">M</label>
+        <%= radio_button :user, :sex, :female, class: 'hidden' %>
+        <label for="user_sex_female">Ж</label>
+      </div>
+      <%= render partial: 'users/errors', locals: { errors: flash[:new_solution_errors], info_messages: flash[:info_messages] }%>
+      
+      <%= f.submit "Зарегистрироваться", class: 'redBtn', onclick: "yaCounter38070020.reachGoal('zaregistrirovatsja'); return true;" %>
+      <ul class="goToParth">
+        <li>
+          <a href="<%= new_user_password_path %>"> Забыли пароль?</a>
+        </li>
+        <li>
+          <a href="<%= new_user_session_path %>">Войти</a>
+        </li>
+      </ul>
+    </div>
+    <% end %>
+</section>
+
+
+
+
+                
+          
