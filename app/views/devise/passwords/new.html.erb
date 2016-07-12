@@ -1,17 +1,44 @@
- <%= render partial: 'users/errors', locals: { errors: flash[:new_solution_errors], info_messages: flash[:info_messages] } if flash[:modal] == 'restorePasModal' %>
-<div class="formWrapper">
-  <%= form_for(@user, as: :user, url: restore_password_path, html: { method: :put }) do |f| %>
-    <div class="row">
-      <div class="col-md-12">
+
+<section class="passNewSection authorize">
+
+	<%= link_to root_path do %>
+	   <img class="modalLogo" src="<%= asset_path('header/logoNavMob.png') %>" alt="logo modal" />
+	<% end %>
+	
+	<%= form_for(@user, as: :user, url: restore_password_path, html: { method: :put }) do |f| %>
+	<div class="formWrapper">
         <%= f.email_field :email, autofocus: true, placeholder: 'Электронная почта' %>
-      </div>
-    </div>
-    <div class="modal-footer">
-      <div class="row">
-        <div class="col-md-12">
-          <%= f.submit "Восстановить", class: 'redBtn' %>
-        </div>
-      </div>
-    </div>
-  <% end %>
-</div>
+		<%= render partial: 'users/errors', locals: { errors: flash[:new_solution_errors], info_messages: flash[:info_messages] } if flash[:modal] == 'restorePasModal' %>
+        <%= f.submit "Восстановить", class: 'redBtn' %>
+        <ul class="goToParth">
+	        <li>
+	          <a href="<%= new_user_registration_path %>">Регистрация</a>
+	        </li>
+	        <li>
+	          <a href="<%= new_user_session_path %>">Войти</a>
+	        </li>
+	      </ul>
+	</div>
+  	<% end %>
+	
+
+	<ul class="socialWrap">
+    	<li>Мы в соцсетях:</li>
+    	<li>
+      		<a href="https://www.instagram.com/bbetter.club" target="_blank">
+        		<i class="fa fa-2x fa-instagram" aria-hidden="true"></i>
+      		</a>
+   		</li>
+	    <li>
+	      <a href="http://vk.com/bbetter_club" target="_blank">
+	        <i class="fa fa-2x fa-vk" aria-hidden="true"></i>
+	      </a>
+	    </li>
+	    <li>
+	      <a href="https://www.facebook.com/bbetterclub" target="_blank">
+	        <i class="fa fa-2x fa-facebook-official" aria-hidden="true"></i>
+	      </a>
+	    </li>
+  	</ul>
+	
+</section>

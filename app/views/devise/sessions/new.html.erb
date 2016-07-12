@@ -1,25 +1,49 @@
-<%= render partial: 'users/errors', locals: { errors: flash[:new_solution_errors], info_messages: flash[:info_messages] } if flash[:modal] == 'signInModal' %>
+<section class="logInSection authorize">
+  
 
+  
 
-<%= form_for(@user, as: :user, url: session_path(:user)) do |f| %>
-  <div class="row">
-    <div class="col-md-12">
-      <%= f.email_field :email, autofocus: true, placeholder: 'Электронная почта', required: true %>
-    </div>
+  
+  <%= form_for(@user, as: :user, url: session_path(:user)) do |f| %>
+  <%= link_to root_path do %>
+    <img class="modalLogo" src="<%= asset_path('header/logoNavMob.png') %>" alt="logo modal" />
+  <% end %>
+  <div class="formWrapper">
+          <%= f.email_field :email, autofocus: true, placeholder: 'Электронная почта', required: true %>
+
+          <%= f.password_field :password, placeholder: 'Пароль', required: true %>
+          
+          <%= render partial: 'users/errors', locals: { errors: flash[:new_solution_errors], info_messages: flash[:info_messages] } if flash[:modal] == 'signInModal' %>
+
+          <%= f.submit "Войти", class:'redBtn' %>
+        <ul class="goToParth">
+          <li>
+            <a href="<%= new_user_password_path %>"> Забыли пароль?</a>
+          </li>
+          <li>
+            <a href="<%= new_user_registration_path %>"> Регистрация</a>
+          </li>
+        </ul>
   </div>
-  <div class="row">
-    <div class="col-md-12">
-      <%= f.password_field :password, autocomplete: "off", placeholder: 'Пароль', required: true %>
-    </div>
-  </div>
-  <div class="modal-footer">
-    <div class="row">
-      <div class="col-md-12">
-        <%= f.submit "Войти", class: 'redBtn' %>
-        <br/>
-        <br/>
-         <a class="redBtn" href="<%=new_user_password_path%>"> Забыли пароль?</a>
-      </div>
-    </div>
-  </div>
-<% end %>
+  <% end %>
+  <ul class="socialWrap">
+    <li>Мы в соцсетях:</li>
+    <li>
+      <a href="https://www.instagram.com/bbetter.club" target="_blank">
+        <i class="fa fa-2x fa-instagram" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li>
+      <a href="http://vk.com/bbetter_club" target="_blank">
+        <i class="fa fa-2x fa-vk" aria-hidden="true"></i>
+      </a>
+    </li>
+    <li>
+      <a href="https://www.facebook.com/bbetterclub" target="_blank">
+        <i class="fa fa-2x fa-facebook-official" aria-hidden="true"></i>
+      </a>
+    </li>
+  </ul>
+  
+
+</section>
