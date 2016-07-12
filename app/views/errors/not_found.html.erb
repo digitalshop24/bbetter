@@ -1,0 +1,36 @@
+<section class="quoteSec errorPage">
+  <div class="container">
+    <div dir="row">
+      <div class="col-md-12 text-center">
+
+        <h1>Это страница <span class="error">404</span></h1>
+        <h1>Вы можете перейти <%= link_to root_path do %>на главную<% end %></h1>
+        <p>Рой Джонс</p>
+        <p class="quote">Нельзя вернуться в прошлое и изменить свой старт, но можно стартовать сейчас и изменить свой финиш.</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+
+        <ul class="a2a_kit a2a_kit_size_32">
+          <li>Поделиться: </li>
+          <li>
+            <a class="a2a_button_facebook" href="#">
+              <img src="<%= asset_path('quote/fb.png') %>" />
+            </a>
+          </li>
+          <li>
+            <a class="a2a_button_twitter" href="#">
+              <img src="<%= asset_path('quote/twi.png') %>" />
+            </a>
+          </li>
+          <li>
+            <a class="a2a_button_vk" href="">
+              <img src="<%= asset_path('quote/vk.png') %>" />
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

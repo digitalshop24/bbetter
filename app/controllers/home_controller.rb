@@ -68,7 +68,7 @@ class HomeController < ApplicationController
       flash[:modal] = 'editProfileModal'
       flash[:new_solution_errors] = @user.errors.full_messages
     end
-    redirect_to :back
+    redirect_to profile_path
   end
 
   def registration
@@ -99,8 +99,7 @@ class HomeController < ApplicationController
       redirect_to :profile
     else
       flash[:new_solution_errors] = @user.errors.full_messages
-      flash[:modal] = 'regModal'
-      render 'index'
+      render 'devise/registrations/new'
     end
   end
 
