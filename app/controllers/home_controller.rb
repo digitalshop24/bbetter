@@ -68,7 +68,7 @@ class HomeController < ApplicationController
       flash[:modal] = 'editProfileModal'
       flash[:new_solution_errors] = @user.errors.full_messages
     end
-    redirect_to :back
+    redirect_to profile_path
   end
 
   def registration
