@@ -1,6 +1,7 @@
 @charset "UTF-8";
 $red:#d8003d;
 $gray:#555555;
+$yellow:#FFA001;
 
 html {
     width: 100%;
@@ -25,9 +26,9 @@ ul {
 .red {
   color:$red;
 }
-.green {
-  color:green;
-}
+// .green {
+//   color:green;
+// }
 button,
 a:hover,
 a:focus,
@@ -201,6 +202,19 @@ nav #menuToggle,nav .label-toggle  {
   background-color: #ffc017;
   padding: 50px 0;
   color: #fff;
+  position: relative;
+  .notifCarousel {
+    margin-bottom:0;
+    text-align: center;
+    font-size:34px;
+    span {
+      padding-left: 80px;
+    }
+  }
+  p.carousel {
+    vertical-align: middle;
+    line-height: 40px;
+  }
   .notifWrap{
     display: flex;
     justify-content: space-between;
@@ -1674,8 +1688,16 @@ footer {
         tr {
           td {
             padding: 0px 10px 10px 10px;
-            color: #fff;
+            
             vertical-align: top;
+            a {
+              color: #fff;
+              sup {
+                font-size: 12px;
+                color:#000;
+              }
+            }
+            
           }
           td:nth-child(2) {
             border-right: 1px solid #fff;
@@ -1904,17 +1926,17 @@ footer {
     margin: -35px auto 0;
     display: block; }
 
-.modalSec .modal-body .formWrapper form input[type="text"],
-.modalSec .modal-body .formWrapper form input[type="email"],
-.modalSec .modal-body .formWrapper form input[type="tel"],
-.modalSec .modal-body .formWrapper form input[type="password"] {
-  background-color: #f5f5f5;
-  border-radius: 20px;
-  border: 0;
-  padding: 10px 15px;
-  font-size: 18px;
-  margin: 15px 30px;
-  width: 90%; }
+// .modalSec .modal-body .formWrapper form input[type="text"],
+// .modalSec .modal-body .formWrapper form input[type="email"],
+// .modalSec .modal-body .formWrapper form input[type="tel"],
+// .modalSec .modal-body .formWrapper form input[type="password"] {
+//   background-color: #f5f5f5;
+//   border-radius: 20px;
+//   border: 0;
+//   padding: 10px 15px;
+//   font-size: 18px;
+//   margin: 15px 30px;
+//   width: 90%; }
 .modalSec .modal-body .formWrapper form div.avatar{
   cursor: pointer; cursor: hand;
   background-color: #f5f5f5;
@@ -1936,41 +1958,41 @@ footer {
   display: block;
 }
 
-.modalSec .modal-body .formWrapper form .MG {
-  text-align: right; }
-  .modalSec .modal-body .formWrapper form .MG input {
-    display: inline-block; }
+// .modalSec .modal-body .formWrapper form .MG {
+//   text-align: right; }
+//   .modalSec .modal-body .formWrapper form .MG input {
+//     display: inline-block; }
 
-.modalSec .modal-body .formWrapper form .hide-radio + label {
-  display: block;
-  float: right;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  padding: 10px 0;
-  text-align: center;
-  background-color: #F5F5F5;
-  color: #8C8C9C;
-  font-size: 20px;
-  -webkit-transition: background-color 0.3s ease-in-out;
-  -moz-transition: background-color 0.3s ease-in-out;
-  -o-transition: background-color 0.3s ease-in-out;
-  transition: background-color 0.3s ease-in-out;
-  margin: 10px 30px 0 -20px; }
+// .modalSec .modal-body .formWrapper form .hide-radio + label {
+//   display: block;
+//   float: right;
+//   width: 50px;
+//   height: 50px;
+//   border-radius: 50%;
+//   padding: 10px 0;
+//   text-align: center;
+//   background-color: #F5F5F5;
+//   color: #8C8C9C;
+//   font-size: 20px;
+//   -webkit-transition: background-color 0.3s ease-in-out;
+//   -moz-transition: background-color 0.3s ease-in-out;
+//   -o-transition: background-color 0.3s ease-in-out;
+//   transition: background-color 0.3s ease-in-out;
+//   margin: 10px 30px 0 -20px; }
 
-.modalSec .modal-body .formWrapper form .hide-radio:checked + label {
-  display: inline-block;
-  width: 50px;
-  background-color: $red;
-  color: #fff; }
+// .modalSec .modal-body .formWrapper form .hide-radio:checked + label {
+//   display: inline-block;
+//   width: 50px;
+//   background-color: $red;
+//   color: #fff; }
 
-.modalSec .modal-body .formWrapper form .checked_Male input {
-  display: none; }
+// .modalSec .modal-body .formWrapper form .checked_Male input {
+//   display: none; }
 
-.modalSec .modal-body .thankU h2 {
-  color: $red;
-  text-align: center;
-  margin: 40px auto 80px; }
+// .modalSec .modal-body .thankU h2 {
+//   color: $red;
+//   text-align: center;
+//   margin: 40px auto 80px; }
 
 .modalSec .modal-footer {
   border: 0;
@@ -2579,7 +2601,7 @@ footer {
 //         &:hover {
 //           color:$red;
 //         }
-//       }
+// }
 //     }
 //   }
 // }
@@ -2683,4 +2705,24 @@ footer {
   }
 }
 
+.loadVideo {
+  padding:0 0 50px;
+  .loadInput {
+    margin-bottom: 30px;
+    input {
+      border:0;
+      border-bottom: 1px solid $red;
+      width:100%;
+      max-width:400px;
+      cursor: pointer;
+      padding:5px 0;
+      font-size:17px;
+    }
+  }
+  
+}
+
+a[rel="popover"]{
+    display: inline-block;
+}
 

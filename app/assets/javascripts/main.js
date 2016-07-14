@@ -20,6 +20,18 @@ $(document).ready(function(){
     $(this).addClass('active');
   });
 
+  $('.notifCarousel').slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: true,
+    responsive: [{
+      breakpoint: 768,
+      settings: {
+         arrows: true,
+         dots:true
+      }
+    }]
+  });
 
   $('.tariffsCarousel').slick({
     slidesToShow: 1,
@@ -102,6 +114,17 @@ $(document).ready(function(){
      $('#promo_promocode').val(promocode);
   });
 
+});
+
+$('[rel="popover"]').popover({
+    container: 'body',
+    html: true,
+    content: function () {
+        var clone = $($(this).data('popover-content')).clone(true).removeClass('hide');
+        return clone;
+    }
+}).click(function(e) {
+    e.preventDefault();
 });
 
 
