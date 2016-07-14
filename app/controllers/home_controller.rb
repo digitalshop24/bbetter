@@ -4,6 +4,7 @@ class HomeController < ApplicationController
   layout 'home'
   def index
     @user = current_user || User.new
+    @user_tariff = UserTariff.where(user_id: @user.id).last
   end
 
   # def registration

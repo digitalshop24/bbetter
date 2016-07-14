@@ -10,7 +10,27 @@
     <%if DateTime.now >= @opening_date%>
       <%= render 'user_data' %>
       <% if @user_tariff.training_program %>
+        <!-- <section class="loadVideo">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12 text-center">
+                <h3>Внимание! Отправьте ссылку на отчетное видео,<br/> крайний срок суббота вечер</h3>
+                <form>
+                  <div class="loadInput">
+                  <input type="text" name="" placeholder="Например: https://www.youtube.com/watch?v=n0sPFaLsNeI" />
+                  </div>
+                  <div>
+                  <button class="redBtn">Отправить</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div> -->
+          
+
+        </section>
         <%= render partial: 'training_programs/show', locals: { training_program: @user_tariff.training_program } %>
+
       <% else %>
       <section class="week_plan_drugs_eat">
         <h2 class="titel_tariff text-center">Выберите программу тренировок</h2>
@@ -25,6 +45,7 @@
         <% end %>
       </section>
     <% end %>
+
   <%end%>
   <% else %>
   <section class="notif">
@@ -41,7 +62,9 @@
       </div>
     </div>
   </section>
+
   <%= render 'tariffs/index' %>
+ 
 <%end%>
 <section class="calculate">
   <div class="container">

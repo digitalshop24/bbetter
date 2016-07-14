@@ -1,36 +1,48 @@
-<!--<section class="notif" ng-show="ctrl.openBord">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12">
-        <div class="notifWrap" >
-          <h2>
-            <img src="<%= asset_path('notificationSec/notif.png') %>" />
-            Оплата тарифов будет доступна в среду, мы обязательно уведомим Вас заранее.</h2>
-            <p class="closeNotif">Закрыть</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>-->
+
 <%if current_user%>
   <%if current_user.tariffs.present?%>
-    <section class="notif" ng-show="ctrl.openBord">
+    <section class="notif">
       <div class="container">
+      
         <div class="row">
-          <div class="col-md-12">
-            <div class="notifWrap" >
-              <h2>
-                <%= image_tag('notificationSec/notif.png') %>
-                Тариф <%=current_user.tariffs.first.name%> активирован. Подробней в <a href='/profile'>Личном кабинете</a></h2>
-              <p class="closeNotif">Закрыть</p>
+          <div class="col-md-11">
+            <%if Lightning.all.count > 0%>
+            
+            <div class="notifCarousel">
+              <%Lightning.all.each do |message|%>
+                  <% if message.status == 'active'%>
+                    <div>
+                      <span><%=message.message%></span>
+                    </div>
+                  <%elsif message.status == 'paid' && @user_tariff.present?%>
+                    <div>
+                      <span><%=message.message%></span>
+                    </div>
+                  <%elsif message.status == 'authorized' && current_user%>
+                    <div>
+                      <span><%=message.message%></span>
+                    </div>
+                  <%end%>
+               <%end%>
+
             </div>
+            <%end%>
           </div>
+          <div class="col-md-1">
+            <p class="closeNotif carousel">Закрыть</p>
+          </div>
+
         </div>
       </div>
+
     </section>
+      <%end%>
 
   <%end%>
-<%end%>
+
+
+
+
 
 <section class="accordeonSection">
   <div class="tariffsCarousel hidden-md hidden-lg" >

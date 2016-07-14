@@ -1,9 +1,7 @@
 <section class="forumSec">
   <div class="headPage">
-    <h1><a href='/posts'>Форум</a></h1>
-    <ul class="tags">
-      <li><a href='/forum'>Разделы</a> > <a href="/topics/<%=@post.topic.id%>">Топики</a> > <%=@post.title%> </li>
-      <li><%= paginate @comments %></li>
+    <p><a href='/forum'>Разделы</a> > <a href="/topics/<%=@post.topic.id%>"><%=@post.topic.title%></a> > <%=@post.title%> </p>
+    <p><%= paginate @comments %></p>
     </ul>
   </div>
 
@@ -46,7 +44,7 @@
     <div class="textWrap">
      <%= form_for @comment, url: '/comment/'+ @post.id.to_s do |f|%>
      <div class="field">
-     <%= f.text_area :content,placeholder: 'Оставьте комментарий',rows:'1'%>
+     <%= f.text_area :content,placeholder: 'Оставьте комментарий',rows:'6'%>
      </div>
      <div class="actions">
      <%= f.submit "Комментировать", class:"redBtn" %>
