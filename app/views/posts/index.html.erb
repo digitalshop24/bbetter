@@ -1,5 +1,9 @@
 <section class="forumSec">
   <div class="headPage">
+    <ul class="tags">
+      <li><a href='/forum'>Форум</a> > <a href="/topics/<%=params[:id]%>">Топики</a></li>
+      <li><%= paginate @posts %></li>
+    </ul>
     <p><a href='/forum'>Разделы</a> > <a href="/topics/<%=params[:id]%>"><%= Topic.find(params[:id]).title %></a></p>
     <p><%= paginate @posts %></p>
   </div>
