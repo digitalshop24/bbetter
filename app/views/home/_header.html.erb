@@ -66,6 +66,7 @@
           <ul class="dropdown-menu" data-no-turbolink="true">
             <li><a href="/profile">Кабинет</a></li>
             <li><a href="<%=edit_user_registration_path%>" >Редактировать</a></li>
+            <li><a href="/forum" >Форум</a></li>
             <% if current_user.promocodes.present? %>
               <li><%= link_to 'Промокоды', promo_path %></li>
             <% end %>
