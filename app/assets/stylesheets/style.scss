@@ -748,7 +748,7 @@ nav #menuToggle,nav .label-toggle  {
           border-top-left-radius: 20px;
           border-bottom-left-radius: 20px;
           background-color: #fff;
-          background-size: auto 100%; 
+          background-size: auto 100%;
         }
         &:nth-child(2){
           display: inline-block;
@@ -936,7 +936,7 @@ nav #menuToggle,nav .label-toggle  {
     .item {
       max-width: none;
       .imgWrap {
-        text-align: center; 
+        text-align: center;
         &:before,&:after {
           display: none;
         }
@@ -1027,7 +1027,7 @@ nav #menuToggle,nav .label-toggle  {
                 }
                 &.ulia {
                   background-image: asset-url("feedbackSec/1_tren.png");
-                } 
+                }
               }
               &:nth-child(2) {
                 display: inline-block;
@@ -1056,7 +1056,7 @@ nav #menuToggle,nav .label-toggle  {
           margin: -50px 0 0 70px;
           max-width: 66%;
           p {
-            color:#000; 
+            color:#000;
             strong {
               font-weight:800;
               font-family:meta;
@@ -1101,7 +1101,7 @@ nav #menuToggle,nav .label-toggle  {
         flex-wrap: wrap;
         li {
           &:nth-child(1) {
-          padding: 0; 
+          padding: 0;
             label {
               span {
                 &:nth-child(2) {
@@ -1114,7 +1114,7 @@ nav #menuToggle,nav .label-toggle  {
           }
           &:nth-child(2) {
             position: absolute;
-            margin: 90px 0 0 20px; 
+            margin: 90px 0 0 20px;
           }
           &:nth-child(3) {
             max-width: none;
@@ -1123,7 +1123,7 @@ nav #menuToggle,nav .label-toggle  {
         }
       }
       .slick-dots {
-        bottom: -25px; 
+        bottom: -25px;
         li.slick-active {
           button::before {
             color: #fff;
@@ -1372,7 +1372,7 @@ nav #menuToggle,nav .label-toggle  {
     }
 
   }
-  
+
 }
 
 .thankU {
@@ -1838,7 +1838,7 @@ footer {
     font-size: 40px;
     font-weight: bold;
     font-family: meta;
-    padding: 25px 0; 
+    padding: 25px 0;
   }
   h3 {
     color: #fff;
@@ -1871,7 +1871,7 @@ footer {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
-  min-height: 415px; 
+  min-height: 415px;
   .foto {
     color: #fff;
     font-size: 18px;
@@ -1993,7 +1993,7 @@ footer {
 
 .modalSec {
   .modal-header {
-    border: 0; 
+    border: 0;
     .close {
       font-size: 60px;
       line-height: 0px;
@@ -2024,7 +2024,7 @@ footer {
         .MG {
           text-align: right;
           input {
-            display: inline-block; 
+            display: inline-block;
           }
         }
         .hide-radio + label {
@@ -2084,7 +2084,7 @@ footer {
       letter-spacing: .9;
     }
   }
-  
+
 }
 
 
@@ -2312,7 +2312,7 @@ footer {
       }
     }
   }
-  
+
 }
 
 .forumSec {
@@ -2410,7 +2410,7 @@ footer {
           margin: 30px auto;
         }
       }
-      
+
     }
     &.comment {
       padding:5px 20px;

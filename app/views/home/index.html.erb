@@ -12,23 +12,100 @@
     </div>
   </div>
 </section>-->
+<script>
+
+</script>
 <%if current_user%>
   <%if current_user.tariffs.present?%>
-    <section class="notif" ng-show="ctrl.openBord">
+  <!--   <section class="notif" ng-show="ctrl.openBord">
       <div class="container">
         <div class="row">
           <div class="col-md-12">
             <div class="notifWrap" >
               <h2>
                 <%= image_tag('notificationSec/notif.png') %>
-                Тариф <%=current_user.tariffs.first.name%> активирован. Подробней в <a href='/profile'>Личном кабинете</a></h2>
+               <%=Lightning.last.message%> </h2>
               <p class="closeNotif">Закрыть</p>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
+<section>
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+    <li data-target="#myCarousel" data-slide-to="3"></li>
+  </ol>
+  <div class="carousel-inner" role="listbox">
+  <%Lightning.all.each do |message|%>
+    <% if message.status == 'active'%>
+        <div height='50px;' class="item active">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="notifWrap" >
+                  <h2 style="padding-left:50px;">
+                    <%=message.message%></h2>
+                     <input type="button" onclick="$('.carousel').remove();" value="Закрыть" style="float: right; margin-right:110px;">
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+    <%elsif message.status == 'paid' && @user_tariff.present?%>
+        <div height='50px;' class="item">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="notifWrap" >
+                  <h2 style="padding-left:50px;">
+                    <%=message.message%></h2>
+                    <input type="button" onclick="$('.carousel').remove();" value="Закрыть" style="float: right; margin-right:110px;">
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+    <%elsif message.status == 'authorized' && current_user%>
+        <div height='50px;' class="item">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="notifWrap" >
+                  <h2 style="padding-left:50px;">
+                    <%=message.message%></h2>
+                    <input type="button" onclick="$('.carousel').remove();" value="Закрыть" style="float: right; margin-right:110px;">
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+    <%end%>
+  <%end%>
 
+  <!-- Wrapper for slides -->
+
+
+
+  </div>
+
+  <!-- Left and right controls -->
+  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+    <img style="margin-top: 25px;" width='20px;' height="20px;" src='
+    https://cdn3.iconfinder.com/data/icons/faticons/32/arrow-left-01-128.png' aria-hidden="true">
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+    <img style="margin-top: 25px;" width='20px;' height="20px;" src='https://cdn3.iconfinder.com/data/icons/faticons/32/arrow-right-01-512.png' aria-hidden="true">
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+</section>
   <%end%>
 <%end%>
 
