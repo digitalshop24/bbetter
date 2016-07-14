@@ -1,10 +1,7 @@
 <section class="forumSec">
   <div class="headPage">
-    <h1>Форум</h1>
-    <ul class="tags">
-      <li>Разделы</li>
-      <li><%= paginate @topics %></li>
-    </ul>
+    <p>Разделы</p>
+    <p><%= paginate @topics %></p>
   </div>
 
   <% if @topics.present? %>
