@@ -1,12 +1,12 @@
+
 <%if current_user%>
   <%if current_user.tariffs.present?%>
     <section class="notif">
-
       <div class="container">
       
         <div class="row">
           <div class="col-md-11">
-            
+            <%if Lightning.all.count > 0%>
             
             <div class="notifCarousel">
               <%Lightning.all.each do |message|%>
@@ -24,8 +24,9 @@
                     </div>
                   <%end%>
                <%end%>
-            </div>
 
+            </div>
+            <%end%>
           </div>
           <div class="col-md-1">
             <p class="closeNotif carousel">Закрыть</p>
@@ -33,10 +34,13 @@
 
         </div>
       </div>
+
     </section>
+      <%end%>
 
   <%end%>
-<%end%>
+
+
 
 
 
