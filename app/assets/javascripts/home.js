@@ -12,7 +12,7 @@
 //= require upload-foto.js
 
 // TURBOLINKS
-//= require turbolinks
+// require turbolinks
 
 
 //= require ckeditor/init
