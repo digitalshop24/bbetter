@@ -32,7 +32,9 @@ $(document).ready(function(){
       }
     }]
   });
+  var initSlide = $('.weekCarousel').children().length - 1;
   $('.weekCarousel').slick({
+    initialSlide: initSlide,
     slidesToShow: 1,
     slidesToScroll: 1,
     dots:true,
