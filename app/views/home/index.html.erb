@@ -1,44 +1,44 @@
 
 <%if current_user%>
   <%if current_user.tariffs.present?%>
-    <section class="notif">
-      <div class="container">
-      
-        <div class="row">
-          <div class="col-md-11">
-            <%if Lightning.all.count > 0%>
-            
-            <div class="notifCarousel">
-              <%Lightning.all.each do |message|%>
-                  <% if message.status == 'active'%>
-                    <div>
-                      <span><%=message.message%></span>
-                    </div>
-                  <%elsif message.status == 'paid' && @user_tariff.present?%>
-                    <div>
-                      <span><%=message.message%></span>
-                    </div>
-                  <%elsif message.status == 'authorized' && current_user%>
-                    <div>
-                      <span><%=message.message%></span>
-                    </div>
-                  <%end%>
-               <%end%>
+    <%if Lightning.all.count > 0%>
+      <section class="notif">
+        <div class="container">
+        
+          <div class="row">
+            <div class="col-md-11">
+              
+              <div class="notifCarousel">
+                <%Lightning.all.each do |message|%>
+                    <% if message.status == 'active'%>
+                      <div>
+                        <span><%=message.message%></span>
+                      </div>
+                    <%elsif message.status == 'paid' && @user_tariff.present?%>
+                      <div>
+                        <span><%=message.message%></span>
+                      </div>
+                    <%elsif message.status == 'authorized' && current_user%>
+                      <div>
+                        <span><%=message.message%></span>
+                      </div>
+                    <%end%>
+                 <%end%>
 
+              </div>
             </div>
-            <%end%>
-          </div>
-          <div class="col-md-1">
-            <p class="closeNotif carousel">Закрыть</p>
-          </div>
+            <div class="col-md-1">
+              <p class="closeNotif carousel">Закрыть</p>
+            </div>
 
+          </div>
         </div>
-      </div>
 
-    </section>
-      <%end%>
-
+      </section>
+    <%end%>
   <%end%>
+
+<%end%>
 
 
 
