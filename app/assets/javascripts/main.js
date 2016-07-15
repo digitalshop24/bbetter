@@ -32,6 +32,19 @@ $(document).ready(function(){
       }
     }]
   });
+  $('.weekCarousel').slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    dots:true,
+    arrows: false,
+    responsive: [{
+      breakpoint: 768,
+      settings: {
+         arrows: false,
+         dots:true
+      }
+    }]
+  });
 
   $('.tariffsCarousel').slick({
     slidesToShow: 1,
@@ -90,9 +103,12 @@ $(document).ready(function(){
     dots:true
   });
   
-  var tab = $(".tabs-menu li.current a").first().attr("href");
-  $(".tab-content.trPl").not(tab).css("display", "none");
-  $(tab).show();
+  var tabs = $(".tabs-menu li.current a");
+  tabs.each(function(){
+    var tab = $(this).attr('href');
+    $(tab).show();
+    $(this).parents('.container').find(".tab-content.trPl").not(tab).css("display", "none");
+  });
 
   $(".tabs-menu a").click(function(event) {
       event.preventDefault();
@@ -100,7 +116,7 @@ $(document).ready(function(){
         $(this).parent().addClass("current");
         $(this).parent().siblings().removeClass("current");
         var tab = $(this).attr("href");
-        $(".tab-content.trPl").not(tab).css("display", "none");
+        $(this).parents('.container').find(".tab-content.trPl").not(tab).css("display", "none");
         $(tab).fadeIn();
       }
   });
