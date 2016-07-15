@@ -1688,8 +1688,8 @@ footer {
         tr {
           td {
             padding: 0px 10px 10px 10px;
-            
-            vertical-align: top;
+            vertical-align:top;
+            color:#fff;
             a {
               color: #fff;
               sup {
@@ -1697,7 +1697,6 @@ footer {
                 color:#000;
               }
             }
-            
           }
           td:nth-child(2) {
             border-right: 1px solid #fff;
