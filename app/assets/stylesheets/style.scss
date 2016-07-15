@@ -1931,17 +1931,7 @@ footer {
     margin: -35px auto 0;
     display: block; }
 
-// .modalSec .modal-body .formWrapper form input[type="text"],
-// .modalSec .modal-body .formWrapper form input[type="email"],
-// .modalSec .modal-body .formWrapper form input[type="tel"],
-// .modalSec .modal-body .formWrapper form input[type="password"] {
-//   background-color: #f5f5f5;
-//   border-radius: 20px;
-//   border: 0;
-//   padding: 10px 15px;
-//   font-size: 18px;
-//   margin: 15px 30px;
-//   width: 90%; }
+
 .modalSec .modal-body .formWrapper form div.avatar{
   cursor: pointer; cursor: hand;
   background-color: #f5f5f5;
@@ -1962,42 +1952,6 @@ footer {
 .modalSec .modal-body .formWrapper form div.avatar:hover .help {
   display: block;
 }
-
-// .modalSec .modal-body .formWrapper form .MG {
-//   text-align: right; }
-//   .modalSec .modal-body .formWrapper form .MG input {
-//     display: inline-block; }
-
-// .modalSec .modal-body .formWrapper form .hide-radio + label {
-//   display: block;
-//   float: right;
-//   width: 50px;
-//   height: 50px;
-//   border-radius: 50%;
-//   padding: 10px 0;
-//   text-align: center;
-//   background-color: #F5F5F5;
-//   color: #8C8C9C;
-//   font-size: 20px;
-//   -webkit-transition: background-color 0.3s ease-in-out;
-//   -moz-transition: background-color 0.3s ease-in-out;
-//   -o-transition: background-color 0.3s ease-in-out;
-//   transition: background-color 0.3s ease-in-out;
-//   margin: 10px 30px 0 -20px; }
-
-// .modalSec .modal-body .formWrapper form .hide-radio:checked + label {
-//   display: inline-block;
-//   width: 50px;
-//   background-color: $red;
-//   color: #fff; }
-
-// .modalSec .modal-body .formWrapper form .checked_Male input {
-//   display: none; }
-
-// .modalSec .modal-body .thankU h2 {
-//   color: $red;
-//   text-align: center;
-//   margin: 40px auto 80px; }
 
 .modalSec .modal-footer {
   border: 0;
@@ -2742,5 +2696,8 @@ a[rel="popover"]{
 .weekCarousel {
       background-color: #e8698d;
       margin-bottom:0;
+      .slick-dots {
+        bottom:30px;
+      }
 }
 
