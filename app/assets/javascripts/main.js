@@ -23,12 +23,12 @@ $(document).ready(function(){
   $('.notifCarousel').slick({
     slidesToShow: 1,
     slidesToScroll: 1,
-    arrows: true,
+    arrows: false,
     responsive: [{
       breakpoint: 768,
       settings: {
-         arrows: true,
-         dots:true
+         arrows: false,
+         dots:false
       }
     }]
   });
