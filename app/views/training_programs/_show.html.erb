@@ -6,7 +6,8 @@
         <h1 class="unavailable_title titel_tariff text-center">План тренировок будет доступен завтра</h1>
       <% else %>
         <div class="row text-center">
-          <h2 class="titel_tariff">План тренировок ( <%= training_program.name %> ) [<%= week_num %> неделя]</h2>
+          <h2 class="titel_tariff">План тренировок ( <%= training_program.name %> )</h2>
+          <h3 class="subtitel_tariff"><%= week_num %> неделя</h3>
           <ul class="col-md-12 tabs-menu ">
             <%
             wdays = Date::DAYNAMES.map(&:downcase)[1..-1]
