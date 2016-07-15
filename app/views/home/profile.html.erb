@@ -14,15 +14,18 @@
           <div class="container">
             <div class="row">
               <div class="col-md-12 text-center">
-                <h3>Внимание! Отправьте ссылку на отчетное видео,<br/> крайний срок суббота вечер</h3>
-                <form>
-                  <div class="loadInput">
-                  <input type="text" name="" placeholder="Например: https://www.youtube.com/watch?v=n0sPFaLsNeI" />
+                <% video = current_user.videos.where('extract(week from created_at) = ?', Time.now.strftime('%W').to_i).first %>
+                <% if video %>
+                  <div class="video-preview">
+                    <h3>Ваше видео</h3>
+                    <%= video.iframe(width: '600', height: '350') || link_to(video.link, video.link, target: '_blank') %>
                   </div>
-                  <div>
-                  <button class="redBtn">Отправить</button>
+                <% else %>
+                  <div class="video-form">
+                    <h3>Внимание! Отправьте ссылку на отчетное видео,<br/> крайний срок суббота вечер</h3>
+                    <%= render partial: 'videos/form', locals: { video: Video.new } %>
                   </div>
-                </form>
+                <% end %>
               </div>
             </div>
           </div> 

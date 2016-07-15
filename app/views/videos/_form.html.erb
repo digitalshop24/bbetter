@@ -1,0 +1,5 @@
+<%= form_for video, remote: true do |f| %>
+  <div class="new_solution_errors"></div>
+  <div class="loadInput"><%= f.text_field :link, placeholder: 'Например: https://www.youtube.com/watch?v=n0sPFaLsNeI', required: true %></div>
+  <div><%= f.submit 'Отправить', class: 'redBtn' %></div>
+<% end %>
