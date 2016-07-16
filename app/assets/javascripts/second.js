@@ -21,6 +21,19 @@ $( document ).ready(function() {
     }	 
   });
 
+  $("#new_video").on("ajax:success", function(e, data, status, xhr){
+    if (data['status'] == 'ok') {
+      $(this).parents('.video-form').html("<h2>" + data["message"] + "</h2>");
+    }
+    else if (data['status'] == 'error') {
+      var nse = $(this).find('.new_solution_errors');
+      nse.html('');
+      $.each(data['errors'], function( index, value ) {
+        nse.append('<div class="row"><div class="col-md-12"><p>' + value + '</p></div></div>');
+      });
+    }  
+  });
+
   $('#promoModal').on('hidden.bs.modal', function () {
     $(this).find('.new_solution_errors').html('');
     $(this).find('.thankU').hide();

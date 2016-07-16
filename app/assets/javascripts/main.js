@@ -23,11 +23,26 @@ $(document).ready(function(){
   $('.notifCarousel').slick({
     slidesToShow: 1,
     slidesToScroll: 1,
-    arrows: true,
+    arrows: false,
     responsive: [{
       breakpoint: 768,
       settings: {
-         arrows: true,
+         arrows: false,
+         dots:false
+      }
+    }]
+  });
+  var initSlide = $('.weekCarousel').children().length - 1;
+  $('.weekCarousel').slick({
+    initialSlide: initSlide,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    dots:true,
+    arrows: false,
+    responsive: [{
+      breakpoint: 768,
+      settings: {
+         arrows: false,
          dots:true
       }
     }]
@@ -90,9 +105,12 @@ $(document).ready(function(){
     dots:true
   });
   
-  var tab = $(".tabs-menu li.current a").first().attr("href");
-  $(".tab-content.trPl").not(tab).css("display", "none");
-  $(tab).show();
+  var tabs = $(".tabs-menu li.current a");
+  tabs.each(function(){
+    var tab = $(this).attr('href');
+    $(tab).show();
+    $(this).parents('.container').find(".tab-content.trPl").not(tab).css("display", "none");
+  });
 
   $(".tabs-menu a").click(function(event) {
       event.preventDefault();
@@ -100,7 +118,7 @@ $(document).ready(function(){
         $(this).parent().addClass("current");
         $(this).parent().siblings().removeClass("current");
         var tab = $(this).attr("href");
-        $(".tab-content.trPl").not(tab).css("display", "none");
+        $(this).parents('.container').find(".tab-content.trPl").not(tab).css("display", "none");
         $(tab).fadeIn();
       }
   });
@@ -114,17 +132,6 @@ $(document).ready(function(){
      $('#promo_promocode').val(promocode);
   });
 
-});
-
-$('[rel="popover"]').popover({
-    container: 'body',
-    html: true,
-    content: function () {
-        var clone = $($(this).data('popover-content')).clone(true).removeClass('hide');
-        return clone;
-    }
-}).click(function(e) {
-    e.preventDefault();
 });
 
 
@@ -149,5 +156,16 @@ $(document.body)
   $(document.body).css('padding-right', 0)
 });
 
+
+$('[rel="popover"]').popover({
+    container: 'body',
+    html: true,
+    content: function () {
+        var clone = $($(this).data('popover-content')).clone(true).removeClass('hide');
+        return clone; 
+    }
+}).click(function(e) {
+    e.preventDefault();
+});
 
 

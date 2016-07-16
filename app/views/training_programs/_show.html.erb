@@ -4,29 +4,32 @@
     <div id="tabs-container">
       <div class="row text-center">
         <h2 class="titel_tariff">План тренировок ( <%= training_program.name %> )</h2>
+        <h3 class="subtitel_tariff"><%= week_num %> неделя</h3>
         <ul class="col-md-12 tabs-menu ">
-        	<%
-        		wdays = Date::DAYNAMES.map(&:downcase)[1..-1]
-        	  wdays_localed = I18n.t(:"date.day_names")[1..-1]
-        	  day = Time.now.strftime("%A").downcase
-        	  index = wdays.index(day) || 5
-        	%>
-        	<% wdays.each_with_index do |wday, i| %>
-        	  <%
-        	    klass = 'current' if wday == day
-        	    href_class = 'disabled' if i > index
-        	    href = '#'
-        	  	href += wday.downcase unless i > index
-        	  %>
-        		<%= content_tag(:li, class: klass) do %>
-							<%= link_to wdays_localed[i], href, class: "whiteBtn #{href_class}"  %>
-        		<% end %>
-        	<% end %>
+          <%
+            wdays = Date::DAYNAMES.map(&:downcase)[1..-1]
+            wdays_localed = I18n.t(:"date.day_names")[1..-1]
+            day = Time.now.strftime("%A").downcase
+            # откомментить, чтобы потестить на разные дни
+            # day = (Time.now + 1.day).strftime("%A").downcase
+            index = current ? (wdays.index(day) || 5) : 5
+          %>
+          <% wdays.each_with_index do |wday, i| %>
+            <%
+              klass = 'current' if (wday == day && current) || (i == 0 && !current) || (i == 5 && day == 'sunday' && current)
+              href_class = 'disabled' if i > index && current
+              href = '#'
+              href += "#{wday.downcase}#{week_num}" if i <= index || !current
+            %>
+            <%= content_tag(:li, class: klass) do %>
+              <%= link_to wdays_localed[i], href, class: "whiteBtn #{href_class}"  %>
+            <% end %>
+          <% end %>
         </ul>
       </div>
       <div class="tab">
-      	<% wdays[0..index].each do |wday| %>
-        	<%= render "training_programs/hardcoded_programs/#{hash[training_program.id]}/#{wday}" %>
+        <% wdays[0..index].each do |wday| %>
+          <%= render "training_programs/hardcoded_programs/#{hash[training_program.id]}/#{week_num}/#{wday}" %>
         <% end %>
       </div>
     </div>

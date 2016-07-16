@@ -31,6 +31,7 @@ Rails.application.routes.draw do
   resources :messages, only: [:create]
   resources :feedbacks, only: [:create]
   resources :summaries
+  resources :videos, only: [:create]
 
   put 'user_tariffs/:id/set_training_program', to: 'user_tariffs#set_training_program', as: :set_training_program
 

@@ -2,34 +2,46 @@
   <section class="lineSec" id="fiveStep">
     <h1>Тариф &laquo;<%= @current_tarrif.name%>&raquo;</h1>
   </section>
-  <%if DateTime.now < @opening_date%>
-   <section class="week_plan_drugs_eat">
-    <h2 class="titel_tariff text-center">План тренировок будет доступен 11.07.2016</h2>
+    <%if DateTime.now < @opening_date%>
+    <section class="week_plan_drugs_eat">
+      <h2 class="titel_tariff text-center">План тренировок будет доступен 11.07.2016</h2>
     </section>
     <%end%>
     <%if DateTime.now >= @opening_date%>
       <%= render 'user_data' %>
       <% if @user_tariff.training_program %>
-        <!-- <section class="loadVideo">
+         <section class="loadVideo">
           <div class="container">
             <div class="row">
               <div class="col-md-12 text-center">
-                <h3>Внимание! Отправьте ссылку на отчетное видео,<br/> крайний срок суббота вечер</h3>
-                <form>
-                  <div class="loadInput">
-                  <input type="text" name="" placeholder="Например: https://www.youtube.com/watch?v=n0sPFaLsNeI" />
+                <% video = current_user.videos.where('extract(week from created_at) = ?', Time.now.strftime('%W').to_i).first %>
+                <% if video %>
+                  <div class="video-preview">
+                    <h3>Ваше видео</h3>
+                    <%= video.iframe(width: '600', height: '350') || link_to(video.link, video.link, target: '_blank') %>
                   </div>
-                  <div>
-                  <button class="redBtn">Отправить</button>
+                <% else %>
+                  <div class="video-form">
+                    <h3>Внимание! Отправьте ссылку на отчетное видео,<br/> крайний срок суббота вечер</h3>
+                    <%= render partial: 'videos/form', locals: { video: Video.new } %>
                   </div>
-                </form>
+                <% end %>
               </div>
             </div>
-          </div> -->
-          
-
+          </div> 
         </section>
-        <%= render partial: 'training_programs/show', locals: { training_program: @user_tariff.training_program } %>
+        <div class="weekCarousel">
+          <% 
+            now_week_number = Time.now.strftime('%W').to_i
+            weeks_count = now_week_number - TrainingProgram::WEEK_START_NUMBER + 1
+            # откомментить, чтобы открыть следующую неделю
+            # weeks_count = now_week_number - TrainingProgram::WEEK_START_NUMBER + 2
+          %>
+          <% (1..weeks_count).each do |week_num| %>
+          <div><%= render partial: 'training_programs/show', locals: { training_program: @user_tariff.training_program, week_num: week_num, current: week_num == weeks_count } %></div>
+          <% end %>
+        </div>
+        
 
       <% else %>
       <section class="week_plan_drugs_eat">
