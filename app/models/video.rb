@@ -23,14 +23,14 @@ class Video < ActiveRecord::Base
       field :user
     end
     show do
-      field :video_iframe
+      field :iframe
       field :day
       field :user
       field :created_at
     end
     list do
       field :id
-      field :video_iframe
+      field :iframe
       field :user
       field :created_at
     end
