@@ -10,7 +10,8 @@
     <%if DateTime.now >= @opening_date%>
       <%= render 'user_data' %>
       <% if @user_tariff.training_program %>
-       <!--   <section class="loadVideo">
+       <%if DateTime.now.wday == 6%>
+         <section class="loadVideo">
           <div class="container">
             <div class="row">
               <div class="col-md-12 text-center">
@@ -29,7 +30,8 @@
               </div>
             </div>
           </div>
-        </section> -->
+        </section>
+        <%end%>
         <div class="weekCarousel">
           <%
             now_week_number = Time.now.strftime('%W').to_i
