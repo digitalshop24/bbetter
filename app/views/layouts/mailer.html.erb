@@ -8,12 +8,12 @@
       .ExternalClass {width: 100%; background-color: #ffffff;}
       body   {width: 100%; background-color: #ffffff; margin:0; padding:0; -webkit-font-smoothing: antialiased;font-family: Georgia, Times, serif}
       table {border-collapse: collapse;}
-    
+
       @media only screen and (max-width: 640px)  {
               body[yahoo] .deviceWidth {width:440px!important; padding:0;}
               body[yahoo] .center {text-align: center!important;}
           }
-    
+
       @media only screen and (max-width: 479px) {
               body[yahoo] .deviceWidth {width:280px!important; padding:0;}
               body[yahoo] .center {text-align: center!important;}
@@ -64,6 +64,7 @@
                   <td>
                     <p align="center" style="line-height:25px">
                       Aвторские права © 2010–2016 bbetter.club<br/>
+                      <% if @user.present?%>
                       Вы получили эту рассылку на адрес<br/>
                        <%= @user.email %>,<br/>
                       поскольку являетесь участником клуба<br/>
@@ -72,6 +73,7 @@
                       <a href="<%= ENV['host'] %>unsubscribe?auth_token=<%=@user.auth_token%>" style="color:#000; text-decoration: none; border-bottom:2px solid #afafaf; ">Отказаться</a> от получения персональных<br/>
                        бонусов и анонсов акций.
                                       <br/>
+                      <%end%>
                       <br/>
                       <br/>
                       <br/>
