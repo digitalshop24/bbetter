@@ -277,15 +277,15 @@ nav #menuToggle,nav .label-toggle  {
       margin-bottom: 20px;
       line-height: 17px; }
   .accordeonSection .tariffsCarousel div.t1 {
-    background-image: asset-url("accordeon/1.png"); }
+    background-image: url("https://s3.eu-central-1.amazonaws.com/bbetter/1.png"); }
     .accordeonSection .tariffsCarousel div.t1 .item {
       background-color: rgba(0, 0, 0, 0.5); }
   .accordeonSection .tariffsCarousel div.t2 {
-    background-image: asset-url("accordeon/2.png"); }
+    background-image: url("https://s3.eu-central-1.amazonaws.com/bbetter/2.png"); }
     .accordeonSection .tariffsCarousel div.t2 .item {
       background: rgba(0, 0, 0, 0.5); }
   .accordeonSection .tariffsCarousel div.t3 {
-    background-image: asset-url("accordeon/3.png"); }
+    background-image: url("https://s3.eu-central-1.amazonaws.com/bbetter/3.png"); }
     .accordeonSection .tariffsCarousel div.t3 .item {
       background-color: rgba(0, 0, 0, 0.5); }
   .accordeonSection .tariffsCarousel .slick-dots {
@@ -345,16 +345,16 @@ nav #menuToggle,nav .label-toggle  {
       .accordeonSection .accordion ul li div a * {
         width: 100%; }
     .accordeonSection .accordion ul li:nth-child(1) {
-      background-image: asset-url("accordeon/1.png"); }
+      background-image: url("https://s3.eu-central-1.amazonaws.com/bbetter/1.png"); }
       .accordeonSection .accordion ul li:nth-child(1) a {
         background-color: rgba(255, 255, 255, 0.6); }
     .accordeonSection .accordion ul li:nth-child(2) {
-      background-image: asset-url("accordeon/2.png");
+      background-image: url("https://s3.eu-central-1.amazonaws.com/bbetter/2.png");
       background-position: 0 0; }
       .accordeonSection .accordion ul li:nth-child(2) a {
         background: rgba(128, 212, 255, 0.5); }
     .accordeonSection .accordion ul li:nth-child(3) {
-      background-image: asset-url("accordeon/3.png"); }
+      background-image: url("https://s3.eu-central-1.amazonaws.com/bbetter/3.png"); }
       .accordeonSection .accordion ul li:nth-child(3) a {
         background: rgba(13, 255, 189, 0.5); }
     .accordeonSection .accordion ul li.active {
@@ -456,7 +456,7 @@ nav #menuToggle,nav .label-toggle  {
 }
 
 .contestSec {
-  background-image: asset-url("contestSection/blurBg.png");
+  background-image: url("https://s3.eu-central-1.amazonaws.com/bbetter/blurBg.png");
   background-size: cover;
   background-repeat: no-repeat; }
   .contestSec .infinity {
@@ -692,7 +692,7 @@ nav #menuToggle,nav .label-toggle  {
 
 .regimAndFoodSec {
   padding: 80px 0;
-  background-image: asset-url("regimAndFood/regimAndFood.png");
+  background-image: url("https://s3.eu-central-1.amazonaws.com/bbetter/regimAndFood.png");
   background-size: cover;
   background-position: center;
   color: #fff;
@@ -2685,7 +2685,7 @@ footer {
       font-size:17px;
     }
   }
-  
+
 }
 
 a[rel="popover"]{
