@@ -164,7 +164,7 @@ nav #menuToggle,nav .label-toggle  {
         display: none;
       }
       ul.forMob {
-        display: block;
+        display: flex;
       }
       #menuToggle:checked ~ ul {
         opacity: 1;
@@ -185,7 +185,7 @@ nav #menuToggle,nav .label-toggle  {
     }
   }
 }
-@media screen and (max-width: 336px) {
+@media screen and (min-width: 0px) and (max-width: 400px) {
   nav {
     .wrapper {
       .logo {
@@ -195,7 +195,18 @@ nav #menuToggle,nav .label-toggle  {
           max-width: 120px;
         }
       }
+      .label-toggle {
+        button.grayBtn {
+          margin-right:5px;
+          padding:10px 15px;
+        }
+      }
+      
     }
+  }
+  nav .wrapper .label-toggle button.grayBtn {
+    margin-right:5px;
+    padding:10px;
   }
 }
 
