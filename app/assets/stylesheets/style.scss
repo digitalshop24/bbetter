@@ -97,6 +97,7 @@ nav {
       &.right {
         flex-direction: column;
         position: relative;
+        // display: none;
         .dropdown {
           .dropdown-menu {
             display: none;
@@ -127,6 +128,10 @@ nav {
           margin-bottom: 5px;
         }
       }
+      &.forMob {
+        display: none;
+      }
+
     }
   }
 }
@@ -139,8 +144,10 @@ nav #menuToggle,nav .label-toggle  {
 @media screen and (max-width: 1124px) {
   nav {
     .wrapper {
-      display: block;
+      display: flex;
+      justify-content: space-between;
       .logo {
+        max-width:120px;
         img.mobileLogo {
           display: block;
         margin: 40px;
@@ -150,24 +157,14 @@ nav #menuToggle,nav .label-toggle  {
           display: none;
         }
       }
-      ul {
+      ul.mainItems {
+        display: none;
+      }
+      ul.right {
+        display: none;
+      }
+      ul.forMob {
         display: block;
-        height: 250px;
-        list-style-type: none;
-        height: 0;
-        opacity: 0;
-        text-align: center;
-        transition: all 1s ease;
-        width: 100%;
-        visibility: hidden;
-        li {
-          border-bottom: 1px solid #000;
-          display: block;
-          padding: 1em 0;
-        }
-        &.right {
-          height: 0;
-        }
       }
       #menuToggle:checked ~ ul {
         opacity: 1;
@@ -179,24 +176,29 @@ nav #menuToggle,nav .label-toggle  {
         }
       }
       .label-toggle {
-        cursor: pointer;
-        position: absolute;
+        margin:0 0 0 auto;
         display: block;
-        height: 35px;
-        width: 40px;
-        top: 60px;
-        right: 20px;
-        span {
-          background-color: $red;
-          display: block;
-          margin-bottom: 6px;
-          width: 35px;
-          height: 3px;
+         button {
+            margin-right: 20px;
         }
       }
     }
   }
 }
+@media screen and (max-width: 336px) {
+  nav {
+    .wrapper {
+      .logo {
+        max-width: 20px;
+        img.mobileLogo {
+          margin: 40px 20px;
+          max-width: 120px;
+        }
+      }
+    }
+  }
+}
+
 
 .notif {
   background-color: #ffc017;
@@ -702,17 +704,27 @@ nav #menuToggle,nav .label-toggle  {
     font-size: 18px;
   }
 }
-@media screen and (max-width: 768px) {
-  .regimAndFoodSec {
-    padding: 20px 0;
-    p {
-      margin: 30px auto;
-      font-size: 16px;
-      line-height: 21px;
+.regAndFoodMobile {
+  .regFoodCarousel {
+    .item {
+      padding:20px; 
+      .btnWrap {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        min-height:120px;
+        li {
+          margin:10px;
+        }
+      }
+    }
+    .slick-dots {
+      bottom: -20px
     }
   }
-}
 
+}
 .historySec {
   padding: 60px 0;
   background-image: asset-url("history/history.png");
@@ -1549,10 +1561,6 @@ footer {
           display: inline-block;
           width:49%;
           height: 300px;
-
-
-          // position: relative;
-          // top: 103px;
         }
       }
       .slick-dots {
@@ -1609,6 +1617,31 @@ footer {
     }
   }
 }
+@media screen and (max-width: 768px) {
+  .user_data {
+    .form {
+      .user_data_btn {
+        width:100%;
+      }
+      .aploadCarousel{
+        .item {
+          flex-wrap: wrap;
+
+        }
+      }
+      .btn_right {
+        margin: 50px 0 0 0; 
+      }
+      .btn_right,.btn_center,.btn_left {
+        border-radius:10px;
+      }
+      
+    }
+    .footer_user_data {
+      margin:30px 0 0 0 ;
+    } 
+  }
+}
 .lk_tariff {
   border-bottom: none;
   .titel_tariff {
@@ -1623,85 +1656,6 @@ footer {
     }
     .DrugsBtn {
       margin: 10px -50px;
-    }
-  }
-}
-.week_plan_drugs_eat {
-  background-color: #e8698d;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-  .tab-content {
-    background-color: transparent;
-  }
-  button {
-    margin: 5px 5px 20px 5px;
-    width: 163px;
-  }
-  .sendType {
-    .selectType {
-      display: flex;
-      justify-content: center;
-    }
-    .redBtn {
-      margin:20px auto 0;
-      display: block;
-    }
-  }
-
-  .titel_tariff {
-      color: #fff;
-      font-size: 50px;
-      font-weight: bold;
-      margin: 0;
-      padding: 70px 0 30px 0;
-      font-family: meta;
-  }
-  .table_plan {
-    padding-bottom:70px;
-    h3 {
-      color: #000;
-      font-style: italic;
-      padding-left: 10px;
-      font-size: 40px;
-      font-weight: bold;
-      font-family: meta;
-    }
-    p {
-      color: #fff;
-      padding-left: 10px;
-      padding-bottom: 15px;
-      font-size: 20px;
-    }
-    table {
-      width: 100%;
-      thead {
-        tr {
-          td {
-            color: #000;
-            padding: 0px 10px 10px 10px;
-          }
-        }
-      }
-      tbody {
-        tr {
-          td {
-            padding: 0px 10px 10px 10px;
-            vertical-align:top;
-            color:#fff;
-            a {
-              color: #fff;
-              sup {
-                font-size: 12px;
-                color:#000;
-              }
-            }
-          }
-          td:nth-child(2) {
-            border-right: 1px solid #fff;
-          }
-        }
-      }
     }
   }
 }
@@ -1723,13 +1677,10 @@ footer {
     }
   }
 }
+
+
 .week_plan_drugs_eat {
   padding-bottom:50px;
-  background-color: #e8698d;
-  // background-image: asset-url("lk/bg_plan.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
   .tabs-menu {
     margin-bottom: 20px;
     li {
@@ -1745,6 +1696,7 @@ footer {
   }
   .tab-content {
     display: none;
+    background-color: transparent;
   }
   .dopInfo {
     display: flex;
@@ -1785,6 +1737,13 @@ footer {
     font-family: meta;
   }
   .table_plan {
+    padding-bottom:70px;
+    p {
+      color: #fff;
+      padding-left: 10px;
+      padding-bottom: 15px;
+      font-size: 20px;
+    }
     h3 {
       color: #000;
       font-style: italic;
@@ -1792,42 +1751,80 @@ footer {
       font-size: 40px;
       font-weight: bold;
       font-family: meta;
-      p {
-        color: #fff;
-        padding-left: 10px;
-        font-size: 20px;
-      }
-      table {
-        width: 100%;
-        thead {
-          tr {
-            td {
-              color: #000;
-              padding: 0px 10px 10px 10px;
-            }
+    }
+    table {
+      width: 100%;
+      thead {
+        tr {
+          td {
+            color: #000;
+            padding: 0px 10px 10px 10px;
           }
         }
-        tbody {
-          tr {
-            td {
-              padding: 0px 10px 10px 10px;
+      }
+      tbody {
+        tr {
+          td {
+            padding: 0px 10px 10px 10px;
+            color: #fff;
+            vertical-align: top;
+            a {
               color: #fff;
-              vertical-align: top;
-              a {
-                color: #fff;
-                sup {
-                  font-size: 12px;
-                  color:#000;
-                }
+              sup {
+                font-size: 12px;
+                color:#000;
               }
-              &:nth-child(2) {
-                border-right: 1px solid #fff;
-              }
+            }
+            &:nth-child(2) {
+              border-right: 1px solid #fff;
             }
           }
         }
       }
     }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .week_plan_drugs_eat {
+    .titel_tariff {
+      font-size: 22px;
+      padding: 30px 0;
+    }
+    .tabs-menu {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      li {
+        margin-bottom:10px;
+
+        .whiteBtn {
+          padding: 5px 0;
+          font-size: 16px;
+          width: 110px;
+          display: block;
+        }
+      }
+    }
+    .tab {
+      .tab-content {
+        margin:0;
+        padding:0;
+      }
+      .table_plan {
+        padding-bottom:0px;
+        h3 {
+          font-size: 26px;
+        }
+        p {
+          font-size:17px;
+        }
+      }
+    }
+     .dopInfo {
+      display: block;
+     }
   }
 }
 
