@@ -32,11 +32,13 @@ $(document).ready(function(){
       }
     }]
   });
+
   var initSlide = $('.weekCarousel').children().length - 1;
   $('.weekCarousel').slick({
     initialSlide: initSlide,
     slidesToShow: 1,
     slidesToScroll: 1,
+    adaptiveHeight: true,
     dots:true,
     arrows: false,
     responsive: [{
@@ -47,7 +49,13 @@ $(document).ready(function(){
       }
     }]
   });
-
+  $('.regFoodCarousel').slick({
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    arrows: false,
+    dots:true,
+    adaptiveHeight: true
+  });
   $('.tariffsCarousel').slick({
     slidesToShow: 1,
     slidesToScroll: 1,
