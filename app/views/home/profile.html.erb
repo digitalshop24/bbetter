@@ -10,7 +10,7 @@
     <%if DateTime.now >= @opening_date%>
       <%= render 'user_data' %>
       <% if @user_tariff.training_program %>
-       <!--   <section class="loadVideo">
+         <section class="loadVideo">
           <div class="container">
             <div class="row">
               <div class="col-md-12 text-center">
@@ -20,7 +20,7 @@
                     <h3>Ваше видео</h3>
                     <%= video.iframe(width: '600', height: '350') || link_to(video.link, video.link, target: '_blank') %>
                   </div>
-                <% else %>
+                <% elsif DateTime.now.wday == 6 %>
                   <div class="video-form">
                     <h3>Внимание! Отправьте ссылку на отчетное видео,<br/> крайний срок суббота вечер</h3>
                     <%= render partial: 'videos/form', locals: { video: Video.new } %>
@@ -29,7 +29,7 @@
               </div>
             </div>
           </div>
-        </section> -->
+        </section>
         <div class="weekCarousel">
           <%
             now_week_number = Time.now.strftime('%W').to_i
