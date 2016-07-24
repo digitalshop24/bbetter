@@ -60,13 +60,8 @@ $(document).ready(function(){
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: true,
-    responsive: [{
-      breakpoint: 768,
-      settings: {
-         arrows: false,
-         dots:true
-      }
-    }]
+    adaptiveHeight: true,
+    dots:true
   });
   $('.beforeAfter').slick({
     slidesToShow: 1,
