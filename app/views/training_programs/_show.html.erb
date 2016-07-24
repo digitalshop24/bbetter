@@ -13,7 +13,7 @@
             # откомментить, чтобы потестить на разные дни
             day = (Time.now + 1.day).strftime("%A").downcase
             #index = current ? (wdays.index(day) || 5) : 5
-            index = 5
+            index = 0
           %>
           <% wdays.each_with_index do |wday, i| %>
             <%
