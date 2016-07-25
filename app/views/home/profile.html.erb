@@ -35,7 +35,7 @@
             now_week_number = Time.now.strftime('%W').to_i
             # weeks_count = now_week_number - TrainingProgram::WEEK_START_NUMBER + 1
             # откомментить, чтобы открыть следующую неделю
-            weeks_count = now_week_number - TrainingProgram::WEEK_START_NUMBER + 2
+            weeks_count = now_week_number - TrainingProgram::WEEK_START_NUMBER + 1
           %>
           <% (1..weeks_count).each do |week_num| %>
           <div><%= render partial: 'training_programs/show', locals: { training_program: @user_tariff.training_program, week_num: week_num, current: week_num == weeks_count } %></div>
