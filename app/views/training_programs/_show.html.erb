@@ -11,7 +11,7 @@
             wdays_localed = I18n.t(:"date.day_names")[1..-1]
             day = Time.now.strftime("%A").downcase
             # откомментить, чтобы потестить на разные дни
-            day = (Time.now + 1.day).strftime("%A").downcase
+            #day = (Time.now + 1.day).strftime("%A").downcase
             #index = current ? (wdays.index(day) || 5) : 5
             index = current ? (wdays.index(day) || 5) : 5
           %>
