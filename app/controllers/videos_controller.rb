@@ -11,6 +11,6 @@ class VideosController < ApplicationController
 
   private
   def video_params
-    params[:video].permit(:link)
+    params[:video].permit(:link, :week)
   end
 end

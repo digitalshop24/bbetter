@@ -2,4 +2,5 @@
   <div class="new_solution_errors"></div>
   <div class="loadInput"><%= f.text_field :link, placeholder: 'Например: https://www.youtube.com/watch?v=n0sPFaLsNeI', required: true %></div>
   <div><%= f.submit 'Отправить', class: 'redBtn' %></div>
+  <%= f.hidden_field :week, :value =>  (Time.now.strftime('%W').to_i - 27)%>
 <% end %>
