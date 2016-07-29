@@ -1,3 +1,23 @@
+<section class="loadVideo">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <% video = current_user.videos.where(week: 2).first %>
+        <% if video %>
+          <div class="video-preview">
+            <h3>Ваше видео</h3>
+            <%= video.iframe(width: '600', height: '350') || link_to(video.link, video.link, target: '_blank') %>
+          </div>
+        <%elsif DateTime.now.wday == 6 && (Time.now.strftime('%W').to_i - 27) == 2  %>
+          <div class="video-form">
+            <h3>Внимание! Отправьте ссылку на отчетное видео,<br/> крайний срок суббота вечер</h3>
+            <%= render partial: 'videos/form', locals: { video: Video.new } %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>
 <div id="saturday2" class="tab-content trPl">
   <div class="row">
     <div class="col-md-4 text-left table_plan">
