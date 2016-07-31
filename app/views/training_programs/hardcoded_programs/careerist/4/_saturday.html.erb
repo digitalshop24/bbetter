@@ -1,0 +1,37 @@
+<section class="loadVideo">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center">
+      <!-- нужно тут менять week: 4 (четвертая неделя) -->
+        <% video = current_user.videos.where(week: 4).first %>
+        <% if video %>
+          <div class="video-preview">
+            <h3>Ваше видео</h3>
+            <%= video.iframe(width: '600', height: '350') || link_to(video.link, video.link, target: '_blank') %>
+          </div>
+          <!-- нужно тут менять (Time.now.strftime('%W').to_i - 27) ==  4 (четвертая неделя) -->
+        <%elsif DateTime.now.wday == 6 && (Time.now.strftime('%W').to_i - 27) == 4  %>
+          <div class="video-form">
+            <h3>Внимание! Отправьте ссылку на отчетное видео,<br/> крайний срок суббота вечер</h3>
+            <%= render partial: 'videos/form', locals: { video: Video.new } %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>
+<div id="saturday4" class="tab-content trPl">
+  <div class="row">
+    <div class="col-md-4 text-left table_plan">
+      <h3 class="h3Fix">СУББОТНИК (соревнования)</h3>
+      <p class="gymnastic"><a href="" target="_blank" rel="popover" data-trigger="focus" data-popover-content="#planka_d6w3">Планка (5 мин.)<sup>?</sup></a></p>
+    </div>
+    <div class="col-md-4 text-left table_plan">
+      <h3>Рекомендация к заданиям</h3>
+      <p>Упражнение планка, выстоять нужно 5 минут и без перерыва</p>
+    </div>
+  </div>
+</div>
+<div id="planka_d6w3" class="hide">
+    <a href="/topics/1/posts/18">Видео-инструкция </a>
+</div>
