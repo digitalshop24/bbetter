@@ -18,11 +18,11 @@
             # откомментить, чтобы открыть следующую неделю
             weeks_count = now_week_number - TrainingProgram::WEEK_START_NUMBER + 1
           %>
-<!--           
+          
           <% (1..weeks_count).each do |week_num| %>
           <div><%= render partial: 'training_programs/show', locals: { training_program: @user_tariff.training_program,video_week_num: Time.now.strftime('%W').to_i, week_num: week_num, current: week_num == weeks_count } %></div>
           <% end %>
- -->        </div>
+        </div>
 
 
       <% else %>
